@@ -317,5 +317,74 @@ a{color:inherit;text-decoration:none}
 
 </div>
 </div>
+<style>
+/* INTERATIVIDADE */
+.page{overflow:visible!important;overflow-x:clip!important}
+.nav{position:sticky;top:0;z-index:30;transition:background .35s ease,box-shadow .35s ease}
+.nav.stuck{background:rgba(10,10,10,.86);box-shadow:0 0 0 100vmax rgba(10,10,10,.86);clip-path:inset(0 -100vmax);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.prog{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+.hero-in>*{animation:fxUp 1s cubic-bezier(.2,.7,.2,1) both}
+.hero-in>*:nth-child(2){animation-delay:.12s}
+.hero-in>*:nth-child(3){animation-delay:.26s}
+.hero .ph{animation:fxFade 1.4s ease both}
+@keyframes fxUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fxFade{from{opacity:0}to{opacity:1}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.svc,.info,.pele .card,.bento .tall,.imgcard,.cta-card{transition:transform .35s ease,background .35s ease}
+@media (hover:hover){
+  .svc:hover,.info:hover{transform:translateY(-4px);background:#222120}
+  .bento .tall:hover .ph,.pele .card:hover .ph{transform:scale(1.04)}
+  .bento .ph,.pele .ph{transition:filter .6s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+}
+.svc:active,.info:active,.lk:active,.btn:active,.pill:active{transform:scale(.97)}
+@media (hover:none){.ph.on{filter:none!important}}
+@media (prefers-reduced-motion: reduce){.hero-in>*,.hero .ph{animation:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
+<script>
+(function(){
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // barra de progresso + menu fixo
+  var nav = document.querySelector('.nav');
+  var bar = document.createElement('div'); bar.className = 'prog'; document.body.appendChild(bar);
+  var heroImg = document.querySelector('.hero .ph');
+  function onScroll(){
+    var y = window.scrollY || 0, max = document.documentElement.scrollHeight - innerHeight;
+    if (nav) nav.classList.toggle('stuck', y > 40);
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    if (heroImg && !rm && innerWidth > 760) heroImg.style.transform = 'translateY(' + Math.min(y, 700) * 0.12 + 'px)';
+  }
+  // entrada suave dos blocos
+  var sel = '.svc,.nums,.duo>*,.sec-h,.bento>*,.pele>.card,.cta-card,.contact,.tl,.txt,.foot';
+  var els = rm ? [] : Array.prototype.filter.call(document.querySelectorAll(sel), function(e){
+    return !e.closest('.hero') && e.getBoundingClientRect().top > innerHeight * 0.9;
+  });
+  els.forEach(function(e, i){ e.classList.add('rv'); e.style.transitionDelay = (i % 4) * 80 + 'ms'; });
+  // números contando
+  var nums = rm ? [] : Array.prototype.map.call(document.querySelectorAll('.nums b'), function(b){
+    var m = b.textContent.match(/^(\D*)(\d+)(.*)$/); return m ? {b:b, m:m, done:false} : null;
+  }).filter(Boolean);
+  function count(o){
+    o.done = true; var n = +o.m[2], t0 = Date.now();
+    var iv = setInterval(function(){ var p = Math.min(1, (Date.now() - t0) / 1600);
+      o.b.textContent = o.m[1] + Math.round(n * (1 - Math.pow(1 - p, 3))) + o.m[3]; if (p >= 1) clearInterval(iv); }, 30);
+  }
+  // no celular: a foto ganha cor quando passa pelo meio da tela
+  var touch = matchMedia('(hover: none)').matches;
+  var photos = touch ? Array.prototype.filter.call(document.querySelectorAll('.card .ph, .tl-item .ph'), function(i){ return !i.closest('.slides'); }) : [];
+  function check(){
+    var h = innerHeight;
+    for (var i = els.length - 1; i >= 0; i--) { if (els[i].getBoundingClientRect().top < h * 0.92) { els[i].classList.add('in'); els.splice(i, 1); } }
+    nums.forEach(function(o){ if (o.done) return; var r = o.b.getBoundingClientRect(); if (r.height && r.top < h * 0.9 && r.bottom > 0) count(o); });
+    photos.forEach(function(p){ var r = p.getBoundingClientRect(); p.classList.toggle('on', r.top < h * 0.58 && r.bottom > h * 0.42); });
+  }
+  var ticking = false;
+  addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
+  addEventListener('resize', check);
+  onScroll(); check();
+  // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
+  var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
+})();
+</script>
 </body>
 </html>
