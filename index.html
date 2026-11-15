@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alanne Dias — Brand &amp; Web Designer</title>
+<meta name="description" content="Alanne Dias, brand &amp; web designer. Marcas, sites, identidade de casamento e monogramas desenhados à mão. Atendimento online para todo o Brasil e o exterior.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200..600&amp;family=Jost:wght@300..500&amp;display=swap">
+<style>
+:root{--page:#0A0A0A;--frame:#0A0A0A;--card:#1B1A19;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--gold:#C8A97E}
+html,body{margin:0;background:var(--page);max-width:100%;overflow-x:hidden;overflow-x:clip}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.page{background:var(--page);padding:28px 28px 40px;font-family:'Jost','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:16px;line-height:1.55;color:var(--fg)}
+.frame{max-width:1360px;margin:0 auto;background:var(--frame);border-radius:22px;padding:10px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:12px;overflow:hidden;position:relative}
+.h{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;margin:0;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lbl{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin:0}
+.ph{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05);transition:filter .6s ease}
+.card:hover .ph{filter:none}
+.lk{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);border:1px solid rgba(242,240,236,.25);border-radius:999px;padding:5px 16px 5px 5px;transition:border-color .25s ease}.lk:hover{border-color:var(--fg)}
+.lk i{font-style:normal;width:28px;height:28px;border-radius:50%;border:1px solid rgba(242,240,236,.35);display:grid;place-items:center;font-size:13px;letter-spacing:0;transition:background .25s ease,color .25s ease}
+.lk:hover i{background:var(--fg);color:#0A0A0A}
+
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 18px;flex-wrap:nowrap}.logo{white-space:nowrap}
+.logo{font-family:'Josefin Sans',sans-serif;font-size:17px;letter-spacing:.14em}
+.pills{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%}.pills::-webkit-scrollbar{display:none}
+.pill{white-space:nowrap;flex:0 0 auto;font-size:10.5px;letter-spacing:.14em;padding:9px 14px;border-radius:999px;background:var(--card);color:var(--soft);transition:background .2s ease,color .2s ease}
+.pill:hover{background:#2A2927;color:var(--fg)}
+.pill.cta{background:var(--gold);color:#0A0A0A;font-weight:500}
+.pill.cta:hover{background:#D9BD95}
+
+/* HERO */
+.hero{height:700px;border-radius:0;width:100vw;max-width:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.page{overflow-x:hidden}
+.hero{background:#0A0A0A}
+.hero .ph{position:absolute;right:0;top:0;width:50%;height:100%;object-position:50% 15%;filter:grayscale(1) contrast(1.05)}
+.hero-in{position:absolute;top:0;bottom:0;left:0;right:50%;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;gap:28px;padding:0 48px 0 calc(max(38px, 50vw - 680px) + 32px)}
+.hero h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(40px,5.6vw,88px);line-height:1;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.hero h1 span{display:block}
+.hero .sub{margin:0;max-width:36ch;color:var(--soft);font-size:17px}
+.hero .down{position:absolute;left:calc(max(38px, 50vw - 680px) + 32px);bottom:40px;z-index:2}
+
+/* SERVIÇOS */
+.svcs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.svc{padding:30px 32px;display:flex;flex-direction:column;gap:14px;min-height:230px}
+.svc .h{font-size:19px}
+.svc p{margin:0;color:var(--soft);font-size:14.5px;flex:1}
+.svc .price{font-size:12px;letter-spacing:.1em;color:var(--gold)}
+
+/* NÚMEROS */
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:26px 32px}
+.nums div{display:flex;flex-direction:column;gap:4px}
+.nums div{align-items:flex-start}
+.nums b{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:44px;line-height:1;letter-spacing:.02em}
+
+/* SOBRE */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.about{padding:44px 32px;display:flex;flex-direction:column;gap:28px;min-height:420px}
+.about .h{font-size:clamp(28px,3vw,40px)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;color:var(--soft);font-size:14.5px}
+.cols p{margin:0}
+.duo .imgcard{min-height:420px}
+.slides img{position:absolute;inset:0;opacity:0;animation:sl 16s infinite}
+.slides img:nth-of-type(1){animation-delay:0s}
+.slides img:nth-of-type(2){animation-delay:4s}
+.slides img:nth-of-type(3){animation-delay:8s}
+.slides img:nth-of-type(4){animation-delay:12s}
+@keyframes sl{0%{opacity:0;transform:scale(1.06)}6%{opacity:1}25%{opacity:1}31%{opacity:0;transform:scale(1)}100%{opacity:0}}
+.slides .dots{position:absolute;left:20px;bottom:18px;display:flex;gap:6px;z-index:2}
+.slides .dots span{width:18px;height:2px;background:rgba(242,240,236,.35);animation:dt 16s infinite}
+.slides .dots span:nth-child(2){animation-delay:4s}.slides .dots span:nth-child(3){animation-delay:8s}.slides .dots span:nth-child(4){animation-delay:12s}
+@keyframes dt{0%,25%{background:#F2F0EC}26%,100%{background:rgba(242,240,236,.35)}}
+@media (prefers-reduced-motion: reduce){.slides img{animation:none}.slides img:first-of-type{opacity:1}.slides .dots{display:none}}
+
+/* TÍTULOS DE SEÇÃO */
+.sec-h{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:10px;padding:44px 0 18px}
+.sec-h .h{font-size:clamp(28px,3vw,40px)}
+
+/* PORTFÓLIO */
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:300px;gap:10px}
+.bento .tall{grid-row:span 2}
+.info{padding:30px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.info .top{display:flex;flex-direction:column;gap:10px}
+.info .h{font-size:20px}
+.info p{margin:0;color:var(--soft);font-size:14.5px;max-width:52ch}
+.info .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.thumb{width:92px;height:92px;border-radius:8px;overflow:hidden;flex:0 0 auto}
+
+/* NA PELE */
+.pele{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:260px 260px;gap:0}
+.pele .card{border-radius:0}
+.pele{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);grid-template-rows:320px 320px}
+.pele .big{grid-column:span 2;grid-row:span 2}
+.pele .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 32px 20px;background:linear-gradient(rgba(10,10,10,0),rgba(10,10,10,.85));display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;z-index:1}
+.pele .cap b{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:20px;letter-spacing:.06em}
+.pele .cap span{color:var(--soft);font-style:italic;font-size:14.5px}
+
+/* CTA + CONTATO */
+.cta-card{padding:40px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:linear-gradient(120deg,#1B1A19,#26221C)}
+.cta-card .h{font-size:clamp(22px,2.4vw,32px);max-width:24ch;text-transform:none;letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:var(--gold);color:#0A0A0A;font-size:11.5px;letter-spacing:.14em;font-weight:500;white-space:nowrap}
+.btn i{font-style:normal;width:32px;height:32px;border-radius:50%;background:#0A0A0A;color:var(--fg);display:grid;place-items:center;font-size:14px;letter-spacing:0;transition:transform .25s ease}
+.btn:hover i{transform:rotate(45deg)}
+.btn.line{background:transparent;color:var(--fg);border:1px solid rgba(242,240,236,.4)}
+.btn.line i{background:var(--fg);color:#0A0A0A}
+.contact{padding:56px 32px 30px;display:flex;flex-direction:column;gap:36px}
+.contact .h{font-size:clamp(40px,5vw,72px);letter-spacing:.1em;font-weight:200}
+.contact .row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.contact .row p{margin:0;max-width:44ch;color:var(--soft);font-size:17px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.soc{display:flex;gap:10px}
+.soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,240,236,.25);display:grid;place-items:center;color:var(--fg);transition:background .25s ease,color .25s ease,border-color .25s ease}
+.soc a:hover{background:var(--gold);border-color:var(--gold);color:#0A0A0A}
+.soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+@media (max-width:980px){
+  .svc{padding:24px 18px}
+  .svc .h{font-size:16px}
+  .svc p{font-size:13.5px}
+  .pele{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}
+  .pele .big{grid-column:1 / -1;grid-row:auto;height:420px}
+  .pele .card:not(.big){height:220px}
+}
+@media (max-width:760px){
+  .page{padding:10px 10px 24px;overflow:hidden}
+  .hero,.pele{width:auto;margin-left:-8px;margin-right:-8px}
+  .pills{gap:5px}
+  .pill{padding:8px 9px;font-size:10px;letter-spacing:.12em}
+  .foot{flex-direction:column;align-items:flex-start}
+  .btn{white-space:normal}
+  .frame{border-radius:16px;padding:8px;gap:8px}
+  .nav{padding:10px 0 12px;flex-wrap:wrap}
+  .hero{height:auto;display:flex;flex-direction:column}
+  .hero .ph{position:static;width:100%;height:auto;aspect-ratio:4 / 5;order:2}
+  .hero-in{position:static;right:auto;padding:36px 22px 28px;gap:18px;order:1}
+  .hero .sub{font-size:15.5px}
+  .hero .down{position:static;order:3;padding:18px 22px 24px}
+  .svcs,.duo,.bento,.cols{grid-template-columns:minmax(0,1fr)}
+  .svc{min-height:0;padding:24px 22px}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px;padding:22px}
+  .nums div{align-items:flex-start !important}
+  .about{padding:30px 22px;min-height:0}
+  .duo .imgcard{min-height:320px}
+  .sec-h{padding:32px 14px 10px}
+  .bento{grid-auto-rows:auto}
+  .bento .tall{grid-row:auto;height:360px}
+  .info{padding:24px 22px}
+  .cta-card,.contact{padding:30px 22px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="frame" id="inicio">
+
+  <nav class="nav" aria-label="Menu principal">
+    <a href="#inicio" class="logo">ALANNE DIAS</a>
+    <div class="pills">
+      <a class="pill" href="sobre.html">SOBRE MIM</a>
+      <a class="pill" href="#servicos">SERVIÇOS</a>
+      <a class="pill" href="#trabalho">PORTFÓLIO</a>
+      <a class="pill" href="#na-pele">NA PELE</a>
+      <a class="pill" href="#contato">CONTATO</a>
+      <a class="pill cta" href="orcamento.html">ORÇAMENTO</a>
+    </div>
+  </nav>
+
+  <header class="card hero">
+    <img class="ph" src="img/37e39ad1b89cae7247f61828b890d081.jpg" alt="Retrato de Alanne Dias em preto e branco, com a mão apoiando o queixo">
+    <div class="hero-in">
+      <p class="lbl">MINIMAL DESIGN, AUTHORIAL PROCESS.</p>
+      <h1>Brand &amp;<span>web designer</span></h1>
+      <p class="sub">Crio marcas e sites com a precisão de quem desenha à mão. Do primeiro traço à tela.</p>
+    </div>
+    <a class="lk down" href="#servicos"><i>↓</i>VER SERVIÇOS</a>
+  </header>
+
+  <section id="servicos" class="svcs" aria-label="Serviços">
+    <article class="card svc">
+      <h2 class="h">Marcas</h2>
+      <p>Identidade visual para empresas e profissionais: símbolo, cores, tipografia e aplicações.</p>
+      <span class="price">A PARTIR DE R$ 980</span>
+      <a class="lk" href="orcamento.html#empresa"><i>↗&#xFE0E;</i>MONTAR ORÇAMENTO</a>
+    </article>
+    <article class="card svc">
+      <h2 class="h">Sites &amp; sistemas</h2>
+      <p>A casa da sua marca: sites, lojas com pedido no WhatsApp e sistemas para o dia a dia.</p>
+      <span class="price">A PARTIR DE R$ 1.500</span>
+      <a class="lk" href="orcamento.html#site"><i>↗&#xFE0E;</i>MONTAR ORÇAMENTO</a>
+    </article>
+    <article class="card svc">
+      <h2 class="h">Casamentos</h2>
+      <p>A identidade do casal: monograma, convite, save the date e papelaria.</p>
+      <span class="price">A PARTIR DE R$ 700</span>
+      <a class="lk" href="orcamento.html#casamento"><i>↗&#xFE0E;</i>MONTAR ORÇAMENTO</a>
+    </article>
+    <article class="card svc">
+      <h2 class="h">Monogramas</h2>
+      <p>A minha assinatura: nomes e iniciais num símbolo único, para tatuagem, joias e presentes.</p>
+      <span class="price">A PARTIR DE R$ 99</span>
+      <a class="lk" href="orcamento.html#monograma"><i>↗&#xFE0E;</i>MONTAR ORÇAMENTO</a>
+    </article>
+  </section>
+
+  <section class="nums" aria-label="Números">
+    <div><span class="lbl">Símbolos desenhados</span><b>+980</b></div>
+    <div><span class="lbl">Identidades visuais</span><b>+450</b></div>
+    <div><span class="lbl">Países</span><b>31</b></div>
+    <div><span class="lbl">Anos criando</span><b>12</b></div>
+  </section>
+
+  <section id="processo" class="duo" aria-labelledby="t-proc">
+    <div class="card about">
+      <p class="lbl">Bastidores</p>
+      <h2 id="t-proc" class="h">Tudo começa<br>no papel.</h2>
+      <div class="cols">
+        <p>Eu nunca coube em uma única forma de criar. Passei pela moda, pela sala de aula, pelo marketing e pela tecnologia, e tudo virou repertório.</p>
+        <p>Antes de qualquer tela, existe um traço. Cada símbolo é desenhado à mão, sem fonte pronta e sem banco de imagens, e só depois ganha vida no digital.</p>
+      </div>
+    </div>
+    <div class="card imgcard slides" role="img" aria-label="Bastidores: desenho à mão, rascunho, relevo no papel e aplicação dourada">
+      <img class="ph" src="img/4411d563c538079e438340dc3c4c5f0a.jpg" alt="" style="object-position:50% 45%">
+      <img class="ph" src="img/42345da26f76d302772c1cc4363f9496.jpg" alt="" style="object-position:30% 0%">
+      <img class="ph" src="img/5fbc11a9486edf013fa5cf23579f767d.jpg" alt="" style="object-position:50% 45%">
+      <img class="ph" src="img/fcf9ca705d0fe87e384e3446619ae567.jpg" alt="" style="object-position:50% 50%">
+      <div class="dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <div class="sec-h" id="trabalho">
+    <h2 class="h">Portfólio</h2>
+    <a class="lk" href="https://www.behance.net/deddb470"><i>↗&#xFE0E;</i>VER TUDO NO BEHANCE</a>
+  </div>
+  <section class="bento" aria-label="Portfólio">
+    <div class="card tall"><img class="ph" src="img/ac6ba0c8f407715e5066224c04dccc32.jpg" alt="Papelaria da marca Thaís Rossetti em preto e dourado" style="object-position:50% 40%"></div>
+    <article class="card info">
+      <div class="top"><p class="lbl">Marca · Corretora de imóveis</p><h3 class="h">Thaís Rossetti</h3><p>Monograma em linhas verticais que lembram colunas e fachadas, em preto e dourado.</p></div>
+      <div class="row"><a class="lk" href="https://www.behance.net/gallery/258509897/Thais-Rossetti-Corretora-de-Imoveis-Identidade-Visual"><i>↗&#xFE0E;</i>VER PROJETO</a></div>
+    </article>
+    <article class="card info">
+      <div class="top"><p class="lbl">Marca · Site</p><h3 class="h">Bibilica Boutique Infantil</h3><p>Identidade delicada com laço e flores de cerejeira, e loja virtual com pedido direto no WhatsApp.</p></div>
+      <div class="row"><a class="lk" href="https://www.behance.net/gallery/258152483/Bibilica-Boutique-Infantil-Identidade-Visual"><i>↗&#xFE0E;</i>VER PROJETO</a><div class="thumb"><img class="ph" src="img/df9dedc7cb57b694ea84c96feb78f228.jpg" alt="Sacola da Bibilica"></div></div>
+    </article>
+    <article class="card info">
+      <div class="top"><p class="lbl">Casamento</p><h3 class="h">Júnior &amp; Rayane</h3><p>Monograma, convite, save the date e estampa de copo-de-leite em verde-oliva.</p></div>
+      <div class="row"><a class="lk" href="orcamento.html#casamento"><i>↗&#xFE0E;</i>QUERO O MEU</a></div>
+    </article>
+    <div class="card tall"><img class="ph" src="img/43ad2971ddfc4169328c8d79b9805727.webp" alt="Papelaria do casamento de Júnior e Rayane em verde-oliva" style="object-position:50% 35%"></div>
+    <article class="card info">
+      <div class="top"><p class="lbl">Monograma</p><h3 class="h">Na pele</h3><p>Um nome que vira símbolo para a vida inteira.</p></div>
+      <div class="row"><a class="lk" href="orcamento.html#monograma"><i>↗&#xFE0E;</i>QUERO O MEU</a><div class="thumb"><img class="ph" src="img/8d7b34acfe7b5338c6892a06219e2ca3.jpg" alt="Monograma tatuado nas costas"></div></div>
+    </article>
+  </section>
+
+  <div class="sec-h" id="na-pele">
+    <h2 class="h">Na pele</h2>
+    <p class="lbl">Mais de 980 símbolos para pessoas de 31 países</p>
+  </div>
+  <section class="pele" aria-label="Tatuagens de clientes">
+    <div class="card big"><img class="ph" src="img/97b5df1e242397ff9fa4d54878fd2153.jpg" alt="Cliente mostrando a tatuagem do monograma no braço" style="object-position:50% 35%"></div>
+    <div class="card"><img class="ph" src="img/a9c24d756fdcea36fb52c31e3c6ca903.jpg" alt="Mulher mostrando a tatuagem de monograma no braço" style="object-position:60% 40%"></div>
+    <div class="card"><img class="ph" src="img/d9a7631bf81cab8d00ab48fb020b043b.jpg" alt="Vários monogramas tatuados no antebraço"></div>
+    <div class="card"><img class="ph" src="img/a0a76109ee53323a867cf9aaf01c2b16.jpg" alt="Duas amigas mostrando as tatuagens de monograma"></div>
+    <div class="card"><img class="ph" src="img/4f5e7069d55f27c6e0413556858cf90d.jpg" alt="Braços de família com a mesma tatuagem de monograma"></div>
+  </section>
+
+  <section class="card cta-card" aria-label="Orçamento">
+    <h2 class="h">Escolha cada detalhe. Descubra o valor do seu projeto.</h2>
+    <a class="btn" href="orcamento.html">MONTAR MEU PROJETO<i>↗&#xFE0E;</i></a>
+  </section>
+
+  <section id="contato" class="card contact" aria-labelledby="t-cont">
+    <h2 id="t-cont" class="h">Me conta.</h2>
+    <div class="row">
+      <p>Uma marca, um site ou um símbolo: me conta o que você quer construir. Atendimento online para todo o Brasil e para o exterior.</p>
+      <a class="btn line" href="https://wa.me/5583998361156">WHATSAPP (83) 99836-1156<i>↗&#xFE0E;</i></a>
+    </div>
+    <div class="foot">
+      <span>© 2026 ALANNE DIAS · BRASIL &amp; WORLD</span>
+      <nav class="soc" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/alannedias.designer/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+        <a href="https://www.tiktok.com/@alannedias.designer" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.6 2.6 2.4 4.2 5 4.4"/></svg></a>
+        <a href="https://www.behance.net/deddb470" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M3.5 7h4.2a2.4 2.4 0 0 1 0 4.8H3.5zM3.5 11.8h4.8a2.6 2.6 0 0 1 0 5.2H3.5zM3.5 7v10"/><path d="M14 13.6h6.5a3.25 3.25 0 1 0-1 2.4"/><path d="M15 7.6h4"/></svg></a>
+        <a href="https://github.com/AlanneDias" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.3c3-.3 6.1-1.5 6.1-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.6 12.6 0 0 0-6.6 0C5.8 1.1 4.7 1.4 4.7 1.4a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.1 3.1 6.3 6.1 6.6a3 3 0 0 0-.9 2.3V21"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=100005702441091" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3.5h-2.2A3.3 3.3 0 0 0 9.5 6.8V9.5H7.5v3h2v8h3v-8h2.4l.5-3h-2.9V7.2c0-.5.4-.8.8-.8H15z"/></svg></a>
+        <a href="https://wa.me/5583998361156" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.2-3.7A8.2 8.2 0 1 1 8 19z"/><path d="M9.2 8.6c.2 2.6 2.4 5 5.2 5.4l1-1.2-1.6-.9-.8.6a4.6 4.6 0 0 1-2.1-2.1l.6-.8-.9-1.6z"/></svg></a>
+      </nav>
+    </div>
+  </section>
+
+</div>
+</div>
+</body>
+</html>
