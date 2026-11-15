@@ -100,6 +100,15 @@ a{color:inherit;text-decoration:none}
   .nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px;padding:22px}
   .cta-card{padding:30px 22px}
 }
+/* CELULAR ENXUTO: menos informação */
+@media (max-width:760px){
+  .pills .pill:not(.cta){display:none}
+  .hero .lbl{display:none}
+  .txt p:last-of-type{display:none}
+  .txt{gap:16px}
+  .nums{display:none}
+  .cta-card{margin-top:28px}
+}
 </style>
 <style>html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}</style>
 </head>
