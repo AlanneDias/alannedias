@@ -83,6 +83,20 @@ a{color:inherit;text-decoration:none}
 .soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,240,236,.25);display:grid;place-items:center;color:var(--fg);transition:background .25s ease,color .25s ease,border-color .25s ease}
 .soc a:hover{background:var(--gold);border-color:var(--gold);color:#0A0A0A}
 .soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* EDITORIAL: mesmas fontes e cores, diagramação de revista */
+.card{border-radius:0}
+.hero h1{font-size:clamp(48px,7.4vw,124px);letter-spacing:.06em}
+.duo{gap:0;margin-top:40px}
+.txt{background:none;padding:0 56px 0 0;justify-content:center;gap:28px}
+.txt .h{font-size:clamp(34px,4.4vw,64px);font-weight:200;line-height:1.02}
+.txt .lbl{color:var(--gold)}
+.duo .img{min-height:560px}
+.sec-h{padding:140px 0 28px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.sec-h .lbl{color:var(--gold)}
+.sec-h .h{font-size:clamp(34px,4.4vw,64px);font-weight:200}
+.cta-card{background:none;margin-top:120px;padding:56px 0 0;border-top:1px solid var(--line)}
+.cta-card .h{font-size:clamp(32px,4.4vw,64px);font-weight:200;max-width:18ch;line-height:1.05}
+@media (max-width:760px){.hero h1{font-size:46px}.txt{padding:0 0 28px}.duo .img{min-height:380px}.sec-h{padding:72px 0 18px}.cta-card{margin-top:64px;padding-top:36px}.cta-card .h{font-size:34px}}
 /* SITE ENXUTO: menos informação em todas as telas */
 .pills .pill[href$="#trabalho"],.pills .pill[href$="#contato"]{display:none}
 .hero .lbl{display:none}
