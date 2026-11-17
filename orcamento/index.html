@@ -616,6 +616,25 @@ render();
     tr.addEventListener('mousemove', function(e){ if(!down) return; var dx=e.pageX-x0; if(Math.abs(dx)>5) moved=true; tr.scrollLeft=s0-dx; });
     tr.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved=false; } }, true);
   });
+  // linha do tempo: anda sozinha, mas fica livre para arrastar (dedo ou mouse)
+  document.querySelectorAll('.tl').forEach(function(tl){
+    var tr = tl.querySelector('.tl-track'); if (!tr) return;
+    var pos = 0, hold = 0, down = false, x0 = 0, s0 = 0, last = 0;
+    function half(){ return tr.scrollWidth / 2; }
+    function wrap(){ var h = half(); if (h <= 0) return; if (tl.scrollLeft >= h) tl.scrollLeft -= h; else if (tl.scrollLeft <= 0 && hold) tl.scrollLeft += h; }
+    function pause(){ hold = Date.now() + 2500; }
+    ['touchstart','wheel'].forEach(function(ev){ tl.addEventListener(ev, pause, {passive:true}); });
+    tl.addEventListener('mouseenter', function(){ hold = Infinity; });
+    tl.addEventListener('mouseleave', function(){ if (!down) pause(); });
+    tl.addEventListener('mousedown', function(e){ down = true; hold = Infinity; x0 = e.pageX; s0 = tl.scrollLeft; tl.style.cursor = 'grabbing'; e.preventDefault(); });
+    addEventListener('mousemove', function(e){ if (!down) return; tl.scrollLeft = s0 - (e.pageX - x0); wrap(); });
+    addEventListener('mouseup', function(){ if (!down) return; down = false; tl.style.cursor = ''; pause(); });
+    tl.addEventListener('scroll', function(){ if (hold) { wrap(); pos = tl.scrollLeft; if (hold !== Infinity) hold = Math.max(hold, Date.now() + 1500); } }, {passive:true});
+    setInterval(function(){
+      var t = Date.now(), dt = last ? Math.min(t - last, 50) : 16; last = t;
+      if (!rm && t > hold) { if (hold) { hold = 0; pos = tl.scrollLeft; } pos += dt * 0.04; if (pos >= half()) pos -= half(); tl.scrollLeft = pos; }
+    }, 16);
+  });
   onScroll(); check();
   // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
   var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
