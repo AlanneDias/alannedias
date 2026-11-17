@@ -175,6 +175,9 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;white-space:nowrap}
 @media (max-width:600px){.tabs{gap:6px}.tab{flex:1 1 0;min-width:0;padding:12px 4px;font-size:9.5px;letter-spacing:.12em;text-indent:.12em}.tab .dot{left:6px;width:5px;height:5px;margin-top:-2.5px}}
+/* mesma margem e largura da home e da página Sobre */
+.wrap,.topnav{max-width:1416px;padding-left:max(38px,env(safe-area-inset-left,0px));padding-right:max(38px,env(safe-area-inset-right,0px))}
+@media (max-width:760px){.wrap,.topnav{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}}
 /* rosa só no clique */
 .topnav .home:active,.dock a:active,.btn:active,.tab:active,.opt:active{background:var(--pink)!important;color:#0A0A0A!important;border-color:var(--pink)!important}
 </style>
@@ -540,6 +543,43 @@ render();
 </script>
 
 <style>
+/* ===== PADRÃO DE TIPOGRAFIA (escala única do site) =====
+   H1 título de página · H2 título de seção · H3 título de bloco · H4 título pequeno
+   Destaque · Texto · Etiqueta. A capa da home (.h2t) fica fora da escala. */
+:root{
+  --fs-h1:clamp(44px,6vw,96px);
+  --fs-h2:clamp(32px,4.4vw,64px);
+  --fs-h3:clamp(24px,2.4vw,34px);
+  --fs-h4:19px;
+  --fs-lead:17px;
+  --fs-body:15px;
+  --fs-label:11px;
+}
+/* H1 */
+.hero h1,h1:not(.h2t),.contact .h{font-size:var(--fs-h1)!important}
+/* H2 */
+.ed-h .h,.sec-h .h,.about .h,.txt .h,.cta-card .h,.tab-title,.nums b,#mapa-alanne .mp-head h2,#mapa-alanne .stat-num{font-size:var(--fs-h2)!important}
+/* H3 */
+.svc .h,.info .h,.pf .h,.cont-sub,h2:not([class]),.dest-tx h3,.total .big{font-size:var(--fs-h3)!important}
+/* H4 */
+.pele .cap b,.tl-item b,.moments .cap b,.cv-item .ano,.cv-item b,.opt .n,.passos .pt,.faq summary{font-size:var(--fs-h4)!important}
+/* Destaque */
+.hero .sub,.h2s,.contact .row p,.lead{font-size:var(--fs-lead)!important}
+/* Texto */
+p:not([class]),.svc p,.info p,.cols,.pele .cap span,.tl-item span,.moments .cap span,.cv-item span,.opt .d,.note,.lines,.empty,.total .pix,.dest-tx .pd,.passos .pd,.toggle,.txt p:not(.lbl),.about p:not(.lbl),.cols p:not(.lbl),.cta-card p:not(.lbl),#mapa-alanne .mp-head p:not(.lbl){font-size:var(--fs-body)!important}
+/* Etiqueta (maiúsculas) */
+.lbl,.lk,.pill,.btn,.dock a,.foot,.eyebrow,.h2d,.svc .price,.svc::before,.sec-h .h::before,.opt .p,.opt .tag,.tab,.topnav,.topnav .home,.pfm figcaption,.capa figcaption,.gal figcaption,.passos b,.small,.step-h small,.lines .grp,.btn.lim,#mapa-alanne .tip,#mapa-alanne .stat-label,#mapa-alanne .chips span{font-size:var(--fs-label)!important}
+.svc .lk{font-size:var(--fs-label)!important}
+/* ===== ALINHAMENTO: tudo começa na mesma margem esquerda =====
+   --gb = distância da borda da tela até a margem do conteúdo (medida no fx.html) */
+.pf-track{padding-left:var(--gb,max(28px,4vw))!important;padding-right:var(--gb,max(28px,4vw))!important;scroll-padding-left:var(--gb,max(28px,4vw))!important}
+#mapa-alanne .mp-head,#mapa-alanne .chips{max-width:none!important;padding-left:var(--gb,max(28px,4vw))!important;padding-right:var(--gb,max(28px,4vw))!important}
+/* blocos sem fundo não recuam o texto: ele fica na margem */
+.card.txt,.card.cta-card{padding-left:0!important;padding-right:0!important}
+/* no celular o menu de serviços do orçamento precisa caber em uma linha */
+@media (max-width:600px){.tab{font-size:9.5px!important}}
+</style>
+<style>
 /* INTERATIVIDADE */
 .page{overflow:visible!important;overflow-x:clip!important}
 .nav{position:sticky;top:0;z-index:30;transition:background .35s ease,box-shadow .35s ease}
@@ -635,6 +675,19 @@ render();
       if (!rm && t > hold) { if (hold) { hold = 0; pos = tl.scrollLeft; } pos += dt * 0.04; if (pos >= half()) pos -= half(); tl.scrollLeft = pos; }
     }, 16);
   });
+  // margem única: seções de ponta a ponta alinham o texto com o resto da página
+  function gutter(){
+    var ref = document.querySelector('.ed-h, .sec-h, .nav .logo, .nav'), bl = document.querySelector('.slides-pf, #mapa-alanne, .tl');
+    var g = ref && bl ? ref.getBoundingClientRect().left - bl.getBoundingClientRect().left : 0;
+    if (g > 0) document.documentElement.style.setProperty('--gb', g + 'px');
+    // texto da capa das páginas internas na mesma margem
+    var ml = document.querySelector('.sec-h, .ed-h, .nav .logo');
+    if (ml) document.querySelectorAll('.hero .hero-in').forEach(function(h){
+      h.style.paddingLeft = ''; var d = ml.getBoundingClientRect().left - h.getBoundingClientRect().left;
+      if (d >= 0) { h.style.paddingLeft = d + 'px'; h.style.paddingRight = d + 'px'; }
+    });
+  }
+  gutter(); addEventListener('resize', gutter); addEventListener('load', gutter);
   onScroll(); check();
   // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
   var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
