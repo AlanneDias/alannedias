@@ -45,6 +45,15 @@ header.top{display:flex;flex-direction:column;gap:18px;padding-bottom:40px;borde
 .step{display:flex;flex-direction:column;gap:16px;padding:28px 0;border-bottom:1px solid var(--line)}
 .step-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
 .step-h small{color:var(--muted);font-size:13px}
+.pfm{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.pfm-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;cursor:grab}
+.pfm-track::-webkit-scrollbar{display:none}
+.pfm-track figure{flex:0 0 clamp(220px,30vw,320px);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:8px}
+.pfm-track img{width:100%;aspect-ratio:4 / 5;object-fit:cover;border-radius:16px;display:block;background:#1B1A19;pointer-events:none}
+.pfm.mono .pfm-track figure{flex-basis:clamp(150px,18vw,200px)}
+.pfm.mono .pfm-track img{aspect-ratio:1 / 1;background:#fff}
+.pfm figcaption{font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+@media (max-width:600px){.pfm-track figure{flex-basis:72vw}.pfm.mono .pfm-track figure{flex-basis:42vw}}
 .tab-title{font-family:'Josefin Sans','Jost',sans-serif;font-weight:200;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(26px,3.4vw,44px);line-height:1.05;margin:8px 0 0}
 .opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px}
 .opt{position:relative;display:flex;flex-direction:column;gap:6px;border:0;border-radius:12px;background:#1B1A19;padding:18px 44px 16px 18px;cursor:pointer;min-width:0;transition:background .25s ease}
@@ -286,7 +295,7 @@ const CATS = [
 ];
 
 const FOTOS = {
-  monograma:{capa:'/img/key-alves.jpg', alt:'Cliente mostrando a tatuagem do monograma no braço', leg:'NA PELE · MONOGRAMA', pos:'50% 35%', ex:[['/img/pele6.jpg','Vários monogramas tatuados no antebraço'],['/img/pele8.jpg','Duas amigas mostrando as tatuagens de monograma'],['/img/pele13.jpg','Braços de família com a mesma tatuagem de monograma']],
+  monograma:{slides:[{t:'NA PELE · TATUAGENS DE CLIENTES', it:[['/img/key-alves.jpg','Cliente mostrando a tatuagem do monograma no braço','50% 35%'],['/img/ig-casal.jpg','Casal com a mesma tatuagem'],['/img/pele6.jpg','Vários monogramas tatuados no antebraço'],['/img/ig-braco.jpg','Primeira tatuagem de monograma'],['/img/pele8.jpg','Duas amigas mostrando as tatuagens de monograma'],['/img/ig-costela.jpg','Monograma tatuado na costela'],['/img/pele13.jpg','Braços de família com a mesma tatuagem'],['/img/tat2.jpg','Monograma tatuado'],['/img/tat4.jpg','Monograma tatuado'],['/img/tat6.jpg','Monograma tatuado'],['/img/tat7.jpg','Monograma tatuado'],['/img/tat9.jpg','Monograma tatuado'],['/img/tat11.jpg','Monograma tatuado'],['/img/tat12.jpg','Monograma tatuado'],['/img/tat13.jpg','Monograma tatuado'],['/img/tat51.jpg','Monograma tatuado']]},{t:'ALGUNS MONOGRAMAS QUE JÁ DESENHEI', mono:true, it:[[29,'Robinson'],[30,'Tábata e Ton'],[31,'Gilmara'],[32,'Juliana'],[33,'Fábio'],[34,'Bernardo'],[35,'Cabelludo'],[36,'Yasmin'],[37,'Júlia'],[38,'Ana Júlia'],[39,'Gustavo']].map(([n,nome])=>['/img/gal'+n+'.jpg',nome])}], capa:'/img/key-alves.jpg', alt:'Cliente mostrando a tatuagem do monograma no braço', leg:'NA PELE · MONOGRAMA', pos:'50% 35%', ex:[['/img/pele6.jpg','Vários monogramas tatuados no antebraço'],['/img/pele8.jpg','Duas amigas mostrando as tatuagens de monograma'],['/img/pele13.jpg','Braços de família com a mesma tatuagem de monograma']],
     video:{img:'/img/reel-mono.jpg', alt:'Capa do vídeo: monograma tatuado na nuca', cat:'VÍDEO · ONDE USAR', t:'Um símbolo criado para ser seu.', d:'Veja as aplicações do monograma: tatuagem, joias, bordado, gravação, papelaria e presentes.', link:'https://www.instagram.com/reel/Dc_2_KOhF5v/'},
     gal:[
       {t:'NA PELE · TATUAGENS DE CLIENTES', big:true, it:[['/img/ig-casal.jpg','Casal com a mesma tatuagem'],['/img/ig-braco.jpg','Primeira tatuagem'],['/img/ig-costela.jpg','Do papel para a pele']]},
@@ -348,14 +357,15 @@ function renderPainel(){
   if(F){
     const ex=document.createElement('p'); ex.className='eyebrow'; ex.style.marginTop='56px'; ex.textContent='EXEMPLOS'; P.appendChild(ex);
     let alvo=P;
-    if(F.capa){
+    if(F.slides) F.slides.forEach(S=>P.appendChild(slideSec(S)));
+    if(F.capa && !F.slides){
     const fig=document.createElement('figure'); fig.className='capa';
     const im=document.createElement('img'); im.src=F.capa; im.alt=F.alt; if(c.id==='site') im.style.objectPosition='80% 30%'; if(F.pos) im.style.objectPosition=F.pos;
     const cap=document.createElement('figcaption'); cap.textContent=F.leg; fig.append(im,cap);
     if(F.vert){const w=document.createElement('div'); w.className='capa-v'; P.appendChild(w); alvo=w;}
     alvo.appendChild(fig);
     }
-    if(F.ex&&F.ex.length){const g=document.createElement('div'); g.className='exs'; alvo.appendChild(g); F.ex.forEach(([src,alt,pos])=>{const i=document.createElement('img'); i.src=src; i.alt=alt; if(pos) i.style.objectPosition=pos; i.loading='lazy'; g.appendChild(i);});}
+    if(F.ex&&F.ex.length&&!F.slides){const g=document.createElement('div'); g.className='exs'; alvo.appendChild(g); F.ex.forEach(([src,alt,pos])=>{const i=document.createElement('img'); i.src=src; i.alt=alt; if(pos) i.style.objectPosition=pos; i.loading='lazy'; g.appendChild(i);});}
     if(F.video){
       const V=F.video, a=document.createElement('a'); a.className='video'; a.href=V.link; a.target='_blank'; a.rel='noopener';
       const i=document.createElement('img'); i.src=V.img; i.alt=V.alt; i.loading='lazy';
@@ -392,9 +402,20 @@ function renderPainel(){
       const a=document.createElement('a'); a.className='btn ghost'; a.href=D.link; a.target='_blank'; a.rel='noopener'; a.textContent='VER PROJETO COMPLETO NO BEHANCE ↗︎';
       tx.append(e,h,p,a); sec.append(g,tx); P.appendChild(sec);
     });
-    (F.gal||[]).filter(gr=>!gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
+    if(!F.slides) (F.gal||[]).filter(gr=>!gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
   }
   if(F) (F.gal||[]).filter(gr=>gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
+}
+function slideSec(S){
+  const sec=document.createElement('section'); sec.className='pfm'+(S.mono?' mono':'');
+  const h=document.createElement('p'); h.className='eyebrow'; h.textContent=S.t; sec.appendChild(h);
+  const tr=document.createElement('div'); tr.className='pfm-track'; sec.appendChild(tr);
+  S.it.forEach(([src,alt,pos])=>{const fg=document.createElement('figure'); const i=document.createElement('img'); i.src=src; i.alt=S.mono?('Monograma desenhado para '+alt):alt; i.loading='lazy'; if(pos) i.style.objectPosition=pos; fg.appendChild(i); if(S.mono){const c=document.createElement('figcaption'); c.textContent=alt; fg.appendChild(c);} tr.appendChild(fg);});
+  let down=false,x0=0,s0=0;
+  tr.addEventListener('mousedown',e=>{down=true;x0=e.pageX;s0=tr.scrollLeft;tr.style.scrollSnapType='none';});
+  addEventListener('mouseup',()=>{if(!down)return;down=false;tr.style.scrollSnapType='';});
+  tr.addEventListener('mousemove',e=>{if(!down)return;tr.scrollLeft=s0-(e.pageX-x0);});
+  return sec;
 }
 function galSec(gr){
       const sec=document.createElement('section'); sec.className='galeria';
