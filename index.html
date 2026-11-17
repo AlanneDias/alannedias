@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200..600&amp;family=Jost:wght@300..500&amp;display=swap">
 <style>
-:root{--page:#0A0A0A;--frame:#0A0A0A;--card:#1B1A19;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--gold:#C9C6C0;--pink:#FF2D95}
+:root{--page:#0A0A0A;--frame:#0A0A0A;--card:#1B1A19;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--gold:#FF2D95;--pink:#FF2D95}
 html,body{margin:0;background:var(--page);max-width:100%;overflow-x:hidden;overflow-x:clip}
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -331,6 +331,12 @@ a{color:inherit;text-decoration:none}
   .contact .h{font-size:64px}
 }
 
+
+/* ROSA NOS DETALHES (~20%) */
+.btn{background:#2C2B29!important;color:var(--fg)!important;border-color:#2C2B29!important}
+.btn i{background:var(--fg)!important;color:#0A0A0A!important}
+.svc::before{color:var(--gold)!important}
+.lbl{color:var(--gold)}
 /* ROSA SÓ NO CLIQUE */
 .pill.cta{background:#1B1A19!important;color:var(--fg)!important}
 .pill.cta:hover{background:#2C2B29!important}
@@ -439,17 +445,17 @@ a{color:inherit;text-decoration:none}
   <style>
   #mapa-alanne{width:100vw;margin-left:calc(50% - 50vw);background:#0A0A0A;color:#F2F0EC;padding:140px 0 0;position:relative;overflow:hidden}
   #mapa-alanne .mp-head{max-width:1360px;margin:0 auto;padding:0 max(28px,4vw) 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap;border-bottom:1px solid #2C2B29}
-  #mapa-alanne .mp-head .lbl{color:var(--gold,#F2F0EC)}
+  #mapa-alanne .mp-head .lbl{color:#FF2D95}
   #mapa-alanne .mp-head h2{font-family:'Josefin Sans','Jost',sans-serif;font-weight:200;text-transform:uppercase;letter-spacing:.04em;line-height:1;font-size:clamp(34px,4.4vw,64px);margin:10px 0 0}
   #mapa-alanne .mp-head p{margin:0;color:#8F8C87;font-size:15px;max-width:38ch}
   #mapa-alanne .mp-wrap{position:relative;max-width:1360px;margin:0 auto;padding:24px max(16px,2vw) 0}
   #mapa-alanne svg{width:100%;height:auto;display:block}
   #mapa-alanne .land{fill:#1B1A19;stroke:#0A0A0A;stroke-width:.6}
   #mapa-alanne .land.on{fill:#3A3836;cursor:pointer;transition:fill .25s ease}
-  @media (hover:hover){#mapa-alanne .land.on:hover{fill:#F2F0EC}}#mapa-alanne .land.on.hl{fill:#F2F0EC}
-  #mapa-alanne .pin{fill:#F2F0EC;opacity:1;r:3.4px;animation:mpPop .45s ease backwards;pointer-events:none}
+  @media (hover:hover){#mapa-alanne .land.on:hover{fill:#FF2D95}}#mapa-alanne .land.on.hl{fill:#FF2D95}
+  #mapa-alanne .pin{fill:#FF2D95;opacity:1;r:3.4px;animation:mpPop .45s ease backwards;pointer-events:none}
   @keyframes mpPop{0%{opacity:0;r:0}60%{opacity:1;r:5px}100%{opacity:1;r:3.4px}}
-  #mapa-alanne .pin-pulse{fill:none;stroke:#F2F0EC;stroke-width:1;opacity:0;animation:mpPulse 2.6s ease-out infinite;pointer-events:none}
+  #mapa-alanne .pin-pulse{fill:none;stroke:#FF2D95;stroke-width:1;opacity:0;animation:mpPulse 2.6s ease-out infinite;pointer-events:none}
   @keyframes mpPopM{0%{opacity:0;r:0}60%{opacity:1;r:10px}100%{opacity:1;r:6px}}@keyframes mpPulseM{0%{r:6px;opacity:.7}100%{r:26px;opacity:0}}@keyframes mpPulse{0%{r:3.4px;opacity:.6}100%{r:16px;opacity:0}}
   #mapa-alanne .tip{position:absolute;pointer-events:none;background:#F2F0EC;color:#0A0A0A;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;transform:translate(-50%,-140%);opacity:0;transition:opacity .15s ease;white-space:nowrap}
   #mapa-alanne .tip.on{opacity:1}
