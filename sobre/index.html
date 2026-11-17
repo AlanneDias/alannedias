@@ -294,6 +294,15 @@ a{color:inherit;text-decoration:none}
   var ticking = false;
   addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
   addEventListener('resize', check);
+  // portfólio em slides: arrastar com o mouse no computador
+  document.querySelectorAll('.pf-track').forEach(function(tr){
+    var down=false, x0=0, s0=0, moved=false;
+    tr.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    tr.addEventListener('mousedown', function(e){ down=true; moved=false; x0=e.pageX; s0=tr.scrollLeft; tr.style.scrollSnapType='none'; tr.style.cursor='grabbing'; });
+    addEventListener('mouseup', function(){ if(!down) return; down=false; tr.style.scrollSnapType=''; tr.style.cursor=''; });
+    tr.addEventListener('mousemove', function(e){ if(!down) return; var dx=e.pageX-x0; if(Math.abs(dx)>5) moved=true; tr.scrollLeft=s0-dx; });
+    tr.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved=false; } }, true);
+  });
   onScroll(); check();
   // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
   var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);

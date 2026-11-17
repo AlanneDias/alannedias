@@ -249,7 +249,17 @@ a{color:inherit;text-decoration:none}
   .page{padding-top:0}
   .nav{height:64px;flex-wrap:nowrap}
 }
-/* EDITORIAL: mesmas fontes e cores, diagramação de revista */
+/* PORTFÓLIO EM SLIDES */
+.slides-pf{width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
+.pf-track{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:max(28px,4vw);padding:8px max(28px,4vw) 24px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+.pf-track::-webkit-scrollbar{display:none}
+.pf{flex:0 0 clamp(280px,34vw,520px);scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;color:var(--fg)}
+.pf-img{aspect-ratio:4 / 5;border-radius:22px;overflow:hidden;background:#1B1A19}
+.pf-img .ph{transition:filter .6s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.pf:hover .pf-img .ph{filter:none;transform:scale(1.04)}
+.pf .lbl{margin-top:8px}
+.pf .h{font-size:clamp(22px,2.2vw,32px);font-weight:200}
+@media (max-width:760px){.pf{flex-basis:78vw}.pf-track{gap:16px;padding:4px 16px 18px;scroll-padding-left:16px}.pf-img{border-radius:18px}}/* EDITORIAL: mesmas fontes e cores, diagramação de revista */
 .card{border-radius:0}
 .frame{gap:0}
 .hero h1{font-size:clamp(48px,7.4vw,124px);letter-spacing:.06em}
@@ -389,25 +399,13 @@ a{color:inherit;text-decoration:none}
     <h2 class="h" data-n="03">Portfólio</h2>
     <a class="lk" href="https://www.behance.net/deddb470"><i>↗&#xFE0E;</i>VER TUDO NO BEHANCE</a>
   </div>
-  <section class="bento" aria-label="Portfólio">
-    <div class="card tall"><img class="ph" src="/img/ac6ba0c8f407715e5066224c04dccc32.jpg" alt="Papelaria da marca Thaís Rossetti em preto e dourado" style="object-position:50% 40%"></div>
-    <article class="card info">
-      <div class="top"><p class="lbl">Marca · Corretora de imóveis</p><h3 class="h">Thaís Rossetti</h3><p>Monograma em linhas verticais que lembram colunas e fachadas, em preto e dourado.</p></div>
-      <div class="row"><a class="lk" href="https://www.behance.net/gallery/258509897/Thais-Rossetti-Corretora-de-Imoveis-Identidade-Visual"><i>↗&#xFE0E;</i>VER PROJETO</a></div>
-    </article>
-    <article class="card info">
-      <div class="top"><p class="lbl">Marca · Site</p><h3 class="h">Bibilica Boutique Infantil</h3><p>Identidade delicada com laço e flores de cerejeira, e loja virtual com pedido direto no WhatsApp.</p></div>
-      <div class="row"><a class="lk" href="https://www.behance.net/gallery/258152483/Bibilica-Boutique-Infantil-Identidade-Visual"><i>↗&#xFE0E;</i>VER PROJETO</a><div class="thumb"><img class="ph" src="/img/df9dedc7cb57b694ea84c96feb78f228.jpg" alt="Sacola da Bibilica"></div></div>
-    </article>
-    <article class="card info">
-      <div class="top"><p class="lbl">Casamento</p><h3 class="h">Júnior &amp; Rayane</h3><p>Monograma, convite, save the date e estampa de copo-de-leite em verde-oliva.</p></div>
-      <div class="row"><a class="lk" href="/orcamento/#casamento"><i>↗&#xFE0E;</i>QUERO O MEU</a></div>
-    </article>
-    <div class="card tall"><img class="ph" src="/img/43ad2971ddfc4169328c8d79b9805727.webp" alt="Papelaria do casamento de Júnior e Rayane em verde-oliva" style="object-position:50% 35%"></div>
-    <article class="card info">
-      <div class="top"><p class="lbl">Monograma</p><h3 class="h">Na pele</h3><p>Um nome que vira símbolo para a vida inteira.</p></div>
-      <div class="row"><a class="lk" href="/orcamento/#monograma"><i>↗&#xFE0E;</i>QUERO O MEU</a><div class="thumb"><img class="ph" src="/img/8d7b34acfe7b5338c6892a06219e2ca3.jpg" alt="Monograma tatuado nas costas"></div></div>
-    </article>
+  <section class="slides-pf" aria-label="Portfólio">
+    <div class="pf-track">
+      <a class="pf" href="https://www.behance.net/gallery/258509897/Thais-Rossetti-Corretora-de-Imoveis-Identidade-Visual"><div class="pf-img"><img class="ph" src="/img/ac6ba0c8f407715e5066224c04dccc32.jpg" alt="Papelaria da marca Thaís Rossetti em preto e dourado" style="object-position:50% 40%"></div><p class="lbl">Marca · Corretora de imóveis</p><h3 class="h">Thaís Rossetti</h3></a>
+      <a class="pf" href="https://www.behance.net/gallery/258152483/Bibilica-Boutique-Infantil-Identidade-Visual"><div class="pf-img"><img class="ph" src="/img/df9dedc7cb57b694ea84c96feb78f228.jpg" alt="Sacola da Bibilica Boutique Infantil"></div><p class="lbl">Marca · Site</p><h3 class="h">Bibilica Boutique Infantil</h3></a>
+      <a class="pf" href="/orcamento/#casamento"><div class="pf-img"><img class="ph" src="/img/43ad2971ddfc4169328c8d79b9805727.webp" alt="Papelaria do casamento de Júnior e Rayane em verde-oliva" style="object-position:50% 35%"></div><p class="lbl">Casamento</p><h3 class="h">Júnior &amp; Rayane</h3></a>
+      <a class="pf" href="/orcamento/#monograma"><div class="pf-img"><img class="ph" src="/img/8d7b34acfe7b5338c6892a06219e2ca3.jpg" alt="Monograma tatuado nas costas"></div><p class="lbl">Monograma</p><h3 class="h">Na pele</h3></a>
+    </div>
   </section>
 
   <div class="sec-h" id="na-pele">
@@ -513,6 +511,15 @@ a{color:inherit;text-decoration:none}
   var ticking = false;
   addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
   addEventListener('resize', check);
+  // portfólio em slides: arrastar com o mouse no computador
+  document.querySelectorAll('.pf-track').forEach(function(tr){
+    var down=false, x0=0, s0=0, moved=false;
+    tr.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    tr.addEventListener('mousedown', function(e){ down=true; moved=false; x0=e.pageX; s0=tr.scrollLeft; tr.style.scrollSnapType='none'; tr.style.cursor='grabbing'; });
+    addEventListener('mouseup', function(){ if(!down) return; down=false; tr.style.scrollSnapType=''; tr.style.cursor=''; });
+    tr.addEventListener('mousemove', function(e){ if(!down) return; var dx=e.pageX-x0; if(Math.abs(dx)>5) moved=true; tr.scrollLeft=s0-dx; });
+    tr.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved=false; } }, true);
+  });
   onScroll(); check();
   // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
   var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
