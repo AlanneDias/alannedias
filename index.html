@@ -436,7 +436,7 @@ a{color:inherit;text-decoration:none}
   #mapa-alanne .mp-wrap{position:relative;max-width:1360px;margin:0 auto;padding:24px max(16px,2vw) 0}
   #mapa-alanne svg{width:100%;height:auto;display:block}
   #mapa-alanne .land{fill:#1B1A19;stroke:#0A0A0A;stroke-width:.6}
-  #mapa-alanne .land.on{fill:#3A3836;cursor:pointer;transition:fill .25s ease}
+  #mapa-alanne .land.on{fill:#3A3836;transition:fill .25s ease}
   #mapa-alanne .land.on:hover,#mapa-alanne .land.on.hl{fill:#FF2D95}
   #mapa-alanne .pin{fill:#FF2D95;opacity:1;r:3.4px;animation:mpPop .45s ease backwards;pointer-events:none}
   @keyframes mpPop{0%{opacity:0;r:0}60%{opacity:1;r:5px}100%{opacity:1;r:3.4px}}
@@ -467,10 +467,10 @@ a{color:inherit;text-decoration:none}
   <section id="mapa-alanne" aria-label="Países atendidos">
     <div class="mp-head">
       <div><p class="lbl">Pelo mundo</p><h2>Clientes em <span id="m-paises-h">32</span> países</h2></div>
-      <p>Toque ou passe o mouse num país para ver o nome. Cada ponto é um lugar onde já tem um símbolo meu.</p>
+      <p>Cada ponto é um lugar onde já tem um símbolo meu.</p>
     </div>
-    <div class="mp-wrap" id="map-wrap"><div class="tip" id="mp-tip"></div></div>
-    <div class="chips" id="mp-chips" aria-label="Lista de países"></div>
+    <div class="mp-wrap" id="map-wrap"></div>
+
     <div class="stats-row">
       <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">sites no ar</div></div>
       <div class="stat-card"><div class="stat-num" id="m-paises">0</div><div class="stat-label">países atendidos</div></div>
@@ -514,9 +514,9 @@ a{color:inherit;text-decoration:none}
     const g=svg.append('g');
     const paths=g.selectAll('path').data(feats).join('path').attr('d',path).attr('class',f=>'land'+(served.has(f.id)?' on':''));
     function show(f, ev){ const r=wrap.getBoundingClientRect(); const pt=ev.touches?ev.touches[0]:ev; tip.textContent=nome(f); tip.style.left=(pt.clientX-r.left)+'px'; tip.style.top=(pt.clientY-r.top)+'px'; tip.classList.add('on'); }
-    paths.filter(f=>served.has(f.id)).on('mousemove',(ev,f)=>show(f,ev)).on('mouseleave',()=>tip.classList.remove('on')).on('click',(ev,f)=>show(f,ev));
+    
     // lista de países (chips)
-    const chips=document.getElementById('mp-chips');
+    const chips=null; if(false)
     feats.filter(f=>served.has(f.id)).map(f=>({f,n:nome(f)})).sort((a,b)=>a.n.localeCompare(b.n,'pt')).forEach(({f,n})=>{
       const s=document.createElement('span'); s.textContent=n;
       s.addEventListener('mouseenter',()=>paths.filter(d=>d.id===f.id).classed('hl',true));
