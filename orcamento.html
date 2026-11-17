@@ -35,7 +35,9 @@ header.top{display:flex;flex-direction:column;gap:18px;padding-bottom:40px;borde
 .tabs{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 8px}
 .tab{appearance:none;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);font:inherit;font-size:12px;letter-spacing:.24em;padding:14px 20px;cursor:pointer;display:flex;gap:10px;align-items:center}
 .tab[aria-selected="true"]{background:var(--on);color:var(--onfg);border-color:var(--on)}
-.tab .dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:0}
+.tab{position:relative;justify-content:center;text-indent:.24em}
+.tab .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:0;position:absolute;left:10px;top:50%;margin-top:-3px}
+.btn{text-indent:.24em}
 .tab.has .dot{opacity:1}
 .grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:48px;align-items:start;margin-top:28px}
 @media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
