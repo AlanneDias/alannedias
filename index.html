@@ -117,6 +117,24 @@ a{color:inherit;text-decoration:none}
 .soc a:hover{background:var(--gold);border-color:var(--gold);color:#0A0A0A}
 .soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
+/* SITE ENXUTO: menos informação em todas as telas */
+.pills .pill[href="#servicos"],.pills .pill[href="#na-pele"],.pills .pill[href="#contato"]{display:none}
+.hero .lbl,.hero .down{display:none}
+.svc p{display:none}
+.svc{min-height:0;padding:28px 28px 76px;gap:10px;position:relative}
+.svc .lk{font-size:0;gap:0;padding:18px;border:0;position:absolute;inset:0;border-radius:12px;align-items:flex-end;justify-content:flex-end}
+.nums{display:none}
+.about{min-height:0}
+.cols{grid-template-columns:minmax(0,1fr)}
+.cols p:first-child{display:none}
+.info .top p:not(.lbl),.info .thumb{display:none}
+.bento > article:last-child{display:none}
+.bento > :nth-child(4){grid-row:span 2}
+.pele{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.pele .big{grid-column:auto;grid-row:span 2}
+.pele .card:nth-child(n+4){display:none}
+.cta-card{display:none}
+.contact .row p{display:none}
 @media (max-width:980px){
   .svc{padding:24px 18px}
   .svc .h{font-size:16px}
@@ -322,7 +340,7 @@ a{color:inherit;text-decoration:none}
 .page{overflow:visible!important;overflow-x:clip!important}
 .nav{position:sticky;top:0;z-index:30;transition:background .35s ease,box-shadow .35s ease}
 .nav.stuck{background:rgba(10,10,10,.86);box-shadow:0 0 0 100vmax rgba(10,10,10,.86);clip-path:inset(0 -100vmax);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.prog{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+.prog{display:none!important;position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
 .hero-in>*{animation:fxUp 1s cubic-bezier(.2,.7,.2,1) both}
 .hero-in>*:nth-child(2){animation-delay:.12s}
 .hero-in>*:nth-child(3){animation-delay:.26s}

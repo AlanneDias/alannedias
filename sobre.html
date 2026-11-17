@@ -83,6 +83,11 @@ a{color:inherit;text-decoration:none}
 .soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,240,236,.25);display:grid;place-items:center;color:var(--fg);transition:background .25s ease,color .25s ease,border-color .25s ease}
 .soc a:hover{background:var(--gold);border-color:var(--gold);color:#0A0A0A}
 .soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* SITE ENXUTO: menos informação em todas as telas */
+.pills .pill[href$="#trabalho"],.pills .pill[href$="#contato"]{display:none}
+.hero .lbl{display:none}
+.txt p:last-of-type{display:none}
+.nums{display:none}
 @media (max-width:760px){
   .foot{flex-direction:column;align-items:flex-start}
   .page{padding:10px 10px 24px}
@@ -215,7 +220,7 @@ a{color:inherit;text-decoration:none}
 .page{overflow:visible!important;overflow-x:clip!important}
 .nav{position:sticky;top:0;z-index:30;transition:background .35s ease,box-shadow .35s ease}
 .nav.stuck{background:rgba(10,10,10,.86);box-shadow:0 0 0 100vmax rgba(10,10,10,.86);clip-path:inset(0 -100vmax);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.prog{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+.prog{display:none!important;position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
 .hero-in>*{animation:fxUp 1s cubic-bezier(.2,.7,.2,1) both}
 .hero-in>*:nth-child(2){animation-delay:.12s}
 .hero-in>*:nth-child(3){animation-delay:.26s}

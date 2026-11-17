@@ -334,7 +334,10 @@ function step(titulo,sub){const s=document.createElement('section'); s.className
 function renderPainel(){
   const c=CATS.find(x=>x.id===atual), s=st[c.id], P=document.getElementById('painel'); P.innerHTML='';
   const F=FOTOS[c.id];
+  // compra primeiro, imagens abaixo
+  renderSteps(c,s,P);
   if(F){
+    const ex=document.createElement('p'); ex.className='eyebrow'; ex.style.marginTop='56px'; ex.textContent='EXEMPLOS'; P.appendChild(ex);
     let alvo=P;
     if(F.capa){
     const fig=document.createElement('figure'); fig.className='capa';
@@ -382,7 +385,6 @@ function renderPainel(){
     });
     (F.gal||[]).filter(gr=>!gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
   }
-  renderSteps(c,s,P);
   if(F) (F.gal||[]).filter(gr=>gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
 }
 function galSec(gr){
