@@ -129,6 +129,11 @@ a{color:inherit;text-decoration:none}
   .cta-card{margin-top:28px}
 }
 
+/* MENU FLUTUANTE (igual à home) */
+.nav{height:72px;padding:0;position:relative;z-index:30}
+.dock{position:fixed;z-index:50;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.dock a{font-size:11px;letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;transition:background .2s ease}
+@media (max-width:760px){.dock{bottom:14px}.dock a{padding:9px 13px;font-size:10.5px}}
 /* ROSA SÓ NO CLIQUE */
 .pill.cta{background:#1B1A19!important;color:var(--fg)!important}
 .pill.cta:hover{background:#2C2B29!important}
@@ -145,12 +150,14 @@ a{color:inherit;text-decoration:none}
   <nav class="nav" aria-label="Menu principal">
     <a href="/" class="logo">ALANNE DIAS</a>
     <div class="pills">
-      <a class="pill" href="/">INÍCIO</a>
-      <a class="pill on" href="#topo">SOBRE MIM</a>
-      <a class="pill" href="/#trabalho">PORTFÓLIO</a>
-      <a class="pill" href="/#contato">CONTATO</a>
       <a class="pill cta" href="/orcamento/">ORÇAMENTO</a>
     </div>
+  </nav>
+
+  <nav class="dock" aria-label="Seções">
+    <a href="/">INÍCIO</a>
+    <a href="/#trabalho">PORTFÓLIO</a>
+    <a href="#topo" class="on">SOBRE</a>
   </nav>
 
   <header class="card hero" id="topo">
@@ -303,7 +310,7 @@ a{color:inherit;text-decoration:none}
   addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
   addEventListener('resize', check);
   // palavras-tópico ficam rosa quando passam pelo meio da tela
-  var pkSel = '.ed-h .h, .sec-h .h, .svc .h, #mapa-alanne h2, .contact .h, .txt .h, .cta-card .h';
+  var pkSel = '.ed-h .h, .sec-h .h, .svc .h, #mapa-alanne h2, .contact .h, .txt .h, .cta-card .h, header.top h1, .tab-title, .step-h h2, .como h2';
   var pks = Array.prototype.slice.call(document.querySelectorAll(pkSel));
   pks.forEach(function(e){ e.classList.add('pk'); });
   function pkCheck(){ var h = innerHeight; pks.forEach(function(e){ var r = e.getBoundingClientRect(); var mid = r.top + r.height/2; e.classList.toggle('pk-on', mid > h*0.32 && mid < h*0.62); }); }

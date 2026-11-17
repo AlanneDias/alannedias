@@ -640,7 +640,7 @@ a{color:inherit;text-decoration:none}
   addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
   addEventListener('resize', check);
   // palavras-tópico ficam rosa quando passam pelo meio da tela
-  var pkSel = '.ed-h .h, .sec-h .h, .svc .h, #mapa-alanne h2, .contact .h, .txt .h, .cta-card .h';
+  var pkSel = '.ed-h .h, .sec-h .h, .svc .h, #mapa-alanne h2, .contact .h, .txt .h, .cta-card .h, header.top h1, .tab-title, .step-h h2, .como h2';
   var pks = Array.prototype.slice.call(document.querySelectorAll(pkSel));
   pks.forEach(function(e){ e.classList.add('pk'); });
   function pkCheck(){ var h = innerHeight; pks.forEach(function(e){ var r = e.getBoundingClientRect(); var mid = r.top + r.height/2; e.classList.toggle('pk-on', mid > h*0.32 && mid < h*0.62); }); }
