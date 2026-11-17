@@ -191,6 +191,61 @@ a{color:inherit;text-decoration:none}
   .contact .row p{display:none}
   .contact{gap:24px}
 }
+/* PRIMEIRA SEÇÃO: título gigante + retrato recortado */
+.h2o{position:relative;height:calc(100vh - 72px);min-height:620px;max-height:940px;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
+.h2t{position:absolute;left:0;right:0;top:7%;margin:0;font-family:'Josefin Sans','Jost',sans-serif;font-weight:200;text-transform:uppercase;line-height:.9;letter-spacing:.01em;font-size:clamp(56px,10.4vw,176px);color:var(--fg)}
+.h2t span{display:block;position:relative}
+.h2t .l1{z-index:1;padding-left:max(28px,6vw)}
+.h2t .l2{z-index:3;text-align:right;padding-right:max(28px,5vw)}
+.h2p{position:absolute;bottom:0;left:22%;height:92%;width:auto;max-width:none;z-index:2;filter:grayscale(1) contrast(1.05);-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+.h2s{position:absolute;z-index:3;right:max(28px,5vw);top:calc(7% + clamp(56px,10.4vw,176px)*1.85);margin:0;max-width:30ch;text-align:right;color:var(--soft);font-size:17px}
+.h2d{position:absolute;z-index:3;left:max(28px,3vw);bottom:30px;display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.h2d i{font-style:normal;width:28px;height:28px;border-radius:50%;background:#1B1A19;display:grid;place-items:center}
+.h2soc{position:absolute;z-index:3;right:max(28px,3vw);bottom:30px;display:flex;gap:14px}
+.h2soc a{color:var(--fg);opacity:.75;transition:opacity .2s ease}.h2soc a:hover{opacity:1}
+.h2soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.dock{position:fixed;z-index:50;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.dock a{font-size:11px;letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;transition:background .2s ease}
+.dock a.on,.dock a:hover{background:var(--gold)}
+@media (max-width:760px){
+  .h2o{height:auto;min-height:0;max-height:none;width:auto;margin:0 -8px;display:flex;flex-direction:column;padding-top:28px}
+  .h2t{position:relative;top:auto;font-size:15.5vw}
+  .h2t .l1{padding-left:14px}.h2t .l2{padding-right:14px;margin-top:-.02em}
+  .h2p{position:relative;left:auto;height:auto;width:92%;margin:-14vw auto 0;z-index:2}
+  .h2s{position:relative;right:auto;top:auto;order:-0;margin:18px 14px 0;text-align:left;font-size:15.5px;align-self:flex-start;order:1}
+  .h2t{order:0}.h2p{order:2}
+  .h2d,.h2soc{display:none}
+  .dock{bottom:14px}.dock a{padding:9px 13px;font-size:10.5px}
+}
+/* PRIMEIRA SEÇÃO EM FUNDO CLARO (creme da marca) */
+.page{padding-top:0}
+.frame{padding-top:0}
+.nav{height:72px;padding:0}
+.nav:not(.stuck) .logo{color:#0A0A0A}
+.h2o{background:#A4A4A4;margin-top:-72px;height:100vh;min-height:660px;max-height:none}
+.h2t{color:#0A0A0A;top:calc(72px + 5%)}
+.h2s{color:#2C2B29;top:calc(72px + 5% + clamp(56px,10.4vw,176px)*1.85)}
+.h2p{left:0;height:96%;filter:none;-webkit-mask-image:linear-gradient(to right,#000 88%,transparent 100%);mask-image:linear-gradient(to right,#000 88%,transparent 100%)}
+.h2t{font-size:clamp(52px,8.6vw,150px)}
+.h2t .l1{z-index:3;padding-left:31vw}
+.h2d{display:none}
+.h2s{top:calc(72px + 5% + clamp(52px,8.6vw,150px)*1.85)}
+@media (max-width:760px){
+  .h2t{font-size:15.5vw}
+  .h2t .l1{padding-left:14px}
+  .h2p{width:88%;margin:6vw 0 0 0;align-self:flex-start;height:auto}
+  .h2o{width:100vw;margin-left:calc(50% - 50vw);margin-right:0}
+}
+.h2s{color:#1B1A19}
+.h2d{color:#1B1A19}.h2d i{background:#0A0A0A;color:var(--fg)}
+.h2soc a{color:#0A0A0A}
+@media (max-width:760px){
+  .page{padding-top:0}
+  .nav{height:64px;flex-wrap:nowrap}
+  .h2o{margin-top:-64px;padding-top:84px;height:auto;min-height:0}
+  .h2t{top:auto}.h2s{top:auto}
+  .h2p{height:auto}
+}
 /* EDITORIAL: mesmas fontes e cores, diagramação de revista */
 .card{border-radius:0}
 .frame{gap:0}
@@ -251,23 +306,26 @@ a{color:inherit;text-decoration:none}
   <nav class="nav" aria-label="Menu principal">
     <a href="#inicio" class="logo">ALANNE DIAS</a>
     <div class="pills">
-      <a class="pill" href="sobre.html">SOBRE MIM</a>
-      <a class="pill" href="#servicos">SERVIÇOS</a>
-      <a class="pill" href="#trabalho">PORTFÓLIO</a>
-      <a class="pill" href="#na-pele">NA PELE</a>
-      <a class="pill" href="#contato">CONTATO</a>
       <a class="pill cta" href="orcamento.html">ORÇAMENTO</a>
     </div>
   </nav>
 
-  <header class="card hero">
-    <img class="ph" src="img/37e39ad1b89cae7247f61828b890d081.jpg" alt="Retrato de Alanne Dias em preto e branco, com a mão apoiando o queixo">
-    <div class="hero-in">
-      <p class="lbl">MINIMAL DESIGN, AUTHORIAL PROCESS.</p>
-      <h1>Brand &amp;<span>web designer</span></h1>
-      <p class="sub">Crio marcas e sites com a precisão de quem desenha à mão. Do primeiro traço à tela.</p>
-    </div>
-    <a class="lk down" href="#servicos"><i>↓</i>VER SERVIÇOS</a>
+  <nav class="dock" aria-label="Seções">
+    <a href="#inicio" class="on">INÍCIO</a>
+    <a href="#trabalho">PORTFÓLIO</a>
+    <a href="sobre.html">SOBRE</a>
+  </nav>
+
+  <header class="h2o">
+    <h1 class="h2t"><span class="l1">Brand &amp; Web</span><span class="l2">Designer</span></h1>
+    <img class="h2p" src="img/37e39ad1b89cae7247f61828b890d081.jpg" alt="Retrato de Alanne Dias em preto e branco, com a mão apoiando o queixo">
+    <a class="h2d" href="#servicos"><i>↓</i>Role</a>
+    <nav class="h2soc" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/alannedias.designer/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+      <a href="https://www.tiktok.com/@alannedias.designer" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.6 2.6 2.4 4.2 5 4.4"/></svg></a>
+      <a href="https://www.behance.net/deddb470" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M3.5 7h4.2a2.4 2.4 0 0 1 0 4.8H3.5zM3.5 11.8h4.8a2.6 2.6 0 0 1 0 5.2H3.5zM3.5 7v10"/><path d="M14 13.6h6.5a3.25 3.25 0 1 0-1 2.4"/><path d="M15 7.6h4"/></svg></a>
+      <a href="https://wa.me/5583998361156" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.2-3.7A8.2 8.2 0 1 1 8 19z"/><path d="M9.2 8.6c.2 2.6 2.4 5 5.2 5.4l1-1.2-1.6-.9-.8.6a4.6 4.6 0 0 1-2.1-2.1l.6-.8-.9-1.6z"/></svg></a>
+    </nav>
   </header>
 
   <div class="ed-h"><h2 class="h">Serviços</h2></div>
