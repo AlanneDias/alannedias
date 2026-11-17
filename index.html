@@ -450,7 +450,7 @@ a{color:inherit;text-decoration:none}
   #mapa-alanne .pin{fill:#F2F0EC;opacity:1;r:3.4px;animation:mpPop .45s ease backwards;pointer-events:none}
   @keyframes mpPop{0%{opacity:0;r:0}60%{opacity:1;r:5px}100%{opacity:1;r:3.4px}}
   #mapa-alanne .pin-pulse{fill:none;stroke:#F2F0EC;stroke-width:1;opacity:0;animation:mpPulse 2.6s ease-out infinite;pointer-events:none}
-  @keyframes mpPulse{0%{r:3.4px;opacity:.6}100%{r:16px;opacity:0}}
+  @keyframes mpPopM{0%{opacity:0;r:0}60%{opacity:1;r:10px}100%{opacity:1;r:6px}}@keyframes mpPulseM{0%{r:6px;opacity:.7}100%{r:26px;opacity:0}}@keyframes mpPulse{0%{r:3.4px;opacity:.6}100%{r:16px;opacity:0}}
   #mapa-alanne .tip{position:absolute;pointer-events:none;background:#F2F0EC;color:#0A0A0A;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;transform:translate(-50%,-140%);opacity:0;transition:opacity .15s ease;white-space:nowrap}
   #mapa-alanne .tip.on{opacity:1}
   #mapa-alanne .chips{max-width:1360px;margin:0 auto;padding:18px max(28px,4vw) 0;display:flex;flex-wrap:wrap;gap:8px}
@@ -468,9 +468,10 @@ a{color:inherit;text-decoration:none}
     #mapa-alanne .stats-row{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px}
     #mapa-alanne .stat-card{padding:28px 16px;border-bottom:1px solid #2C2B29}
     #mapa-alanne .stat-card:nth-child(2n){border-right:0}
-    #mapa-alanne .pin{r:9px;animation:none}
-    #mapa-alanne .pin-pulse{display:none}
+    #mapa-alanne .pin{r:6px;animation:mpPopM .5s ease backwards}
+    #mapa-alanne .pin-pulse{animation:mpPulseM 2.6s ease-out infinite}
   }
+  @media (prefers-reduced-motion: reduce){#mapa-alanne .pin{animation:none!important}#mapa-alanne .pin-pulse{display:none}}
   </style>
 
   <section id="mapa-alanne" aria-label="Países atendidos">
