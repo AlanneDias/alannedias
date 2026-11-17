@@ -60,8 +60,10 @@ header.top{display:flex;flex-direction:column;gap:18px;padding-bottom:40px;borde
 .opt:hover{background:#232220}
 .opt input{position:absolute;opacity:0;pointer-events:none}
 .opt::after{content:"";position:absolute;top:18px;right:18px;width:14px;height:14px;border-radius:50%;background:#2C2B29;transition:background .25s ease}
-.opt:has(input:checked){background:#3A3836}
-.opt:has(input:checked)::after{background:#121110}
+.opt:has(input:checked){background:#F2F0EC;color:#0A0A0A}
+.opt:has(input:checked) .d,.opt:has(input:checked) .p{color:#4A4845}
+.opt:has(input:checked) .tag{background:#E4E1DB;color:#0A0A0A}
+.opt:has(input:checked)::after{background:#FF2D95}
 .opt:has(input:focus-visible){outline:2px solid var(--fg);outline-offset:2px}
 .opt:has(input:disabled){opacity:.38;cursor:not-allowed}
 .opt .n{font-family:'Josefin Sans','Jost',sans-serif;font-size:18px;letter-spacing:.04em}
