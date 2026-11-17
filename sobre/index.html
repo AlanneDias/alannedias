@@ -281,11 +281,15 @@ a{color:inherit;text-decoration:none}
   var nav = document.querySelector('.nav');
   var bar = document.createElement('div'); bar.className = 'prog'; document.body.appendChild(bar);
   var heroImg = document.querySelector('.hero .ph');
+  var h2p = document.querySelector('.h2p');
+  if (h2p) { h2p.style.transformOrigin = 'left bottom'; h2p.style.willChange = 'transform'; }
   function onScroll(){
     var y = window.scrollY || 0, max = document.documentElement.scrollHeight - innerHeight;
     if (nav) nav.classList.toggle('stuck', y > 40);
     bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
     if (heroImg && !rm && innerWidth > 760) heroImg.style.transform = 'translateY(' + Math.min(y, 700) * 0.12 + 'px)';
+    // foto da primeira seção: zoom leve conforme a página desce
+    if (h2p && !rm) { var hh = h2p.parentNode.offsetHeight || innerHeight; h2p.style.transform = 'scale(' + (1 + Math.min(Math.max(y,0), hh) / hh * 0.14).toFixed(4) + ')'; }
   }
   // entrada suave dos blocos
   var sel = '.svc,.nums,.duo>*,.sec-h,.bento>*,.pele>.card,.cta-card,.contact,.tl,.txt,.foot';
