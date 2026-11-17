@@ -86,6 +86,8 @@ a{color:inherit;text-decoration:none}
 .card{border-radius:0}
 .hero h1{font-size:clamp(48px,7.4vw,124px);letter-spacing:.06em}
 .duo{gap:0;margin-top:40px}
+#topo.duo{margin-top:120px}
+@media (max-width:760px){#topo.duo{margin-top:56px}}
 .txt{background:none;padding:0 56px 0 0;justify-content:center;gap:28px}
 .txt .h{font-size:clamp(34px,4.4vw,64px);font-weight:200;line-height:1.02}
 .txt .lbl{color:var(--gold)}
@@ -99,7 +101,7 @@ a{color:inherit;text-decoration:none}
 /* SITE ENXUTO: menos informação em todas as telas */
 .pills .pill[href$="#trabalho"],.pills .pill[href$="#contato"]{display:none}
 .hero .lbl{display:none}
-.txt p:last-of-type{display:none}
+
 .nums{display:none}
 @media (max-width:760px){
   .foot{flex-direction:column;align-items:flex-start}
@@ -122,7 +124,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width:760px){
   .pills .pill:not(.cta){display:none}
   .hero .lbl{display:none}
-  .txt p:last-of-type{display:none}
+  
   .txt{gap:16px}
   .nums{display:none}
   .cta-card{margin-top:28px}
@@ -166,20 +168,11 @@ a{color:inherit;text-decoration:none}
     <a href="#topo" class="on">SOBRE</a>
   </nav>
 
-  <header class="card hero" id="topo">
-    <div class="hero-in">
-      <p class="lbl">Sobre mim</p>
-      <h1>Criativa<br>e curiosa.</h1>
-      <p class="sub">Tudo o que eu faço hoje carrega um pouco de tudo o que vivi antes. A moda, a sala de aula, o marketing, a tecnologia, os símbolos. Nada ficou para trás: tudo virou repertório.</p>
-    </div>
-  </header>
-
-  <section class="duo">
+  <section class="duo" id="topo">
     <div class="card txt">
-      <p class="lbl">Quem sou</p>
-      <h2 class="h">Eu nunca coube em uma única forma de criar.</h2>
-      <p>Sou Alanne Dias, brand &amp; web designer. A curiosidade me levou da moda para a sala de aula, do marketing para a tecnologia, e de cada lugar eu trouxe um jeito novo de olhar.</p>
-      <p>Hoje junto tudo isso para desenhar marcas, sites e símbolos com significado. Começo sempre à mão, porque é no papel que as ideias ganham alma, e termino na tela, onde elas ganham vida.</p>
+      <p class="lbl">Sobre mim</p>
+      <h1 class="h">Eu nunca coube em uma única forma de criar.</h1>
+      <p>Sou Alanne Dias, brand &amp; web designer. A curiosidade me levou da moda para a sala de aula, do marketing para a tecnologia, e nada ficou para trás: tudo virou repertório. Hoje junto tudo isso para desenhar marcas, sites e símbolos com significado, começando sempre à mão e terminando na tela.</p>
     </div>
     <div class="card img"><img class="ph" src="/img/4cc144e057d482af8ca926f5add6ba1e.jpg" alt="Alanne trabalhando no computador, sorrindo, com uma caneca na mão" style="object-position:50% 30%"></div>
   </section>
