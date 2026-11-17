@@ -437,7 +437,7 @@ a{color:inherit;text-decoration:none}
   #mapa-alanne svg{width:100%;height:auto;display:block}
   #mapa-alanne .land{fill:#1B1A19;stroke:#0A0A0A;stroke-width:.6}
   #mapa-alanne .land.on{fill:#3A3836;cursor:pointer;transition:fill .25s ease}
-  #mapa-alanne .land.on:hover,#mapa-alanne .land.on.hl{fill:#FF2D95}
+  @media (hover:hover){#mapa-alanne .land.on:hover{fill:#FF2D95}}#mapa-alanne .land.on.hl{fill:#FF2D95}
   #mapa-alanne .pin{fill:#FF2D95;opacity:1;r:3.4px;animation:mpPop .45s ease backwards;pointer-events:none}
   @keyframes mpPop{0%{opacity:0;r:0}60%{opacity:1;r:5px}100%{opacity:1;r:3.4px}}
   #mapa-alanne .pin-pulse{fill:none;stroke:#FF2D95;stroke-width:1;opacity:0;animation:mpPulse 2.6s ease-out infinite;pointer-events:none}
@@ -515,7 +515,7 @@ a{color:inherit;text-decoration:none}
     const paths=g.selectAll('path').data(feats).join('path').attr('d',path).attr('class',f=>'land'+(served.has(f.id)?' on':''));
     function show(f, ev){ const r=wrap.getBoundingClientRect(); const pt=ev.touches?ev.touches[0]:ev; tip.textContent=nome(f); tip.style.left=(pt.clientX-r.left)+'px'; tip.style.top=(pt.clientY-r.top)+'px'; tip.classList.add('on'); }
     
-    paths.filter(f=>served.has(f.id)).on('mousemove',(ev,f)=>show(f,ev)).on('mouseleave',()=>tip.classList.remove('on')).on('click',(ev,f)=>show(f,ev));
+    paths.filter(f=>served.has(f.id)).on('mousemove',(ev,f)=>show(f,ev)).on('mouseleave',()=>tip.classList.remove('on')).on('click',function(ev,f){ paths.classed('hl',false); d3.select(this).classed('hl',true); show(f,ev); clearTimeout(window.__mpT); window.__mpT=setTimeout(()=>{ paths.classed('hl',false); tip.classList.remove('on'); },1800); });
     // lista de países (chips)
     const chips=null; if(false)
     feats.filter(f=>served.has(f.id)).map(f=>({f,n:nome(f)})).sort((a,b)=>a.n.localeCompare(b.n,'pt')).forEach(({f,n})=>{
