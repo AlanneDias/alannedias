@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <link rel="icon" href="/favicon.svg?v=pink-round" type="image/svg+xml"><link rel="icon" href="/favicon-32.png?v=pink-round" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round"><meta name="theme-color" content="#0A0A0A">
 <style>html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}</style>
-<meta name="description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor na hora. Envie pelo WhatsApp."><link rel="canonical" href="https://alannedias.com/orcamento/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="Monte seu orçamento · Alanne Dias Designer"><meta property="og:description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor na hora. Envie pelo WhatsApp."><meta property="og:url" content="https://alannedias.com/orcamento/"><meta property="og:image" content="https://alannedias.com/icon-512.png"><meta property="og:locale" content="pt_BR"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor. Envie pelo WhatsApp."><link rel="canonical" href="https://alannedias.com/orcamento/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="Monte seu orçamento · Alanne Dias Designer"><meta property="og:description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor. Envie pelo WhatsApp."><meta property="og:url" content="https://alannedias.com/orcamento/"><meta property="og:image" content="https://alannedias.com/icon-512.png"><meta property="og:locale" content="pt_BR"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
 </head>
 <body>
 <title>Monte seu orçamento · Alanne Dias Designer</title>
@@ -197,7 +197,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
-    <p class="lead">Escolha o que você precisa e veja o valor na hora. Pode combinar: marca, site e casamento entram no mesmo orçamento.</p>
+    <p class="lead">Escolha o que você precisa e veja o valor. Pode combinar: marca, site e casamento entram no mesmo orçamento.</p>
   </header>
 
   <div class="tabs" role="tablist" id="tabs"></div>
@@ -472,7 +472,7 @@ function renderSteps(c,s,P){
   P.appendChild(s1);
 
   const b=c.base.find(x=>x.id===s.base);
-  if(c.plano){ const sp=step(n+++'. Forma de pagamento', b?'Escolha uma opção':'Escolha primeiro o tipo de site'); const gp=document.createElement('div'); gp.className='opts'; gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg!=='ano',!b,'Criação + mensalidade','Você paga a criação do site e depois a mensalidade, todo mês.',b?brl(b.p)+' + '+brl(b.mes)+'/MÊS':'',null,()=>{s.pg='mes'; render();})); gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg==='ano',!b,'Criação + assinatura anual','Você paga a criação do site e um ano de hospedagem e manutenção de uma vez.',b?brl(b.p)+' + '+brl(b.ano)+'/ANO':'',null,()=>{s.pg='ano'; render();})); sp.appendChild(gp); P.appendChild(sp); } if(c.itens && b && b.inclui){
+  if(c.plano){ const sp=step(n+++'. Forma de pagamento', b?'Escolha uma opção':'Escolha primeiro o tipo de site'); const gp=document.createElement('div'); gp.className='opts'; gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg!=='ano',!b,'Criação + mensalidade','Você paga a criação do site e depois a mensalidade, todo mês.',b?brl(b.p)+' + '+brl(b.mes)+'/MÊS':'',null,()=>{s.pg='mes'; render();})); gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg==='ano',!b,'Criação + assinatura anual','Você paga a criação do site e um ano de hospedagem e manutenção de uma vez.'+(b&&b.mes*12>b.ano?' Com a assinatura anual você economiza '+brl(b.mes*12-b.ano)+'.':''),b?brl(b.p)+' + '+brl(b.ano)+'/ANO':'',null,()=>{s.pg='ano'; render();})); sp.appendChild(gp); P.appendChild(sp); } if(c.itens && b && b.inclui){
     const ativo = b && b.inclui;
     const usados=s.itens.length;
     const sub = !ativo ? 'Disponível na identidade visual' : (usados<b.inclui ? 'O pacote tem 4 aplicações. Escolha mais '+(b.inclui-usados) : '4 escolhidas · cada aplicação a mais '+brl(c.extraP));
