@@ -156,7 +156,7 @@ a{color:inherit;text-decoration:none}
 <div class="frame">
 
   <nav class="nav" aria-label="Menu principal">
-    <a href="/" class="logo">ALANNE DIAS</a>
+    <div class="mnav"><a href="/">INÍCIO</a><a href="/#trabalho">PORTFÓLIO</a><a href="#topo" class="on">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a></div>
     <div class="pills">
       <a class="pill cta" href="/orcamento/">ORÇAMENTO</a>
     </div>
@@ -407,5 +407,5 @@ p:not([class]),.svc p,.info p,.cols,.pele .cap span,.tl-item span,.moments .cap 
   var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
 })();
 </script>
-</body>
+<style>nav.dock,.nav .pills,.topnav .home{display:none!important}.mnav{display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg)}.mnav a{letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:var(--fs-label,11px);font-weight:400}.mnav a.on,.mnav a:hover,.mnav a:active{background:var(--pink)}@media (max-width:760px){.mnav a{padding:9px 10px;letter-spacing:.1em}}</style></body>
 </html>
