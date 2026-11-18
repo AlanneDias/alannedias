@@ -264,7 +264,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       </div>
       <div data-g="site">
       <p class="eyebrow faq-g">SITES</p>
-      <details><summary>Domínio e hospedagem estão incluídos?</summary><p>Sim, no plano mensal de R$ 97. Ele cobre a hospedagem e o domínio (ex.: suaempresa.com.br), e eu cuido de tudo para o seu site ficar no ar 24 horas.</p></details> <details><summary>O que o plano mensal de R$ 97 inclui?</summary><p>Hospedagem e domínio, alterações sem limite pelo WhatsApp (produto novo, produto esgotado, preço que mudou, coleção nova), site preparado para o Google e pronto para anúncios pagos. Não é um site entregue e pronto: é alguém cuidando dele todo mês.</p></details>
+      <details><summary>Domínio e hospedagem estão incluídos?</summary><p>Sim, no plano de hospedagem: site institucional R$ 60/mês ou R$ 800/ano; site loja R$ 97/mês ou R$ 970/ano. Ele cobre a hospedagem e o domínio (ex.: suaempresa.com.br), e eu cuido de tudo para o seu site ficar no ar 24 horas.</p></details> <details><summary>O que o plano inclui?</summary><p>Hospedagem e domínio, alterações sem limite pelo WhatsApp (produto novo, produto esgotado, preço que mudou, coleção nova), site preparado para o Google e pronto para anúncios pagos. Não é um site entregue e pronto: é alguém cuidando dele todo mês.</p></details>
       <details><summary>Quem escreve os textos e manda as fotos?</summary><p>Você me manda as informações e as fotos; eu organizo e ajusto os textos para ficarem claros e bonitos no site.</p></details>
       <details><summary>Depois de pronto, eu consigo mexer?</summary><p>Não precisa. É só me mandar no WhatsApp o que quer mudar (textos, fotos, produtos ou preços) que eu atualizo para você, sem limite e sem custo por alteração.</p></details>
       </div>
@@ -320,12 +320,12 @@ const CATS = [
    urgencia:false},
   {id:'site', nome:'SITE', titulo:'Site',
    base:[
-     {id:'inst', n:'Site institucional', d:'O site da sua empresa: apresentação, serviços, fotos, depoimentos e botão do WhatsApp. Ideal para escritórios de advocacia, consultórios e empresas que trabalham com orçamento.', p:500, inclui:0},
-     {id:'loja', n:'Site loja', d:'Facilidade e controle de estoque. Venda direto no site, ou o pedido chega no seu WhatsApp com todas as informações necessárias, personalizado para facilitar o processo de compra. Ideal para lojas pequenas, moda circular, peças atemporais e quem trabalha com produto personalizado.', p:500, inclui:0}],
+     {id:'inst', n:'Site institucional', d:'O site da sua empresa: apresentação, serviços, fotos, depoimentos e botão do WhatsApp. Ideal para escritórios de advocacia, consultórios e empresas que trabalham com orçamento.', p:370, mes:60, ano:800, inclui:0},
+     {id:'loja', n:'Site loja', d:'Facilidade e controle de estoque. Venda direto no site, ou o pedido chega no seu WhatsApp com todas as informações necessárias, personalizado para facilitar o processo de compra. Ideal para lojas pequenas, moda circular, peças atemporais e quem trabalha com produto personalizado.', p:500, mes:97, ano:970, inclui:0}],
      
      
    itens:null, extras:[], urgencia:false,
-   plano:{n:'Plano mensal: hospedagem + manutenção', lab:'R$ 97/mês', t:'Plano mensal · R$ 97/mês', dif:'O diferencial: um site interativo, com animação e personalizado para o seu negócio, feito para ajudar de fato no processo de compra e na oferta dos seus serviços. O cliente escolhe, monta o pedido ou o orçamento e já chega no seu WhatsApp pronto para fechar.', sub:'Não é um site entregue e pronto: é alguém cuidando dele todo mês.', it:[['Site no ar 24 horas','Todo site tem um custo mensal para ficar hospedado na internet. Esse custo e o domínio já estão inclusos, você não precisa se preocupar.'], ['Alterações sem limite','Peça nova, peça que esgotou, preço que mudou: manda no meu WhatsApp que eu atualizo. Sem limite e sem custo por alteração. Coleção nova, eu monto a seção.'], ['Feito para ser achado no Google','Preparado para aparecer para quem procura os seus produtos e serviços.'], ['Pronto para tráfego pago','Abre rápido no celular e leva a pessoa direto para o seu WhatsApp, que é o que faz o anúncio dar retorno.'], ['Ajustes quando quiser','Você pode pedir qualquer ajuste no site também.']]}}
+   plano:{n:'Plano de hospedagem + manutenção', t:'Plano mensal ou anual', precos:'Site institucional: R$ 60/mês ou R$ 800/ano · Site loja: R$ 97/mês ou R$ 970/ano', dif:'O diferencial: um site interativo, com animação e personalizado para o seu negócio, feito para ajudar de fato no processo de compra e na oferta dos seus serviços. O cliente escolhe, monta o pedido ou o orçamento e já chega no seu WhatsApp pronto para fechar.', sub:'Não é um site entregue e pronto: é alguém cuidando dele todo mês.', it:[['Site no ar 24 horas','Todo site tem um custo mensal para ficar hospedado na internet. Esse custo e o domínio já estão inclusos, você não precisa se preocupar.'], ['Alterações sem limite','Peça nova, peça que esgotou, preço que mudou: manda no meu WhatsApp que eu atualizo. Sem limite e sem custo por alteração. Coleção nova, eu monto a seção.'], ['Feito para ser achado no Google','Preparado para aparecer para quem procura os seus produtos e serviços.'], ['Pronto para tráfego pago','Abre rápido no celular e leva a pessoa direto para o seu WhatsApp, que é o que faz o anúncio dar retorno.'], ['Ajustes quando quiser','Você pode pedir qualquer ajuste no site também.']]}}
 ];
 
 const FOTOS = {
@@ -360,7 +360,7 @@ function custo(c){
   }
   s.extras.forEach(id=>{const e=c.extras.find(x=>x.id===id); L.push([e.n,e.p]); t+=e.p;});
   if(c.urgencia && s.urg){ const u=Math.round(t*0.3); L.push(['Urgência (menos de 45 dias) +30%',u]); t+=u; }
-  if(c.plano) L.push([c.plano.n,0,c.plano.lab]); return {linhas:L,total:t};
+  if(c.plano && b.mes) L.push([c.plano.n,0,brl(b.mes)+'/mês ou '+brl(b.ano)+'/ano']); return {linhas:L,total:t};
 }
 
 function renderTabs(){
@@ -467,7 +467,7 @@ function renderSteps(c,s,P){
   let n=1;
   const s1=step(n+++'. Escolha o '+(c.id==='site'?'tipo de site':'pacote'), c.base.length>1?'Escolha uma opção':'');
   const g1=document.createElement('div'); g1.className='opts';
-  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,'A PARTIR DE '+brl(b.p),b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
+  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,'A PARTIR DE '+brl(b.p)+(b.mes?' + '+brl(b.mes)+'/MÊS':''),b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
   if(s.base){const lim=document.createElement('button'); lim.type='button'; lim.className='btn ghost lim'; lim.textContent='LIMPAR ESCOLHA'; lim.onclick=()=>{st[c.id]={base:null,itens:[],extras:[],urg:false}; render();}; s1.appendChild(g1); s1.appendChild(lim);} else s1.appendChild(g1);
   P.appendChild(s1);
 
@@ -493,7 +493,7 @@ function renderSteps(c,s,P){
     if(c.urgencia){const t=document.createElement('label'); t.className='toggle'; t.innerHTML='<input type="checkbox"> Preciso com urgência (menos de 45 dias) · +30%'; const i=t.querySelector('input'); i.checked=s.urg; i.disabled=!s.base; i.onchange=()=>{s.urg=i.checked; render();}; s3.appendChild(t);}
     P.appendChild(s3);
   }
-  if(c.plano){ const box=document.createElement('section'); box.className='plano'; const df=document.createElement('p'); df.className='plano-d'; df.textContent=c.plano.dif; const h=document.createElement('p'); h.className='plano-t'; h.textContent=c.plano.t; const sb=document.createElement('p'); sb.className='plano-s'; sb.textContent=c.plano.sub; const ul=document.createElement('ul'); c.plano.it.forEach(([t,d])=>{const li=document.createElement('li'); const b=document.createElement('b'); b.textContent=t; const sp=document.createElement('span'); sp.textContent=d; li.append(b,sp); ul.appendChild(li);}); box.append(df,h,sb,ul); P.appendChild(box); } if(c.obs){const p=document.createElement('p'); p.className='note'; p.textContent=c.obs; P.appendChild(p);}
+  if(c.plano){ const box=document.createElement('section'); box.className='plano'; const df=document.createElement('p'); df.className='plano-d'; df.textContent=c.plano.dif; const h=document.createElement('p'); h.className='plano-t'; h.textContent=c.plano.t; const sb=document.createElement('p'); sb.className='plano-s'; sb.textContent=c.plano.sub; const ul=document.createElement('ul'); c.plano.it.forEach(([t,d])=>{const li=document.createElement('li'); const b=document.createElement('b'); b.textContent=t; const sp=document.createElement('span'); sp.textContent=d; li.append(b,sp); ul.appendChild(li);}); const pr=document.createElement('p'); pr.className='plano-p'; pr.style.margin='0'; pr.style.fontSize='17px'; pr.textContent=c.plano.precos; box.append(df,h,pr,sb,ul); P.appendChild(box); } if(c.obs){const p=document.createElement('p'); p.className='note'; p.textContent=c.obs; P.appendChild(p);}
 }
 
 function resumoTexto(){
