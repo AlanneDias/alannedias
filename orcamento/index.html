@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<link rel="icon" href="/favicon.svg?v=pink-round" type="image/svg+xml"><link rel="icon" href="/favicon-32.png?v=pink-round" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round"><meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round"><meta name="theme-color" content="#0A0A0A">
 <style>html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}</style>
 <meta name="description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor. Envie pelo WhatsApp."><link rel="canonical" href="https://alannedias.com/orcamento/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="Monte seu orçamento · Alanne Dias Designer"><meta property="og:description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor. Envie pelo WhatsApp."><meta property="og:url" content="https://alannedias.com/orcamento/"><meta property="og:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:image:alt" content="Alanne Dias, designer"><meta name="twitter:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:locale" content="pt_BR"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
 <style>.dest,.video,.show{border:0!important} .tab .dot{display:none!important}</style></head>
@@ -212,7 +212,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         <span class="big" id="total">R$ 0</span>
         <span class="pix" id="pix"></span>
       </div>
-      <a class="btn" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP ↗︎</a>
+      <a class="btn" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP</a>
       <button class="btn ghost" id="copiar" type="button">COPIAR RESUMO</button>
       <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
     </aside>
@@ -407,7 +407,7 @@ function renderPainel(){
       const e=document.createElement('p'); e.className='eyebrow'; e.textContent=V.cat;
       const h=document.createElement('h3'); h.textContent=V.t;
       const p=document.createElement('p'); p.className='pd'; p.textContent=V.d;
-      const b=document.createElement('span'); b.className='btn ghost'; b.textContent='ASSISTIR NO INSTAGRAM ↗︎';
+      const b=document.createElement('span'); b.className='btn ghost'; b.textContent='ASSISTIR NO INSTAGRAM';
       tx.append(e,h,p,b); a.append(i,tx); P.appendChild(a);
     }
     if(F.show){
@@ -419,12 +419,12 @@ function renderPainel(){
       const e=document.createElement('p'); e.className='eyebrow'; e.textContent=S.cat;
       const h=document.createElement('h3'); h.textContent=S.t;
       const p=document.createElement('p'); p.className='pd'; p.textContent=S.d;
-      const a=document.createElement('a'); a.className='btn ghost'; a.href=S.link; a.target='_blank'; a.rel='noopener'; a.textContent='VER NOS DESTAQUES DO INSTAGRAM ↗︎';
+      const a=document.createElement('a'); a.className='btn ghost'; a.href=S.link; a.target='_blank'; a.rel='noopener'; a.textContent='VER NOS DESTAQUES DO INSTAGRAM';
       tx.append(e,h,p,a); sec.append(st,tx); P.appendChild(sec);
       clearInterval(window.__showT);
       if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ let n=0; window.__showT=setInterval(()=>{ const ims=st.querySelectorAll('img'), ds=st.querySelectorAll('.show-dots span'); if(!st.isConnected){clearInterval(window.__showT);return;} ims[n].className=''; ds[n].className=''; n=(n+1)%ims.length; ims[n].className='on'; ds[n].className='on'; }, 2600); }
     }
-    if(F.sites){ const g=document.createElement('div'); g.className='sites-ex'; const ro=new ResizeObserver(es=>es.forEach(e=>{e.target.firstChild.style.transform='scale('+(e.contentRect.width/390)+')';})); F.sites.forEach(S=>{ const a=document.createElement('a'); a.className='site-ex'; a.href=S.url; a.target='_blank'; a.rel='noopener'; const fr=document.createElement('div'); fr.className='site-fr'; const f=document.createElement('iframe'); f.src=S.url; f.loading='lazy'; f.title='Prévia do site '+S.t; f.tabIndex=-1; f.setAttribute('aria-hidden','true'); f.setAttribute('scrolling','no'); fr.appendChild(f); const c=document.createElement('p'); c.className='eyebrow'; c.textContent=S.cat; const h=document.createElement('h3'); h.textContent=S.t; const l=document.createElement('span'); l.className='site-lk'; l.textContent=S.dom+' ↗'; a.append(fr,c,h,l); g.appendChild(a); ro.observe(fr); }); P.appendChild(g); } if(F.dests){const hd=document.createElement('p'); hd.className='eyebrow'; hd.style.marginTop=F.capa?'40px':'28px'; hd.textContent='PROJETOS EM DESTAQUE'; P.appendChild(hd);}
+    if(F.sites){ const g=document.createElement('div'); g.className='sites-ex'; const ro=new ResizeObserver(es=>es.forEach(e=>{e.target.firstChild.style.transform='scale('+(e.contentRect.width/390)+')';})); F.sites.forEach(S=>{ const a=document.createElement('a'); a.className='site-ex'; a.href=S.url; a.target='_blank'; a.rel='noopener'; const fr=document.createElement('div'); fr.className='site-fr'; const f=document.createElement('iframe'); f.src=S.url; f.loading='lazy'; f.title='Prévia do site '+S.t; f.tabIndex=-1; f.setAttribute('aria-hidden','true'); f.setAttribute('scrolling','no'); fr.appendChild(f); const c=document.createElement('p'); c.className='eyebrow'; c.textContent=S.cat; const h=document.createElement('h3'); h.textContent=S.t; const l=document.createElement('span'); l.className='site-lk'; l.textContent=S.dom; a.append(fr,c,h,l); g.appendChild(a); ro.observe(fr); }); P.appendChild(g); } if(F.dests){const hd=document.createElement('p'); hd.className='eyebrow'; hd.style.marginTop=F.capa?'40px':'28px'; hd.textContent='PROJETOS EM DESTAQUE'; P.appendChild(hd);}
     (F.dests||[]).forEach(D=>{
       const sec=document.createElement('section'); sec.className='dest';
       const g=document.createElement('div'); g.className='dest-img';
@@ -433,7 +433,7 @@ function renderPainel(){
       const e=document.createElement('p'); e.className='eyebrow'; e.textContent=D.cat;
       const h=document.createElement('h3'); h.textContent=D.t;
       const p=document.createElement('p'); p.className='pd'; p.textContent=D.d;
-      const a=document.createElement('a'); a.className='btn ghost'; a.href=D.link; a.target='_blank'; a.rel='noopener'; a.textContent='VER PROJETO COMPLETO NO BEHANCE ↗︎';
+      const a=document.createElement('a'); a.className='btn ghost'; a.href=D.link; a.target='_blank'; a.rel='noopener'; a.textContent='VER PROJETO COMPLETO NO BEHANCE';
       tx.append(e,h,p,a); sec.append(g,tx); P.appendChild(sec);
     });
     if(!F.slides) (F.gal||[]).filter(gr=>!gr.fim).forEach(gr=>P.appendChild(galSec(gr)));
