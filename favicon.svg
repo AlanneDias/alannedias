@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-520 -410 2700 2700">
-<circle cx="830" cy="940" r="1350" fill="#FF2D95"/>
-<g fill="none" stroke="#000000" stroke-width="78" stroke-linecap="round" stroke-linejoin="round">
-<path d="M10 1880 L731 12 L731 1240"/>
-<path d="M393 876 H828 V15"/>
-<path d="M828 15 A820 862 0 0 1 828 1740"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#FF2D95"/></svg>
