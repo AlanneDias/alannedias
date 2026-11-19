@@ -949,21 +949,69 @@ html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-co
   .mnav:has(#studio-theme-toggle) a{padding:9px clamp(6px,1.8vw,10px)!important;letter-spacing:.06em!important}
   #studio-theme-toggle:focus-visible{outline-offset:1px}
 }
-</style><script id="studio-theme-toggle-mount">
+</style><style id="studio-theme-side-tab">
+/* Persistent right-edge theme tag: independent from navigation on the Home page. */
+body > #studio-theme-toggle{
+  position:fixed!important;
+  top:43%!important;right:0!important;bottom:auto!important;left:auto!important;
+  transform:translateY(-50%)!important;z-index:1200!important;
+  display:flex!important;flex-direction:column!important;
+  width:49px!important;height:114px!important;min-width:49px!important;min-height:114px!important;
+  gap:12px!important;padding:14px 4px!important;margin:0!important;
+  border:1px solid rgba(255,255,255,.23)!important;border-right:0!important;
+  border-radius:14px 0 0 14px!important;
+  background:#242424!important;color:#F2F0EC!important;
+  box-shadow:-3px 4px 16px rgba(0,0,0,.14)!important;
+  font:500 10px/1 'Jost',Arial,sans-serif!important;
+  letter-spacing:.14em!important;
+  cursor:pointer!important;
+  -webkit-tap-highlight-color:transparent
+}
+body > #studio-theme-toggle .theme-icon{
+  display:block!important;font-size:22px!important;line-height:1!important;
+}
+body > #studio-theme-toggle .theme-label{
+  display:block!important;font-size:10px!important;
+  writing-mode:vertical-rl;text-orientation:mixed;
+  transform:rotate(180deg);letter-spacing:.17em
+}
+body > #studio-theme-toggle:hover{
+  background:#353535!important;
+  border-color:#FF2D95!important;
+}
+body > #studio-theme-toggle:focus-visible{
+  outline:3px solid #FF2D95!important;outline-offset:-4px!important;
+}
+html[data-theme="light"] body > #studio-theme-toggle{
+  background:#FFFFFF!important;color:#000000!important;
+  border-color:#B9B9B9!important;
+  box-shadow:-3px 4px 16px rgba(0,0,0,.1)!important;
+}
+html[data-theme="light"] body > #studio-theme-toggle:hover{
+  background:#DCDCDC!important;border-color:#888!important;
+}
+@media(max-width:760px){
+  body > #studio-theme-toggle{
+    top:42%!important;
+    width:39px!important;min-width:39px!important;
+    height:98px!important;min-height:98px!important;
+    gap:9px!important;padding:12px 3px!important;
+    border-radius:12px 0 0 12px!important;
+  }
+  body > #studio-theme-toggle .theme-icon{font-size:20px!important}
+  body > #studio-theme-toggle .theme-label{font-size:9px!important}
+}
+</style>
+<script id="studio-theme-toggle-mount">
 (function(){
+  /* The Home theme tab stays on the viewport edge, outside both navigation bars. */
   var toggle=document.getElementById('studio-theme-toggle');
   if(!toggle)return;
   function place(){
-    var mobile=window.matchMedia('(max-width:760px)').matches;
-    var isHome=location.pathname==='/'||location.pathname==='/index.html';
-    var target=mobile
-      ? (isHome ? document.querySelector('.dock') : document.querySelector('.mnav'))
-      : (isHome ? document.querySelector('.nav .pills') : document.querySelector('.mnav'));
-    if(target&&toggle.parentElement!==target)target.appendChild(toggle);
+    if(toggle.parentElement!==document.body)document.body.appendChild(toggle);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',place);
   else place();
-  window.addEventListener('resize',place,{passive:true});
 })();
 </script></body>
 </html>
