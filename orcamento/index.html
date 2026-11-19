@@ -766,5 +766,60 @@ html[data-theme="light"] #studio-theme-toggle{background:#FAFAFA;color:#18201C;b
   #studio-theme-toggle .theme-icon{font-size:23px}
 }
 </style>
-</body>
+<style id="studio-light-editorial">
+/* Light mode: open editorial layout, with whitespace instead of boxed panels. */
+html[data-theme="light"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="light"] .svc,
+html[data-theme="light"] .info,
+html[data-theme="light"] .about,
+html[data-theme="light"] .contact,
+html[data-theme="light"] .cta-card,
+html[data-theme="light"] .nums,
+html[data-theme="light"] .txt,
+html[data-theme="light"] .plano,
+html[data-theme="light"] .opt,
+html[data-theme="light"] .dest-tx,
+html[data-theme="light"] .total,
+html[data-theme="light"] .faq details {
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-color:transparent!important;
+}
+html[data-theme="light"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="light"] .opt,
+html[data-theme="light"] .plano,
+html[data-theme="light"] .faq details {border-radius:0}
+html[data-theme="light"] .svc::before {color:#A60057}
+html[data-theme="light"] .info:hover,
+html[data-theme="light"] .opt:hover {background:transparent!important}
+html[data-theme="light"] .opt {border:0!important;border-bottom:1px solid #C2C2C2!important;padding-left:4px;padding-right:36px}
+html[data-theme="light"] .opt:has(input:checked) {background:transparent!important;border-bottom:2px solid #A60057!important}
+html[data-theme="light"] .opt:has(input:checked) .n {color:#18201C;font-weight:500}
+html[data-theme="light"] .opt:has(input:checked) .d,
+html[data-theme="light"] .opt:has(input:checked) .p {color:#303030}
+html[data-theme="light"] .opt::after {background:#A6A6A6}
+html[data-theme="light"] .opt:has(input:checked)::after {background:#FF2D95}
+html[data-theme="light"] .opt .tag {background:transparent;color:#A60057;padding-left:0}
+html[data-theme="light"] .tab {background:transparent;border:0;border-bottom:1px solid #B2B2B2;border-radius:0;color:#18201C}
+html[data-theme="light"] .tab[aria-selected="true"] {background:transparent;color:#18201C;border-bottom:3px solid #A60057;font-weight:500}
+html[data-theme="light"] .step,html[data-theme="light"] .passos li,html[data-theme="light"] .faq,html[data-theme="light"] .total {border-color:transparent!important}
+html[data-theme="light"] .plano {padding-left:0;padding-right:0}
+html[data-theme="light"] .pill:not(.cta) {background:transparent;color:#18201C}
+html[data-theme="light"] .pill:hover:not(.cta) {background:transparent;color:#A60057}
+html[data-theme="light"] .btn.line {border-color:transparent}
+html[data-theme="light"] .btn.line:hover {border-color:#18201C}
+html[data-theme="light"] .dest,
+html[data-theme="light"] .video,
+html[data-theme="light"] .show {border-color:transparent!important}
+html[data-theme="light"] .imgcard,
+html[data-theme="light"] .img,
+html[data-theme="light"] .pele .card,
+html[data-theme="light"] .bento .tall {background:transparent}
+html[data-theme="light"] .h2o {background:#A3A3A3}
+@media(max-width:760px){
+ html[data-theme="light"] .svc,html[data-theme="light"] .info,html[data-theme="light"] .contact {padding-left:0;padding-right:0}
+ html[data-theme="light"] .opt {padding-block:18px}
+}
+</style></body>
 </html>
