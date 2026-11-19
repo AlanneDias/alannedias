@@ -1013,5 +1013,38 @@ html[data-theme="light"] body > #studio-theme-toggle:hover{
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',place);
   else place();
 })();
-</script></body>
+</script><style id="studio-button-white-text">
+/* White labels on dark/pink action surfaces; keep light-gray service/footer CTAs black. */
+.pill.cta,.pill.cta:link,.pill.cta:visited,
+.dock a.on,.dock a:hover,.dock a:active,
+.mnav a.on,.mnav a:hover,.mnav a:active,
+.topnav .home,.topnav .home:hover,
+.btn:not(.line),.btn.ghost,
+.soc a:hover,.soc a:active,
+.h2soc a:active {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="dark"] .svc .lk,
+html:not([data-theme="light"]) .svc .lk {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="light"] .pill.cta,
+html[data-theme="light"] .dock a.on,
+html[data-theme="light"] .dock a:hover,
+html[data-theme="light"] .mnav a.on,
+html[data-theme="light"] .mnav a:hover,
+html[data-theme="light"] .btn:not(.line),
+html[data-theme="light"] .btn.ghost,
+html[data-theme="light"] .soc a:hover {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="light"] .svcs .svc a.lk,
+html[data-theme="light"] #contato .row a.btn.line {
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+}
+</style></body>
 </html>
