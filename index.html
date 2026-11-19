@@ -958,7 +958,7 @@ html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-co
     var isHome=location.pathname==='/'||location.pathname==='/index.html';
     var target=mobile
       ? (isHome ? document.querySelector('.dock') : document.querySelector('.mnav'))
-      : (document.querySelector('.nav .pills')||document.querySelector('.mnav'));
+      : (isHome ? document.querySelector('.nav .pills') : document.querySelector('.mnav'));
     if(target&&toggle.parentElement!==target)target.appendChild(toggle);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',place);
