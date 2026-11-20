@@ -368,6 +368,14 @@ a{color:inherit;text-decoration:none}
 #studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
 html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
 </style>
+<style id="black-friday-studio-home">
+.svcs .bf-home-price{display:flex;flex-direction:column;align-items:flex-start;gap:4px;line-height:1.35}
+.svcs .bf-home-price .bf-label{font-size:10px;letter-spacing:.15em;color:#FF2D95;font-weight:400}
+.svcs .bf-home-price del{font-size:12px;color:var(--muted);opacity:.85;letter-spacing:.08em}
+.svcs .bf-home-price strong{font-size:clamp(15px,1.5vw,19px);font-weight:500;color:#FF2D95;letter-spacing:.04em}
+.svcs .bf-home-price .bf-note{font-size:11px;color:var(--soft);letter-spacing:.03em}
+@media(max-width:760px){.svcs .bf-home-price strong{font-size:15px}}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -426,25 +434,25 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
     <article class="card svc">
       <h2 class="h">Marcas</h2>
       <p>Identidade visual para empresas e profissionais: símbolo, cores, tipografia e aplicações.</p>
-      <span class="price">A PARTIR DE R$ 980</span>
+      <span class="price bf-home-price"><span class="bf-label">BLACK FRIDAY · 20% OFF</span><del>R$ 980</del><strong>A PARTIR DE R$ 784</strong></span>
       <a class="lk" href="/orcamento/#empresa">MONTAR ORÇAMENTO</a>
     </article>
     <article class="card svc">
       <h2 class="h">Sites &amp; sistemas</h2>
       <p>Sites interativos, com animação e personalizados, feitos para ajudar de fato na compra e na oferta de serviços: site institucional ou site loja, com controle de estoque e venda no site ou pelo WhatsApp. Hospedagem, domínio e alterações sem limite no plano mensal.</p>
-      <span class="price">BLACK FRIDAY · A PARTIR DE R$ 720 · REFERÊNCIA R$ 900 + R$ 60/MÊS</span>
+      <span class="price bf-home-price"><span class="bf-label">BLACK FRIDAY · 20% OFF</span><del>R$ 900</del><strong>A PARTIR DE R$ 720</strong><span class="bf-note">Hospedagem a partir de R$ 60/mês</span></span>
       <a class="lk" href="/orcamento/#site">MONTAR ORÇAMENTO</a>
     </article>
     <article class="card svc">
       <h2 class="h">Casamentos</h2>
       <p>A identidade do casal: monograma, convite, save the date e papelaria.</p>
-      <span class="price">A PARTIR DE R$ 99</span>
+      <span class="price bf-home-price"><span class="bf-label">BLACK FRIDAY · 20% OFF</span><del>R$ 99</del><strong>A PARTIR DE R$ 79,20</strong></span>
       <a class="lk" href="/orcamento/#casamento">MONTAR ORÇAMENTO</a>
     </article>
     <article class="card svc">
       <h2 class="h">Monogramas</h2>
       <p>A minha assinatura: nomes e iniciais num símbolo único, para tatuagem, joias e presentes.</p>
-      <span class="price">A PARTIR DE R$ 99</span>
+      <span class="price bf-home-price"><span class="bf-label">BLACK FRIDAY · 20% OFF</span><del>R$ 99</del><strong>A PARTIR DE R$ 79,20</strong></span>
       <a class="lk" href="/orcamento/#monograma">MONTAR ORÇAMENTO</a>
     </article>
   </section>
