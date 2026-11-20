@@ -119,6 +119,26 @@ html[data-theme="light"] #studio-theme-toggle::before{background:rgba(255,255,25
 #studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
 html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
 </style>
+<style id="portfolio-menu-one-line">
+/* Navegação fixa em uma única linha, também em telas pequenas. */
+.topbar,.topbar .topnav{width:100%;min-width:0}
+.topbar .topnav{display:flex!important;flex-flow:row nowrap!important;justify-content:center!important;align-items:center!important;overflow:visible}
+.topbar .mnav{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;width:max-content;max-width:100%;min-width:0;white-space:nowrap;gap:2px!important;padding:4px!important;box-sizing:border-box}
+.topbar .mnav>a{display:inline-flex!important;align-items:center;justify-content:center;flex:0 1 auto;min-width:0;white-space:nowrap!important;line-height:1.15}
+.topbar .mnav>#studio-theme-toggle{display:inline-flex!important;flex:0 0 auto!important;white-space:nowrap!important}
+@media(max-width:760px){
+  .topbar .topnav{padding:8px 6px!important;height:auto!important;min-height:60px!important}
+  .topbar .mnav>a{padding:9px clamp(5px,1.6vw,9px)!important;font-size:clamp(8.5px,2.5vw,10px)!important;letter-spacing:0!important}
+  .topbar .mnav>#studio-theme-toggle{width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important;padding:0!important;margin-left:1px!important}
+  .topbar .mnav>#studio-theme-toggle .theme-icon{width:18px;min-width:18px}
+}
+@media(max-width:360px){
+  .topbar .topnav{padding-left:3px!important;padding-right:3px!important}
+  .topbar .mnav{gap:0!important;padding:3px!important}
+  .topbar .mnav>a{padding:8px 4px!important;font-size:8.5px!important}
+  .topbar .mnav>#studio-theme-toggle{width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important}
+}
+</style>
 </head>
 <body>
 <nav class="topbar" aria-label="Navegação"><div class="topnav"><div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/" class="on" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a><button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button></div></div></nav>
