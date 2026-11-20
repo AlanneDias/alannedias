@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A0A0A">
+<title>Portfólio · Alanne Dias | Brand & Web Designer</title>
+<meta name="description" content="Conheça os projetos de web design de Alanne Dias: sites institucionais, experiências de compra e catálogos interativos criados para marcas reais.">
+<link rel="canonical" href="https://alannedias.com/portfolio/">
+<link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200..600&family=Jost:wght@300..500&display=swap">
+<style>
+:root{--bg:#0A0A0A;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#92908C;--line:#292929;--card:#191919;--pink:#FF2D95;color-scheme:dark}
+html[data-theme="light"]{--bg:#ECECEC;--fg:#090909;--soft:#303030;--muted:#575757;--line:#B5B5B5;--card:#FAFAFA;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Jost',Arial,sans-serif;font-weight:300;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
+header{max-width:1450px;padding:30px clamp(20px,4.5vw,72px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:15px;letter-spacing:.16em;font-weight:400;white-space:nowrap}
+.topnav{display:flex;gap:clamp(12px,2.3vw,35px);align-items:center}
+.topnav a{font-size:11px;letter-spacing:.15em;white-space:nowrap}
+.topnav .active{color:var(--pink)}
+.cta{padding:12px 18px;background:var(--fg);color:var(--bg);border-radius:999px}
+.topnav .cta{background:var(--pink);color:#0A0A0A}
+main{max-width:1450px;margin:auto;padding:0 clamp(20px,4.5vw,72px)}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.hero{padding:clamp(85px,11vw,170px) 0 clamp(70px,9vw,122px)}
+.hero h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(68px,13vw,190px);line-height:.88;text-transform:uppercase;letter-spacing:-.045em;margin:22px 0 22px}
+.hero h1 span{display:block}
+.hero h1 .end{color:var(--pink);padding-left:clamp(0px,16vw,240px)}
+.hero-bottom{display:flex;justify-content:space-between;gap:30px;align-items:end}
+.hero-bottom p{margin:0;max-width:500px;font-size:clamp(15px,1.6vw,19px);line-height:1.65;color:var(--soft)}
+.hero-bottom .index{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.divider{border:0;border-top:1px solid var(--line);margin:0}
+.sectionbar{padding:30px 0 38px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.sectionbar h2{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(22px,3vw,36px);letter-spacing:.08em;margin:0}
+.sectionbar small{font-size:11px;letter-spacing:.17em;color:var(--muted)}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(35px,5vw,80px) clamp(18px,3.5vw,55px)}
+.project{min-width:0}
+.project:nth-child(3n+2){margin-top:clamp(0px,5vw,65px)}
+.visual{display:block;position:relative;overflow:hidden;aspect-ratio:1.18;background:var(--panel,#242424);isolation:isolate}
+.visual::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.13),transparent 57%);pointer-events:none;z-index:3}
+.visual .siteview{position:absolute;left:10%;top:10%;width:80%;height:77%;background:#fff;overflow:hidden;border-radius:5px;box-shadow:0 28px 45px rgba(0,0,0,.25);pointer-events:none}
+.visual iframe{display:block;position:absolute;left:0;top:0;width:1280px;height:1800px;border:0;transform-origin:top left;transform:scale(var(--preview-scale,.38));background:#fff;pointer-events:none}
+.visual .siteview:after{content:'';position:absolute;inset:0;border:1px solid rgba(0,0,0,.12);pointer-events:none}
+.visual .device{position:absolute;right:6%;bottom:5%;width:24%;height:65%;padding:7px 5px;background:#0D0D0D;border-radius:20px;box-shadow:0 16px 42px rgba(0,0,0,.3);z-index:4}
+.device .screen{width:100%;height:100%;border-radius:15px;overflow:hidden;background:#fff;position:relative}
+.device iframe{width:390px;height:1600px;transform:scale(var(--mobile-scale,.25));pointer-events:none}
+.device .notch{position:absolute;top:5px;left:35%;width:30%;height:8px;border-radius:10px;background:#0D0D0D;z-index:5}
+.visual .corner{position:absolute;top:14px;left:17px;font-size:10px;letter-spacing:.19em;color:var(--accent,#fff);z-index:4;text-transform:uppercase}
+.visual .corner-r{position:absolute;bottom:16px;left:18px;font-size:11px;letter-spacing:.12em;color:var(--accent,#fff);z-index:4}
+.visual:hover .siteview{transform:translateY(-5px);transition:transform .4s ease}
+.meta{display:flex;gap:18px;justify-content:space-between;align-items:start;padding:22px 0}
+.meta .type{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--pink);margin:0 0 8px}
+.meta h3{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;font-size:clamp(21px,2.4vw,34px);line-height:1.05;margin:0}
+.meta p{font-size:13px;line-height:1.55;color:var(--soft);max-width:360px;margin:11px 0 0}
+.arrow{font-size:27px;line-height:1;margin-top:10px}
+.close{margin:100px 0 70px;padding:55px 0;border-top:1px solid var(--line);display:flex;gap:30px;justify-content:space-between;align-items:end}
+.close h2{font:200 clamp(34px,5.1vw,75px)/1.06 'Josefin Sans',sans-serif;text-transform:uppercase;margin:12px 0 0;max-width:750px}
+.close .action{font-size:11px;letter-spacing:.14em;background:var(--pink);color:#0A0A0A;padding:18px 26px;white-space:nowrap}
+footer{max-width:1450px;margin:auto;padding:30px clamp(20px,4.5vw,72px) 55px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px;letter-spacing:.08em}
+.toggle{position:fixed;z-index:50;right:16px;bottom:18px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:12px 16px;font-size:10px;letter-spacing:.08em;cursor:pointer}
+@media(max-width:730px){
+header{padding:23px 17px;gap:8px}.brand{font-size:12px}.topnav{gap:13px}.topnav a{font-size:9px;letter-spacing:.06em}.topnav .cta{display:none}
+main{padding:0 17px}.hero{padding:90px 0 70px}.hero h1{font-size:clamp(56px,15vw,95px)}.hero h1 .end{padding-left:5vw}.hero-bottom{display:block}.hero-bottom .index{margin-top:30px;display:block}
+.sectionbar{padding:27px 0}.projects{grid-template-columns:1fr;gap:23px}.project:nth-child(3n+2){margin-top:0}.visual{aspect-ratio:1.12}.meta{padding:16px 0 27px}.close{margin:55px 0 30px;padding:35px 0;display:block}.close .action{display:inline-block;margin-top:27px}footer{display:block;line-height:2}.toggle{bottom:12px;right:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.visual:hover .siteview{transform:none}}
+</style>
+<script>
+try{document.documentElement.dataset.theme=localStorage.getItem('alanne-theme')==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}
+</script>
+</head>
+<body>
+<header>
+<a class="brand" href="/">ALANNE DIAS</a>
+<nav class="topnav" aria-label="Menu principal"><a href="/">INÍCIO</a><a class="active" href="/portfolio/" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a class="cta" href="/orcamento/#site">ORÇAMENTO</a></nav>
+</header>
+<main>
+<section class="hero"><p class="eyebrow">STUDIO ALANNE DIAS / PROJETOS AUTORAIS</p><h1><span>PORT</span><span class="end">FÓLIO.</span></h1><div class="hero-bottom"><p>Sites pensados para marcas diferentes, com experiências próprias. Design, navegação e detalhes que fazem parte de cada história.</p><span class="index">WEB DESIGN · 2026</span></div></section>
+<hr class="divider">
+<div class="sectionbar"><h2>Projetos selecionados</h2><small>01 — 06</small></div>
+<section class="projects" aria-label="Projetos de sites">
+<article class="project"><a class="visual" style="--panel:#172539;--accent:#D2AC73" href="https://www.unoraclinic.com.br/" target="_blank" rel="noopener" aria-label="Abrir site UNORA Clinic"><span class="corner">01 / UNORA</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop de UNORA Clinic" src="https://www.unoraclinic.com.br/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile de UNORA Clinic" src="https://www.unoraclinic.com.br/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">CLINIC</span></a><div class="meta"><div><p class="type">Site institucional · Saúde</p><h3>UNORA Clinic</h3><p>Uma apresentação refinada para especialidades, profissional e agendamento.</p></div><a class="arrow" href="https://www.unoraclinic.com.br/" target="_blank" rel="noopener" aria-label="Visitar UNORA Clinic">↗</a></div></article>
+<article class="project"><a class="visual" style="--panel:#E2BED0;--accent:#623B4E" href="https://alannedias.github.io/salmskin/" target="_blank" rel="noopener" aria-label="Abrir site SALM Skin"><span class="corner">02 / SALM</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop de SALM Skin" src="https://alannedias.github.io/salmskin/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile de SALM Skin" src="https://alannedias.github.io/salmskin/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">SKINCARE</span></a><div class="meta"><div><p class="type">Site de produto · Beleza</p><h3>SALM Skin</h3><p>Fotografia, narrativa de produto e apresentação visual dos tratamentos.</p></div><a class="arrow" href="https://alannedias.github.io/salmskin/" target="_blank" rel="noopener" aria-label="Visitar SALM Skin">↗</a></div></article>
+<article class="project"><a class="visual" style="--panel:#F1D7CF;--accent:#891C36" href="https://www.renataalvesdoces.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Renata Alves"><span class="corner">03 / RENATA</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop de Renata Alves" src="https://www.renataalvesdoces.com.br/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile de Renata Alves" src="https://www.renataalvesdoces.com.br/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">ATELIÊ DE DOCES</span></a><div class="meta"><div><p class="type">Site interativo · Personalização</p><h3>Renata Alves</h3><p>Escolha de cores, sabores e quantidades em uma experiência de pedido personalizada.</p></div><a class="arrow" href="https://www.renataalvesdoces.com.br/" target="_blank" rel="noopener" aria-label="Visitar Renata Alves">↗</a></div></article>
+<article class="project"><a class="visual" style="--panel:#DBD4C1;--accent:#65503C" href="https://bibilica.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Bibilica"><span class="corner">04 / BIBILICA</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop de Bibilica" src="https://bibilica.com.br/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile de Bibilica" src="https://bibilica.com.br/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">BOUTIQUE INFANTIL</span></a><div class="meta"><div><p class="type">Catálogo interativo · Moda infantil</p><h3>Bibilica</h3><p>Vitrine de roupas, seleção de tamanhos, sacola e pedido via WhatsApp.</p></div><a class="arrow" href="https://bibilica.com.br/" target="_blank" rel="noopener" aria-label="Visitar Bibilica">↗</a></div></article>
+<article class="project"><a class="visual" style="--panel:#29272B;--accent:#E8D1C1" href="https://www.sejadonodamarca.com/" target="_blank" rel="noopener" aria-label="Abrir LEGACY"><span class="corner">05 / LEGACY</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop de LEGACY" src="https://www.sejadonodamarca.com/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile de LEGACY" src="https://www.sejadonodamarca.com/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">PROPRIEDADE INTELECTUAL</span></a><div class="meta"><div><p class="type">Site institucional · Jurídico</p><h3>LEGACY</h3><p>Apresentação estratégica de serviços de propriedade intelectual.</p></div><a class="arrow" href="https://www.sejadonodamarca.com/" target="_blank" rel="noopener" aria-label="Visitar LEGACY">↗</a></div></article>
+<article class="project"><a class="visual" style="--panel:#A9A9A9;--accent:#FF2D95" href="https://alannedias.com/" target="_blank" rel="noopener" aria-label="Abrir Studio Alanne Dias"><span class="corner">06 / ALANNE DIAS</span><div class="siteview"><iframe loading="lazy" tabindex="-1" title="Prévia desktop do Studio Alanne Dias" src="https://alannedias.com/" aria-hidden="true"></iframe></div><div class="device"><div class="screen"><iframe loading="lazy" tabindex="-1" title="Prévia mobile do Studio Alanne Dias" src="https://alannedias.com/" aria-hidden="true"></iframe></div><span class="notch"></span></div><span class="corner-r">BRAND & WEB</span></a><div class="meta"><div><p class="type">Site de portfólio · Design</p><h3>Studio Alanne Dias</h3><p>Direção editorial, identidade autoral e orçamento personalizado.</p></div><a class="arrow" href="https://alannedias.com/" target="_blank" rel="noopener" aria-label="Visitar Studio Alanne Dias">↗</a></div></article>
+</section>
+<section class="close"><div><p class="eyebrow">SEU PROJETO PODE SER O PRÓXIMO</p><h2>Vamos criar um espaço para a sua marca?</h2></div><a class="action" href="/orcamento/#site">MONTAR MEU PROJETO ↗</a></section>
+</main>
+<footer><span>© 2026 STUDIO ALANNE DIAS · BRAND & WEB DESIGN</span><span><a href="https://www.instagram.com/alannedias.designer/" target="_blank" rel="noopener">INSTAGRAM</a> &nbsp;·&nbsp; <a href="https://www.behance.net/alannedias" target="_blank" rel="noopener">BEHANCE</a></span></footer>
+<button class="toggle" type="button" aria-label="Alternar entre modo claro e escuro">◐ &nbsp; TEMA</button>
+<script>
+const btn=document.querySelector('.toggle');
+btn.addEventListener('click',function(){const next=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=next;try{localStorage.setItem('alanne-theme',next)}catch(e){}});
+function previewScale(){
+  document.querySelectorAll('.visual').forEach(function(v){
+    const screen=v.querySelector('.siteview'); const mob=v.querySelector('.device .screen');
+    if(screen)v.style.setProperty('--preview-scale',screen.clientWidth/1280);
+    if(mob)v.style.setProperty('--mobile-scale',mob.clientWidth/390);
+  });
+}
+window.addEventListener('resize',previewScale);previewScale();
+</script>
+</body></html>
