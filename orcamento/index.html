@@ -920,5 +920,61 @@ html[data-theme="light"] #contato .row a.btn.line {
   color:#000000!important;
   -webkit-text-fill-color:#000000!important;
 }
-</style></body>
+</style><style id="studio-dark-editorial-parity">
+
+/* Editorial layout parity: use the light-mode structure in the dark palette. */
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .svc,
+html[data-theme="dark"] .info,
+html[data-theme="dark"] .about,
+html[data-theme="dark"] .contact,
+html[data-theme="dark"] .cta-card,
+html[data-theme="dark"] .nums,
+html[data-theme="dark"] .txt,
+html[data-theme="dark"] .plano,
+html[data-theme="dark"] .dest-tx,
+html[data-theme="dark"] .total,
+html[data-theme="dark"] .faq details{
+ background:transparent!important;background-image:none!important;box-shadow:none!important;border-color:transparent!important;
+}
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .plano,html[data-theme="dark"] .faq details{border-radius:0}
+html[data-theme="dark"] .info:hover{background:transparent!important}
+html[data-theme="dark"] .plano{padding-left:0;padding-right:0}
+html[data-theme="dark"] .svc::before{color:#FF2D95}
+@media(max-width:760px){
+ html[data-theme="dark"] .svc,html[data-theme="dark"] .info,html[data-theme="dark"] .contact{padding-left:0;padding-right:0}
+}
+
+/* Same editorial service menu as light mode: underline tabs, not pills. */
+html[data-theme="dark"] .tab{
+ background:transparent!important;color:var(--fg);border:0!important;border-bottom:1px solid #55534F!important;border-radius:0!important;
+}
+html[data-theme="dark"] .tab[aria-selected="true"]{
+ background:transparent!important;color:var(--fg)!important;border-bottom:3px solid #FF2D95!important;font-weight:500;
+}
+html[data-theme="dark"] .tab:hover{background:transparent!important;color:#FF74B9!important}
+html[data-theme="dark"] .opt{
+ background:transparent!important;background-image:none!important;box-shadow:none!important;
+ border:0!important;border-bottom:1px solid #484642!important;border-radius:0!important;
+ padding-left:4px;padding-right:36px;
+}
+html[data-theme="dark"] .opt:hover,
+html[data-theme="dark"] .opt:has(input:checked){background:transparent!important}
+html[data-theme="dark"] .opt:has(input:checked){border-bottom:2px solid #FF2D95!important}
+html[data-theme="dark"] .opt:has(input:checked) .n{font-weight:500}
+html[data-theme="dark"] .opt::after{background:#77736D}
+html[data-theme="dark"] .opt:has(input:checked)::after{background:#FF2D95}
+html[data-theme="dark"] .opt .tag{background:transparent;color:#FF74B9;padding-left:0}
+html[data-theme="dark"] .step,
+html[data-theme="dark"] .passos li,
+html[data-theme="dark"] .faq,
+html[data-theme="dark"] .total{border-color:transparent!important}
+html[data-theme="dark"] .pill:not(.cta){background:transparent}
+html[data-theme="dark"] .pill:hover:not(.cta){background:transparent;color:#FF74B9}
+html[data-theme="dark"] .btn.line{border-color:transparent}
+html[data-theme="dark"] .btn.line:hover{border-color:var(--fg)}
+@media(max-width:760px){html[data-theme="dark"] .opt{padding-block:18px}}
+</style>
+</body>
 </html>
