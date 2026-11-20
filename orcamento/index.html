@@ -20,6 +20,13 @@
 #studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
 html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
 </style>
+<style id="black-friday-20-studio">
+.opt .p{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.opt .bf-price-old{color:var(--muted);opacity:.8;text-decoration:line-through;font-size:12px;letter-spacing:.04em}
+.opt .bf-price-new{font-size:15px;font-weight:500;color:#FF2D95;letter-spacing:.04em}
+.opt .bf-price-suffix{font-size:11px;color:var(--soft);font-weight:300;letter-spacing:.02em}
+.bf-total-original{display:block;color:var(--muted);font-size:14px;letter-spacing:.04em;margin-top:2px}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -232,7 +239,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <a href="/sobre/">SOBRE</a>
 </nav>
 <div class="wrap">
-<p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO EM SITES · CONTRATAÇÕES ATÉ 23/11/2026. Condição de campanha sobre os valores de referência atuais.</p>
+<p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO NOS SERVIÇOS DE CRIAÇÃO · ATÉ 23/11/2026 · HOSPEDAGEM NÃO INCLUÍDA NO DESCONTO.</p>
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
@@ -247,7 +254,8 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <h2>Seu projeto</h2>
       <ul class="lines" id="linhas"></ul>
       <div class="total">
-        <span class="small">TOTAL</span>
+        <span class="small">TOTAL COM DESCONTO</span>
+        <del class="bf-total-original" id="total-original"></del>
         <span class="big" id="total">R$ 0</span>
         <span class="pix" id="pix"></span>
       </div>
@@ -340,8 +348,8 @@ const CATS = [
   {id:'monograma', nome:'MONOGRAMA', titulo:'Monograma',
    base:[
      {id:'mono', n:'1 monograma', d:'Nome, iniciais ou data desenhados à mão num símbolo único. Para tatuagem, joias e presentes.', p:99, inclui:0, tag:'MAIS PEDIDO'},
-     {id:'mono2', n:'2 monogramas', d:'Uma arte para cada nome. R$ 80 cada.', p:160, inclui:0},
-     {id:'mono3', n:'3 monogramas', d:'R$ 80 cada. Para 4 ou mais, me chama no WhatsApp.', p:240, inclui:0}],
+     {id:'mono2', n:'2 monogramas', d:'Duas artes autorais para nomes diferentes.', p:160, inclui:0},
+     {id:'mono3', n:'3 monogramas', d:'Três artes autorais. Para 4 ou mais, me chama no WhatsApp.', p:240, inclui:0}],
    itens:null,
    extras:[{id:'video', n:'Vídeo do monograma sendo desenhado', p:50}],
    urgencia:false},
@@ -366,6 +374,19 @@ const CATS = [
    itens:null, extras:[], urgencia:false,
    plano:{n:'Plano de hospedagem + manutenção', t:'Plano mensal ou anual', precos:'Site institucional: R$ 60/mês ou R$ 800/ano · Site loja: R$ 97/mês ou R$ 970/ano', dif:'O diferencial: um site interativo, com animação e personalizado para o seu negócio, feito para ajudar de fato no processo de compra e na oferta dos seus serviços. O cliente escolhe, monta o pedido ou o orçamento e já chega no seu WhatsApp pronto para fechar, com você enviando a forma de pagamento, ou com o pagamento integrado ao site, no ato da compra. Para criar o seu site personalizado, eu preciso entender todo o seu processo de fechamento: pedido, compra ou serviço. A partir disso, desenho um site intencional para facilitar esse processo.', sub:'Não é um site entregue e pronto: é alguém cuidando dele todo mês.', it:[['Site no ar 24 horas','Todo site tem um custo mensal para ficar hospedado na internet. Esse custo e o domínio já estão inclusos, você não precisa se preocupar.'], ['Alterações sem limite','Peça nova, peça que esgotou, preço que mudou: manda no meu WhatsApp que eu atualizo. Sem limite e sem custo por alteração. Coleção nova, eu monto a seção.'], ['SEO e GEO integrados','Feito para ser achado no Google (SEO) e para aparecer nas respostas de inteligências artificiais como ChatGPT e Gemini (GEO), para quem procura os seus produtos e serviços.'], ['Pronto para tráfego pago','Abre rápido no celular e leva a pessoa direto para o seu WhatsApp, que é o que faz o anúncio dar retorno.'], ['Ajustes quando quiser','Você pode pedir qualquer ajuste no site também.'], ['Direto com a Alanne','Todas as modificações são tratadas diretamente comigo, sem intermediários. Você fala com quem fez o seu site.'], ['Contrato que garante a sua compra','Tudo fica combinado por escrito, em contrato, para você comprar com segurança.']]}}
 ];
+
+
+/* Promoção: 20% nos serviços de criação, inclusive opcionais.
+   Sites já têm desconto aplicado; não descontar duas vezes.
+   Hospedagem e manutenção permanecem em seus valores contratados. */
+const BF_RATE = 0.8;
+const BF_PRICE = value => Math.round(value*BF_RATE*100)/100;
+CATS.forEach(category => {
+  if(category.id==='site') return;
+  category.base.forEach(item=>{item.referencia=item.p;item.p=BF_PRICE(item.p);item.tag='BLACK FRIDAY −20%';});
+  category.extras.forEach(item=>{item.referencia=item.p;item.p=BF_PRICE(item.p);});
+  if(category.extraP){category.extraPReferencia=category.extraP;category.extraP=BF_PRICE(category.extraP);}
+});
 
 const FOTOS = {
   monograma:{slides:[{t:'NA PELE · TATUAGENS DE CLIENTES', it:[['/img/key-alves.jpg','Cliente mostrando a tatuagem do monograma no braço','50% 35%'],['/img/ig-casal.jpg','Casal com a mesma tatuagem'],['/img/pele6.jpg','Vários monogramas tatuados no antebraço'],['/img/ig-braco.jpg','Primeira tatuagem de monograma'],['/img/pele8.jpg','Duas amigas mostrando as tatuagens de monograma'],['/img/ig-costela.jpg','Monograma tatuado na costela'],['/img/pele13.jpg','Braços de família com a mesma tatuagem'],['/img/tat2.jpg','Monograma tatuado'],['/img/tat4.jpg','Monograma tatuado'],['/img/tat6.jpg','Monograma tatuado'],['/img/tat7.jpg','Monograma tatuado'],['/img/tat9.jpg','Monograma tatuado'],['/img/tat11.jpg','Monograma tatuado'],['/img/tat12.jpg','Monograma tatuado'],['/img/tat13.jpg','Monograma tatuado'],['/img/tat51.jpg','Monograma tatuado']]},{t:'ALGUNS MONOGRAMAS QUE JÁ DESENHEI', mono:true, it:[[29,'Robinson'],[30,'Tábata e Ton'],[31,'Gilmara'],[32,'Juliana'],[33,'Fábio'],[34,'Bernardo'],[35,'Cabelludo'],[36,'Yasmin'],[37,'Júlia'],[38,'Ana Júlia'],[39,'Gustavo']].map(([n,nome])=>['/img/gal'+n+'.jpg',nome])}], capa:'/img/key-alves.jpg', alt:'Cliente mostrando a tatuagem do monograma no braço', leg:'NA PELE · MONOGRAMA', pos:'50% 35%', ex:[['/img/pele6.jpg','Vários monogramas tatuados no antebraço'],['/img/pele8.jpg','Duas amigas mostrando as tatuagens de monograma'],['/img/pele13.jpg','Braços de família com a mesma tatuagem de monograma']],
@@ -414,7 +435,13 @@ function opt(type,name,checked,disabled,n,d,p,tag,on){
   if(tag){const t=document.createElement('span'); t.className='tag'; t.textContent=tag; l.appendChild(t);}
   const a=document.createElement('span'); a.className='n'; a.textContent=n; l.appendChild(a);
   if(d){const b=document.createElement('span'); b.className='d'; b.textContent=d; l.appendChild(b);}
-  const c=document.createElement('span'); c.className='p'; c.textContent=p; l.appendChild(c);
+  const c=document.createElement('span'); c.className='p';
+  if(p && typeof p==='object' && p.novo!==undefined){
+    const before=document.createElement('del'); before.className='bf-price-old'; before.textContent=p.antigo;
+    const now=document.createElement('strong'); now.className='bf-price-new'; now.textContent=p.novo;
+    c.append(before,now);
+    if(p.sufixo){const suffix=document.createElement('span'); suffix.className='bf-price-suffix';suffix.textContent=p.sufixo;c.appendChild(suffix);}
+  }else{c.textContent=p;} l.appendChild(c);
   return l;
 }
 
@@ -506,7 +533,7 @@ function renderSteps(c,s,P){
   let n=1;
   const s1=step(n+++'. Escolha o '+(c.id==='site'?'tipo de site':'pacote'), c.base.length>1?'Escolha uma opção':'');
   const g1=document.createElement('div'); g1.className='opts';
-  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,(c.id==='site'?'CONDIÇÃO ESPECIAL '+brl(b.p)+' (referência '+brl(b.referencia)+')':'A PARTIR DE '+brl(b.p))+(b.mes?' + '+brl(b.mes)+'/MÊS':''),b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
+  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,{antigo:brl(b.referencia||b.p),novo:'BLACK FRIDAY '+brl(b.p),sufixo:b.mes?' + '+brl(b.mes)+'/mês de hospedagem':''},b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
   if(s.base){const lim=document.createElement('button'); lim.type='button'; lim.className='btn ghost lim'; lim.textContent='LIMPAR ESCOLHA'; lim.onclick=()=>{st[c.id]={base:null,itens:[],extras:[],urg:false}; render();}; s1.appendChild(g1); s1.appendChild(lim);} else s1.appendChild(g1);
   P.appendChild(s1);
 
@@ -514,12 +541,13 @@ function renderSteps(c,s,P){
   if(c.plano){ const sp=step(n+++'. Forma de pagamento', b?'Escolha uma opção':'Escolha primeiro o tipo de site'); const gp=document.createElement('div'); gp.className='opts'; gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg!=='ano',!b,'Criação + mensalidade','Você paga a criação do site e depois a mensalidade, todo mês.',b?brl(b.p)+' + '+brl(b.mes)+'/MÊS':'',null,()=>{s.pg='mes'; render();})); gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg==='ano',!b,'Criação + assinatura anual','Você paga a criação do site e um ano de hospedagem e manutenção de uma vez.'+(b&&b.mes*12>b.ano?' Com a assinatura anual você economiza '+brl(b.mes*12-b.ano)+'.':''),b?brl(b.p)+' + '+brl(b.ano)+'/ANO':'',null,()=>{s.pg='ano'; render();})); sp.appendChild(gp); P.appendChild(sp); } if(c.itens && b && b.inclui){
     const ativo = b && b.inclui;
     const usados=s.itens.length;
-    const sub = !ativo ? 'Disponível na identidade visual' : (usados<b.inclui ? 'O pacote tem 4 aplicações. Escolha mais '+(b.inclui-usados) : '4 escolhidas · cada aplicação a mais '+brl(c.extraP));
+    const sub = !ativo ? 'Disponível na identidade visual' : (usados<b.inclui ? 'O pacote tem 4 aplicações. Escolha mais '+(b.inclui-usados) : '4 escolhidas · cada aplicação extra: de '+brl(c.extraPReferencia||c.extraP)+' por '+brl(c.extraP));
     const s2=step(n+++'. Escolha as aplicações', sub);
     const g2=document.createElement('div'); g2.className='opts';
     c.itens.forEach(([it,desc])=>{
       const idx=s.itens.indexOf(it); const marcado=idx>-1;
-      const preco = !ativo ? '' : marcado ? (idx<b.inclui? '✓ '+(idx+1)+' DE '+b.inclui : '+ '+brl(c.extraP)) : (usados<b.inclui? '' : '+ '+brl(c.extraP));
+      const appPromo={antigo:'+ '+brl(c.extraPReferencia||c.extraP),novo:'+ '+brl(c.extraP)};
+      const preco = !ativo ? '' : marcado ? (idx<b.inclui? 'INCLUÍDO '+(idx+1)+' DE '+b.inclui : appPromo) : (usados<b.inclui? '' : appPromo);
       g2.appendChild(opt('checkbox','it-'+c.id,marcado,!ativo,it,desc,preco,null,e=>{ if(e.target.checked) s.itens.push(it); else s.itens.splice(s.itens.indexOf(it),1); render();}));
     });
     s2.appendChild(g2); P.appendChild(s2);
@@ -527,7 +555,7 @@ function renderSteps(c,s,P){
   if(c.extras.length){
     const s3=step(n+++'. Extras', 'Opcional');
     const g3=document.createElement('div'); g3.className='opts';
-    c.extras.forEach(e=>g3.appendChild(opt('checkbox','ex-'+c.id,s.extras.includes(e.id),!s.base,e.n,'','+ '+brl(e.p),null,ev=>{ if(ev.target.checked) s.extras.push(e.id); else s.extras=s.extras.filter(x=>x!==e.id); render();})));
+    c.extras.forEach(e=>g3.appendChild(opt('checkbox','ex-'+c.id,s.extras.includes(e.id),!s.base,e.n,'',{antigo:'+ '+brl(e.referencia||e.p),novo:'+ '+brl(e.p)},null,ev=>{ if(ev.target.checked) s.extras.push(e.id); else s.extras=s.extras.filter(x=>x!==e.id); render();})));
     s3.appendChild(g3);
     if(c.urgencia){const t=document.createElement('label'); t.className='toggle'; t.innerHTML='<input type="checkbox"> Preciso com urgência (menos de 45 dias) · +30%'; const i=t.querySelector('input'); i.checked=s.urg; i.disabled=!s.base; i.onchange=()=>{s.urg=i.checked; render();}; s3.appendChild(t);}
     P.appendChild(s3);
@@ -543,9 +571,21 @@ function resumoTexto(){
 }
 
 function renderResumo(){
-  const L=document.getElementById('linhas'); L.innerHTML=''; let T=0;
+  const L=document.getElementById('linhas'); L.innerHTML=''; let T=0, originalTotal=0;
   CATS.forEach(c=>{const r=custo(c); if(!r.total) return; const g=document.createElement('li'); g.className='grp'; g.textContent=c.titulo.toUpperCase(); L.appendChild(g);
-    r.linhas.forEach(([n,v,lab])=>{const li=document.createElement('li'); const a=document.createElement('span'); a.textContent=n; const b=document.createElement('span'); b.textContent=v?brl(v):(lab||''); li.append(a,b); L.appendChild(li);}); T+=r.total;});
+    r.linhas.forEach(([n,v,lab])=>{const li=document.createElement('li'); const a=document.createElement('span'); a.textContent=n; const b=document.createElement('span'); b.textContent=v?brl(v):(lab||''); li.append(a,b); L.appendChild(li);}); T+=r.total;
+    const selected=c.base.find(x=>x.id===st[c.id].base);
+    if(selected){
+      let baseOriginal=selected.referencia||selected.p;
+      baseOriginal+=Math.max(0,st[c.id].itens.length-selected.inclui)*(c.extraPReferencia||c.extraP||0);
+      st[c.id].extras.forEach(id=>{const item=c.extras.find(x=>x.id===id);if(item)baseOriginal+=item.referencia||item.p;});
+      if(c.urgencia&&st[c.id].urg)baseOriginal+=Math.round(baseOriginal*.3);
+      if(c.plano&&st[c.id].pg==='ano')baseOriginal+=selected.ano;
+      originalTotal+=baseOriginal;
+    }
+  });
+  const oldTotalEl=document.getElementById('total-original');
+  if(oldTotalEl)oldTotalEl.textContent=T&&originalTotal>T?'De '+brl(originalTotal):'';
   if(!T){const e=document.createElement('li'); e.className='empty'; e.textContent='Escolha um pacote para ver o valor.'; L.appendChild(e);}
   document.getElementById('total').textContent=brl(T);
   const P=pix();
