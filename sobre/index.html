@@ -164,6 +164,30 @@ a{color:inherit;text-decoration:none}
 #studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
 html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
 </style>
+<style id="studio-shared-footer-buttons">
+/* Mesma identidade para o rodapé e botões em todas as páginas. */
+.studio-footer{box-sizing:border-box;width:100%;max-width:1416px;margin:0 auto;padding:36px max(38px,env(safe-area-inset-left,0px)) 48px;color:var(--muted,#92908C);border-top:1px solid var(--line,#292929);background:transparent;font-family:'Jost',Arial,sans-serif}
+.studio-footer *{box-sizing:border-box}
+.studio-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.studio-footer-credit{font-family:'Jost',Arial,sans-serif;font-weight:300;font-size:11px!important;line-height:1.7;letter-spacing:.12em;margin:0;color:var(--muted,#92908C)}
+.studio-footer-credit span{margin:0 .4em}
+.studio-footer-links{display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:wrap}
+.studio-footer-links a{display:inline-flex;align-items:center;min-height:32px;font-family:'Jost',Arial,sans-serif;font-size:11px!important;font-weight:400;letter-spacing:.12em;line-height:1.3;color:var(--fg,#F2F0EC);text-decoration:none;white-space:nowrap}
+.studio-footer-links a:hover,.studio-footer-links a:focus-visible{color:#FF2D95}
+.studio-cta,.studio-cta:link,.studio-cta:visited{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;min-height:44px;width:max-content;max-width:100%;padding:12px 22px!important;border:1px solid #FF2D95!important;border-radius:999px!important;background:#FF2D95!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important;font:500 11px/1.25 'Jost',Arial,sans-serif!important;letter-spacing:.11em!important;text-align:center;text-decoration:none;box-shadow:none!important;white-space:normal;cursor:pointer;transition:background .2s,border-color .2s}
+.studio-cta:hover{background:#FF5AAD!important;border-color:#FF5AAD!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important}
+.studio-cta-secondary,.studio-cta-secondary:link,.studio-cta-secondary:visited{background:transparent!important;color:var(--fg,#F2F0EC)!important;-webkit-text-fill-color:var(--fg,#F2F0EC)!important;border-color:var(--line,#666)!important}
+.studio-cta-secondary:hover{border-color:#FF2D95!important;background:transparent!important;color:#FF2D95!important;-webkit-text-fill-color:#FF2D95!important}
+.studio-cta[aria-disabled="true"],.studio-cta.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
+@media(max-width:760px){
+.studio-footer{padding:28px max(18px,env(safe-area-inset-left,0px)) 36px}
+.studio-footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.studio-footer-credit{font-size:10px!important;letter-spacing:.09em;overflow-wrap:normal}
+.studio-footer-links{gap:8px 18px}
+.studio-footer-links a{font-size:10px!important;letter-spacing:.09em}
+.studio-cta{min-height:44px;padding:12px 18px!important;font-size:10.5px!important}
+}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -277,20 +301,20 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 
   <section class="card cta-card">
     <h2 class="h">Vamos criar algo com significado?</h2>
-    <a class="btn" href="/orcamento/">MONTAR MEU PROJETO</a>
+    <a class="btn studio-cta" href="/orcamento/">MONTAR MEU PROJETO</a>
   </section>
 
-  <footer class="foot">
-    <span>© 2026 ALANNE DIAS · BRASIL &amp; WORLD</span>
-    <nav class="soc" aria-label="Redes sociais">
-      <a href="https://www.instagram.com/alannedias.designer/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
-      <a href="https://www.tiktok.com/@alannedias.designer" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.6 2.6 2.4 4.2 5 4.4"/></svg></a>
-      <a href="https://www.behance.net/alannedias" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M3.5 7h4.2a2.4 2.4 0 0 1 0 4.8H3.5zM3.5 11.8h4.8a2.6 2.6 0 0 1 0 5.2H3.5zM3.5 7v10"/><path d="M14 13.6h6.5a3.25 3.25 0 1 0-1 2.4"/><path d="M15 7.6h4"/></svg></a>
-      <a href="https://github.com/AlanneDias" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.3c3-.3 6.1-1.5 6.1-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.6 12.6 0 0 0-6.6 0C5.8 1.1 4.7 1.4 4.7 1.4a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.1 3.1 6.3 6.1 6.6a3 3 0 0 0-.9 2.3V21"/></svg></a>
-      <a href="https://www.facebook.com/profile.php?id=100005702441091" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3.5h-2.2A3.3 3.3 0 0 0 9.5 6.8V9.5H7.5v3h2v8h3v-8h2.4l.5-3h-2.9V7.2c0-.5.4-.8.8-.8H15z"/></svg></a>
-      <a href="https://wa.me/5583998361156" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.2-3.7A8.2 8.2 0 1 1 8 19z"/><path d="M9.2 8.6c.2 2.6 2.4 5 5.2 5.4l1-1.2-1.6-.9-.8.6a4.6 4.6 0 0 1-2.1-2.1l.6-.8-.9-1.6z"/></svg></a>
+  <footer class="studio-footer" aria-label="Rodapé Studio Alanne Dias">
+  <div class="studio-footer-inner">
+    <p class="studio-footer-credit">© 2026 STUDIO ALANNE DIAS <span aria-hidden="true">·</span> BRAND &amp; WEB DESIGN</p>
+    <nav class="studio-footer-links" aria-label="Redes sociais e contato">
+      <a href="https://www.instagram.com/alannedias.designer/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="https://www.tiktok.com/@alannedias.designer" target="_blank" rel="noopener">TIKTOK</a>
+      <a href="https://www.behance.net/alannedias" target="_blank" rel="noopener">BEHANCE</a>
+      <a href="https://wa.me/5583998361156" target="_blank" rel="noopener">WHATSAPP</a>
     </nav>
-  </footer>
+  </div>
+</footer>
 
 </div>
 </div>
