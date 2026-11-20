@@ -232,6 +232,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <a href="/sobre/">SOBRE</a>
 </nav>
 <div class="wrap">
+<p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO EM SITES · CONTRATAÇÕES ATÉ 23/11/2026. Condição de campanha sobre os valores de referência atuais.</p>
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
@@ -358,8 +359,8 @@ const CATS = [
    urgencia:false},
   {id:'site', nome:'SITE', titulo:'Site',
    base:[
-     {id:'inst', n:'Site institucional', d:'O site da sua empresa: apresentação, serviços, fotos, depoimentos e botão do WhatsApp. Ideal para escritórios de advocacia, arquitetos, designers de interiores, engenheiros, consultórios e empresas que trabalham com orçamento.', p:1800, mes:60, ano:800, inclui:0},
-     {id:'loja', n:'Catálogo interativo com WhatsApp', d:'Vitrine personalizada para até 25 produtos, com sacola e envio do pedido pelo WhatsApp. Estoque automatizado, integração de pagamento e funcionalidades sob medida são orçados à parte.', p:2800, mes:97, ano:970, inclui:0}, {id:'lojaonline', n:'Loja virtual com pagamento online', d:'A partir de R$ 4.500. Loja com checkout e pagamento online; integrações, taxas de plataforma, estoque, frete e escopo final dependem de orçamento personalizado.', p:4500, mes:97, ano:970, inclui:0}],
+     {id:'inst', n:'Site institucional', d:'O site da sua empresa: apresentação, serviços, fotos, depoimentos e botão do WhatsApp. Ideal para escritórios de advocacia, arquitetos, designers de interiores, engenheiros, consultórios e empresas que trabalham com orçamento.', p:720, referencia:900, mes:60, ano:800, inclui:0, tag:'BLACK FRIDAY −20%'},
+     {id:'loja', n:'Catálogo interativo com WhatsApp', d:'Vitrine personalizada para até 25 produtos, com sacola e envio do pedido pelo WhatsApp. Estoque automatizado, integração de pagamento e funcionalidades sob medida são orçados à parte.', p:1120, referencia:1400, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}, {id:'lojaonline', n:'Loja virtual com pagamento online', d:'A partir de R$ 1.800 na Black Friday. Loja com checkout e pagamento online; integrações, taxas de plataforma, estoque, frete e escopo final dependem de orçamento personalizado.', p:1800, referencia:2250, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}],
      
      
    itens:null, extras:[], urgencia:false,
@@ -505,7 +506,7 @@ function renderSteps(c,s,P){
   let n=1;
   const s1=step(n+++'. Escolha o '+(c.id==='site'?'tipo de site':'pacote'), c.base.length>1?'Escolha uma opção':'');
   const g1=document.createElement('div'); g1.className='opts';
-  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,'A PARTIR DE '+brl(b.p)+(b.mes?' + '+brl(b.mes)+'/MÊS':''),b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
+  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,(c.id==='site'?'CONDIÇÃO ESPECIAL '+brl(b.p)+' (referência '+brl(b.referencia)+')':'A PARTIR DE '+brl(b.p))+(b.mes?' + '+brl(b.mes)+'/MÊS':''),b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
   if(s.base){const lim=document.createElement('button'); lim.type='button'; lim.className='btn ghost lim'; lim.textContent='LIMPAR ESCOLHA'; lim.onclick=()=>{st[c.id]={base:null,itens:[],extras:[],urg:false}; render();}; s1.appendChild(g1); s1.appendChild(lim);} else s1.appendChild(g1);
   P.appendChild(s1);
 
