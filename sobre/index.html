@@ -665,5 +665,37 @@ html[data-theme="dark"] .svc::before{color:#FF2D95}
 /* Texto preto no botão rosa ORÇAMENTO, em ambos os temas. */
 html .pill.cta[href="/orcamento/"],html .pill.cta[href="/orcamento/"]:link,html .pill.cta[href="/orcamento/"]:visited,html .pill.cta[href="/orcamento/"]:hover,html .pill.cta[href="/orcamento/"]:active{color:#000000!important;-webkit-text-fill-color:#000000!important}
 </style>
+
+<style id="studio-borderless-buttons">
+/* Botões sem contorno; manter a linha inferior editorial das abas de serviço. */
+button:not(.tab),
+a.btn,
+a.pill,
+a.lk,
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+  border:0!important;
+  box-shadow:none!important;
+}
+/* O foco permanece visível somente para navegação por teclado. */
+button:focus-visible,
+a.btn:focus-visible,
+a.pill:focus-visible,
+a.lk:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible{
+  outline:2px solid #FF2D95!important;
+  outline-offset:3px;
+}
+/* Sem anel de foco persistente no clique convencional. */
+button:focus:not(:focus-visible),
+a.btn:focus:not(:focus-visible),
+a.pill:focus:not(:focus-visible),
+a.lk:focus:not(:focus-visible){
+  outline:none;
+}
+</style>
 </body>
 </html>
