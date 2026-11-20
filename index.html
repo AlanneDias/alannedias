@@ -1150,5 +1150,35 @@ a.lk:focus:not(:focus-visible){
   outline:none;
 }
 </style>
+<style id="studio-mobile-header-footer-clearance">
+/* Área de segurança para o menu flutuante e rodapé legível no celular. */
+@media (max-width:760px){
+  .studio-footer{
+    padding-bottom:calc(152px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .studio-footer-inner{
+    row-gap:20px!important;
+  }
+}
+@media (max-width:760px){
+  /* Orçamento compacto na barra superior, sem alterar outros CTAs. */
+  .nav .pills a.pill.cta.studio-cta{
+    display:inline-flex!important;
+    width:auto!important;
+    min-width:0!important;
+    height:36px!important;
+    min-height:36px!important;
+    padding:7px 13px!important;
+    font-size:10px!important;
+    letter-spacing:.065em!important;
+    line-height:1.1!important;
+    white-space:nowrap!important;
+    border-radius:999px!important;
+    flex:0 0 auto!important;
+  }
+  .nav .pills{align-items:center!important;flex-wrap:nowrap!important;overflow:visible!important}
+  .nav{align-items:center!important}
+}
+</style>
 </body>
 </html>
