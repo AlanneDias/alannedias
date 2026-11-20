@@ -243,6 +243,46 @@ body{min-height:100vh;min-height:100dvh}
  .studio-bf-close{right:8px!important;width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important}
 }
 </style>
+<style id="studio-bf-centered-display">
+/* Modal editorial, centralizado na tela (não mais uma faixa no topo). */
+body > #studio-black-friday-banner{
+ position:fixed!important;left:50%!important;top:50%!important;bottom:auto!important;right:auto!important;
+ transform:translate(-50%,-50%)!important;z-index:9999!important;
+ width:min(660px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;
+ border:1px solid rgba(255,45,149,.75)!important;border-radius:6px!important;
+ background:#0A0A0A!important;box-shadow:0 16px 70px rgba(0,0,0,.36)!important;
+}
+body > #studio-black-friday-banner[hidden]{display:none!important}
+body > #studio-black-friday-banner .studio-bf-banner-inner{
+ width:100%!important;min-height:260px!important;display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;
+ padding:42px 40px 36px!important;gap:23px!important;
+}
+body > #studio-black-friday-banner .studio-bf-copy{
+ display:flex!important;flex-direction:column!important;gap:12px!important;text-align:center!important;
+ align-items:center!important;justify-content:center!important;
+}
+body > #studio-black-friday-banner .studio-bf-intro{font-size:clamp(11px,1.5vw,14px)!important;letter-spacing:.17em!important}
+body > #studio-black-friday-banner .studio-bf-copy strong{
+ display:block!important;font:200 clamp(24px,4.4vw,42px)/1.13 'Josefin Sans',sans-serif!important;
+ letter-spacing:.045em!important;white-space:normal!important;
+}
+body > #studio-black-friday-banner .studio-bf-copy small{font-size:clamp(10px,1.5vw,12px)!important;letter-spacing:.11em!important;white-space:normal!important}
+body > #studio-black-friday-banner .studio-bf-link{min-height:42px!important;padding:10px 25px!important}
+body > #studio-black-friday-banner .studio-bf-close{
+ top:14px!important;right:14px!important;transform:none!important;
+ width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;
+}
+@media(max-width:760px){
+ body > #studio-black-friday-banner{width:calc(100vw - 28px)!important;max-width:calc(100vw - 28px)!important}
+ body > #studio-black-friday-banner .studio-bf-banner-inner{
+  min-height:242px!important;padding:50px 20px 30px!important;gap:18px!important;
+ }
+ body > #studio-black-friday-banner .studio-bf-intro{font-size:10px!important;letter-spacing:.11em!important}
+ body > #studio-black-friday-banner .studio-bf-copy strong{font-size:clamp(22px,7vw,31px)!important}
+ body > #studio-black-friday-banner .studio-bf-copy small{font-size:10px!important}
+}
+</style>
 </head>
 <body>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
