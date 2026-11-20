@@ -97,9 +97,27 @@ html[data-theme="light"] .topbar .mnav a.on,html[data-theme="light"] .topbar .mn
 @media(max-width:760px){.topbar .topnav{min-height:64px;padding:8px 12px}.topbar .mnav a{padding:9px 10px;letter-spacing:.1em;font-size:10px}}
 @media(max-width:370px){.topbar .mnav a{font-size:9px;letter-spacing:.04em;padding:8px 8px}}
 </style>
+<style id="studio-theme-toggle-same-as-budget">
+/* Igual à página Orçamento: dentro da cápsula do menu, não flutuante. */
+.topbar .mnav{gap:2px;padding:4px;max-width:calc(100vw - 24px)}
+#studio-theme-toggle{position:relative;inset:auto;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;min-width:42px;min-height:38px;height:38px;width:auto;padding:0 13px;margin:0 0 0 4px;border:1px solid rgba(242,240,236,.28);border-radius:999px;background:#222120;color:#F2F0EC;box-shadow:none;font:500 10.5px/1 'Jost',Arial,sans-serif;letter-spacing:.1em;cursor:pointer;white-space:nowrap}
+#studio-theme-toggle::before{content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;background:rgba(242,240,236,.22)}
+#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
+#studio-theme-toggle .theme-label{display:inline;font-size:10px}
+#studio-theme-toggle:hover{border-color:#FF2D95;background:#33312F}
+html[data-theme="light"] #studio-theme-toggle{background:#F2F0EC;color:#000000;border-color:rgba(255,255,255,.2)}
+html[data-theme="light"] #studio-theme-toggle::before{background:rgba(255,255,255,.25)}
+@media(max-width:760px){
+.topbar .mnav a{padding:9px clamp(6px,1.8vw,10px);letter-spacing:.06em}
+#studio-theme-toggle{min-width:42px;width:42px;min-height:38px;height:38px;padding:0}
+#studio-theme-toggle .theme-label{display:none}
+#studio-theme-toggle .theme-icon{font-size:22px}
+}
+@media(max-width:390px){.topbar .mnav a{font-size:9px;padding:9px 6px;letter-spacing:0}.topbar .topnav{padding-left:5px;padding-right:5px}}
+</style>
 </head>
 <body>
-<nav class="topbar" aria-label="Navegação"><div class="topnav"><div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/" class="on" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a></div></div></nav>
+<nav class="topbar" aria-label="Navegação"><div class="topnav"><div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/" class="on" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a><button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">CLARO</span></button></div></div></nav>
 <main>
 <section class="hero"><p class="eyebrow">STUDIO ALANNE DIAS / PROJETOS AUTORAIS</p><h1><span>PORT</span><span class="end">FÓLIO.</span></h1><div class="hero-bottom"><p>Sites pensados para marcas diferentes, com experiências próprias. Design, navegação e detalhes que fazem parte de cada história.</p><span class="index">WEB DESIGN · 2026</span></div></section>
 <hr class="divider">
@@ -132,10 +150,24 @@ html[data-theme="light"] .topbar .mnav a.on,html[data-theme="light"] .topbar .mn
 <section class="close"><div><p class="eyebrow">SEU PROJETO PODE SER O PRÓXIMO</p><h2>Vamos criar um espaço para a sua marca?</h2></div><a class="action" href="/orcamento/#site">MONTAR MEU PROJETO ↗</a></section>
 </main>
 <footer><span>© 2026 STUDIO ALANNE DIAS · BRAND & WEB DESIGN</span><span><a href="https://www.instagram.com/alannedias.designer/" target="_blank" rel="noopener">INSTAGRAM</a> &nbsp;·&nbsp; <a href="https://www.behance.net/alannedias" target="_blank" rel="noopener">BEHANCE</a></span></footer>
-<button class="toggle" type="button" aria-label="Alternar entre modo claro e escuro">◐ &nbsp; TEMA</button>
 <script>
-const btn=document.querySelector('.toggle');
-btn.addEventListener('click',function(){const next=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=next;try{localStorage.setItem('alanne-theme',next)}catch(e){}});
+const btn=document.getElementById('studio-theme-toggle');
+function syncThemeButton(){
+  const light=document.documentElement.dataset.theme==='light';
+  btn.setAttribute('aria-pressed',String(light));
+  btn.setAttribute('aria-label',light?'Ativar tema escuro':'Ativar tema claro');
+  btn.querySelector('.theme-icon').textContent=light?'☾':'☼';
+  btn.querySelector('.theme-label').textContent=light?'ESCURO':'CLARO';
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute('content',light?'#ECECEC':'#0A0A0A');
+}
+btn.addEventListener('click',function(){
+  const next=document.documentElement.dataset.theme==='light'?'dark':'light';
+  document.documentElement.dataset.theme=next;
+  try{localStorage.setItem('alanne-theme',next)}catch(e){}
+  syncThemeButton();
+});
+syncThemeButton();
 function previewScale(){
   document.querySelectorAll('.visual').forEach(function(v){
     const screen=v.querySelector('.siteview'); const mob=v.querySelector('.device .screen');
