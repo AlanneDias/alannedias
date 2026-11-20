@@ -84,60 +84,89 @@ main{padding:0 17px}.hero{padding:90px 0 70px}.hero h1{font-size:clamp(56px,15vw
 <script>
 try{document.documentElement.dataset.theme=localStorage.getItem('alanne-theme')==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}
 </script>
-<style id="same-menu-as-budget">
-/* Mesma geometria e comportamento da navegação da página Orçamento. */
-.topbar{background:var(--bg);color:var(--fg);position:sticky;top:0;z-index:60;border:0}
-.topbar .topnav{width:100%;max-width:1416px;height:72px;min-height:72px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:0;padding-block:0;padding-left:max(38px,env(safe-area-inset-left,0px));padding-right:max(38px,env(safe-area-inset-right,0px));font-size:12px;letter-spacing:.24em}
-.topbar .mnav{display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:var(--fg);max-width:100%}
-.topbar .mnav a{font:400 var(--fs-label,11px)/1.35 'Jost',Arial,sans-serif;letter-spacing:.14em;color:#0A0A0A;text-decoration:none;padding:9px 16px;border-radius:999px;white-space:nowrap}
-.topbar .mnav a.on,.topbar .mnav a:hover,.topbar .mnav a:active{background:#FF2D95;color:#FFFFFF}
-html[data-theme="light"] .topbar .mnav{background:#000000}
-html[data-theme="light"] .topbar .mnav a{color:#F2F0EC}
-html[data-theme="light"] .topbar .mnav a.on,html[data-theme="light"] .topbar .mnav a:hover{background:#FF2D95;color:#FFFFFF}
-@media(max-width:760px){.topbar .topnav{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}.topbar .mnav{gap:2px;padding:4px}.topbar .mnav a{padding:9px clamp(6px,1.8vw,10px);letter-spacing:.06em;font-size:11px}}
-@media(max-width:370px){.topbar .topnav{padding-left:5px;padding-right:5px}.topbar .mnav a{font-size:9px;letter-spacing:.02em;padding:9px 6px}}
-</style>
-<style id="studio-theme-toggle-same-as-budget">
-/* Mesma posição e dimensões do alternador Claro/Escuro no Orçamento. */
-#studio-theme-toggle{position:static!important;inset:auto!important;transform:none!important;display:inline-flex!important;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:38px;height:38px;width:auto;padding:0 13px;margin:0 0 0 3px;border:1px solid rgba(242,240,236,.28);border-radius:999px;background:#222120;color:#F2F0EC;box-shadow:none!important;white-space:nowrap;line-height:1;font-family:'Jost',Arial,sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;cursor:pointer}
-#studio-theme-toggle .theme-label{display:inline!important;font-size:10px}
-#studio-theme-toggle:hover{border-color:#FF2D95;background:#33312F}
-#studio-theme-toggle:focus-visible{outline:2px solid #FF2D95;outline-offset:2px}
-html[data-theme="light"] #studio-theme-toggle{background:#FFFFFF;color:#000000;border-color:#9C9C9C}
-html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-color:#777}
-@media(max-width:760px){
-#studio-theme-toggle{position:relative!important;min-width:42px!important;min-height:38px!important;width:42px!important;height:38px!important;padding:0!important;margin:0 0 0 4px!important;border-radius:999px!important;background:#32312F;color:#F2F0EC;border:1px solid rgba(242,240,236,.18)}
-#studio-theme-toggle::before{content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;background:rgba(242,240,236,.22)}
-#studio-theme-toggle .theme-label{display:none!important}
-html[data-theme="light"] #studio-theme-toggle{background:#F2F0EC;color:#000000;border-color:rgba(255,255,255,.2)}
-html[data-theme="light"] #studio-theme-toggle::before{background:rgba(255,255,255,.25)}
-}
-</style>
 <style id="studio-no-emoji-icons">
 /* Ícone de tema desenhado em CSS, sem caracteres emoji. */
 #studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;font-size:0!important;line-height:0}
 #studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
 html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
 </style>
-<style id="portfolio-menu-one-line">
-/* Navegação fixa em uma única linha, também em telas pequenas. */
-.topbar,.topbar .topnav{width:100%;min-width:0}
-.topbar .topnav{display:flex!important;flex-flow:row nowrap!important;justify-content:center!important;align-items:center!important;overflow:visible}
-.topbar .mnav{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;width:max-content;max-width:100%;min-width:0;white-space:nowrap;gap:2px!important;padding:4px!important;box-sizing:border-box}
-.topbar .mnav>a{display:inline-flex!important;align-items:center;justify-content:center;flex:0 1 auto;min-width:0;white-space:nowrap!important;line-height:1.15}
-.topbar .mnav>#studio-theme-toggle{display:inline-flex!important;flex:0 0 auto!important;white-space:nowrap!important}
+<style id="portfolio-navigation-parity">
+/* Regras do menu de Orçamento reutilizadas aqui, sem aproximação. */
+.topbar{background:#0A0A0A;color:var(--fg);border-bottom:1px solid #1B1A19}
+.topnav{padding-block:0;height:72px}
+.topnav a{color:var(--fg)}
+.topnav .marca{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;font-size:17px;letter-spacing:.14em}
+.topnav .home{border:0;background:var(--pink);color:#0A0A0A;font-size:10.5px;letter-spacing:.14em;padding:9px 14px;border-radius:999px;font-weight:500}
+.topnav .home:hover{background:#FF5AAD;color:#0A0A0A}
+
+.topnav{max-width:1416px;padding-left:max(38px,env(safe-area-inset-left,0px));padding-right:max(38px,env(safe-area-inset-right,0px))}
+@media(max-width:760px){.topnav{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}}
+</style>
+<style id="portfolio-navigation-pill">nav.dock,.nav .pills,.topnav .home{display:none!important}.nav,.topnav{justify-content:center!important}.nav,.topnav{justify-content:center!important}.mnav{display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg)}.mnav a{letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:var(--fs-label,11px);font-weight:400}.mnav a.on,.mnav a:hover,.mnav a:active{background:var(--pink)}@media (max-width:760px){.mnav a{padding:9px 10px;letter-spacing:.1em}}</style>
+<style id="portfolio-theme-toggle-refined">
+/* Navigation-integrated theme switch: no floating overlay or obscured content. */
+#studio-theme-toggle{
+  position:static!important;inset:auto!important;transform:none!important;
+  display:inline-flex!important;flex:0 0 auto;align-items:center;justify-content:center;
+  gap:8px;min-width:0;min-height:38px;height:38px;width:auto;
+  padding:0 13px;margin:0;border:1px solid rgba(242,240,236,.28);
+  border-radius:999px;background:#222120;color:#F2F0EC;
+  box-shadow:none!important;white-space:nowrap;line-height:1;
+  font-family:'Jost',Arial,sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:.1em;cursor:pointer
+}
+#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
+#studio-theme-toggle .theme-label{display:inline!important;font-size:10px}
+#studio-theme-toggle:hover{border-color:#FF2D95;background:#33312F}
+#studio-theme-toggle:focus-visible{outline:2px solid #FF2D95;outline-offset:2px}
+html[data-theme="light"] #studio-theme-toggle{
+  background:#FFFFFF;color:#000000;border-color:#9C9C9C
+}
+html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-color:#777}
+.nav .pills{align-items:center;flex:0 0 auto;overflow:visible;max-width:none}
+.nav .pills #studio-theme-toggle{margin-left:3px}
 @media(max-width:760px){
-  .topbar .topnav{padding:8px 6px!important;height:auto!important;min-height:60px!important}
-  .topbar .mnav>a{padding:9px clamp(5px,1.6vw,9px)!important;font-size:clamp(8.5px,2.5vw,10px)!important;letter-spacing:0!important}
-  .topbar .mnav>#studio-theme-toggle{width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important;padding:0!important;margin-left:1px!important}
-  .topbar .mnav>#studio-theme-toggle .theme-icon{width:18px;min-width:18px}
+  .dock #studio-theme-toggle,.mnav #studio-theme-toggle{
+    position:static!important;min-width:42px!important;min-height:38px!important;
+    width:42px!important;height:38px!important;padding:0!important;
+    margin:0 0 0 4px!important;border-radius:999px!important;box-shadow:none!important;
+    background:#32312F;color:#F2F0EC;border:1px solid rgba(242,240,236,.18);
+  }
+  .dock #studio-theme-toggle::before,.mnav #studio-theme-toggle::before{
+    content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;
+    background:rgba(242,240,236,.22)
+  }
+  .dock #studio-theme-toggle,.mnav #studio-theme-toggle{position:relative!important}
+  .dock #studio-theme-toggle .theme-label,.mnav #studio-theme-toggle .theme-label{display:none!important}
+  .dock #studio-theme-toggle .theme-icon,.mnav #studio-theme-toggle .theme-icon{font-size:22px}
+  html[data-theme="light"] .dock #studio-theme-toggle,
+  html[data-theme="light"] .mnav #studio-theme-toggle{
+    background:#F2F0EC;color:#000000;border-color:rgba(255,255,255,.2)
+  }
+  html[data-theme="light"] .dock #studio-theme-toggle::before,
+  html[data-theme="light"] .mnav #studio-theme-toggle::before{background:rgba(255,255,255,.25)}
+  .dock:has(#studio-theme-toggle){gap:2px!important;padding:5px!important;max-width:calc(100vw - 20px)!important}
+  .dock:has(#studio-theme-toggle) a{padding:9px clamp(9px,2.5vw,16px)!important}
+  .mnav:has(#studio-theme-toggle){align-items:center;gap:2px!important;max-width:100%;padding:4px!important}
+  .mnav:has(#studio-theme-toggle) a{padding:9px clamp(6px,1.8vw,10px)!important;letter-spacing:.06em!important}
+  #studio-theme-toggle:focus-visible{outline-offset:1px}
 }
-@media(max-width:360px){
-  .topbar .topnav{padding-left:3px!important;padding-right:3px!important}
-  .topbar .mnav{gap:0!important;padding:3px!important}
-  .topbar .mnav>a{padding:8px 4px!important;font-size:8.5px!important}
-  .topbar .mnav>#studio-theme-toggle{width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important}
+</style>
+<style id="portfolio-budget-navigation-finishing">
+/* Exact same typography and capsule sizing; keep menu in one row. */
+.topbar .topnav{display:flex;justify-content:center!important;align-items:center;flex-wrap:nowrap;height:72px;padding-block:0}
+.topbar .mnav{display:flex;flex-flow:row nowrap;align-items:center;white-space:nowrap;width:max-content;max-width:100%}
+.topbar .mnav>a{flex:0 1 auto;white-space:nowrap}
+html[data-theme="light"] .topbar .mnav{background:#000}
+html[data-theme="light"] .topbar .mnav>a{color:#F2F0EC}
+html[data-theme="light"] .topbar .mnav>a.on{background:#FF2D95;color:#FFF}
+.topbar .mnav>a.on{color:#FFF}
+@media(max-width:760px){
+.topbar .topnav{padding:0 max(8px,env(safe-area-inset-left,0px)) 0 max(8px,env(safe-area-inset-right,0px))}
+.topbar .mnav{gap:2px!important;padding:4px!important}
+.topbar .mnav>a{padding:9px clamp(6px,1.8vw,10px)!important;letter-spacing:.06em!important;font-size:var(--fs-label,11px)}
 }
+@media(max-width:385px){.topbar .mnav>a{padding:9px 5px!important;font-size:9.5px}.topbar .mnav #studio-theme-toggle{width:38px!important;min-width:38px!important}}
 </style>
 </head>
 <body>
