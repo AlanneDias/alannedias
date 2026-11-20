@@ -201,6 +201,21 @@ html[data-theme="light"] .topbar .mnav>a.on{background:#FF2D95;color:#FFF}
 .studio-cta{min-height:44px;padding:12px 18px!important;font-size:10.5px!important}
 }
 </style>
+<style id="studio-browser-infinite-background">
+/* Extend the active page background into safe areas and overscroll on mobile. */
+html{background-color:#0A0A0A;min-height:100%;color-scheme:dark}
+html[data-theme="light"]{background-color:#ECECEC;color-scheme:light}
+body{min-height:100vh;min-height:100dvh}
+</style>
+<script id="studio-browser-theme-init">
+(function(){
+ var light=document.documentElement.getAttribute('data-theme')==='light';
+ var color=light?'#ECECEC':'#0A0A0A';
+ var meta=document.querySelector('meta[name="theme-color"]');
+ if(meta)meta.setAttribute('content',color);
+ document.documentElement.style.backgroundColor=color;
+})();
+</script>
 </head>
 <body>
 <nav class="topbar" aria-label="Navegação"><div class="topnav"><div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/" class="on" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a><button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button></div></div></nav>
@@ -256,6 +271,7 @@ function syncThemeButton(){
   btn.querySelector('.theme-label').textContent=light?'ESCURO':'CLARO';
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute('content',light?'#ECECEC':'#0A0A0A');
+  document.documentElement.style.backgroundColor=light?'#ECECEC':'#0A0A0A';
 }
 btn.addEventListener('click',function(){
   const next=document.documentElement.dataset.theme==='light'?'dark':'light';
