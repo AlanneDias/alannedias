@@ -84,8 +84,55 @@ body{min-height:100vh;min-height:100dvh}
  document.documentElement.style.backgroundColor=color;
 })();
 </script>
+<style id="studio-bf-banner-css">
+/* Identidade visual editorial: sem emojis, rosa pontual, letras leves. */
+.studio-bf-banner{position:relative;z-index:90;display:block;box-sizing:border-box;width:100%;margin:0;padding:0;background:#0A0A0A;color:#F2F0EC;border-bottom:1px solid rgba(255,255,255,.12);font-family:'Jost',Arial,sans-serif}
+.studio-bf-banner[hidden]{display:none!important}
+.studio-bf-banner *{box-sizing:border-box}
+.studio-bf-banner-inner{max-width:1416px;min-height:82px;margin:auto;display:flex;align-items:center;justify-content:center;gap:clamp(16px,2vw,32px);padding:15px 54px;position:relative}
+.studio-bf-copy{display:flex;flex-flow:row wrap;align-items:center;justify-content:center;column-gap:22px;row-gap:3px;margin:0!important;color:#F2F0EC!important;text-align:center;line-height:1.3}
+.studio-bf-intro{font-size:10px;letter-spacing:.15em;font-weight:400;color:#F2F0EC}
+.studio-bf-copy strong{font:300 clamp(17px,2.2vw,29px)/1.15 'Josefin Sans',sans-serif;letter-spacing:.055em;white-space:nowrap}
+.studio-bf-copy strong span{color:#FF2D95;font-weight:300}
+.studio-bf-copy small{font-size:10px;letter-spacing:.11em;color:#B6B6B6;white-space:nowrap}
+.studio-bf-link{display:inline-flex;align-items:center;justify-content:center;min-height:35px;padding:8px 15px;border:1px solid #FF2D95;border-radius:999px;background:transparent;color:#FF2D95!important;text-decoration:none;font:500 10px/1.2 'Jost',Arial,sans-serif;letter-spacing:.08em;white-space:nowrap;flex:0 0 auto;transition:background .15s,color .15s}
+.studio-bf-link:hover{background:#FF2D95;color:#0A0A0A!important}
+.studio-bf-close{position:absolute!important;right:12px;top:50%;transform:translateY(-50%);width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;display:flex!important;align-items:center;justify-content:center;padding:0!important;border:1px solid rgba(255,255,255,.32)!important;border-radius:50%!important;background:transparent!important;color:#F2F0EC!important;box-shadow:none!important;cursor:pointer!important;line-height:1!important}
+.studio-bf-close span{font:300 25px/1 Arial,sans-serif}
+.studio-bf-close:hover{border-color:#FF2D95!important;color:#FF2D95!important}
+.studio-bf-close:focus-visible,.studio-bf-link:focus-visible{outline:2px solid #FF2D95;outline-offset:3px}
+@media(max-width:760px){
+ .studio-bf-banner-inner{min-height:94px;flex-direction:column;gap:9px;padding:14px 46px 14px 14px}
+ .studio-bf-copy{flex-direction:column;align-items:center;gap:4px}
+ .studio-bf-intro{font-size:9px;letter-spacing:.1em}
+ .studio-bf-copy strong{font-size:clamp(17px,5vw,24px);letter-spacing:.025em}
+ .studio-bf-copy small{font-size:9px;letter-spacing:.065em;white-space:normal}
+ .studio-bf-link{min-height:29px;padding:6px 13px;font-size:9px}
+ .studio-bf-close{right:8px!important;width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important}
+}
+</style>
 </head>
 <body>
+<aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
+  <div class="studio-bf-banner-inner">
+    <p class="studio-bf-copy"><span class="studio-bf-intro">CHEGOU A MINHA BLACK FRIDAY!</span><strong>TODO O SITE <span>20% OFF</span></strong><small>ATÉ 25 DE NOVEMBRO · SERVIÇOS DE CRIAÇÃO</small></p>
+    <a class="studio-bf-link" href="/orcamento/">APROVEITAR</a>
+    <button class="studio-bf-close" id="studio-black-friday-close" type="button" aria-label="Fechar aviso da Black Friday"><span aria-hidden="true">×</span></button>
+  </div>
+</aside>
+<script id="studio-bf-dismiss">
+(function(){
+  var banner=document.getElementById('studio-black-friday-banner');
+  var close=document.getElementById('studio-black-friday-close');
+  if(!banner||!close)return;
+  try{if(sessionStorage.getItem('studio-black-friday-dismissed')==='1'){banner.hidden=true;}}catch(e){}
+  close.addEventListener('click',function(){
+    banner.hidden=true;
+    try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
+  });
+})();
+</script>
+
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
 <script>
 (function(){
@@ -297,7 +344,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <a href="/sobre/">SOBRE</a>
 </nav>
 <div class="wrap">
-<p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO NOS SERVIÇOS DE CRIAÇÃO · ATÉ 23/11/2026 · HOSPEDAGEM NÃO INCLUÍDA NO DESCONTO.</p>
+<p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO NOS SERVIÇOS DE CRIAÇÃO · ATÉ 25/11/2026 · HOSPEDAGEM NÃO INCLUÍDA NO DESCONTO.</p>
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
