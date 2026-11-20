@@ -409,7 +409,7 @@ const FOTOS = {
 };
 const st = {}; CATS.forEach(c=>st[c.id]={base:null, itens:[], extras:[], urg:false});
 let atual = 'casamento';
-const brl = v => 'R$ ' + v.toLocaleString('pt-BR');
+const brl = v => 'R$ ' + v.toLocaleString('pt-BR',{minimumFractionDigits:Number.isInteger(v)?0:2,maximumFractionDigits:2});
 const pix = () => Math.round(CATS.reduce((a,c)=>a+custo(c).total*(c.id==='monograma'?1:0.95),0));
 
 function custo(c){
