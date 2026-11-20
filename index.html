@@ -518,7 +518,7 @@ body > #studio-black-friday-banner .studio-bf-close{
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
   <div class="studio-bf-banner-inner">
     <p class="studio-bf-copy"><span class="studio-bf-intro">CHEGOU A MINHA BLACK FRIDAY!</span><strong>TODO O SITE <span>20% OFF</span></strong><small>ATÉ 25 DE NOVEMBRO · SERVIÇOS DE CRIAÇÃO</small></p>
-    <a class="studio-bf-link" href="/orcamento/">APROVEITAR</a>
+    <a class="studio-bf-link" href="/">APROVEITAR</a>
     <button class="studio-bf-close" id="studio-black-friday-close" type="button" aria-label="Fechar aviso da Black Friday"><span aria-hidden="true">×</span></button>
   </div>
 </aside>
@@ -528,6 +528,10 @@ body > #studio-black-friday-banner .studio-bf-close{
   var close=document.getElementById('studio-black-friday-close');
   if(!banner||!close)return;
   try{if(sessionStorage.getItem('studio-black-friday-dismissed')==='1'){banner.hidden=true;}}catch(e){}
+  var apply=banner.querySelector('.studio-bf-link');
+  if(apply)apply.addEventListener('click',function(){
+    try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
+  });
   close.addEventListener('click',function(){
     banner.hidden=true;
     try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
