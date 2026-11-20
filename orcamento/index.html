@@ -27,6 +27,24 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 .opt .bf-price-suffix{font-size:11px;color:var(--soft);font-weight:300;letter-spacing:.02em}
 .bf-total-original{display:block;color:var(--muted);font-size:14px;letter-spacing:.04em;margin-top:2px}
 </style>
+<style id="studio-terms-policy-styles">
+.studio-terms{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding:22px 0 6px;text-align:left}
+.studio-terms-kicker{color:#FF2D95!important;letter-spacing:.16em!important;font-size:10px!important;font-weight:500!important;margin:0!important}
+.studio-terms h3{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;font-size:clamp(19px,2vw,24px);line-height:1.15;margin:0}
+.studio-terms>p:not(.studio-terms-kicker){font-size:13px!important;line-height:1.6;color:var(--soft);margin:0}
+.studio-terms-details{border-top:1px solid var(--line);padding:11px 0 0}
+.studio-terms-details summary{cursor:pointer;font-family:'Jost',sans-serif;font-size:13px!important;font-weight:400;line-height:1.4;list-style:none;position:relative;padding:0 22px 10px 0;color:var(--fg)}
+.studio-terms-details summary::-webkit-details-marker{display:none}
+.studio-terms-details summary::after{content:'+';position:absolute;right:2px;top:0;font-size:18px;font-weight:300;color:var(--pink)}
+.studio-terms-details[open] summary::after{content:'−'}
+.studio-terms-details p{font-size:12.5px!important;line-height:1.65;color:var(--soft);margin:0 0 12px}
+.studio-terms .studio-terms-help{font-size:12px!important;line-height:1.6}
+.studio-terms-accept{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:13px 10px;border:1px solid var(--line);background:transparent;font-size:12.5px;line-height:1.5;color:var(--fg)}
+.studio-terms-accept input{appearance:auto;accent-color:#FF2D95;flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;cursor:pointer}
+.studio-terms-validation{font-size:11px!important;color:var(--soft);margin:0 0 4px}
+#zap.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
+#studio-terms-checkbox:focus-visible{outline:2px solid #FF2D95;outline-offset:3px}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -259,6 +277,30 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         <span class="big" id="total">R$ 0</span>
         <span class="pix" id="pix"></span>
       </div>
+      <section class="studio-terms" id="condicoes-contratacao" aria-labelledby="studio-terms-title">
+        <p class="studio-terms-kicker">INFORMAÇÕES IMPORTANTES</p>
+        <h3 id="studio-terms-title">Antes de contratar, leia com atenção</h3>
+        <p>Cada projeto do Studio Alanne Dias é personalizado e envolve planejamento, criação autoral e tempo de produção.</p>
+        <details class="studio-terms-details">
+          <summary>Pagamento e início do projeto</summary>
+          <p>A solicitação enviada pelo site não gera cobrança nem confirma a contratação. O trabalho começa após a confirmação do orçamento, o aceite das condições, o pagamento combinado e o recebimento das informações necessárias para o projeto.</p>
+        </details>
+        <details class="studio-terms-details">
+          <summary>Desistência e reembolso</summary>
+          <p>Nas contratações realizadas pela internet, o consumidor tem, em regra, o direito de arrependimento em até 7 dias, conforme o art. 49 do Código de Defesa do Consumidor, com devolução dos valores pagos quando esse direito é exercido.</p>
+          <p>Fora das hipóteses de arrependimento legal, a solicitação de cancelamento será analisada considerando o contrato, a etapa do projeto e os serviços efetivamente realizados, sempre respeitando os direitos previstos em lei. O início do trabalho não elimina automaticamente o direito legal de arrependimento.</p>
+        </details>
+        <details class="studio-terms-details">
+          <summary>Criação, ajustes e aprovação</summary>
+          <p>Pesquisa, esboços, desenvolvimento e ajustes fazem parte do serviço contratado. Os entregáveis, prazos e limites de alterações são definidos na proposta de cada projeto. Mudanças fora do escopo poderão exigir novo orçamento, informado antes da execução.</p>
+        </details>
+        <p class="studio-terms-help">Para solicitar cancelamento ou esclarecer qualquer condição, entre em contato pelo WhatsApp do Studio. Os termos completos serão confirmados antes do pagamento.</p>
+        <label class="studio-terms-accept" for="studio-terms-checkbox">
+          <input id="studio-terms-checkbox" type="checkbox">
+          <span>Li e estou ciente das informações de contratação, desistência, reembolso e ajustes apresentadas acima.</span>
+        </label>
+        <p class="studio-terms-validation" id="studio-terms-validation" role="status" aria-live="polite">Marque a confirmação acima para liberar o envio pelo WhatsApp.</p>
+      </section>
       <a class="btn" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP</a>
       <button class="btn ghost" id="copiar" type="button">COPIAR RESUMO</button>
       <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
@@ -570,6 +612,25 @@ function resumoTexto(){
   return {txt,T};
 }
 
+function atualizarAceiteTermos(){
+  const checkbox=document.getElementById('studio-terms-checkbox');
+  const z=document.getElementById('zap');
+  const note=document.getElementById('studio-terms-validation');
+  if(!checkbox||!z)return;
+  const accepted=checkbox.checked;
+  z.classList.toggle('studio-terms-blocked',!accepted);
+  z.setAttribute('aria-disabled',String(!accepted||!z.hasAttribute('href')));
+  z.tabIndex=accepted&&z.hasAttribute('href')?0:-1;
+  if(note)note.textContent=accepted?'Leitura confirmada. Você pode enviar sua solicitação pelo WhatsApp.':'Marque a confirmação acima para liberar o envio pelo WhatsApp.';
+}
+document.getElementById('studio-terms-checkbox').addEventListener('change',atualizarAceiteTermos);
+document.getElementById('zap').addEventListener('click',function(event){
+  if(!document.getElementById('studio-terms-checkbox').checked||this.getAttribute('aria-disabled')==='true'){
+    event.preventDefault();
+    document.getElementById('studio-terms-checkbox').focus();
+  }
+});
+
 function renderResumo(){
   const L=document.getElementById('linhas'); L.innerHTML=''; let T=0, originalTotal=0;
   CATS.forEach(c=>{const r=custo(c); if(!r.total) return; const g=document.createElement('li'); g.className='grp'; g.textContent=c.titulo.toUpperCase(); L.appendChild(g);
@@ -593,9 +654,10 @@ function renderResumo(){
   const z=document.getElementById('zap'), cp=document.getElementById('copiar'), av=document.getElementById('aviso');
   const falta=pendentes();
   cp.disabled=!!falta || !T; cp.style.opacity=cp.disabled?'.4':'';
-  if(falta){ av.textContent=falta; z.removeAttribute('href'); z.setAttribute('aria-disabled','true'); return; }
+  if(falta){ av.textContent=falta; z.removeAttribute('href'); z.setAttribute('aria-disabled','true'); atualizarAceiteTermos(); return; }
   av.textContent='Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.';
-  if(T){z.href='https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt); z.setAttribute('aria-disabled','false');} else {z.removeAttribute('href'); z.setAttribute('aria-disabled','true');}
+  if(T){z.href='https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt);} else {z.removeAttribute('href'); z.setAttribute('aria-disabled','true');}
+  atualizarAceiteTermos();
 }
 
 function pendentes(){
