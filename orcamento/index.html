@@ -1196,5 +1196,17 @@ a.lk:focus:not(:focus-visible){
   outline:none;
 }
 </style>
+<style id="studio-mobile-header-footer-clearance">
+/* Área de segurança para o menu flutuante e rodapé legível no celular. */
+@media (max-width:760px){
+  .studio-footer{
+    padding-bottom:calc(152px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .studio-footer-inner{
+    row-gap:20px!important;
+  }
+}
+
+</style>
 </body>
 </html>
