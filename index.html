@@ -1046,5 +1046,31 @@ html[data-theme="light"] #contato .row a.btn.line {
   color:#000000!important;
   -webkit-text-fill-color:#000000!important;
 }
-</style></body>
+</style><style id="studio-dark-editorial-parity">
+
+/* Editorial layout parity: use the light-mode structure in the dark palette. */
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .svc,
+html[data-theme="dark"] .info,
+html[data-theme="dark"] .about,
+html[data-theme="dark"] .contact,
+html[data-theme="dark"] .cta-card,
+html[data-theme="dark"] .nums,
+html[data-theme="dark"] .txt,
+html[data-theme="dark"] .plano,
+html[data-theme="dark"] .dest-tx,
+html[data-theme="dark"] .total,
+html[data-theme="dark"] .faq details{
+ background:transparent!important;background-image:none!important;box-shadow:none!important;border-color:transparent!important;
+}
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .plano,html[data-theme="dark"] .faq details{border-radius:0}
+html[data-theme="dark"] .info:hover{background:transparent!important}
+html[data-theme="dark"] .plano{padding-left:0;padding-right:0}
+html[data-theme="dark"] .svc::before{color:#FF2D95}
+@media(max-width:760px){
+ html[data-theme="dark"] .svc,html[data-theme="dark"] .info,html[data-theme="dark"] .contact{padding-left:0;padding-right:0}
+}
+</style>
+</body>
 </html>
