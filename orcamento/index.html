@@ -45,6 +45,30 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 #zap.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
 #studio-terms-checkbox:focus-visible{outline:2px solid #FF2D95;outline-offset:3px}
 </style>
+<style id="studio-shared-footer-buttons">
+/* Mesma identidade para o rodapé e botões em todas as páginas. */
+.studio-footer{box-sizing:border-box;width:100%;max-width:1416px;margin:0 auto;padding:36px max(38px,env(safe-area-inset-left,0px)) 48px;color:var(--muted,#92908C);border-top:1px solid var(--line,#292929);background:transparent;font-family:'Jost',Arial,sans-serif}
+.studio-footer *{box-sizing:border-box}
+.studio-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.studio-footer-credit{font-family:'Jost',Arial,sans-serif;font-weight:300;font-size:11px!important;line-height:1.7;letter-spacing:.12em;margin:0;color:var(--muted,#92908C)}
+.studio-footer-credit span{margin:0 .4em}
+.studio-footer-links{display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:wrap}
+.studio-footer-links a{display:inline-flex;align-items:center;min-height:32px;font-family:'Jost',Arial,sans-serif;font-size:11px!important;font-weight:400;letter-spacing:.12em;line-height:1.3;color:var(--fg,#F2F0EC);text-decoration:none;white-space:nowrap}
+.studio-footer-links a:hover,.studio-footer-links a:focus-visible{color:#FF2D95}
+.studio-cta,.studio-cta:link,.studio-cta:visited{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;min-height:44px;width:max-content;max-width:100%;padding:12px 22px!important;border:1px solid #FF2D95!important;border-radius:999px!important;background:#FF2D95!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important;font:500 11px/1.25 'Jost',Arial,sans-serif!important;letter-spacing:.11em!important;text-align:center;text-decoration:none;box-shadow:none!important;white-space:normal;cursor:pointer;transition:background .2s,border-color .2s}
+.studio-cta:hover{background:#FF5AAD!important;border-color:#FF5AAD!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important}
+.studio-cta-secondary,.studio-cta-secondary:link,.studio-cta-secondary:visited{background:transparent!important;color:var(--fg,#F2F0EC)!important;-webkit-text-fill-color:var(--fg,#F2F0EC)!important;border-color:var(--line,#666)!important}
+.studio-cta-secondary:hover{border-color:#FF2D95!important;background:transparent!important;color:#FF2D95!important;-webkit-text-fill-color:#FF2D95!important}
+.studio-cta[aria-disabled="true"],.studio-cta.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
+@media(max-width:760px){
+.studio-footer{padding:28px max(18px,env(safe-area-inset-left,0px)) 36px}
+.studio-footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.studio-footer-credit{font-size:10px!important;letter-spacing:.09em;overflow-wrap:normal}
+.studio-footer-links{gap:8px 18px}
+.studio-footer-links a{font-size:10px!important;letter-spacing:.09em}
+.studio-cta{min-height:44px;padding:12px 18px!important;font-size:10.5px!important}
+}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -301,8 +325,8 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         </label>
         <p class="studio-terms-validation" id="studio-terms-validation" role="status" aria-live="polite">Marque a confirmação acima para liberar o envio pelo WhatsApp.</p>
       </section>
-      <a class="btn" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP</a>
-      <button class="btn ghost" id="copiar" type="button">COPIAR RESUMO</button>
+      <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP</a>
+      <button class="btn ghost studio-cta studio-cta-secondary" id="copiar" type="button">COPIAR RESUMO</button>
       <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
     </aside>
   </div>
@@ -360,6 +384,17 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     </div>
   </section>
 </div>
+<footer class="studio-footer" aria-label="Rodapé Studio Alanne Dias">
+  <div class="studio-footer-inner">
+    <p class="studio-footer-credit">© 2026 STUDIO ALANNE DIAS <span aria-hidden="true">·</span> BRAND &amp; WEB DESIGN</p>
+    <nav class="studio-footer-links" aria-label="Redes sociais e contato">
+      <a href="https://www.instagram.com/alannedias.designer/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="https://www.tiktok.com/@alannedias.designer" target="_blank" rel="noopener">TIKTOK</a>
+      <a href="https://www.behance.net/alannedias" target="_blank" rel="noopener">BEHANCE</a>
+      <a href="https://wa.me/5583998361156" target="_blank" rel="noopener">WHATSAPP</a>
+    </nav>
+  </div>
+</footer>
 
 <script>
 const ITENS_CASAMENTO = [
