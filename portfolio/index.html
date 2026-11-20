@@ -85,35 +85,33 @@ main{padding:0 17px}.hero{padding:90px 0 70px}.hero h1{font-size:clamp(56px,15vw
 try{document.documentElement.dataset.theme=localStorage.getItem('alanne-theme')==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}
 </script>
 <style id="same-menu-as-budget">
-/* Menu idêntico à navegação em cápsula da página Orçamento. */
-.topbar{position:sticky;top:0;z-index:60;background:var(--bg);color:var(--fg);border:0}
-.topbar .topnav{max-width:1416px;margin:0 auto;display:flex;justify-content:center;align-items:center;min-height:72px;padding:9px max(18px,env(safe-area-inset-left,0px));width:100%;gap:0}
-.topbar .mnav{display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg);align-items:center}
-.topbar .mnav a{color:#0A0A0A;font:400 11px/1.35 'Jost',Arial,sans-serif;letter-spacing:.14em;padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .2s}
-.topbar .mnav a.on,.topbar .mnav a:hover,.topbar .mnav a:active{background:var(--pink);color:#0A0A0A}
+/* Mesma geometria e comportamento da navegação da página Orçamento. */
+.topbar{background:var(--bg);color:var(--fg);position:sticky;top:0;z-index:60;border:0}
+.topbar .topnav{width:100%;max-width:1416px;height:72px;min-height:72px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:0;padding-block:0;padding-left:max(38px,env(safe-area-inset-left,0px));padding-right:max(38px,env(safe-area-inset-right,0px));font-size:12px;letter-spacing:.24em}
+.topbar .mnav{display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:var(--fg);max-width:100%}
+.topbar .mnav a{font:400 var(--fs-label,11px)/1.35 'Jost',Arial,sans-serif;letter-spacing:.14em;color:#0A0A0A;text-decoration:none;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.topbar .mnav a.on,.topbar .mnav a:hover,.topbar .mnav a:active{background:#FF2D95;color:#FFFFFF}
 html[data-theme="light"] .topbar .mnav{background:#000000}
 html[data-theme="light"] .topbar .mnav a{color:#F2F0EC}
-html[data-theme="light"] .topbar .mnav a.on,html[data-theme="light"] .topbar .mnav a:hover{background:#FF2D95;color:#0A0A0A}
-@media(max-width:760px){.topbar .topnav{min-height:64px;padding:8px 12px}.topbar .mnav a{padding:9px 10px;letter-spacing:.1em;font-size:10px}}
-@media(max-width:370px){.topbar .mnav a{font-size:9px;letter-spacing:.04em;padding:8px 8px}}
+html[data-theme="light"] .topbar .mnav a.on,html[data-theme="light"] .topbar .mnav a:hover{background:#FF2D95;color:#FFFFFF}
+@media(max-width:760px){.topbar .topnav{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}.topbar .mnav{gap:2px;padding:4px}.topbar .mnav a{padding:9px clamp(6px,1.8vw,10px);letter-spacing:.06em;font-size:11px}}
+@media(max-width:370px){.topbar .topnav{padding-left:5px;padding-right:5px}.topbar .mnav a{font-size:9px;letter-spacing:.02em;padding:9px 6px}}
 </style>
 <style id="studio-theme-toggle-same-as-budget">
-/* Igual à página Orçamento: dentro da cápsula do menu, não flutuante. */
-.topbar .mnav{gap:2px;padding:4px;max-width:calc(100vw - 24px)}
-#studio-theme-toggle{position:relative;inset:auto;display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;min-width:42px;min-height:38px;height:38px;width:auto;padding:0 13px;margin:0 0 0 4px;border:1px solid rgba(242,240,236,.28);border-radius:999px;background:#222120;color:#F2F0EC;box-shadow:none;font:500 10.5px/1 'Jost',Arial,sans-serif;letter-spacing:.1em;cursor:pointer;white-space:nowrap}
-#studio-theme-toggle::before{content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;background:rgba(242,240,236,.22)}
-#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
-#studio-theme-toggle .theme-label{display:inline;font-size:10px}
+/* Mesma posição e dimensões do alternador Claro/Escuro no Orçamento. */
+#studio-theme-toggle{position:static!important;inset:auto!important;transform:none!important;display:inline-flex!important;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:38px;height:38px;width:auto;padding:0 13px;margin:0 0 0 3px;border:1px solid rgba(242,240,236,.28);border-radius:999px;background:#222120;color:#F2F0EC;box-shadow:none!important;white-space:nowrap;line-height:1;font-family:'Jost',Arial,sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;cursor:pointer}
+#studio-theme-toggle .theme-label{display:inline!important;font-size:10px}
 #studio-theme-toggle:hover{border-color:#FF2D95;background:#33312F}
+#studio-theme-toggle:focus-visible{outline:2px solid #FF2D95;outline-offset:2px}
+html[data-theme="light"] #studio-theme-toggle{background:#FFFFFF;color:#000000;border-color:#9C9C9C}
+html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-color:#777}
+@media(max-width:760px){
+#studio-theme-toggle{position:relative!important;min-width:42px!important;min-height:38px!important;width:42px!important;height:38px!important;padding:0!important;margin:0 0 0 4px!important;border-radius:999px!important;background:#32312F;color:#F2F0EC;border:1px solid rgba(242,240,236,.18)}
+#studio-theme-toggle::before{content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;background:rgba(242,240,236,.22)}
+#studio-theme-toggle .theme-label{display:none!important}
 html[data-theme="light"] #studio-theme-toggle{background:#F2F0EC;color:#000000;border-color:rgba(255,255,255,.2)}
 html[data-theme="light"] #studio-theme-toggle::before{background:rgba(255,255,255,.25)}
-@media(max-width:760px){
-.topbar .mnav a{padding:9px clamp(6px,1.8vw,10px);letter-spacing:.06em}
-#studio-theme-toggle{min-width:42px;width:42px;min-height:38px;height:38px;padding:0}
-#studio-theme-toggle .theme-label{display:none}
-#studio-theme-toggle .theme-icon{font-size:22px}
 }
-@media(max-width:390px){.topbar .mnav a{font-size:9px;padding:9px 6px;letter-spacing:0}.topbar .topnav{padding-left:5px;padding-right:5px}}
 </style>
 <style id="studio-no-emoji-icons">
 /* Ícone de tema desenhado em CSS, sem caracteres emoji. */
