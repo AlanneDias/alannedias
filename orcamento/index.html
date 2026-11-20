@@ -14,9 +14,15 @@
 })();
 </script>
 
+<style id="studio-no-emoji-icons">
+/* Ícone de tema desenhado em CSS, sem caracteres emoji. */
+#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;font-size:0!important;line-height:0}
+#studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
+html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
+</style>
 </head>
 <body>
-<button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">CLARO</span></button>
+<button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
 <script>
 (function(){
   var button=document.getElementById('studio-theme-toggle');
@@ -25,7 +31,7 @@
     var light=root.getAttribute('data-theme')==='light';
     button.setAttribute('aria-pressed',String(light));
     button.setAttribute('aria-label',light?'Ativar tema escuro':'Ativar tema claro');
-    button.querySelector('.theme-icon').textContent=light?'☾':'☼';
+    button.querySelector('.theme-icon').textContent='';
     button.querySelector('.theme-label').textContent=light?'ESCURO':'CLARO';
     var meta=document.querySelector('meta[name="theme-color"]');
     if(meta)meta.setAttribute('content',light?'#A3A3A3':'#0A0A0A');
