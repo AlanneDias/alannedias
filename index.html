@@ -400,6 +400,23 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 .studio-cta{min-height:44px;padding:12px 18px!important;font-size:10.5px!important}
 }
 </style>
+<style id="header-budget-compact">
+/* O CTA do cabeçalho deve seguir a escala compacta do menu, não os botões grandes das seções. */
+.nav .pills>a.pill.cta[href="/orcamento/"]{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;width:auto!important;min-width:0!important;max-width:max-content!important;
+  min-height:0!important;height:auto!important;flex:0 0 auto!important;
+  padding:8px 13px!important;margin:0!important;border:0!important;
+  border-radius:999px!important;white-space:nowrap!important;line-height:1.2!important;
+  font:500 10px/1.2 'Jost',Arial,sans-serif!important;letter-spacing:.07em!important;
+  background:#FF2D95!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important;
+}
+@media(max-width:760px){
+ .nav .pills>a.pill.cta[href="/orcamento/"]{
+   padding:7px 11px!important;font-size:9px!important;letter-spacing:.05em!important;
+ }
+}
+</style>
 </head>
 <body>
 <button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
@@ -432,7 +449,7 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
   <nav class="nav" aria-label="Menu principal">
     <a href="#inicio" class="logo">ALANNE DIAS</a>
     <div class="pills">
-      <a class="pill cta studio-cta" href="/orcamento/">ORÇAMENTO</a>
+      <a class="pill cta" href="/orcamento/">ORÇAMENTO</a>
     </div>
   </nav>
 
