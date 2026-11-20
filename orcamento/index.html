@@ -981,5 +981,44 @@ html[data-theme="dark"] .btn.line:hover{border-color:var(--fg)}
 /* Texto preto no botão rosa ORÇAMENTO, em ambos os temas. */
 html .mnav a[href="/orcamento/"].on,html .mnav a[href="/orcamento/"].on:link,html .mnav a[href="/orcamento/"].on:visited,html .mnav a[href="/orcamento/"].on:hover,html .mnav a[href="/orcamento/"].on:active{color:#000000!important;-webkit-text-fill-color:#000000!important}
 </style>
+
+<style id="studio-budget-summary-light">
+/* O resumo deve acompanhar o tema claro, mantendo contraste e legibilidade. */
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"]{
+  background:#F7F7F7!important;
+  color:#000000!important;
+  border:1px solid #D3D3D3!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] h2,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .total,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .total .big,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .lines li{
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+}
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .small,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .empty,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .lines .grp,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .lines li span:first-child,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .total .pix,
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] #aviso{
+  color:#454545!important;
+  -webkit-text-fill-color:#454545!important;
+}
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .btn:not(.ghost){
+  background:#FF2D95!important;
+  border-color:#FF2D95!important;
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+}
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .btn.ghost{
+  background:#E8E8E8!important;
+  border-color:#E8E8E8!important;
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+}
+html[data-theme="light"] aside[aria-label="Resumo do orçamento"] .btn[aria-disabled="true"]{opacity:.65}
+</style>
 </body>
 </html>
