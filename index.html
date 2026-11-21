@@ -545,6 +545,32 @@ body .h2o h1.h2t span.l2{
 }
 </style>
 
+<style id="studio-unified-theme-and-cleanup">
+/* O mesmo controle de tema da Home, sempre na lateral direita. */
+body > #studio-theme-toggle{
+position:fixed!important;top:43%!important;right:0!important;bottom:auto!important;left:auto!important;
+transform:translateY(-50%)!important;z-index:1200!important;
+display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+width:49px!important;min-width:49px!important;height:114px!important;min-height:114px!important;
+gap:12px!important;padding:14px 4px!important;margin:0!important;
+border:1px solid rgba(255,255,255,.23)!important;border-right:0!important;border-radius:14px 0 0 14px!important;
+background:#242424!important;color:#F2F0EC!important;
+box-shadow:-3px 4px 16px rgba(0,0,0,.14)!important;
+font:500 10px/1 'Jost',Arial,sans-serif!important;letter-spacing:.14em!important;cursor:pointer!important
+}
+body > #studio-theme-toggle::before,body > #studio-theme-toggle::after{display:none!important;content:none!important}
+body > #studio-theme-toggle .theme-icon{display:block!important;font-size:22px!important;line-height:1!important}
+body > #studio-theme-toggle .theme-label{display:block!important;font-size:10px!important;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);letter-spacing:.17em}
+body > #studio-theme-toggle:hover{background:#353535!important;border-color:#FF2D95!important}
+body > #studio-theme-toggle:focus-visible{outline:3px solid #FF2D95!important;outline-offset:-4px!important}
+html[data-theme="light"] body > #studio-theme-toggle{background:#fff!important;color:#000!important;border-color:#B9B9B9!important;box-shadow:-3px 4px 16px rgba(0,0,0,.1)!important}
+html[data-theme="light"] body > #studio-theme-toggle:hover{background:#DCDCDC!important;border-color:#888!important}
+@media(max-width:760px){
+body > #studio-theme-toggle{top:42%!important;width:39px!important;min-width:39px!important;height:98px!important;min-height:98px!important;gap:9px!important;padding:12px 3px!important;border-radius:12px 0 0 12px!important}
+body > #studio-theme-toggle .theme-icon{font-size:20px!important}
+body > #studio-theme-toggle .theme-label{font-size:9px!important}
+}
+</style>
 </head>
 <body>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
@@ -1364,5 +1390,13 @@ body .h2o > h1.h2t > span{
  text-shadow:none!important;
 }
 </style>
+<script id="studio-unified-theme-mount">
+(function(){
+var button=document.getElementById('studio-theme-toggle');if(!button)return;
+function mount(){if(button.parentElement!==document.body)document.body.appendChild(button)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
+window.addEventListener('resize',mount);
+})();
+</script>
 </body>
 </html>
