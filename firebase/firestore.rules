@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner() {
+      return request.auth != null
+        && request.auth.uid == 'l8PaUSOn1udT7YFo4wGRX0g2xYC3';
+    }
+    // Only the owner's account may access operational records.
+    match /studio/{document=**} {
+      allow read, write: if owner();
+    }
+    // Deny access to all other documents, including unauthenticated users.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
