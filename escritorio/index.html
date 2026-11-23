@@ -1,25 +1,23 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="theme-color" content="#171719">
-<title>Escritório Privado · Studio Alanne Dias</title>
-<style>
-:root{color-scheme:light;font-family:Arial,Helvetica,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100svh;background:#f6f4f1;color:#252225;display:grid;place-items:center;padding:28px}.frame{width:min(100%,460px);background:#fff;border:1px solid #e7e2de;padding:clamp(28px,6vw,52px);box-shadow:0 16px 45px #2921270b}.eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#8a737a}.rule{width:40px;height:1px;background:#b68d9c;margin:30px 0}h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,6vw,48px);line-height:1.12;font-weight:400;letter-spacing:-.045em;margin:14px 0 16px}p{font-size:14px;line-height:1.8;color:#766e71}small{display:block;margin-top:25px;color:#938b8e;font-size:11px;line-height:1.6}.lock{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#925a70}.back{display:inline-block;margin-top:23px;color:#2b2729;text-decoration:none;font-size:12px;border-bottom:1px solid #a9a0a2;padding-bottom:6px}.back:hover{color:#a04469}
-</style>
-</head>
-<body>
-<main class="frame">
-<div class="eyebrow">Studio Alanne Dias · Área reservada</div>
-<div class="rule"></div>
-<div class="lock">Acesso exclusivo</div>
-<h1>Meu escritório.</h1>
-<p>Esta é a entrada reservada do escritório virtual. O acesso administrativo será liberado após a configuração de autenticação segura e autorização da única conta proprietária.</p>
-<p>Por segurança, nenhum painel, briefing, arquivo de cliente ou dado privado é disponibilizado nesta página pública.</p>
-<a class="back" href="/">Voltar ao site</a>
-<small>Área em configuração. Não insira senhas ou dados pessoais nesta página.</small>
-</main>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Escritório · Studio Alanne Dias</title>
+<style>:root{font-family:Arial,Helvetica,sans-serif;color:#252225;background:#f6f4f1}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:25px}.panel{background:#fff;border:1px solid #e7e2de;padding:clamp(27px,5vw,50px);width:min(100%,470px)}.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#947d84}h1{font:normal clamp(34px,6vw,49px)/1.1 Georgia,serif;letter-spacing:-.045em;margin:30px 0 12px}p{color:#746d70;font-size:13px;line-height:1.7}label{display:block;font-size:11px;margin:22px 0 8px}input{width:100%;padding:14px;border:1px solid #d9d4d5;border-radius:0;background:#fff;font:inherit;font-size:14px}button{width:100%;padding:15px;margin-top:22px;background:#222025;border:0;color:#fff;font:inherit;font-size:13px;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.error{color:#a12d4e;min-height:20px}.subtle{font-size:11px;color:#888;line-height:1.6}.hidden{display:none}.link{display:inline-block;margin-top:24px;color:#383136;text-decoration:none;font-size:12px;border-bottom:1px solid #b7afb1;padding-bottom:5px}</style>
+</head><body><main class="panel"><div class="eyebrow">Studio Alanne Dias · Área reservada</div>
+<section id="login"><h1>Meu escritório.</h1><p>Entre com sua conta autorizada para acessar o escritório virtual.</p>
+<form id="loginForm"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required><button id="loginButton" type="submit">Entrar no escritório</button></form>
+<p class="error" id="error" role="alert" aria-live="polite"></p><p class="subtle">Acesso exclusivo da proprietária. Não é possível criar contas nesta página.</p></section>
+<section id="pending" class="hidden"><h1>Acesso em configuração.</h1><p id="pendingText">Seu login foi identificado, mas esta conta ainda não está autorizada para entrar no escritório.</p><button id="logoutButton">Sair com segurança</button></section>
+<a class="link" href="/">Voltar ao site</a></main>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyApITyGgZt25YcNXtV_bApRoxVHI_LgdrM",authDomain:"alannediasescritorio.firebaseapp.com",projectId:"alannediasescritorio",storageBucket:"alannediasescritorio.firebasestorage.app",messagingSenderId:"289450242406",appId:"1:289450242406:web:80a2c45ed1c13a8ea618a7",measurementId:"G-EM9G914H51"};
+const app=initializeApp(firebaseConfig);const auth=getAuth(app);
+// Fail closed: authorize the owner's UID only after it is configured explicitly.
+// Client-side checks are NOT a security boundary for private data.
+// Every future Firestore/Storage/API rule must independently enforce request.auth.uid.
+const OWNER_UID="";
+const login=document.getElementById("login"),pending=document.getElementById("pending"),error=document.getElementById("error"),button=document.getElementById("loginButton");
+document.getElementById("loginForm").addEventListener("submit",async event=>{event.preventDefault();error.textContent="";button.disabled=true;try{await signInWithEmailAndPassword(auth,document.getElementById("email").value.trim(),document.getElementById("password").value)}catch(e){error.textContent=e.code==="auth/operation-not-allowed"?"Ative E-mail/senha no Firebase Authentication.":e.code==="auth/unauthorized-domain"?"Autorize alannedias.com no Firebase Authentication.":"Não foi possível entrar. Confira o e-mail, a senha e a configuração da conta."}finally{button.disabled=false}});
+onAuthStateChanged(auth,async user=>{if(!user){login.classList.remove("hidden");pending.classList.add("hidden");return}login.classList.add("hidden");pending.classList.remove("hidden");if(!OWNER_UID||user.uid!==OWNER_UID){document.getElementById("pendingText").textContent="Conta autenticada, mas ainda não autorizada. Configure o UID da proprietária para liberar o escritório.";return}document.getElementById("pendingText").textContent="Conta proprietária validada. A integração segura das salas e dos dados privados é a próxima etapa."});
+document.getElementById("logoutButton").addEventListener("click",()=>signOut(auth));
+</script></body></html>
