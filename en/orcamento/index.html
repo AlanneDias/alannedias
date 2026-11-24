@@ -421,7 +421,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Build your project</h1>
-    <p class="lead">Choose one or more services and review your estimate before sending it through WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">View summary</a></p>
+    <p class="lead">Choose one or more services and review your estimate before sending it by email or WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">View summary</a></p>
   </header>
 
   <div class="tabs" role="tablist" aria-label="Services" id="tabs" style="scroll-margin-top:72px"></div>
@@ -439,8 +439,9 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         <span class="small" id="fx-note">USD amounts are estimates. I’ll confirm the final price on WhatsApp.</span>
       </div>
       <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">REQUEST A QUOTE ON WHATSAPP</a>
+      <a class="btn ghost studio-cta studio-cta-secondary" id="enviar-email" aria-disabled="true">SEND BY EMAIL</a>
       <button class="btn ghost studio-cta studio-cta-secondary" id="copiar" type="button">COPY SUMMARY</button>
-      <p class="small" id="aviso">WhatsApp +55 83 99836-1156. I’ll confirm the details with you on WhatsApp before any payment.</p>
+      <p class="small"><span id="aviso">I’ll confirm your quote before any payment.</span> <a href="mailto:Criativo@alannedias.com">Criativo@alannedias.com</a></p>
     </aside>
   </div>
 
@@ -448,7 +449,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     <p class="eyebrow">AFTER YOU REQUEST A QUOTE</p>
     <h2 id="t-como">How it works</h2>
     <ol class="passos">
-      <li><b>01</b><span class="pt">Send your request</span><span class="pd">Send your summary through WhatsApp. I’ll confirm the items, price and delivery date within one business day.</span></li>
+      <li><b>01</b><span class="pt">Send your request</span><span class="pd">Send your summary by email or WhatsApp. I’ll confirm the items, price and delivery date within one business day.</span></li>
       <li><b>02</b><span class="pt">Payment</span><span class="pd">Eligible services get a 5% discount when paid upfront via Pix. Card payments can be split into up to three installments. Payment reserves your date.</span></li>
       <li><b>03</b><span class="pt">Project brief</span><span class="pd">Tell me about the story, style and references for your design. The form takes about ten minutes.</span></li>
       <li><b>04</b><span class="pt">Review the design</span><span class="pd">I draw the symbol by hand first. Once you approve it, I apply it to the pieces you selected.</span></li>
@@ -468,7 +469,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <details><summary>How long does it take?</summary><p>Monograms: I email your design proposal within three business days. Brand identities: 20 business days after payment and the brief. Websites: 15 to 30 business days, depending on the site. A 30% rush fee applies when a wedding is less than 45 days away.</p></details>
       <details><summary>Can I request revisions?</summary><p>Yes. Monograms include up to three rounds. Brand identities include up to two rounds on the symbol and two on the pieces. I’ll confirm any additional rounds and their fixed price before charging you.</p></details>
       <details><summary>Do you work with clients in my city?</summary><p>Yes. I work online with clients in Brazil and around the world. I send files by email and coordinate revisions on WhatsApp, Monday through Saturday, 9 am to 7 pm.</p></details>
-      <details><summary>Can I cancel?</summary><p>Contact me on WhatsApp with any questions about cancellation.</p></details>
+      <details><summary>Can I cancel?</summary><p>Contact me by email or WhatsApp with any questions about cancellation.</p></details>
 
       </div>
       <div data-g="monograma">
@@ -855,11 +856,22 @@ function renderResumo(){
   document.getElementById('pix').textContent=!T?'':(P<T?'or '+prefixo.toLowerCase()+price(P)+' with Pix (5% off'+(st.monograma.base?', excluding monograms':'')+') · up to 3 card installments':'Pix or up to 3 card installments');
   const z=document.getElementById('zap'), cp=document.getElementById('copiar'), av=document.getElementById('aviso');
   cp.disabled=!T; cp.style.opacity=cp.disabled?'.4':'';
-  av.textContent='I’ll confirm the details with you on WhatsApp before any payment.';
-  if (T) z.href = 'https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt);
-  else z.removeAttribute('href');
-  z.setAttribute('aria-disabled', String(!T));
-  z.tabIndex = T ? 0 : -1;
+  av.textContent='I’ll confirm your quote before any payment.';
+  const email = document.getElementById('enviar-email');
+  if (T) {
+    const {txt} = resumoTexto();
+    z.href = 'https://wa.me/5583998361156?text=' + encodeURIComponent(txt);
+    const subject = encodeURIComponent('Quote request | Studio Alanne Dias');
+    const body = encodeURIComponent(txt.replace(/\n/g, '\r\n'));
+    email.href = 'mailto:Criativo@alannedias.com?subject=' + subject + '&body=' + body;
+  } else {
+    z.removeAttribute('href');
+    email.removeAttribute('href');
+  }
+  for (const channel of [z, email]) {
+    channel.setAttribute('aria-disabled', String(!T));
+    channel.tabIndex = T ? 0 : -1;
+  }
 }
 
 function renderFaq(){
@@ -884,7 +896,7 @@ function render(focusKey = document.activeElement?.dataset.quoteFocus){
 document.getElementById('copiar').onclick=async()=>{
   const {txt,T}=resumoTexto(); const av=document.getElementById('aviso');
   if(!T){av.textContent='Choose a package first.'; return;}
-  try{await navigator.clipboard.writeText(txt); av.textContent='Summary copied. Paste it into WhatsApp at +55 83 99836-1156.';}
+  try{await navigator.clipboard.writeText(txt); av.textContent='Summary copied. Paste it into an email or WhatsApp message.';}
   catch(e){av.textContent=txt;}
 };
 document.getElementById('ir-para-resumo').addEventListener('click', event => {

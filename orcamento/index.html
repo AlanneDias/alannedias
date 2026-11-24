@@ -421,7 +421,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
-    <p class="lead">Escolha um ou mais serviços e confira o valor antes de enviar pelo WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">Ver resumo</a></p>
+    <p class="lead">Escolha um ou mais serviços e confira o valor antes de enviar por e-mail ou WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">Ver resumo</a></p>
   </header>
 
   <div class="tabs" role="tablist" aria-label="Serviços" id="tabs" style="scroll-margin-top:72px"></div>
@@ -438,8 +438,9 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         <span class="pix" id="pix"></span>
       </div>
       <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">SOLICITAR ORÇAMENTO PELO WHATSAPP</a>
+      <a class="btn ghost studio-cta studio-cta-secondary" id="enviar-email" aria-disabled="true">ENVIAR POR E-MAIL</a>
       <button class="btn ghost studio-cta studio-cta-secondary" id="copiar" type="button">COPIAR RESUMO</button>
-      <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
+      <p class="small"><span id="aviso">Eu confirmo o orçamento com você antes de qualquer pagamento.</span> <a href="mailto:Criativo@alannedias.com">Criativo@alannedias.com</a></p>
     </aside>
   </div>
 
@@ -447,7 +448,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     <p class="eyebrow">DEPOIS DE MONTAR</p>
     <h2 id="t-como">Como funciona a compra</h2>
     <ol class="passos">
-      <li><b>01</b><span class="pt">Você me envia a solicitação</span><span class="pd">Envie o resumo pelo WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil.</span></li>
+      <li><b>01</b><span class="pt">Você me envia a solicitação</span><span class="pd">Envie o resumo por e-mail ou WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil.</span></li>
       <li><b>02</b><span class="pt">Pagamento</span><span class="pd">Pix à vista com 5% de desconto nos serviços elegíveis, ou cartão parcelado em até 3x. A sua data na minha agenda fica garantida a partir daqui.</span></li>
       <li><b>03</b><span class="pt">Formulário de briefing</span><span class="pd">Você me conta a história, o estilo e as referências. São perguntas simples, leva uns 10 minutos.</span></li>
       <li><b>04</b><span class="pt">Eu desenho e te mostro</span><span class="pd">Primeiro o símbolo, desenhado à mão. Com ele aprovado, aplico nas peças que você escolheu.</span></li>
@@ -467,7 +468,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <details><summary>Quanto tempo leva?</summary><p>Monograma: a proposta chega por e-mail em até 3 dias úteis. Identidade visual: 20 dias úteis depois do pagamento e do briefing. Sites: de 15 a 30 dias úteis, conforme o tipo. Para casamento com menos de 45 dias, entra como urgência (+30%).</p></details>
       <details><summary>Posso pedir ajustes?</summary><p>Sim. Monograma: até 3 rodadas. Identidade visual: até 2 rodadas no símbolo e 2 nas peças. Rodadas a mais são combinadas antes, com valor fixo. Nada é cobrado sem você aprovar.</p></details>
       <details><summary>Atende a minha cidade?</summary><p>Sim. Todo o atendimento é online, para qualquer cidade do Brasil e para o exterior. Os arquivos chegam por e-mail e os ajustes são combinados pelo WhatsApp, de segunda a sábado, das 9h às 19h.</p></details>
-      <details><summary>Posso cancelar?</summary><p>Para tirar dúvidas sobre cancelamento, fale comigo pelo WhatsApp.</p></details>
+      <details><summary>Posso cancelar?</summary><p>Para tirar dúvidas sobre cancelamento, fale comigo por e-mail ou WhatsApp.</p></details>
 
       </div>
       <div data-g="monograma">
@@ -849,11 +850,22 @@ function renderResumo(){
   document.getElementById('pix').textContent=!T?'':(P<T?'ou '+prefixo.toLowerCase()+brl(P)+' no Pix (5% de desconto'+(st.monograma.base?', exceto monograma':'')+') · cartão em até 3x':'Pix ou cartão em até 3x');
   const z=document.getElementById('zap'), cp=document.getElementById('copiar'), av=document.getElementById('aviso');
   cp.disabled=!T; cp.style.opacity=cp.disabled?'.4':'';
-  av.textContent='Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.';
-  if (T) z.href = 'https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt);
-  else z.removeAttribute('href');
-  z.setAttribute('aria-disabled', String(!T));
-  z.tabIndex = T ? 0 : -1;
+  av.textContent='Eu confirmo o orçamento com você antes de qualquer pagamento.';
+  const email = document.getElementById('enviar-email');
+  if (T) {
+    const {txt} = resumoTexto();
+    z.href = 'https://wa.me/5583998361156?text=' + encodeURIComponent(txt);
+    const subject = encodeURIComponent('Solicitação de orçamento | Studio Alanne Dias');
+    const body = encodeURIComponent(txt.replace(/\n/g, '\r\n'));
+    email.href = 'mailto:Criativo@alannedias.com?subject=' + subject + '&body=' + body;
+  } else {
+    z.removeAttribute('href');
+    email.removeAttribute('href');
+  }
+  for (const channel of [z, email]) {
+    channel.setAttribute('aria-disabled', String(!T));
+    channel.tabIndex = T ? 0 : -1;
+  }
 }
 
 function renderFaq(){
@@ -878,7 +890,7 @@ function render(focusKey = document.activeElement?.dataset.quoteFocus){
 document.getElementById('copiar').onclick=async()=>{
   const {txt,T}=resumoTexto(); const av=document.getElementById('aviso');
   if(!T){av.textContent='Escolha um pacote primeiro.'; return;}
-  try{await navigator.clipboard.writeText(txt); av.textContent='Resumo copiado. Cole no WhatsApp (83) 99836-1156.';}
+  try{await navigator.clipboard.writeText(txt); av.textContent='Resumo copiado. Cole no e-mail ou no WhatsApp.';}
   catch(e){av.textContent=txt;}
 };
 document.getElementById('ir-para-resumo').addEventListener('click', event => {
