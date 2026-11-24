@@ -403,6 +403,7 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 #panel-marcas .portfolio-behance-mini .portfolio-gallery-item{flex-basis:75%}
 }
 </style>
+<link rel="stylesheet" href="/assets/studio-menu.css">
 </head>
 <body>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
@@ -429,7 +430,15 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 })();
 </script>
 
-<nav class="topbar" aria-label="Navegação"><div class="topnav"><div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/" class="on" aria-current="page">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a><button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button></div></div></nav>
+<nav class="studio-menu" aria-label="Menu principal">
+  <div class="studio-menu__links">
+    <a href="/">INÍCIO</a>
+    <a href="/portfolio/" aria-current="page">PORTFÓLIO</a>
+    <a href="/sobre/">SOBRE</a>
+    <a href="/orcamento/">ORÇAMENTO</a>
+  </div>
+</nav>
+<button id="studio-theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">CLARO</span></button>
 <main>
 <section class="hero"><p class="eyebrow">STUDIO ALANNE DIAS / PROJETOS AUTORAIS</p><h1><span>PORT</span><span class="end">FÓLIO.</span></h1><div class="hero-bottom"><p>Sites pensados para marcas diferentes, com experiências próprias. Design, navegação e detalhes que fazem parte de cada história.</p><span class="index">WEB DESIGN · 2026</span></div></section>
 

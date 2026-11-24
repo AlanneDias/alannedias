@@ -187,6 +187,7 @@ body > #studio-theme-toggle .theme-icon{font-size:20px!important}
 body > #studio-theme-toggle .theme-label{font-size:9px!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/studio-menu.css">
 </head>
 <body>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
@@ -412,16 +413,13 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
 .topnav .home:active,.dock a:active,.btn:active,.tab:active,.opt:active{background:var(--pink)!important;color:#0A0A0A!important;border-color:var(--pink)!important}
 </style>
 
-<nav class="topbar" aria-label="Navegação">
-  <div class="topnav">
-    <div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/">PORTFÓLIO</a><a href="/sobre/">SOBRE</a><a href="/orcamento/" class="on">ORÇAMENTO</a></div>
-    <a href="/" class="home">INÍCIO</a>
+<nav class="studio-menu" aria-label="Menu principal">
+  <div class="studio-menu__links">
+    <a href="/">INÍCIO</a>
+    <a href="/portfolio/">PORTFÓLIO</a>
+    <a href="/sobre/">SOBRE</a>
+    <a href="/orcamento/" aria-current="page">ORÇAMENTO</a>
   </div>
-</nav>
-<nav class="dock" aria-label="Seções">
-  <a href="/">INÍCIO</a>
-  <a href="/portfolio/">PORTFÓLIO</a>
-  <a href="/sobre/">SOBRE</a>
 </nav>
 <div class="wrap">
 <p class="eyebrow" style="margin:12px 0 24px;color:#FF2D95">BLACK FRIDAY · 20% DE DESCONTO NOS SERVIÇOS DE CRIAÇÃO · ATÉ 25/11/2026 · HOSPEDAGEM NÃO INCLUÍDA NO DESCONTO.</p>

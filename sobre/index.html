@@ -306,6 +306,7 @@ body > #studio-theme-toggle .theme-icon{font-size:20px!important}
 body > #studio-theme-toggle .theme-label{font-size:9px!important}
 }
 </style>
+<link rel="stylesheet" href="/assets/studio-menu.css">
 </head>
 <body>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
@@ -360,18 +361,15 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 <div class="page">
 <div class="frame">
 
-  <nav class="nav" aria-label="Menu principal">
-    <div class="mnav"><a href="/">INÍCIO</a><a href="/portfolio/">PORTFÓLIO</a><a href="#topo" class="on">SOBRE</a><a href="/orcamento/">ORÇAMENTO</a></div>
-    <div class="pills">
-      <a class="pill cta" href="/orcamento/">ORÇAMENTO</a>
-    </div>
-  </nav>
-
-  <nav class="dock" aria-label="Seções">
+  <nav class="studio-menu" aria-label="Menu principal">
+  <div class="studio-menu__links">
     <a href="/">INÍCIO</a>
     <a href="/portfolio/">PORTFÓLIO</a>
-    <a href="#topo" class="on">SOBRE</a>
-  </nav>
+    <a href="#topo" aria-current="page">SOBRE</a>
+    <a href="/orcamento/">ORÇAMENTO</a>
+  </div>
+</nav>
+
 
   <section class="duo" id="topo">
     <div class="card txt">
