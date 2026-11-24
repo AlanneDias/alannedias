@@ -36,24 +36,6 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 .opt .bf-price-suffix{font-size:11px;color:var(--soft);font-weight:300;letter-spacing:.02em}
 .bf-total-original{display:block;color:var(--muted);font-size:14px;letter-spacing:.04em;margin-top:2px}
 </style>
-<style id="studio-terms-policy-styles">
-.studio-terms{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding:22px 0 6px;text-align:left}
-.studio-terms-kicker{color:#FF2D95!important;letter-spacing:.16em!important;font-size:10px!important;font-weight:500!important;margin:0!important}
-.studio-terms h3{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;font-size:clamp(19px,2vw,24px);line-height:1.15;margin:0}
-.studio-terms>p:not(.studio-terms-kicker){font-size:13px!important;line-height:1.6;color:var(--soft);margin:0}
-.studio-terms-details{border-top:1px solid var(--line);padding:11px 0 0}
-.studio-terms-details summary{cursor:pointer;font-family:'Jost',sans-serif;font-size:13px!important;font-weight:400;line-height:1.4;list-style:none;position:relative;padding:0 22px 10px 0;color:var(--fg)}
-.studio-terms-details summary::-webkit-details-marker{display:none}
-.studio-terms-details summary::after{content:'+';position:absolute;right:2px;top:0;font-size:18px;font-weight:300;color:var(--pink)}
-.studio-terms-details[open] summary::after{content:'−'}
-.studio-terms-details p{font-size:12.5px!important;line-height:1.65;color:var(--soft);margin:0 0 12px}
-.studio-terms .studio-terms-help{font-size:12px!important;line-height:1.6}
-.studio-terms-accept{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:13px 10px;border:1px solid var(--line);background:transparent;font-size:12.5px;line-height:1.5;color:var(--fg)}
-.studio-terms-accept input{appearance:auto;accent-color:#FF2D95;flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;cursor:pointer}
-.studio-terms-validation{font-size:11px!important;color:var(--soft);margin:0 0 4px}
-#zap.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
-#studio-terms-checkbox:focus-visible{outline:2px solid #FF2D95;outline-offset:3px}
-</style>
 <style id="studio-shared-footer-buttons">
 /* Mesma identidade para o rodapé e botões em todas as páginas. */
 .studio-footer{box-sizing:border-box;width:100%;max-width:1416px;margin:0 auto;padding:36px max(38px,env(safe-area-inset-left,0px)) 48px;color:var(--muted,#92908C);border-top:1px solid var(--line,#292929);background:transparent;font-family:'Jost',Arial,sans-serif}
@@ -68,7 +50,7 @@ html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:tra
 .studio-cta:hover{background:#303030!important;border-color:#767676!important;color:#F2F0EC!important;-webkit-text-fill-color:#F2F0EC!important}
 .studio-cta-secondary,.studio-cta-secondary:link,.studio-cta-secondary:visited{background:transparent!important;color:var(--fg,#F2F0EC)!important;-webkit-text-fill-color:var(--fg,#F2F0EC)!important;border-color:var(--line,#666)!important}
 .studio-cta-secondary:hover{border-color:#FF2D95!important;background:transparent!important;color:#FF2D95!important;-webkit-text-fill-color:#FF2D95!important}
-.studio-cta[aria-disabled="true"],.studio-cta.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
+.studio-cta[aria-disabled="true"]{opacity:.45;cursor:not-allowed;pointer-events:none}
 @media(max-width:760px){
 .studio-footer{padding:28px max(18px,env(safe-area-inset-left,0px)) 36px}
 .studio-footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
@@ -194,6 +176,10 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 <script src="/assets/studio-language.js" defer></script>
 </head>
 <body>
+<a class="studio-language-tab" data-studio-language href="/en/orcamento/" lang="en" hreflang="en" aria-label="English and prices in US dollars" title="English and prices in US dollars">
+  <span class="studio-language-tab__code" aria-hidden="true">EN</span>
+  <span class="studio-language-tab__currency" aria-hidden="true">USD</span>
+</a>
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
   <div class="studio-bf-banner-inner">
     <p class="studio-bf-copy"><span class="studio-bf-intro">CHEGOU A MINHA BLACK FRIDAY!</span><strong>TODO O SITE <span>20% OFF</span></strong><small>ATÉ 25 DE NOVEMBRO · SERVIÇOS DE CRIAÇÃO</small></p>
@@ -428,7 +414,6 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     <a href="/portfolio/">PORTFÓLIO</a>
     <a href="/sobre/">SOBRE</a>
     <a href="/orcamento/" aria-current="page">ORÇAMENTO</a>
-    <a class="studio-menu__language" data-studio-language href="/en/orcamento/" lang="en" hreflang="en" aria-label="English" title="English">EN</a>
   </div>
 </nav>
 <div class="wrap">
@@ -436,7 +421,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
-    <p class="lead">Escolha um ou mais serviços e confira o valor antes de enviar pelo WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">Ver resumo</a></p>
+    <p class="lead">Escolha um ou mais serviços e confira o valor antes de enviar por e-mail ou WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">Ver resumo</a></p>
   </header>
 
   <div class="tabs" role="tablist" aria-label="Serviços" id="tabs" style="scroll-margin-top:72px"></div>
@@ -452,33 +437,10 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
         <span class="big" id="total" aria-live="polite" aria-atomic="true">R$ 0</span>
         <span class="pix" id="pix"></span>
       </div>
-      <section class="studio-terms" id="condicoes-contratacao" aria-labelledby="studio-terms-title">
-        <p class="studio-terms-kicker">INFORMAÇÕES IMPORTANTES</p>
-        <h3 id="studio-terms-title">Antes de contratar, leia com atenção</h3>
-        <p>Cada projeto do Studio Alanne Dias é personalizado e envolve planejamento, criação autoral e tempo de produção.</p>
-        <details class="studio-terms-details">
-          <summary>Pagamento e início do projeto</summary>
-          <p>A solicitação enviada pelo site não gera cobrança nem confirma a contratação. O trabalho começa após a confirmação do orçamento, o aceite das condições, o pagamento combinado e o recebimento das informações necessárias para o projeto.</p>
-        </details>
-        <details class="studio-terms-details">
-          <summary>Desistência e reembolso</summary>
-          <p>Nas contratações realizadas pela internet, o consumidor tem, em regra, o direito de arrependimento em até 7 dias, conforme o art. 49 do Código de Defesa do Consumidor, com devolução dos valores pagos quando esse direito é exercido.</p>
-          <p>Fora das hipóteses de arrependimento legal, a solicitação de cancelamento será analisada considerando o contrato, a etapa do projeto e os serviços efetivamente realizados, sempre respeitando os direitos previstos em lei. O início do trabalho não elimina automaticamente o direito legal de arrependimento.</p>
-        </details>
-        <details class="studio-terms-details">
-          <summary>Criação, ajustes e aprovação</summary>
-          <p>Pesquisa, esboços, desenvolvimento e ajustes fazem parte do serviço contratado. Os entregáveis, prazos e limites de alterações são definidos na proposta de cada projeto. Mudanças fora do escopo poderão exigir novo orçamento, informado antes da execução.</p>
-        </details>
-        <p class="studio-terms-help">Para solicitar cancelamento ou esclarecer qualquer condição, entre em contato pelo WhatsApp do Studio. Os termos completos serão confirmados antes do pagamento.</p>
-        <label class="studio-terms-accept" for="studio-terms-checkbox">
-          <input id="studio-terms-checkbox" type="checkbox">
-          <span>Li e estou ciente das informações de contratação, desistência, reembolso e ajustes apresentadas acima.</span>
-        </label>
-        <p class="studio-terms-validation" id="studio-terms-validation" role="status" aria-live="polite">Escolha um pacote para liberar o envio pelo WhatsApp.</p>
-      </section>
       <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">SOLICITAR ORÇAMENTO PELO WHATSAPP</a>
+      <a class="btn ghost studio-cta studio-cta-secondary" id="enviar-email" aria-disabled="true">ENVIAR POR E-MAIL</a>
       <button class="btn ghost studio-cta studio-cta-secondary" id="copiar" type="button">COPIAR RESUMO</button>
-      <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
+      <p class="small"><span id="aviso">Eu confirmo o orçamento com você antes de qualquer pagamento.</span> <a href="mailto:Criativo@alannedias.com">Criativo@alannedias.com</a></p>
     </aside>
   </div>
 
@@ -486,7 +448,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     <p class="eyebrow">DEPOIS DE MONTAR</p>
     <h2 id="t-como">Como funciona a compra</h2>
     <ol class="passos">
-      <li><b>01</b><span class="pt">Você me envia a solicitação</span><span class="pd">Envie o resumo pelo WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil.</span></li>
+      <li><b>01</b><span class="pt">Você me envia a solicitação</span><span class="pd">Envie o resumo por e-mail ou WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil.</span></li>
       <li><b>02</b><span class="pt">Pagamento</span><span class="pd">Pix à vista com 5% de desconto nos serviços elegíveis, ou cartão parcelado em até 3x. A sua data na minha agenda fica garantida a partir daqui.</span></li>
       <li><b>03</b><span class="pt">Formulário de briefing</span><span class="pd">Você me conta a história, o estilo e as referências. São perguntas simples, leva uns 10 minutos.</span></li>
       <li><b>04</b><span class="pt">Eu desenho e te mostro</span><span class="pd">Primeiro o símbolo, desenhado à mão. Com ele aprovado, aplico nas peças que você escolheu.</span></li>
@@ -506,7 +468,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <details><summary>Quanto tempo leva?</summary><p>Monograma: a proposta chega por e-mail em até 3 dias úteis. Identidade visual: 20 dias úteis depois do pagamento e do briefing. Sites: de 15 a 30 dias úteis, conforme o tipo. Para casamento com menos de 45 dias, entra como urgência (+30%).</p></details>
       <details><summary>Posso pedir ajustes?</summary><p>Sim. Monograma: até 3 rodadas. Identidade visual: até 2 rodadas no símbolo e 2 nas peças. Rodadas a mais são combinadas antes, com valor fixo. Nada é cobrado sem você aprovar.</p></details>
       <details><summary>Atende a minha cidade?</summary><p>Sim. Todo o atendimento é online, para qualquer cidade do Brasil e para o exterior. Os arquivos chegam por e-mail e os ajustes são combinados pelo WhatsApp, de segunda a sábado, das 9h às 19h.</p></details>
-      <details><summary>Posso cancelar?</summary><p>Consulte a seção “Desistência e reembolso” nas informações de contratação acima. Para esclarecer as condições ou solicitar cancelamento, fale comigo pelo WhatsApp.</p></details>
+      <details><summary>Posso cancelar?</summary><p>Para tirar dúvidas sobre cancelamento, fale comigo por e-mail ou WhatsApp.</p></details>
 
       </div>
       <div data-g="monograma">
@@ -865,30 +827,6 @@ function resumoTexto(){
   return {txt,T};
 }
 
-function atualizarAceiteTermos(){
-  const checkbox=document.getElementById('studio-terms-checkbox');
-  const z=document.getElementById('zap');
-  const note=document.getElementById('studio-terms-validation');
-  if(!checkbox||!z)return;
-  const temOrcamento = z.hasAttribute('href');
-  const podeEnviar = temOrcamento && checkbox.checked;
-  z.classList.toggle('studio-terms-blocked', !podeEnviar);
-  z.setAttribute('aria-disabled', String(!podeEnviar));
-  z.tabIndex = podeEnviar ? 0 : -1;
-  if(note) note.textContent = !temOrcamento
-    ? 'Escolha um pacote para liberar o envio pelo WhatsApp.'
-    : checkbox.checked
-      ? 'Leitura confirmada. Você pode enviar sua solicitação pelo WhatsApp.'
-      : 'Marque a confirmação acima para liberar o envio pelo WhatsApp.';
-}
-document.getElementById('studio-terms-checkbox').addEventListener('change',atualizarAceiteTermos);
-document.getElementById('zap').addEventListener('click',function(event){
-  if(!document.getElementById('studio-terms-checkbox').checked||this.getAttribute('aria-disabled')==='true'){
-    event.preventDefault();
-    document.getElementById('studio-terms-checkbox').focus();
-  }
-});
-
 function renderResumo(){
   const L=document.getElementById('linhas'); L.innerHTML=''; let T=0, originalTotal=0;
   CATS.forEach(c=>{const r=custo(c); if(!r.total) return; const g=document.createElement('li'); g.className='grp'; g.textContent=c.titulo.toUpperCase(); L.appendChild(g);
@@ -912,9 +850,22 @@ function renderResumo(){
   document.getElementById('pix').textContent=!T?'':(P<T?'ou '+prefixo.toLowerCase()+brl(P)+' no Pix (5% de desconto'+(st.monograma.base?', exceto monograma':'')+') · cartão em até 3x':'Pix ou cartão em até 3x');
   const z=document.getElementById('zap'), cp=document.getElementById('copiar'), av=document.getElementById('aviso');
   cp.disabled=!T; cp.style.opacity=cp.disabled?'.4':'';
-  av.textContent='Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.';
-  if(T){z.href='https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt);} else {z.removeAttribute('href'); z.setAttribute('aria-disabled','true');}
-  atualizarAceiteTermos();
+  av.textContent='Eu confirmo o orçamento com você antes de qualquer pagamento.';
+  const email = document.getElementById('enviar-email');
+  if (T) {
+    const {txt} = resumoTexto();
+    z.href = 'https://wa.me/5583998361156?text=' + encodeURIComponent(txt);
+    const subject = encodeURIComponent('Solicitação de orçamento | Studio Alanne Dias');
+    const body = encodeURIComponent(txt.replace(/\n/g, '\r\n'));
+    email.href = 'mailto:Criativo@alannedias.com?subject=' + subject + '&body=' + body;
+  } else {
+    z.removeAttribute('href');
+    email.removeAttribute('href');
+  }
+  for (const channel of [z, email]) {
+    channel.setAttribute('aria-disabled', String(!T));
+    channel.tabIndex = T ? 0 : -1;
+  }
 }
 
 function renderFaq(){
@@ -939,7 +890,7 @@ function render(focusKey = document.activeElement?.dataset.quoteFocus){
 document.getElementById('copiar').onclick=async()=>{
   const {txt,T}=resumoTexto(); const av=document.getElementById('aviso');
   if(!T){av.textContent='Escolha um pacote primeiro.'; return;}
-  try{await navigator.clipboard.writeText(txt); av.textContent='Resumo copiado. Cole no WhatsApp (83) 99836-1156.';}
+  try{await navigator.clipboard.writeText(txt); av.textContent='Resumo copiado. Cole no e-mail ou no WhatsApp.';}
   catch(e){av.textContent=txt;}
 };
 document.getElementById('ir-para-resumo').addEventListener('click', event => {
@@ -1443,9 +1394,7 @@ window.addEventListener('resize',mount);
 html[data-theme="light"] .studio-footer-links a:hover,
 html[data-theme="light"] .studio-footer-links a:focus-visible { color: #303030; }
 html[data-theme="light"] .studio-cta-secondary:hover { color: #303030 !important; -webkit-text-fill-color: #303030 !important; }
-html[data-theme="light"] .opt .bf-price-new,
-html[data-theme="light"] .studio-terms-details summary::after { color: #303030; }
-html[data-theme="light"] .studio-terms-kicker,
+html[data-theme="light"] .opt .bf-price-new { color: #303030; }
 html[data-theme="light"] header.top .eyebrow { color: #303030 !important; }
 </style>
 </body>
