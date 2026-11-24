@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics 4 · Studio Alanne Dias -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DXZVHZR5FZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DXZVHZR5FZ');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>About Alanne Dias | Brand and Website Designer</title>
+
+<link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round"><meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200..600&amp;family=Jost:wght@300..500&amp;display=swap">
+<style>
+:root{--page:#0A0A0A;--frame:#0A0A0A;--card:#1B1A19;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--gold:#FF2D95;--pink:#FF2D95}
+html,body{margin:0;background:var(--page);max-width:100%;overflow-x:hidden;overflow-x:clip}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.page{background:var(--page);padding:28px 28px 40px;font-family:'Jost','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:16px;line-height:1.55;color:var(--fg);overflow-x:hidden}
+.frame{max-width:1360px;margin:0 auto;padding:10px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:12px;overflow:hidden;position:relative}
+.h{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;margin:0;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lbl{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin:0}
+.ph{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05);transition:filter .6s ease}
+.card:hover .ph{filter:none}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 18px;flex-wrap:nowrap}.logo{white-space:nowrap}
+.logo{font-family:'Josefin Sans',sans-serif;font-size:17px;letter-spacing:.14em}
+.pills{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%}.pills::-webkit-scrollbar{display:none}
+.pill{white-space:nowrap;flex:0 0 auto;font-size:10.5px;letter-spacing:.14em;padding:9px 14px;border-radius:999px;background:var(--card);color:var(--soft)}
+.pill:hover{background:#2A2927;color:var(--fg)}
+.pill.on{background:var(--fg);color:#0A0A0A}
+.pill.cta{background:var(--pink);color:#0A0A0A;font-weight:500}
+
+.hero{height:520px;background:#0A0A0A;border-radius:0;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.hero .ph{position:absolute;right:0;top:0;width:50%;height:100%;object-position:50% 20%}
+.hero-in{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:0 48px 0 calc(max(38px, 50vw - 680px) + 32px)}
+.hero h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(44px,5.6vw,88px);line-height:1;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.hero .sub{margin:0;max-width:52ch;color:var(--soft);font-size:17px}
+
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.txt{padding:44px 32px;display:flex;flex-direction:column;gap:22px}
+.txt .h{font-size:clamp(26px,2.8vw,38px)}
+.txt p{margin:0;color:var(--soft);max-width:56ch}
+.duo .img{min-height:460px}
+
+.sec-h{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:44px 0 18px}
+.sec-h .h{font-size:clamp(28px,3vw,40px)}
+
+.cv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cv-item{padding:24px 32px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 20px;align-items:baseline}
+.cv-item .ano{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:22px;color:var(--gold);letter-spacing:.04em;grid-row:span 2}
+.cv-item b{font-weight:400;font-size:16.5px}
+.cv-item span{color:var(--soft);font-size:14.5px}
+.cv-item.hoje{background:linear-gradient(120deg,#1B1A19,#26221C)}
+
+.moments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.moments .card{border-radius:0;height:420px}
+.moments .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 32px 20px;background:linear-gradient(rgba(10,10,10,0),rgba(10,10,10,.85));display:flex;flex-direction:column;gap:4px}
+.moments .cap b{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:19px;letter-spacing:.05em}
+.moments .cap span{color:var(--soft);font-size:14px}
+
+.tl{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;padding:8px 0 4px}
+.tl::-webkit-scrollbar{display:none}
+.tl img{-webkit-user-drag:none;user-select:none;pointer-events:none}
+.tl-track{display:flex;width:max-content}
+.tl-item{flex:0 0 auto;width:292px;margin:0;position:relative;border-top:1px solid var(--line);padding:26px 12px 0 0;box-sizing:border-box}
+.tl-item::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.tl-item img{aspect-ratio:1/1;height:auto;width:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(1) contrast(1.05)}
+.tl-item figcaption{display:flex;flex-direction:column;gap:4px;padding:14px 24px 0 0}
+.tl-item b{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:20px;letter-spacing:.05em;color:var(--gold)}
+.tl-item span{color:var(--soft);font-size:14px}
+@media (max-width:760px){.tl{width:auto;margin-left:-8px;margin-right:-8px}.tl-item{width:220px}}.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:26px 32px}
+.nums div{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.nums b{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:44px;line-height:1}
+
+.cta-card{margin-top:48px;padding:40px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:linear-gradient(120deg,#1B1A19,#26221C)}
+.cta-card .h{font-size:clamp(22px,2.4vw,32px);max-width:26ch;text-transform:none;letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:var(--gold);color:#0A0A0A;font-size:11.5px;letter-spacing:.14em;font-weight:500}
+.btn i{font-style:normal;width:32px;height:32px;border-radius:50%;background:#0A0A0A;color:var(--fg);display:grid;place-items:center;font-size:14px;transition:transform .25s ease}
+.btn:hover i{transform:rotate(45deg)}
+
+.foot{display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:30px;padding-top:20px;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.soc{display:flex;gap:10px;flex-wrap:wrap}
+.soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,240,236,.25);display:grid;place-items:center;color:var(--fg);transition:background .25s ease,color .25s ease,border-color .25s ease}
+.soc a:hover,.soc a:active,.soc a:focus-visible{background:var(--gold);border-color:var(--gold);color:#0A0A0A}
+.soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* EDITORIAL: mesmas fontes e cores, diagramação de revista */
+.card{border-radius:0}
+.hero h1{font-size:clamp(48px,7.4vw,124px);letter-spacing:.06em}
+.duo{gap:0;margin-top:40px}
+#topo.duo{margin-top:120px}
+@media (max-width:760px){#topo.duo{margin-top:56px}}
+.txt{background:none;padding:0 56px 0 0;justify-content:center;gap:28px}
+.txt .h{font-size:clamp(34px,4.4vw,64px);font-weight:200;line-height:1.02}
+.txt .lbl{color:var(--gold)}
+.duo .img{min-height:560px}
+.sec-h{padding:140px 0 28px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.sec-h .lbl{color:var(--gold)}
+.sec-h .h{font-size:clamp(34px,4.4vw,64px);font-weight:200}
+.cta-card{background:none;margin-top:120px;padding:56px 0 0;border-top:1px solid var(--line)}
+.cta-card .h{font-size:clamp(32px,4.4vw,64px);font-weight:200;max-width:18ch;line-height:1.05}
+@media (max-width:760px){.hero h1{font-size:46px}.txt{padding:0 0 28px}.duo .img{min-height:380px}.sec-h{padding:72px 0 18px}.cta-card{margin-top:64px;padding-top:36px}.cta-card .h{font-size:34px}}
+/* SITE ENXUTO: menos informação em todas as telas */
+.pills .pill[href$="#trabalho"],.pills .pill[href$="#contato"]{display:none}
+.hero .lbl{display:none}
+
+.nums{display:none}
+@media (max-width:760px){
+  .foot{flex-direction:column;align-items:flex-start}
+  .page{padding:10px 10px 24px}
+  .frame{padding:8px;gap:8px}
+  .pill{padding:8px 9px;font-size:10px;letter-spacing:.12em}
+  .hero{height:auto;width:auto;margin-left:-8px;margin-right:-8px;display:flex;flex-direction:column}
+  .hero .ph{position:static;width:100%;height:auto;aspect-ratio:4 / 5;order:2}
+  .hero-in{position:static;padding:36px 22px 28px;order:1}
+  .duo,.cv{grid-template-columns:minmax(0,1fr)}
+  .duo .img{min-height:340px}
+  .txt{padding:30px 22px}
+  .cv-item{padding:20px 22px;grid-template-columns:84px minmax(0,1fr)}
+  .moments{grid-template-columns:minmax(0,1fr);width:auto;margin-left:-8px;margin-right:-8px}
+  .moments .card{height:320px}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px;padding:22px}
+  .cta-card{padding:30px 22px}
+}
+/* CELULAR ENXUTO: menos informação */
+@media (max-width:760px){
+  .pills .pill:not(.cta){display:none}
+  .hero .lbl{display:none}
+  
+  .txt{gap:16px}
+  .nums{display:none}
+  .cta-card{margin-top:28px}
+}
+
+/* MENU FLUTUANTE (igual à home) */
+.nav{height:72px;padding:0;position:relative;z-index:30}
+.dock{position:fixed;z-index:50;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg);box-shadow:none}
+.dock a{font-size:11px;letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;transition:background .2s ease}
+@media (max-width:760px){.dock{bottom:calc(14px + 3cm)}.dock a{padding:9px 13px;font-size:10.5px}}
+
+/* ROSA NOS DETALHES (~20%) */
+.btn{background:#2C2B29!important;color:var(--fg)!important;border-color:#2C2B29!important}
+.btn i{background:var(--fg)!important;color:#0A0A0A!important}
+.svc::before{color:var(--muted)!important}
+.lbl{color:var(--gold)}
+/* ROSA SÓ NO CLIQUE */
+.pill.cta{background:var(--pink)!important;color:#0A0A0A!important}
+.pill.cta:hover{background:#303030!important;color:#F2F0EC!important}
+.dock a.on,.dock a:hover{background:var(--pink)!important}
+.svc .lk:active i,.svc:active .lk i,.btn:active i,.lk:active i{background:var(--pink)!important;color:#0A0A0A!important}
+.pill.cta:active,.dock a:active,.soc a:active,.h2soc a:active{background:var(--pink)!important;color:#0A0A0A!important;border-color:var(--pink)!important}
+</style>
+<style>html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}</style>
+<meta name="description" content="Meet Alanne Dias, a brand, website and monogram designer whose career spans fashion and tech, bringing hand-drawn work into digital design."><link rel="canonical" href="https://alannedias.com/en/sobre/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="About Alanne Dias | Brand and Website Designer"><meta property="og:description" content="Meet Alanne Dias, a brand, website and monogram designer whose career spans fashion and tech, bringing hand-drawn work into digital design."><meta property="og:url" content="https://alannedias.com/en/sobre/"><meta property="og:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:image:alt" content="Alanne Dias, designer"><meta name="twitter:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
+<style>.foot,.sec-h,.cta-card{border:0!important} .dock{top:122px!important;bottom:auto!important;left:38px!important;transform:none!important} @media (max-width:760px){.dock{top:100px!important;left:18px!important}}</style><script>
+(function(){
+  var theme='dark';
+  try { if(localStorage.getItem('alanne-theme')==='light') theme='light'; } catch(e){}
+  document.documentElement.setAttribute('data-theme',theme);
+})();
+</script>
+
+<style id="studio-no-emoji-icons">
+/* Ícone de tema desenhado em CSS, sem caracteres emoji. */
+#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;font-size:0!important;line-height:0}
+#studio-theme-toggle .theme-icon::before{content:"";display:block;width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);box-sizing:border-box}
+html[data-theme="light"] #studio-theme-toggle .theme-icon::before{background:transparent}
+</style>
+<style id="studio-shared-footer-buttons">
+/* Mesma identidade para o rodapé e botões em todas as páginas. */
+.studio-footer{box-sizing:border-box;width:100%;max-width:1416px;margin:0 auto;padding:36px max(38px,env(safe-area-inset-left,0px)) 48px;color:var(--muted,#92908C);border-top:1px solid var(--line,#292929);background:transparent;font-family:'Jost',Arial,sans-serif}
+.studio-footer *{box-sizing:border-box}
+.studio-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.studio-footer-credit{font-family:'Jost',Arial,sans-serif;font-weight:300;font-size:11px!important;line-height:1.7;letter-spacing:.12em;margin:0;color:var(--muted,#92908C)}
+.studio-footer-credit span{margin:0 .4em}
+.studio-footer-links{display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:wrap}
+.studio-footer-links a{display:inline-flex;align-items:center;min-height:32px;font-family:'Jost',Arial,sans-serif;font-size:11px!important;font-weight:400;letter-spacing:.12em;line-height:1.3;color:var(--fg,#F2F0EC);text-decoration:none;white-space:nowrap}
+.studio-footer-links a:hover,.studio-footer-links a:focus-visible{color:#FF2D95}
+.studio-cta,.studio-cta:link,.studio-cta:visited{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;min-height:44px;width:max-content;max-width:100%;padding:12px 22px!important;border:1px solid #FF2D95!important;border-radius:999px!important;background:#FF2D95!important;color:#0A0A0A!important;-webkit-text-fill-color:#0A0A0A!important;font:500 11px/1.25 'Jost',Arial,sans-serif!important;letter-spacing:.11em!important;text-align:center;text-decoration:none;box-shadow:none!important;white-space:normal;cursor:pointer;transition:background .2s,border-color .2s}
+.studio-cta:hover{background:#303030!important;border-color:#767676!important;color:#F2F0EC!important;-webkit-text-fill-color:#F2F0EC!important}
+.studio-cta-secondary,.studio-cta-secondary:link,.studio-cta-secondary:visited{background:transparent!important;color:var(--fg,#F2F0EC)!important;-webkit-text-fill-color:var(--fg,#F2F0EC)!important;border-color:var(--line,#666)!important}
+.studio-cta-secondary:hover{border-color:#FF2D95!important;background:transparent!important;color:#FF2D95!important;-webkit-text-fill-color:#FF2D95!important}
+.studio-cta[aria-disabled="true"],.studio-cta.studio-terms-blocked{opacity:.45;cursor:not-allowed;pointer-events:none}
+@media(max-width:760px){
+.studio-footer{padding:28px max(18px,env(safe-area-inset-left,0px)) 36px}
+.studio-footer-inner{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.studio-footer-credit{font-size:10px!important;letter-spacing:.09em;overflow-wrap:normal}
+.studio-footer-links{gap:8px 18px}
+.studio-footer-links a{font-size:10px!important;letter-spacing:.09em}
+.studio-cta{min-height:44px;padding:12px 18px!important;font-size:10.5px!important}
+}
+</style>
+<style id="studio-browser-infinite-background">
+/* Extend the active page background into safe areas and overscroll on mobile. */
+html{background-color:#0A0A0A;min-height:100%;color-scheme:dark}
+html[data-theme="light"]{background-color:#ECECEC;color-scheme:light}
+body{min-height:100vh;min-height:100dvh}
+</style>
+<script id="studio-browser-theme-init">
+(function(){
+ var light=document.documentElement.getAttribute('data-theme')==='light';
+ var color=light?'#ECECEC':'#0A0A0A';
+ var meta=document.querySelector('meta[name="theme-color"]');
+ if(meta)meta.setAttribute('content',color);
+ document.documentElement.style.backgroundColor=color;
+})();
+</script>
+<style id="studio-bf-banner-css">
+/* Identidade visual editorial: sem emojis, rosa pontual, letras leves. */
+.studio-bf-banner{position:relative;z-index:90;display:block;box-sizing:border-box;width:100%;margin:0;padding:0;background:#0A0A0A;color:#F2F0EC;border-bottom:1px solid rgba(255,255,255,.12);font-family:'Jost',Arial,sans-serif}
+.studio-bf-banner[hidden]{display:none!important}
+.studio-bf-banner *{box-sizing:border-box}
+.studio-bf-banner-inner{max-width:1416px;min-height:82px;margin:auto;display:flex;align-items:center;justify-content:center;gap:clamp(16px,2vw,32px);padding:15px 54px;position:relative}
+.studio-bf-copy{display:flex;flex-flow:row wrap;align-items:center;justify-content:center;column-gap:22px;row-gap:3px;margin:0!important;color:#F2F0EC!important;text-align:center;line-height:1.3}
+.studio-bf-intro{font-size:10px;letter-spacing:.15em;font-weight:400;color:#F2F0EC}
+.studio-bf-copy strong{font:300 clamp(17px,2.2vw,29px)/1.15 'Josefin Sans',sans-serif;letter-spacing:.055em;white-space:nowrap}
+.studio-bf-copy strong span{color:#FF2D95;font-weight:300}
+.studio-bf-copy small{font-size:10px;letter-spacing:.11em;color:#B6B6B6;white-space:nowrap}
+.studio-bf-link{display:inline-flex;align-items:center;justify-content:center;min-height:35px;padding:8px 15px;border:1px solid #FF2D95;border-radius:999px;background:transparent;color:#FF2D95!important;text-decoration:none;font:500 10px/1.2 'Jost',Arial,sans-serif;letter-spacing:.08em;white-space:nowrap;flex:0 0 auto;transition:background .15s,color .15s}
+.studio-bf-link:hover{background:#FF2D95;color:#0A0A0A!important}
+.studio-bf-close{position:absolute!important;right:12px;top:50%;transform:translateY(-50%);width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;display:flex!important;align-items:center;justify-content:center;padding:0!important;border:1px solid rgba(255,255,255,.32)!important;border-radius:50%!important;background:transparent!important;color:#F2F0EC!important;box-shadow:none!important;cursor:pointer!important;line-height:1!important}
+.studio-bf-close span{font:300 25px/1 Arial,sans-serif}
+.studio-bf-close:hover{border-color:#FF2D95!important;color:#FF2D95!important}
+.studio-bf-close:focus-visible,.studio-bf-link:focus-visible{outline:2px solid #FF2D95;outline-offset:3px}
+@media(max-width:760px){
+ .studio-bf-banner-inner{min-height:94px;flex-direction:column;gap:9px;padding:14px 46px 14px 14px}
+ .studio-bf-copy{flex-direction:column;align-items:center;gap:4px}
+ .studio-bf-intro{font-size:9px;letter-spacing:.1em}
+ .studio-bf-copy strong{font-size:clamp(17px,5vw,24px);letter-spacing:.025em}
+ .studio-bf-copy small{font-size:9px;letter-spacing:.065em;white-space:normal}
+ .studio-bf-link{min-height:29px;padding:6px 13px;font-size:9px}
+ .studio-bf-close{right:8px!important;width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important}
+}
+</style>
+<style id="studio-bf-centered-display">
+/* Modal editorial, centralizado na tela (não mais uma faixa no topo). */
+body > #studio-black-friday-banner{
+ position:fixed!important;left:50%!important;top:50%!important;bottom:auto!important;right:auto!important;
+ transform:translate(-50%,-50%)!important;z-index:9999!important;
+ width:min(660px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;
+ border:1px solid #FF2D95!important;border-radius:6px!important;
+ background:#0A0A0A!important;box-shadow:0 16px 70px rgba(0,0,0,.36)!important;
+}
+body > #studio-black-friday-banner[hidden]{display:none!important}
+body > #studio-black-friday-banner .studio-bf-banner-inner{
+ width:100%!important;min-height:260px!important;display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;
+ padding:42px 40px 36px!important;gap:23px!important;
+}
+body > #studio-black-friday-banner .studio-bf-copy{
+ display:flex!important;flex-direction:column!important;gap:12px!important;text-align:center!important;
+ align-items:center!important;justify-content:center!important;
+}
+body > #studio-black-friday-banner .studio-bf-intro{font-size:clamp(11px,1.5vw,14px)!important;letter-spacing:.17em!important}
+body > #studio-black-friday-banner .studio-bf-copy strong{
+ display:block!important;font:200 clamp(24px,4.4vw,42px)/1.13 'Josefin Sans',sans-serif!important;
+ letter-spacing:.045em!important;white-space:normal!important;
+}
+body > #studio-black-friday-banner .studio-bf-copy small{font-size:clamp(10px,1.5vw,12px)!important;letter-spacing:.11em!important;white-space:normal!important}
+body > #studio-black-friday-banner .studio-bf-link{min-height:42px!important;padding:10px 25px!important}
+body > #studio-black-friday-banner .studio-bf-close{
+ top:14px!important;right:14px!important;transform:none!important;
+ width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;
+}
+@media(max-width:760px){
+ body > #studio-black-friday-banner{width:calc(100vw - 28px)!important;max-width:calc(100vw - 28px)!important}
+ body > #studio-black-friday-banner .studio-bf-banner-inner{
+  min-height:242px!important;padding:50px 20px 30px!important;gap:18px!important;
+ }
+ body > #studio-black-friday-banner .studio-bf-intro{font-size:10px!important;letter-spacing:.11em!important}
+ body > #studio-black-friday-banner .studio-bf-copy strong{font-size:clamp(22px,7vw,31px)!important}
+ body > #studio-black-friday-banner .studio-bf-copy small{font-size:10px!important}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","@id":"https://alannedias.com/en/sobre/#webpage","url":"https://alannedias.com/en/sobre/","name":"About Alanne Dias | Brand and Website Designer","inLanguage":"en","about":{"@id":"https://alannedias.com/#alanne"},"isPartOf":{"@id":"https://alannedias.com/en/#website"},"description":"Meet Alanne Dias, a brand, website and monogram designer whose career spans fashion and tech, bringing hand-drawn work into digital design."}</script>
+<style id="studio-unified-theme-and-cleanup">
+/* O mesmo controle de tema da Home, sempre na lateral direita. */
+body > #studio-theme-toggle{
+position:fixed!important;top:43%!important;right:0!important;bottom:auto!important;left:auto!important;
+transform:translateY(-50%)!important;z-index:1200!important;
+display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+width:49px!important;min-width:49px!important;height:114px!important;min-height:114px!important;
+gap:12px!important;padding:14px 4px!important;margin:0!important;
+border:1px solid rgba(255,255,255,.23)!important;border-right:0!important;border-radius:14px 0 0 14px!important;
+background:#242424!important;color:#F2F0EC!important;
+box-shadow:-3px 4px 16px rgba(0,0,0,.14)!important;
+font:500 10px/1 'Jost',Arial,sans-serif!important;letter-spacing:.14em!important;cursor:pointer!important
+}
+body > #studio-theme-toggle::before,body > #studio-theme-toggle::after{display:none!important;content:none!important}
+body > #studio-theme-toggle .theme-icon{display:block!important;font-size:22px!important;line-height:1!important}
+body > #studio-theme-toggle .theme-label{display:block!important;font-size:10px!important;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);letter-spacing:.17em}
+body > #studio-theme-toggle:hover{background:#353535!important;border-color:#FF2D95!important}
+body > #studio-theme-toggle:focus-visible{outline:3px solid #FF2D95!important;outline-offset:-4px!important}
+html[data-theme="light"] body > #studio-theme-toggle{background:#fff!important;color:#000!important;border-color:#B9B9B9!important;box-shadow:-3px 4px 16px rgba(0,0,0,.1)!important}
+html[data-theme="light"] body > #studio-theme-toggle:hover{background:#DCDCDC!important;border-color:#888!important}
+@media(max-width:760px){
+body > #studio-theme-toggle{top:42%!important;width:39px!important;min-width:39px!important;height:98px!important;min-height:98px!important;gap:9px!important;padding:12px 3px!important;border-radius:12px 0 0 12px!important}
+body > #studio-theme-toggle .theme-icon{font-size:20px!important}
+body > #studio-theme-toggle .theme-label{font-size:9px!important}
+}
+</style>
+<link rel="stylesheet" href="/assets/studio-menu.css">
+<link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/sobre/">
+<link rel="alternate" hreflang="en" href="https://alannedias.com/en/sobre/">
+<link rel="alternate" hreflang="x-default" href="https://alannedias.com/sobre/">
+<script src="/assets/studio-language.js" defer></script>
+</head>
+<body>
+<aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Black Friday offer">
+  <div class="studio-bf-banner-inner">
+    <p class="studio-bf-copy"><span class="studio-bf-intro">BLACK FRIDAY IS HERE!</span><strong>SITEWIDE <span>20% OFF</span></strong><small>THROUGH NOVEMBER 25 · DESIGN SERVICES</small></p>
+    <a class="studio-bf-link" href="/en/">VIEW OFFER</a>
+    <button class="studio-bf-close" id="studio-black-friday-close" type="button" aria-label="Dismiss Black Friday offer"><span aria-hidden="true">×</span></button>
+  </div>
+</aside>
+<script id="studio-bf-dismiss">
+(function(){
+  var banner=document.getElementById('studio-black-friday-banner');
+  var close=document.getElementById('studio-black-friday-close');
+  if(!banner||!close)return;
+  try{if(sessionStorage.getItem('studio-black-friday-dismissed')==='1'){banner.hidden=true;}}catch(e){}
+  var apply=banner.querySelector('.studio-bf-link');
+  if(apply)apply.addEventListener('click',function(){
+    try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
+  });
+  close.addEventListener('click',function(){
+    banner.hidden=true;
+    try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
+  });
+})();
+</script>
+
+<button id="studio-theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span><span class="theme-label">LIGHT</span></button>
+<script>
+(function(){
+  var button=document.getElementById('studio-theme-toggle');
+  var root=document.documentElement;
+  function sync(){
+    var light=root.getAttribute('data-theme')==='light';
+    button.setAttribute('aria-pressed',String(light));
+    button.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
+    button.querySelector('.theme-icon').textContent='';
+    button.querySelector('.theme-label').textContent=light?'DARK':'LIGHT';
+    var meta=document.querySelector('meta[name="theme-color"]');
+    if(meta)meta.setAttribute('content',light?'#ECECEC':'#0A0A0A');
+    root.style.backgroundColor=light?'#ECECEC':'#0A0A0A';
+  }
+  button.addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='light'?'dark':'light';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('alanne-theme',next);}catch(e){}
+    sync();
+  });
+  sync();
+})();
+</script>
+
+<div class="page">
+<div class="frame">
+
+  <nav class="studio-menu" aria-label="Main menu">
+  <div class="studio-menu__links">
+    <a href="/en/">HOME</a>
+    <a href="/en/portfolio/">PORTFOLIO</a>
+    <a href="#topo" aria-current="page">ABOUT</a>
+    <a href="/en/orcamento/">GET A QUOTE</a>
+    <a class="studio-menu__language" data-studio-language href="/sobre/" lang="pt-BR" hreflang="pt-BR" aria-label="Português" title="Português">PT</a>
+  </div>
+</nav>
+
+
+  <section class="duo" id="topo">
+    <div class="card txt">
+      <p class="lbl">About me</p>
+      <h1 class="h">I’ve never had just one way to create.</h1>
+      <p>I’m Alanne Dias, a brand and web designer. Curiosity took me from fashion to the classroom and from marketing to technology. I brought each of those experiences with me. tudo virou repertório. Today junto tudo isso para desenhar marcas, sites e símbolos com significado, começando sempre à mão e terminando na tela.</p>
+    </div>
+    <div class="card img"><img class="ph" src="/img/4cc144e057d482af8ca926f5add6ba1e.jpg" alt="Alanne smiling at her computer with a mug in her hand" style="object-position:50% 30%"></div>
+  </section>
+
+  <div class="sec-h">
+    <p class="lbl">Timeline</p>
+    <h2 class="h">Along the way</h2>
+  </div>
+  <section class="tl" aria-label="Timeline">
+    <div class="tl-track">
+      <figure class="tl-item"><img class="ph" src="/img/tl01-croqui.jpg" alt=""><figcaption><b>The beginning</b><span>It all started with drawing.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl02-cracha.jpg" alt=""><figcaption><b>2009</b><span>Won a fashion design award at age 19.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl03-moda.jpg" alt=""><figcaption><b>2010</b><span>Technical qualification in Fashion Production at SENAI.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl04-turma.jpg" alt=""><figcaption><b>2012</b><span>Taught at SENAI-PB.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl05-formatura.jpg" alt=""><figcaption><b>2013</b><span>Earned a degree in Marketing.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl06-cad.jpg" alt=""><figcaption><b>2013</b><span>Fashion CAD in Rio de Janeiro.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl07-tv.jpg" alt=""><figcaption><b>On TV</b><span>Discussed fashion and design in an interview.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl08-claquete.jpg" alt=""><figcaption><b>Behind the scenes</b><span>Filming and content production.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl09-senaibf.jpg" alt=""><figcaption><b>SENAI Brasil Fashion</b><span>A closer look at Brazilian fashion.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl10-pos.jpg" alt=""><figcaption><b>2016</b><span>Postgraduate studies in Fashion and Market.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/cf7ab3b5f325492719a80926de089df1.jpg" alt=""><figcaption><b>2017</b><span>SENAI CETIQT in Rio de Janeiro.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/0d7edbb6752649ac82248b8ec465a1d3.jpg" alt=""><figcaption><b>2017</b><span>Mentorship that became a benchmark.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/ce39e5c1dee09d5c9a6fbb9e1562e123.jpg" alt=""><figcaption><b>2017</b><span>Consulted for SENAI Brasil Fashion.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/871f83274d3d97c93915a1c12dc70e2c.jpg" alt=""><figcaption><b>2017</b><span>Interviewed at DBF Campina Grande.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/fc8798f4a862a703f4c5d4d172223c61.jpg" alt=""><figcaption><b>2017</b><span>From sketch to pattern.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/6a6a1401e3c576d0656dee8eb154e996.jpg" alt=""><figcaption><b>2017</b><span>Filmed for television.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/c3bee9c4bc0c2b0ea3a875d79de26ff6.jpg" alt=""><figcaption><b>2017</b><span>Behind the runway.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl11-estudio.jpg" alt=""><figcaption><b>2019</b><span>Founded Studio Alanne Dias.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl12-yasmin.jpg" alt=""><figcaption><b>2021</b><span>A name became a symbol: 14 million.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl13-palestra.jpg" alt=""><figcaption><b>2022</b><span>Spoke at Negócio Arretado.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl14-ux.jpg" alt=""><figcaption><b>2024</b><span>UX and web design: from symbol to screen.</span></figcaption></figure>
+      <figure class="tl-item"><img class="ph" src="/img/tl15-hoje.jpg" alt=""><figcaption><b>Today</b><span>Brand and web designer.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl01-croqui.jpg" alt=""><figcaption><b>The beginning</b><span>It all started with drawing.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl02-cracha.jpg" alt=""><figcaption><b>2009</b><span>Won a fashion design award at age 19.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl03-moda.jpg" alt=""><figcaption><b>2010</b><span>Technical qualification in Fashion Production at SENAI.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl04-turma.jpg" alt=""><figcaption><b>2012</b><span>Taught at SENAI-PB.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl05-formatura.jpg" alt=""><figcaption><b>2013</b><span>Earned a degree in Marketing.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl06-cad.jpg" alt=""><figcaption><b>2013</b><span>Fashion CAD in Rio de Janeiro.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl07-tv.jpg" alt=""><figcaption><b>On TV</b><span>Discussed fashion and design in an interview.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl08-claquete.jpg" alt=""><figcaption><b>Behind the scenes</b><span>Filming and content production.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl09-senaibf.jpg" alt=""><figcaption><b>SENAI Brasil Fashion</b><span>A closer look at Brazilian fashion.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl10-pos.jpg" alt=""><figcaption><b>2016</b><span>Postgraduate studies in Fashion and Market.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/cf7ab3b5f325492719a80926de089df1.jpg" alt=""><figcaption><b>2017</b><span>SENAI CETIQT in Rio de Janeiro.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/0d7edbb6752649ac82248b8ec465a1d3.jpg" alt=""><figcaption><b>2017</b><span>Mentorship that became a benchmark.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/ce39e5c1dee09d5c9a6fbb9e1562e123.jpg" alt=""><figcaption><b>2017</b><span>Consulted for SENAI Brasil Fashion.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/871f83274d3d97c93915a1c12dc70e2c.jpg" alt=""><figcaption><b>2017</b><span>Interviewed at DBF Campina Grande.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/fc8798f4a862a703f4c5d4d172223c61.jpg" alt=""><figcaption><b>2017</b><span>From sketch to pattern.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/6a6a1401e3c576d0656dee8eb154e996.jpg" alt=""><figcaption><b>2017</b><span>Filmed for television.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/c3bee9c4bc0c2b0ea3a875d79de26ff6.jpg" alt=""><figcaption><b>2017</b><span>Behind the runway.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl11-estudio.jpg" alt=""><figcaption><b>2019</b><span>Founded Studio Alanne Dias.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl12-yasmin.jpg" alt=""><figcaption><b>2021</b><span>A name became a symbol: 14 million.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl13-palestra.jpg" alt=""><figcaption><b>2022</b><span>Spoke at Negócio Arretado.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl14-ux.jpg" alt=""><figcaption><b>2024</b><span>UX and web design: from symbol to screen.</span></figcaption></figure>
+      <figure class="tl-item" aria-hidden="true"><img class="ph" src="/img/tl15-hoje.jpg" alt=""><figcaption><b>Today</b><span>Brand and web designer.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="card nums" aria-label="In numbers">
+    <div><span class="lbl">Symbols designed</span><b>+980</b></div>
+    <div><span class="lbl">Brand identities</span><b>+450</b></div>
+    <div><span class="lbl">Countries</span><b>31</b></div>
+    <div><span class="lbl">TikTok followers</span><b>402K</b></div>
+  </section>
+
+  <section class="card cta-card">
+    <h2 class="h">Shall we create something meaningful?</h2>
+    <a class="btn studio-cta" href="/en/orcamento/">GET A QUOTE</a>
+  </section>
+
+  <footer class="studio-footer" aria-label="Studio Alanne Dias footer">
+  <div class="studio-footer-inner">
+    <p class="studio-footer-credit">© 2026 STUDIO ALANNE DIAS <span aria-hidden="true">·</span> BRAND &amp; WEB DESIGN</p>
+    <nav class="studio-footer-links" aria-label="Social media and contact">
+      <a href="https://www.instagram.com/alannedias.designer/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="https://www.tiktok.com/@alannedias.designer" target="_blank" rel="noopener">TIKTOK</a>
+      <a href="https://www.behance.net/alannedias" target="_blank" rel="noopener">BEHANCE</a>
+      <a href="https://wa.me/5583998361156" target="_blank" rel="noopener">WHATSAPP</a>
+    </nav>
+  </div>
+</footer>
+
+</div>
+</div>
+<style>
+/* ===== PADRÃO DE TIPOGRAFIA (escala única do site) =====
+   H1 título de página · H2 título de seção · H3 título de bloco · H4 título pequeno
+   Destaque · Texto · Etiqueta. A capa da home (.h2t) fica fora da escala. */
+:root{
+  --fs-h1:clamp(44px,6vw,96px);
+  --fs-h2:clamp(32px,4.4vw,64px);
+  --fs-h3:clamp(24px,2.4vw,34px);
+  --fs-h4:19px;
+  --fs-lead:17px;
+  --fs-body:15px;
+  --fs-label:11px;
+}
+/* H1 */
+.hero h1,h1:not(.h2t),.contact .h{font-size:var(--fs-h1)!important}
+/* H2 */
+.ed-h .h,.sec-h .h,.about .h,.txt .h,.cta-card .h,.tab-title,.nums b,#mapa-alanne .mp-head h2,#mapa-alanne .stat-num{font-size:var(--fs-h2)!important}
+/* H3 */
+.svc .h,.info .h,.pf .h,.cont-sub,h2:not([class]),.dest-tx h3,.total .big{font-size:var(--fs-h3)!important}
+/* H4 */
+.pele .cap b,.tl-item b,.moments .cap b,.cv-item .ano,.cv-item b,.opt .n,.passos .pt,.faq summary{font-size:var(--fs-h4)!important}
+/* Destaque */
+.hero .sub,.h2s,.contact .row p,.lead{font-size:var(--fs-lead)!important}
+/* Texto */
+p:not([class]),.svc p,.info p,.cols,.pele .cap span,.tl-item span,.moments .cap span,.cv-item span,.opt .d,.note,.lines,.empty,.total .pix,.dest-tx .pd,.passos .pd,.toggle,.txt p:not(.lbl),.about p:not(.lbl),.cols p:not(.lbl),.cta-card p:not(.lbl),#mapa-alanne .mp-head p:not(.lbl){font-size:var(--fs-body)!important}
+/* Etiqueta (maiúsculas) */
+.lbl,.lk,.pill,.btn,.dock a,.foot,.eyebrow,.h2d,.svc .price,.svc::before,.sec-h .h::before,.opt .p,.opt .tag,.tab,.topnav,.topnav .home,.pfm figcaption,.capa figcaption,.gal figcaption,.passos b,.small,.step-h small,.lines .grp,.btn.lim,#mapa-alanne .tip,#mapa-alanne .stat-label,#mapa-alanne .chips span{font-size:var(--fs-label)!important}
+.svc .lk{font-size:var(--fs-label)!important}
+/* ===== ALINHAMENTO: tudo começa na mesma margem esquerda =====
+   --gb = distância da borda da tela até a margem do conteúdo (medida no fx.html) */
+.pf-track{padding-left:var(--gb,max(28px,4vw))!important;padding-right:var(--gb,max(28px,4vw))!important;scroll-padding-left:var(--gb,max(28px,4vw))!important}
+#mapa-alanne .mp-head,#mapa-alanne .chips{max-width:none!important;padding-left:var(--gb,max(28px,4vw))!important;padding-right:var(--gb,max(28px,4vw))!important}
+/* blocos sem fundo não recuam o texto: ele fica na margem */
+.card.txt,.card.cta-card{padding-left:0!important;padding-right:0!important}
+/* no celular o menu de serviços do orçamento precisa caber em uma linha */
+@media (max-width:600px){.tab{font-size:9.5px!important}}
+</style>
+<style>
+/* INTERATIVIDADE */
+.page{overflow:visible!important;overflow-x:clip!important}
+.nav{position:sticky;top:0;z-index:30;transition:background .35s ease,box-shadow .35s ease}
+.nav.stuck{background:rgba(10,10,10,.86);box-shadow:0 0 0 100vmax rgba(10,10,10,.86);clip-path:inset(0 -100vmax);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.prog{display:none!important;position:fixed;left:0;top:0;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+.hero-in>*{animation:fxUp 1s cubic-bezier(.2,.7,.2,1) both}
+.hero-in>*:nth-child(2){animation-delay:.12s}
+.hero-in>*:nth-child(3){animation-delay:.26s}
+.hero .ph{animation:fxFade 1.4s ease both}
+@keyframes fxUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fxFade{from{opacity:0}to{opacity:1}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.svc,.info,.pele .card,.bento .tall,.imgcard,.cta-card{transition:transform .35s ease,background .35s ease}
+@media (hover:hover){
+  .svc:hover,.info:hover{transform:translateY(-4px);background:#222120}
+  .bento .tall:hover .ph,.pele .card:hover .ph{transform:scale(1.04)}
+  .bento .ph,.pele .ph{transition:filter .6s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+}
+.svc:active,.info:active,.lk:active,.btn:active,.pill:active{transform:scale(.97)}
+@media (hover:none){.ph.on{filter:none!important}}
+@media (prefers-reduced-motion: reduce){.hero-in>*,.hero .ph{animation:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
+<script>
+(function(){
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // barra de progresso + menu fixo
+  var nav = document.querySelector('.nav');
+  var bar = document.createElement('div'); bar.className = 'prog'; document.body.appendChild(bar);
+  var heroImg = document.querySelector('.hero .ph');
+  var h2p = document.querySelector('.h2p');
+  if (h2p) { h2p.style.transformOrigin = 'left bottom'; h2p.style.willChange = 'transform'; }
+  function onScroll(){
+    var y = window.scrollY || 0, max = document.documentElement.scrollHeight - innerHeight;
+    if (nav) nav.classList.toggle('stuck', y > 40);
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    if (heroImg && !rm && innerWidth > 760) heroImg.style.transform = 'translateY(' + Math.min(y, 700) * 0.12 + 'px)';
+    // foto da primeira seção: zoom leve conforme a página desce
+    if (h2p && !rm) { var hh = h2p.parentNode.offsetHeight || innerHeight; h2p.style.transform = 'scale(' + (1 + Math.min(Math.max(y,0), hh) / hh * 0.14).toFixed(4) + ')'; }
+  }
+  // entrada suave dos blocos
+  var sel = '.svc,.nums,.duo>*,.sec-h,.bento>*,.pele>.card,.cta-card,.contact,.tl,.txt,.foot';
+  var els = rm ? [] : Array.prototype.filter.call(document.querySelectorAll(sel), function(e){
+    return !e.closest('.hero') && e.getBoundingClientRect().top > innerHeight * 0.9;
+  });
+  els.forEach(function(e, i){ e.classList.add('rv'); e.style.transitionDelay = (i % 4) * 80 + 'ms'; });
+  // números contando
+  var nums = rm ? [] : Array.prototype.map.call(document.querySelectorAll('.nums b'), function(b){
+    var m = b.textContent.match(/^(\D*)(\d+)(.*)$/); return m ? {b:b, m:m, done:false} : null;
+  }).filter(Boolean);
+  function count(o){
+    o.done = true; var n = +o.m[2], t0 = Date.now();
+    var iv = setInterval(function(){ var p = Math.min(1, (Date.now() - t0) / 1600);
+      o.b.textContent = o.m[1] + Math.round(n * (1 - Math.pow(1 - p, 3))) + o.m[3]; if (p >= 1) clearInterval(iv); }, 30);
+  }
+  // no celular: a foto ganha cor quando passa pelo meio da tela
+  var touch = matchMedia('(hover: none)').matches;
+  var photos = touch ? Array.prototype.filter.call(document.querySelectorAll('.card .ph, .tl-item .ph'), function(i){ return !i.closest('.slides'); }) : [];
+  function check(){
+    var h = innerHeight;
+    for (var i = els.length - 1; i >= 0; i--) { if (els[i].getBoundingClientRect().top < h * 0.92) { els[i].classList.add('in'); els.splice(i, 1); } }
+    nums.forEach(function(o){ if (o.done) return; var r = o.b.getBoundingClientRect(); if (r.height && r.top < h * 0.9 && r.bottom > 0) count(o); });
+    photos.forEach(function(p){ var r = p.getBoundingClientRect(); p.classList.toggle('on', r.top < h * 0.58 && r.bottom > h * 0.42); });
+  }
+  var ticking = false;
+  addEventListener('scroll', function(){ onScroll(); if (!ticking){ ticking = true; setTimeout(function(){ ticking = false; check(); }, 60); } }, {passive:true});
+  addEventListener('resize', check);
+  // portfólio em slides: arrastar com o mouse no computador
+  document.querySelectorAll('.pf-track').forEach(function(tr){
+    var down=false, x0=0, s0=0, moved=false;
+    tr.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    tr.addEventListener('mousedown', function(e){ down=true; moved=false; x0=e.pageX; s0=tr.scrollLeft; tr.style.scrollSnapType='none'; tr.style.cursor='grabbing'; });
+    addEventListener('mouseup', function(){ if(!down) return; down=false; tr.style.scrollSnapType=''; tr.style.cursor=''; });
+    tr.addEventListener('mousemove', function(e){ if(!down) return; var dx=e.pageX-x0; if(Math.abs(dx)>5) moved=true; tr.scrollLeft=s0-dx; });
+    tr.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved=false; } }, true);
+  });
+  document.querySelectorAll('.tl-track').forEach(function(t){ Array.from(t.children).reverse().forEach(function(c){ t.appendChild(c); }); }); // linha do tempo: anda sozinha, mas fica livre para arrastar (dedo ou mouse)
+  document.querySelectorAll('.tl').forEach(function(tl){
+    var tr = tl.querySelector('.tl-track'); if (!tr) return;
+    var pos = 0, hold = 0, down = false, x0 = 0, s0 = 0, last = 0;
+    function half(){ return tr.scrollWidth / 2; }
+    function wrap(){ var h = half(); if (h <= 0) return; if (tl.scrollLeft >= h) tl.scrollLeft -= h; else if (tl.scrollLeft <= 0 && hold) tl.scrollLeft += h; }
+    function pause(){ hold = Date.now() + 2500; }
+    ['touchstart','wheel'].forEach(function(ev){ tl.addEventListener(ev, pause, {passive:true}); });
+    tl.addEventListener('mouseenter', function(){ hold = Infinity; });
+    tl.addEventListener('mouseleave', function(){ if (!down) pause(); });
+    tl.addEventListener('mousedown', function(e){ down = true; hold = Infinity; x0 = e.pageX; s0 = tl.scrollLeft; tl.style.cursor = 'grabbing'; e.preventDefault(); });
+    addEventListener('mousemove', function(e){ if (!down) return; tl.scrollLeft = s0 - (e.pageX - x0); wrap(); });
+    addEventListener('mouseup', function(){ if (!down) return; down = false; tl.style.cursor = ''; pause(); });
+    tl.addEventListener('scroll', function(){ if (hold) { wrap(); pos = tl.scrollLeft; if (hold !== Infinity) hold = Math.max(hold, Date.now() + 1500); } }, {passive:true});
+    setInterval(function(){
+      var t = Date.now(), dt = last ? Math.min(t - last, 50) : 16; last = t;
+      if (!rm && t > hold) { if (hold) { hold = 0; pos = tl.scrollLeft; } pos += dt * 0.04; if (pos >= half()) pos -= half(); tl.scrollLeft = pos; }
+    }, 16);
+  });
+  // margem única: seções de ponta a ponta alinham o texto com o resto da página
+  function gutter(){
+    var ref = document.querySelector('.ed-h, .sec-h, .nav .logo, .nav'), bl = document.querySelector('.slides-pf, #mapa-alanne, .tl');
+    var g = ref && bl ? ref.getBoundingClientRect().left - bl.getBoundingClientRect().left : 0;
+    if (g > 0) document.documentElement.style.setProperty('--gb', g + 'px');
+    // texto da capa das páginas internas na mesma margem
+    var ml = document.querySelector('.sec-h, .ed-h, .nav .logo');
+    if (ml) document.querySelectorAll('.hero .hero-in').forEach(function(h){
+      h.style.paddingLeft = ''; var d = ml.getBoundingClientRect().left - h.getBoundingClientRect().left;
+      if (d >= 0) { h.style.paddingLeft = d + 'px'; h.style.paddingRight = d + 'px'; }
+    });
+  }
+  gutter(); addEventListener('resize', gutter); addEventListener('load', gutter);
+  onScroll(); check();
+  // garantia: confere de novo de tempos em tempos, até tudo ter aparecido
+  var safety = setInterval(function(){ onScroll(); check(); if (!els.length && nums.every(function(o){ return o.done; })) clearInterval(safety); }, 400);
+})();
+</script>
+<style>nav.dock,.nav .pills,.topnav .home{display:none!important}.nav,.topnav{justify-content:center!important}.mnav{display:flex;gap:4px;padding:5px;border-radius:999px;background:var(--fg)}.mnav a{letter-spacing:.14em;color:#0A0A0A;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:var(--fs-label,11px);font-weight:400}.mnav a.on,.mnav a:hover,.mnav a:active{background:var(--pink)}@media (max-width:760px){.mnav a{padding:9px 10px;letter-spacing:.1em}}</style><style>.foot{border-top:1px solid rgba(242,240,236,.18)!important;margin-top:56px!important;padding:26px 0 40px!important;display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:18px 24px!important}.foot .soc{justify-content:flex-end}@media (max-width:760px){.foot{flex-direction:column!important;align-items:center!important;text-align:center}.foot .soc{order:-1;justify-content:center}}</style><style>.foot{border-top:1px solid rgba(242,240,236,.18)!important;margin-top:56px!important;padding:26px 0 40px!important;display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:18px 24px!important}.foot .soc{justify-content:flex-end}@media (max-width:760px){.foot{flex-direction:column!important;align-items:center!important;text-align:center}.foot .soc{order:-1;justify-content:center}}</style><style id="studio-theme-styles">
+/* Studio themes: original dark remains untouched; soft editorial gray light mode. */
+#studio-theme-toggle{position:fixed;z-index:1100;top:18px;right:18px;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:104px;min-height:44px;padding:10px 16px;border:1px solid #666;border-radius:999px;background:#1B1A19;color:#F2F0EC;font:500 11px/1.15 'Jost',Arial,sans-serif;letter-spacing:.10em;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.14);-webkit-tap-highlight-color:transparent}
+#studio-theme-toggle:hover{border-color:#FF2D95}
+#studio-theme-toggle:focus-visible{outline:3px solid #FF2D95;outline-offset:3px}
+#studio-theme-toggle .theme-icon{font-size:19px;line-height:1}
+html[data-theme="light"]{color-scheme:light;--page:#ECECEC;--frame:#ECECEC;--bg:#ECECEC;--card:#FAFAFA;--fg:#000000;--soft:#303030;--muted:#444444;--line:#B2B2B2;--on:#000000;--onfg:#FAFAFA;--gold:#303030;--pink:#FF2D95}
+html[data-theme="light"] body,html[data-theme="light"] .page,html[data-theme="light"] .frame{background:#ECECEC;color:#000000}
+html[data-theme="light"] .card,html[data-theme="light"] .pill:not(.cta){background:#FAFAFA;color:#000000}
+html[data-theme="light"] .pill:hover:not(.cta){background:#DEDEDE;color:#000000}
+html[data-theme="light"] .hero:not(.h2o){background:#ECECEC}
+html[data-theme="light"] .hero .sub,html[data-theme="light"] .svc p,html[data-theme="light"] .info p,html[data-theme="light"] .about .cols,html[data-theme="light"] .contact .row p,html[data-theme="light"] .plano li span,html[data-theme="light"] .tl-item span{color:#303030}
+html[data-theme="light"] .cta-card{background:linear-gradient(120deg,#F8F8F8,#DEDEDE)}
+html[data-theme="light"] .lk,html[data-theme="light"] .btn.line,html[data-theme="light"] .soc a{color:#000000;border-color:#777}
+html[data-theme="light"] .lk:hover i,html[data-theme="light"] .btn.line i{background:#000000;color:#FAFAFA}
+html[data-theme="light"] .btn:not(.line),html[data-theme="light"] .pill.cta{background:#FF2D95;color:#0A0A0A}
+html[data-theme="light"] .btn i{background:#000000;color:#FAFAFA}
+html[data-theme="light"] .dock,html[data-theme="light"] .mnav{background:#000000}
+html[data-theme="light"] .dock a,html[data-theme="light"] .mnav a{color:#F2F0EC}
+html[data-theme="light"] .dock a.on,html[data-theme="light"] .dock a:hover,html[data-theme="light"] .mnav a.on,html[data-theme="light"] .mnav a:hover{background:#FF2D95;color:#0A0A0A}
+html[data-theme="light"] #mapa-alanne{background:#ECECEC;color:#000000}
+html[data-theme="light"] #mapa-alanne .mp-head p{color:#444}
+html[data-theme="light"] #mapa-alanne .mp-head .lbl{color:#303030}
+html[data-theme="light"] #mapa-alanne .land{fill:#D1D1D1;stroke:#ECECEC}
+html[data-theme="light"] #mapa-alanne .land.on{fill:#858585}
+html[data-theme="light"] #mapa-alanne .stats-row,html[data-theme="light"] #mapa-alanne .stat-card{color:#000000}
+html[data-theme="light"] .tab,html[data-theme="light"] .opt,html[data-theme="light"] .total,html[data-theme="light"] .step,html[data-theme="light"] .faq details{border-color:#A7A7A7}
+html[data-theme="light"] .opt:has(input:checked){background:#F8F8F8;color:#000000}
+html[data-theme="light"] .opt:has(input:checked) .d,html[data-theme="light"] .opt:has(input:checked) .p{color:#303030}
+html[data-theme="light"] .opt:has(input:checked) .tag{background:#D9D9D9;color:#000000}
+html[data-theme="light"] .opt:has(input:checked)::after{background:#FF2D95}
+html[data-theme="light"] .eyebrow,html[data-theme="light"] .site-lk,html[data-theme="light"] .lbl,html[data-theme="light"] .svc .price{color:#303030}
+html[data-theme="light"] .site-lk,html[data-theme="light"] .eyebrow{color:#303030}
+html[data-theme="light"] .btn.line i{background:#000000;color:#FAFAFA}
+html[data-theme="light"] #studio-theme-toggle{background:#FAFAFA;color:#000000;border-color:#777}
+@media(max-width:760px){
+  #studio-theme-toggle{top:auto;right:15px;bottom:calc(94px + env(safe-area-inset-bottom,0px));width:46px;height:46px;min-width:46px;min-height:46px;padding:0;border-radius:50%;gap:0;box-shadow:0 4px 18px rgba(0,0,0,.22)}
+  #studio-theme-toggle .theme-label{display:none}
+  #studio-theme-toggle .theme-icon{font-size:23px}
+}
+</style>
+<style id="studio-light-editorial">
+/* Light mode: open editorial layout, with whitespace instead of boxed panels. */
+html[data-theme="light"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="light"] .svc,
+html[data-theme="light"] .info,
+html[data-theme="light"] .about,
+html[data-theme="light"] .contact,
+html[data-theme="light"] .cta-card,
+html[data-theme="light"] .nums,
+html[data-theme="light"] .txt,
+html[data-theme="light"] .plano,
+html[data-theme="light"] .opt,
+html[data-theme="light"] .dest-tx,
+html[data-theme="light"] .total,
+html[data-theme="light"] .faq details {
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-color:transparent!important;
+}
+html[data-theme="light"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="light"] .opt,
+html[data-theme="light"] .plano,
+html[data-theme="light"] .faq details {border-radius:0}
+html[data-theme="light"] .svc::before {color:#303030}
+html[data-theme="light"] .info:hover,
+html[data-theme="light"] .opt:hover {background:transparent!important}
+html[data-theme="light"] .opt {border:0!important;border-bottom:1px solid #C2C2C2!important;padding-left:4px;padding-right:36px}
+html[data-theme="light"] .opt:has(input:checked) {background:transparent!important;border-bottom:2px solid #303030!important}
+html[data-theme="light"] .opt:has(input:checked) .n {color:#000000;font-weight:500}
+html[data-theme="light"] .opt:has(input:checked) .d,
+html[data-theme="light"] .opt:has(input:checked) .p {color:#303030}
+html[data-theme="light"] .opt::after {background:#A6A6A6}
+html[data-theme="light"] .opt:has(input:checked)::after {background:#FF2D95}
+html[data-theme="light"] .opt .tag {background:transparent;color:#303030;padding-left:0}
+html[data-theme="light"] .tab {background:transparent;border:0;border-bottom:1px solid #B2B2B2;border-radius:0;color:#000000}
+html[data-theme="light"] .tab[aria-selected="true"] {background:transparent;color:#000000;border-bottom:3px solid #303030;font-weight:500}
+html[data-theme="light"] .step,html[data-theme="light"] .passos li,html[data-theme="light"] .faq,html[data-theme="light"] .total {border-color:transparent!important}
+html[data-theme="light"] .plano {padding-left:0;padding-right:0}
+html[data-theme="light"] .pill:not(.cta) {background:transparent;color:#000000}
+html[data-theme="light"] .pill:hover:not(.cta) {background:transparent;color:#303030}
+html[data-theme="light"] .btn.line {border-color:transparent}
+html[data-theme="light"] .btn.line:hover {border-color:#000000}
+html[data-theme="light"] .dest,
+html[data-theme="light"] .video,
+html[data-theme="light"] .show {border-color:transparent!important}
+html[data-theme="light"] .imgcard,
+html[data-theme="light"] .img,
+html[data-theme="light"] .pele .card,
+html[data-theme="light"] .bento .tall {background:transparent}
+html[data-theme="light"] .h2o {background:#A3A3A3}
+@media(max-width:760px){
+ html[data-theme="light"] .svc,html[data-theme="light"] .info,html[data-theme="light"] .contact {padding-left:0;padding-right:0}
+ html[data-theme="light"] .opt {padding-block:18px}
+}
+
+html[data-theme="light"] .h2t,html[data-theme="light"] .h2s,html[data-theme="light"] .nav:not(.stuck) .logo{color:#000000}
+</style><style id="studio-theme-toggle-refined">
+/* Navigation-integrated theme switch: no floating overlay or obscured content. */
+#studio-theme-toggle{
+  position:static!important;inset:auto!important;transform:none!important;
+  display:inline-flex!important;flex:0 0 auto;align-items:center;justify-content:center;
+  gap:8px;min-width:0;min-height:38px;height:38px;width:auto;
+  padding:0 13px;margin:0;border:1px solid rgba(242,240,236,.28);
+  border-radius:999px;background:#222120;color:#F2F0EC;
+  box-shadow:none!important;white-space:nowrap;line-height:1;
+  font-family:'Jost',Arial,sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:.1em;cursor:pointer
+}
+#studio-theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
+#studio-theme-toggle .theme-label{display:inline!important;font-size:10px}
+#studio-theme-toggle:hover{border-color:#FF2D95;background:#33312F}
+#studio-theme-toggle:focus-visible{outline:2px solid #FF2D95;outline-offset:2px}
+html[data-theme="light"] #studio-theme-toggle{
+  background:#FFFFFF;color:#000000;border-color:#9C9C9C
+}
+html[data-theme="light"] #studio-theme-toggle:hover{background:#E0E0E0;border-color:#777}
+.nav .pills{align-items:center;flex:0 0 auto;overflow:visible;max-width:none}
+.nav .pills #studio-theme-toggle{margin-left:3px}
+@media(max-width:760px){
+  .dock #studio-theme-toggle,.mnav #studio-theme-toggle{
+    position:static!important;min-width:42px!important;min-height:38px!important;
+    width:42px!important;height:38px!important;padding:0!important;
+    margin:0 0 0 4px!important;border-radius:999px!important;box-shadow:none!important;
+    background:#32312F;color:#F2F0EC;border:1px solid rgba(242,240,236,.18);
+  }
+  .dock #studio-theme-toggle::before,.mnav #studio-theme-toggle::before{
+    content:"";position:absolute;left:-5px;top:8px;bottom:8px;width:1px;
+    background:rgba(242,240,236,.22)
+  }
+  .dock #studio-theme-toggle,.mnav #studio-theme-toggle{position:relative!important}
+  .dock #studio-theme-toggle .theme-label,.mnav #studio-theme-toggle .theme-label{display:none!important}
+  .dock #studio-theme-toggle .theme-icon,.mnav #studio-theme-toggle .theme-icon{font-size:22px}
+  html[data-theme="light"] .dock #studio-theme-toggle,
+  html[data-theme="light"] .mnav #studio-theme-toggle{
+    background:#F2F0EC;color:#000000;border-color:rgba(255,255,255,.2)
+  }
+  html[data-theme="light"] .dock #studio-theme-toggle::before,
+  html[data-theme="light"] .mnav #studio-theme-toggle::before{background:rgba(255,255,255,.25)}
+  .dock:has(#studio-theme-toggle){gap:2px!important;padding:5px!important;max-width:calc(100vw - 20px)!important}
+  .dock:has(#studio-theme-toggle) a{padding:9px clamp(9px,2.5vw,16px)!important}
+  .mnav:has(#studio-theme-toggle){align-items:center;gap:2px!important;max-width:100%;padding:4px!important}
+  .mnav:has(#studio-theme-toggle) a{padding:9px clamp(6px,1.8vw,10px)!important;letter-spacing:.06em!important}
+  #studio-theme-toggle:focus-visible{outline-offset:1px}
+}
+</style><style id="studio-button-white-text">
+/* White labels on dark/pink action surfaces; keep light-gray service/footer CTAs black. */
+.pill.cta,.pill.cta:link,.pill.cta:visited,
+.dock a.on,.dock a:hover,.dock a:active,
+.mnav a.on,.mnav a:hover,.mnav a:active,
+.topnav .home,.topnav .home:hover,
+.btn:not(.line),.btn.ghost,
+.soc a:hover,.soc a:active,
+.h2soc a:active {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="dark"] .svc .lk,
+html:not([data-theme="light"]) .svc .lk {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="light"] .pill.cta,
+html[data-theme="light"] .dock a.on,
+html[data-theme="light"] .dock a:hover,
+html[data-theme="light"] .mnav a.on,
+html[data-theme="light"] .mnav a:hover,
+html[data-theme="light"] .btn:not(.line),
+html[data-theme="light"] .btn.ghost,
+html[data-theme="light"] .soc a:hover {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html[data-theme="light"] .svcs .svc a.lk,
+html[data-theme="light"] #contato .row a.btn.line {
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+}
+</style><style id="studio-dark-editorial-parity">
+
+/* Editorial layout parity: use the light-mode structure in the dark palette. */
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .svc,
+html[data-theme="dark"] .info,
+html[data-theme="dark"] .about,
+html[data-theme="dark"] .contact,
+html[data-theme="dark"] .cta-card,
+html[data-theme="dark"] .nums,
+html[data-theme="dark"] .txt,
+html[data-theme="dark"] .plano,
+html[data-theme="dark"] .dest-tx,
+html[data-theme="dark"] .total,
+html[data-theme="dark"] .faq details{
+ background:transparent!important;background-image:none!important;box-shadow:none!important;border-color:transparent!important;
+}
+html[data-theme="dark"] .card:not(.imgcard):not(.img):not(.imgbox):not(.slides),
+html[data-theme="dark"] .plano,html[data-theme="dark"] .faq details{border-radius:0}
+html[data-theme="dark"] .info:hover{background:transparent!important}
+html[data-theme="dark"] .plano{padding-left:0;padding-right:0}
+html[data-theme="dark"] .svc::before{color:#FF2D95}
+@media(max-width:760px){
+ html[data-theme="dark"] .svc,html[data-theme="dark"] .info,html[data-theme="dark"] .contact{padding-left:0;padding-right:0}
+}
+</style>
+
+<style id="studio-orcamento-black-label">
+/* Texto preto no botão rosa GET A QUOTE, em ambos os temas. */
+html .pill.cta[href="/en/orcamento/"],html .pill.cta[href="/en/orcamento/"]:link,html .pill.cta[href="/en/orcamento/"]:visited,html .pill.cta[href="/en/orcamento/"]:hover,html .pill.cta[href="/en/orcamento/"]:active{color:#000000!important;-webkit-text-fill-color:#000000!important}
+</style>
+
+<style id="studio-borderless-buttons">
+/* Botões sem contorno; manter a linha inferior editorial das abas de serviço. */
+button:not(.tab),
+a.btn,
+a.pill,
+a.lk,
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+  border:0!important;
+  box-shadow:none!important;
+}
+/* O foco permanece visível somente para navegação por teclado. */
+button:focus-visible,
+a.btn:focus-visible,
+a.pill:focus-visible,
+a.lk:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible{
+  outline:2px solid #FF2D95!important;
+  outline-offset:3px;
+}
+/* Sem anel de foco persistente no clique convencional. */
+button:focus:not(:focus-visible),
+a.btn:focus:not(:focus-visible),
+a.pill:focus:not(:focus-visible),
+a.lk:focus:not(:focus-visible){
+  outline:none;
+}
+</style>
+<style id="studio-mobile-header-footer-clearance">
+/* Área de segurança para o menu flutuante e rodapé legível no celular. */
+@media (max-width:760px){
+  .studio-footer{
+    padding-bottom:calc(152px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .studio-footer-inner{
+    row-gap:20px!important;
+  }
+}
+
+</style>
+<script id="studio-unified-theme-mount">
+(function(){
+var button=document.getElementById('studio-theme-toggle');if(!button)return;
+function mount(){if(button.parentElement!==document.body)document.body.appendChild(button)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
+window.addEventListener('resize',mount);
+})();
+</script>
+<style>
+html[data-theme="light"] .studio-footer-links a:hover,
+html[data-theme="light"] .studio-footer-links a:focus-visible { color: #303030; }
+html[data-theme="light"] .studio-cta-secondary:hover { color: #303030 !important; -webkit-text-fill-color: #303030 !important; }
+</style>
+</body>
+</html>

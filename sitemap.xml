@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://alannedias.com/</loc><lastmod>2026-11-24</lastmod><priority>1.0</priority></url>
-<url><loc>https://alannedias.com/orcamento/</loc><lastmod>2026-11-24</lastmod><priority>0.9</priority></url>
-<url><loc>https://alannedias.com/sobre/</loc><lastmod>2026-11-24</lastmod><priority>0.7</priority></url>
-<url><loc>https://alannedias.com/portfolio/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+  <loc>https://alannedias.com/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>1.0</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/en/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>1.0</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/orcamento/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/orcamento/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/orcamento/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/orcamento/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/en/orcamento/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/orcamento/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/orcamento/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/orcamento/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/sobre/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/sobre/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/sobre/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/sobre/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/en/sobre/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/sobre/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/sobre/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/sobre/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/portfolio/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/portfolio/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/portfolio/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/portfolio/"/>
+</url>
+<url>
+  <loc>https://alannedias.com/en/portfolio/</loc>
+  <lastmod>2026-11-24</lastmod>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://alannedias.com/portfolio/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alannedias.com/en/portfolio/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alannedias.com/portfolio/"/>
+</url>
 </urlset>
