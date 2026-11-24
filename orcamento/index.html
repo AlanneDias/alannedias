@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round"><meta name="theme-color" content="#0A0A0A">
 <style>html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}</style>
-<meta name="description" content="Monte seu orçamento de monograma, identidade visual para empresas e casamentos, site ou catálogo interativo com Alanne Dias. Escolha os serviços e envie pelo WhatsApp."><link rel="canonical" href="https://alannedias.com/orcamento/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="Monte seu orçamento · Alanne Dias Designer"><meta property="og:description" content="Escolha monograma, casamento, marca ou site, os extras, e veja o valor. Envie pelo WhatsApp."><meta property="og:url" content="https://alannedias.com/orcamento/"><meta property="og:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:image:alt" content="Alanne Dias, designer"><meta name="twitter:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:locale" content="pt_BR"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Monte seu orçamento de monograma personalizado, identidade visual para empresas e casamentos ou criação de sites. Veja os valores e solicite pelo WhatsApp."><link rel="canonical" href="https://alannedias.com/orcamento/"><meta property="og:type" content="website"><meta property="og:site_name" content="Alanne Dias"><meta property="og:title" content="Orçamento de monograma, identidade visual e sites | Alanne Dias"><meta property="og:description" content="Monte seu orçamento de monograma personalizado, identidade visual para empresas e casamentos ou criação de sites. Veja os valores e solicite pelo WhatsApp."><meta property="og:url" content="https://alannedias.com/orcamento/"><meta property="og:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:image:alt" content="Alanne Dias, designer"><meta name="twitter:image" content="https://alannedias.com/img/tl15-hoje.jpg"><meta property="og:locale" content="pt_BR"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-image-preview:large">
 <style>.dest,.video,.show{border:0!important} .tab .dot{display:none!important} .dock{top:84px!important;bottom:auto!important;left:38px!important;transform:none!important} @media (max-width:760px){.dock{left:18px!important}} header.top{margin-top:52px}</style><script>
 (function(){
   var theme='dark';
@@ -160,7 +160,7 @@ body > #studio-black-friday-banner .studio-bf-close{
  body > #studio-black-friday-banner .studio-bf-copy small{font-size:10px!important}
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://alannedias.com/orcamento/#webpage","url":"https://alannedias.com/orcamento/","name":"Orçamento de Identidade Visual, Monograma e Sites | Alanne Dias","inLanguage":"pt-BR","isPartOf":{"@id":"https://alannedias.com/#website"},"about":{"@id":"https://alannedias.com/#studio"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://alannedias.com/orcamento/#webpage","url":"https://alannedias.com/orcamento/","name":"Orçamento de monograma, identidade visual e sites | Alanne Dias","description":"Monte seu orçamento de monograma personalizado, identidade visual para empresas e casamentos ou criação de sites. Veja os valores e solicite pelo WhatsApp.","inLanguage":"pt-BR","isPartOf":{"@id":"https://alannedias.com/#website"},"about":{"@id":"https://alannedias.com/#studio"}}</script>
 <style id="studio-unified-theme-and-cleanup">
 /* O mesmo controle de tema da Home, sempre na lateral direita. */
 body > #studio-theme-toggle{
@@ -193,7 +193,7 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 <aside class="studio-bf-banner" id="studio-black-friday-banner" aria-label="Promoção Black Friday">
   <div class="studio-bf-banner-inner">
     <p class="studio-bf-copy"><span class="studio-bf-intro">CHEGOU A MINHA BLACK FRIDAY!</span><strong>TODO O SITE <span>20% OFF</span></strong><small>ATÉ 25 DE NOVEMBRO · SERVIÇOS DE CRIAÇÃO</small></p>
-    <a class="studio-bf-link" href="/">APROVEITAR</a>
+    <a class="studio-bf-link" href="#tabs">APROVEITAR</a>
     <button class="studio-bf-close" id="studio-black-friday-close" type="button" aria-label="Fechar aviso da Black Friday"><span aria-hidden="true">×</span></button>
   </div>
 </aside>
@@ -204,8 +204,13 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
   if(!banner||!close)return;
   try{if(sessionStorage.getItem('studio-black-friday-dismissed')==='1'){banner.hidden=true;}}catch(e){}
   var apply=banner.querySelector('.studio-bf-link');
-  if(apply)apply.addEventListener('click',function(){
-    try{sessionStorage.setItem('studio-black-friday-dismissed','1');}catch(e){}
+  if(apply)apply.addEventListener('click',function(event){
+    const tabs = document.getElementById('tabs');
+    if(!tabs) return;
+    event.preventDefault();
+    close.click();
+    tabs.scrollIntoView();
+    tabs.querySelector('[aria-selected="true"]')?.focus({preventScroll:true});
   });
   close.addEventListener('click',function(){
     banner.hidden=true;
@@ -239,7 +244,7 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 })();
 </script>
 
-<title>Monte seu orçamento · Alanne Dias Designer</title>
+<title>Orçamento de monograma, identidade visual e sites | Alanne Dias</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200..600&family=Jost:wght@300..500&display=swap">
@@ -426,20 +431,20 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
   <header class="top">
     <p class="eyebrow">BRAND &amp; WEB DESIGNER</p>
     <h1>Monte seu projeto</h1>
-    <p class="lead">Escolha o que você precisa e veja o valor. Pode combinar: marca, site e casamento entram no mesmo orçamento.</p>
+    <p class="lead">Escolha um ou mais serviços e confira o valor antes de enviar pelo WhatsApp. <a href="#resumo-orcamento" id="ir-para-resumo">Ver resumo</a></p>
   </header>
 
-  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="tabs" role="tablist" aria-label="Serviços" id="tabs" style="scroll-margin-top:72px"></div>
 
   <div class="grid">
-    <main id="painel" aria-live="polite"></main>
-    <aside aria-label="Resumo do orçamento">
+    <main id="painel" role="tabpanel"></main>
+    <aside aria-label="Resumo do orçamento" id="resumo-orcamento" tabindex="-1" style="scroll-margin-top:72px">
       <h2>Seu projeto</h2>
       <ul class="lines" id="linhas"></ul>
       <div class="total">
-        <span class="small">TOTAL COM DESCONTO</span>
+        <span class="small">TOTAL ESTIMADO DA CONTRATAÇÃO</span>
         <del class="bf-total-original" id="total-original"></del>
-        <span class="big" id="total">R$ 0</span>
+        <span class="big" id="total" aria-live="polite" aria-atomic="true">R$ 0</span>
         <span class="pix" id="pix"></span>
       </div>
       <section class="studio-terms" id="condicoes-contratacao" aria-labelledby="studio-terms-title">
@@ -464,9 +469,9 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
           <input id="studio-terms-checkbox" type="checkbox">
           <span>Li e estou ciente das informações de contratação, desistência, reembolso e ajustes apresentadas acima.</span>
         </label>
-        <p class="studio-terms-validation" id="studio-terms-validation" role="status" aria-live="polite">Marque a confirmação acima para liberar o envio pelo WhatsApp.</p>
+        <p class="studio-terms-validation" id="studio-terms-validation" role="status" aria-live="polite">Escolha um pacote para liberar o envio pelo WhatsApp.</p>
       </section>
-      <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">ENVIAR PELO WHATSAPP</a>
+      <a class="btn studio-cta" id="zap" target="_blank" rel="noopener" aria-disabled="true">SOLICITAR ORÇAMENTO PELO WHATSAPP</a>
       <button class="btn ghost studio-cta studio-cta-secondary" id="copiar" type="button">COPIAR RESUMO</button>
       <p class="small" id="aviso">WhatsApp (83) 99836-1156. Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.</p>
     </aside>
@@ -476,8 +481,8 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
     <p class="eyebrow">DEPOIS DE MONTAR</p>
     <h2 id="t-como">Como funciona a compra</h2>
     <ol class="passos">
-      <li><b>01</b><span class="pt">Você me envia o orçamento</span><span class="pd">Pelo botão do WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil. Só monograma? Você compra direto no site.</span></li>
-      <li><b>02</b><span class="pt">Pagamento</span><span class="pd">Pix à vista com 5% de desconto, ou cartão parcelado em até 3x. A sua data na minha agenda fica garantida a partir daqui.</span></li>
+      <li><b>01</b><span class="pt">Você me envia a solicitação</span><span class="pd">Envie o resumo pelo WhatsApp. Eu confirmo os itens, o valor e a data de entrega em até 1 dia útil.</span></li>
+      <li><b>02</b><span class="pt">Pagamento</span><span class="pd">Pix à vista com 5% de desconto nos serviços elegíveis, ou cartão parcelado em até 3x. A sua data na minha agenda fica garantida a partir daqui.</span></li>
       <li><b>03</b><span class="pt">Formulário de briefing</span><span class="pd">Você me conta a história, o estilo e as referências. São perguntas simples, leva uns 10 minutos.</span></li>
       <li><b>04</b><span class="pt">Eu desenho e te mostro</span><span class="pd">Primeiro o símbolo, desenhado à mão. Com ele aprovado, aplico nas peças que você escolheu.</span></li>
       <li><b>05</b><span class="pt">Ajustes</span><span class="pd">Até 2 rodadas no símbolo e 2 rodadas nas peças, incluídas no valor.</span></li>
@@ -496,7 +501,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <details><summary>Quanto tempo leva?</summary><p>Monograma: a proposta chega por e-mail em até 3 dias úteis. Identidade visual: 20 dias úteis depois do pagamento e do briefing. Sites: de 15 a 30 dias úteis, conforme o tipo. Para casamento com menos de 45 dias, entra como urgência (+30%).</p></details>
       <details><summary>Posso pedir ajustes?</summary><p>Sim. Monograma: até 3 rodadas. Identidade visual: até 2 rodadas no símbolo e 2 nas peças. Rodadas a mais são combinadas antes, com valor fixo. Nada é cobrado sem você aprovar.</p></details>
       <details><summary>Atende a minha cidade?</summary><p>Sim. Todo o atendimento é online, para qualquer cidade do Brasil e para o exterior. Os arquivos chegam por e-mail e os ajustes são combinados pelo WhatsApp, de segunda a sábado, das 9h às 19h.</p></details>
-      <details><summary>Posso cancelar?</summary><p>Em até 7 dias depois da compra, com o valor integral de volta, desde que o desenho ainda não tenha começado. Depois que a criação começa, o valor não é reembolsável, porque o trabalho é exclusivo seu.</p></details>
+      <details><summary>Posso cancelar?</summary><p>Consulte a seção “Desistência e reembolso” nas informações de contratação acima. Para esclarecer as condições ou solicitar cancelamento, fale comigo pelo WhatsApp.</p></details>
 
       </div>
       <div data-g="monograma">
@@ -509,7 +514,7 @@ h1{font-weight:200;font-size:clamp(40px,6.4vw,104px);letter-spacing:.04em;line-h
       <div data-g="casamento empresa">
       <p class="eyebrow faq-g">IDENTIDADE VISUAL</p>
       <details><summary>O que são as aplicações?</summary><p>São as peças onde a identidade aparece: convite, cardápio, cartão de visita, fachada... As 4 primeiras estão incluídas no pacote; cada uma a mais tem o valor mostrado ao lado.</p></details>
-      <details><summary>Posso escolher as aplicações depois?</summary><p>Pode. Escolha o pacote e me diga na conversa. Dá para trocar uma peça por outra antes de eu começar.</p></details>
+      <details><summary>Posso escolher as aplicações depois?</summary><p>Pode. Envie o orçamento com as aplicações que já escolheu e combine as restantes comigo pelo WhatsApp. Dá para trocar uma peça por outra antes de eu começar.</p></details>
       <details><summary>A impressão está incluída?</summary><p>Não. Eu entrego os arquivos prontos para a gráfica que você preferir (PDF com sangria e marcas de corte) e também em PNG e JPG para o celular.</p></details>
       </div>
       <div data-g="empresa">
@@ -586,7 +591,7 @@ const CATS = [
   {id:'site', nome:'SITE', titulo:'Site',
    base:[
      {id:'inst', n:'Site institucional', d:'O site da sua empresa: apresentação, serviços, fotos, depoimentos e botão do WhatsApp. Ideal para escritórios de advocacia, arquitetos, designers de interiores, engenheiros, consultórios e empresas que trabalham com orçamento.', p:720, referencia:900, mes:60, ano:800, inclui:0, tag:'BLACK FRIDAY −20%'},
-     {id:'loja', n:'Catálogo interativo com WhatsApp', d:'Vitrine personalizada para até 25 produtos, com sacola e envio do pedido pelo WhatsApp. Estoque automatizado, integração de pagamento e funcionalidades sob medida são orçados à parte.', p:1120, referencia:1400, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}, {id:'lojaonline', n:'Loja virtual com pagamento online', d:'A partir de R$ 1.800 na Black Friday. Loja com checkout e pagamento online; integrações, taxas de plataforma, estoque, frete e escopo final dependem de orçamento personalizado.', p:1800, referencia:2250, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}],
+     {id:'loja', n:'Catálogo interativo com WhatsApp', d:'Vitrine personalizada para até 25 produtos, com sacola e envio do pedido pelo WhatsApp. Estoque automatizado, integração de pagamento e funcionalidades sob medida são orçados à parte.', p:1120, referencia:1400, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}, {id:'lojaonline', n:'Loja virtual com pagamento online', d:'A partir de R$ 1.800 na Black Friday. Loja com checkout e pagamento online; integrações, taxas de plataforma, estoque, frete e escopo final dependem de orçamento personalizado.', p:1800, referencia:2250, aPartir:true, mes:97, ano:970, inclui:0, tag:'BLACK FRIDAY −20%'}],
      
      
    itens:null, extras:[], urgencia:false,
@@ -626,29 +631,93 @@ const FOTOS = {
   site:{sites:[{t:'Bibilica Boutique Infantil', cat:'SITE LOJA', url:'https://bibilica.com.br/', dom:'BIBILICA.COM.BR'},{t:'Renata Alves Ateliê de Doces', cat:'SITE LOJA', url:'https://www.renataalvesdoces.com.br/', dom:'RENATAALVESDOCES.COM.BR'},{t:'SALM Skin', cat:'SITE LOJA', url:'https://alannedias.github.io/salmskin/', dom:'VER O SITE'},{t:'LEGACY Propriedade Intelectual', cat:'SITE INSTITUCIONAL', url:'https://www.sejadonodamarca.com/', dom:'SEJADONODAMARCA.COM'},{t:'Unora Clinic', cat:'SITE INSTITUCIONAL', url:'https://www.unoraclinic.com.br/', dom:'UNORACLINIC.COM.BR'}]}
 };
 const st = {}; CATS.forEach(c=>st[c.id]={base:null, itens:[], extras:[], urg:false});
+const chaveRascunho = 'alanne-orcamento-v1';
+
+function restaurarRascunho(){
+  let salvo;
+  try { salvo = JSON.parse(sessionStorage.getItem(chaveRascunho)); }
+  catch { return; }
+  if(!salvo || typeof salvo !== 'object') return;
+
+  for(const categoria of CATS){
+    const escolha = salvo[categoria.id];
+    const pacote = categoria.base.find(item => item.id === escolha?.base);
+    if(!pacote) continue;
+
+    const aplicacoes = pacote.inclui && Array.isArray(escolha.itens) ? escolha.itens : [];
+    const extras = Array.isArray(escolha.extras) ? escolha.extras : [];
+    st[categoria.id] = {
+      base: pacote.id,
+      itens: [...new Set(aplicacoes)].filter(nome => categoria.itens?.some(([item]) => item === nome)),
+      extras: [...new Set(extras)].filter(id => categoria.extras.some(item => item.id === id)),
+      urg: categoria.urgencia === true && escolha.urg === true,
+      pg: categoria.plano && escolha.pg === 'ano' ? 'ano' : 'mes'
+    };
+  }
+}
+
 let atual = 'casamento';
 const brl = v => 'R$ ' + v.toLocaleString('pt-BR',{minimumFractionDigits:Number.isInteger(v)?0:2,maximumFractionDigits:2});
-const pix = () => Math.round(CATS.reduce((a,c)=>a+custo(c).total*(c.id==='monograma'?1:0.95),0));
+const emCentavos = valor => Math.round((valor + Number.EPSILON) * 100) / 100;
+const pix = () => emCentavos(CATS.reduce((a,c)=>a+custo(c).total*(c.id==='monograma'?1:0.95),0));
 
 function custo(c){
   const s=st[c.id]; if(!s.base) return {linhas:[], total:0};
-  const b=c.base.find(x=>x.id===s.base); const L=[[b.n,b.p]]; let t=b.p;
+  const b=c.base.find(x=>x.id===s.base); const L=[[b.n,b.p,'',b.aPartir]]; let t=b.p;
   if(c.itens && b.inclui){
     s.itens.forEach((it,i)=>{ const pago = i>=b.inclui; L.push([it, pago? c.extraP : 0, pago? '' : (i+1)+' de '+b.inclui]); if(pago) t+=c.extraP; });
+    const restantes = b.inclui - s.itens.length;
+    if(restantes > 0){
+      L.push([restantes + (restantes === 1 ? ' aplicação a definir' : ' aplicações a definir'), 0, 'Incluído no pacote']);
+    }
   }
   s.extras.forEach(id=>{const e=c.extras.find(x=>x.id===id); L.push([e.n,e.p]); t+=e.p;});
-  if(c.urgencia && s.urg){ const u=Math.round(t*0.3); L.push(['Urgência (menos de 45 dias) +30%',u]); t+=u; }
-  if(c.plano && b.mes){ if(s.pg==='ano'){ L.push(['Assinatura anual (hospedagem + manutenção)',b.ano]); t+=b.ano; } else L.push(['Mensalidade (hospedagem + manutenção)',0,brl(b.mes)+'/mês']); } return {linhas:L,total:t};
+  if(c.urgencia && s.urg){ const u=emCentavos(t*0.3); L.push(['Urgência (menos de 45 dias) +30%',u]); t+=u; }
+  if(c.plano && b.mes){ if(s.pg==='ano'){ L.push(['1º ano de hospedagem + manutenção',b.ano]); t+=b.ano; } else L.push(['Hospedagem + manutenção (fora do total)',0,brl(b.mes)+'/mês']); } return {linhas:L,total:t};
 }
 
 function renderTabs(){
-  const el=document.getElementById('tabs'); el.innerHTML='';
-  CATS.forEach(c=>{const b=document.createElement('button'); b.className='tab'+(st[c.id].base?' has':''); b.setAttribute('role','tab'); b.setAttribute('aria-selected',c.id===atual); b.innerHTML='<span class="dot"></span>'+c.nome; b.onclick=()=>{atual=c.id; try{history.replaceState(null,'','#'+c.id)}catch(e){location.hash=c.id} render();}; el.appendChild(b);});
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = '';
+  CATS.forEach((category, index) => {
+    const button = document.createElement('button');
+    const selecionado = category.id === atual;
+    button.className = 'tab' + (st[category.id].base ? ' has' : '');
+    button.id = 'quote-tab-' + category.id;
+    button.type = 'button';
+    button.tabIndex = selecionado ? 0 : -1;
+    button.dataset.quoteFocus = button.id;
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', 'painel');
+    button.setAttribute('aria-selected', String(selecionado));
+    button.innerHTML = '<span class="dot" aria-hidden="true"></span>' + category.nome;
+    button.onclick = () => selecionarCategoria(category.id);
+    button.onkeydown = event => {
+      const indices = {
+        ArrowLeft: (index + CATS.length - 1) % CATS.length,
+        ArrowRight: (index + 1) % CATS.length,
+        Home: 0,
+        End: CATS.length - 1
+      };
+      if(!Object.hasOwn(indices, event.key)) return;
+      event.preventDefault();
+      selecionarCategoria(CATS[indices[event.key]].id);
+    };
+    tabs.appendChild(button);
+  });
+}
+
+function selecionarCategoria(id){
+  atual = id;
+  try{ history.replaceState(null, '', '#' + id); }
+  catch(e){ location.hash = id; }
+  render('quote-tab-' + id);
 }
 
 function opt(type,name,checked,disabled,n,d,p,tag,on){
   const l=document.createElement('label'); l.className='opt';
   const i=document.createElement('input'); i.type=type; i.name=name; i.checked=checked; i.disabled=disabled; i.onchange=on;
+  i.dataset.quoteFocus = name + ':' + n;
   l.appendChild(i);
   if(tag){const t=document.createElement('span'); t.className='tag'; t.textContent=tag; l.appendChild(t);}
   const a=document.createElement('span'); a.className='n'; a.textContent=n; l.appendChild(a);
@@ -667,6 +736,7 @@ function step(titulo,sub){const s=document.createElement('section'); s.className
 
 function renderPainel(){
   const c=CATS.find(x=>x.id===atual), s=st[c.id], P=document.getElementById('painel'); P.innerHTML='';
+  P.setAttribute('aria-labelledby', 'quote-tab-' + c.id);
   const F=c.id==='empresa'?null:FOTOS[c.id];
   // título do serviço
   const ht=document.createElement('h2'); ht.className='tab-title'; ht.textContent=c.titulo; P.appendChild(ht);
@@ -751,21 +821,21 @@ function renderSteps(c,s,P){
   let n=1;
   const s1=step(n+++'. Escolha o '+(c.id==='site'?'tipo de site':'pacote'), c.base.length>1?'Escolha uma opção':'');
   const g1=document.createElement('div'); g1.className='opts';
-  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,{antigo:brl(b.referencia||b.p),novo:'BLACK FRIDAY '+brl(b.p),sufixo:b.mes?' + '+brl(b.mes)+'/mês de hospedagem':''},b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
-  if(s.base){const lim=document.createElement('button'); lim.type='button'; lim.className='btn ghost lim'; lim.textContent='LIMPAR ESCOLHA'; lim.onclick=()=>{st[c.id]={base:null,itens:[],extras:[],urg:false}; render();}; s1.appendChild(g1); s1.appendChild(lim);} else s1.appendChild(g1);
+  c.base.forEach(b=>g1.appendChild(opt('radio','base-'+c.id,s.base===b.id,false,b.n,b.d,{antigo:brl(b.referencia||b.p),novo:'BLACK FRIDAY '+(b.aPartir?'A PARTIR DE ':'')+brl(b.p),sufixo:b.mes?' + hospedagem mensal ou anual':''},b.tag,()=>{s.base=b.id; if(!b.inclui) s.itens=[]; render();})));
+  if(s.base){const lim=document.createElement('button'); lim.type='button'; lim.className='btn ghost lim'; lim.textContent='LIMPAR ESCOLHA'; lim.dataset.quoteFocus='clear-choice'; lim.onclick=()=>{st[c.id]={base:null,itens:[],extras:[],urg:false}; render('clear-choice');}; s1.appendChild(g1); s1.appendChild(lim);} else s1.appendChild(g1);
   P.appendChild(s1);
 
   const b=c.base.find(x=>x.id===s.base);
-  if(c.plano){ const sp=step(n+++'. Forma de pagamento', b?'Escolha uma opção':'Escolha primeiro o tipo de site'); const gp=document.createElement('div'); gp.className='opts'; gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg!=='ano',!b,'Criação + mensalidade','Você paga a criação do site e depois a mensalidade, todo mês.',b?brl(b.p)+' + '+brl(b.mes)+'/MÊS':'',null,()=>{s.pg='mes'; render();})); gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg==='ano',!b,'Criação + assinatura anual','Você paga a criação do site e um ano de hospedagem e manutenção de uma vez.'+(b&&b.mes*12>b.ano?' Com a assinatura anual você economiza '+brl(b.mes*12-b.ano)+'.':''),b?brl(b.p)+' + '+brl(b.ano)+'/ANO':'',null,()=>{s.pg='ano'; render();})); sp.appendChild(gp); P.appendChild(sp); } if(c.itens && b && b.inclui){
+  if(c.plano){ const sp=step(n+++'. Hospedagem e manutenção', b?'Escolha a cobrança mensal ou anual':'Escolha primeiro o tipo de site'); const gp=document.createElement('div'); gp.className='opts'; gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg!=='ano',!b,'Criação + mensalidade','Você paga a criação do site e depois a mensalidade, todo mês.',b?(b.aPartir?'A partir de ':'')+brl(b.p)+' + '+brl(b.mes)+'/mês':'',null,()=>{s.pg='mes'; render();})); gp.appendChild(opt('radio','pg-'+c.id,!!b&&s.pg==='ano',!b,'Criação + assinatura anual','Você paga a criação do site e um ano de hospedagem e manutenção de uma vez.'+(b&&b.mes*12>b.ano?' Com a assinatura anual você economiza '+brl(b.mes*12-b.ano)+'.':''),b?(b.aPartir?'A partir de ':'')+brl(b.p)+' + '+brl(b.ano)+'/ano':'',null,()=>{s.pg='ano'; render();})); sp.appendChild(gp); P.appendChild(sp); } if(c.itens && b && b.inclui){
     const ativo = b && b.inclui;
     const usados=s.itens.length;
-    const sub = !ativo ? 'Disponível na identidade visual' : (usados<b.inclui ? 'O pacote tem 4 aplicações. Escolha mais '+(b.inclui-usados) : '4 escolhidas · cada aplicação extra: de '+brl(c.extraPReferencia||c.extraP)+' por '+brl(c.extraP));
+    const sub = !ativo ? 'Disponível na identidade visual' : (usados<b.inclui ? usados+' de '+b.inclui+' incluídas selecionadas · você pode definir o restante depois' : '4 escolhidas · cada aplicação extra: de '+brl(c.extraPReferencia||c.extraP)+' por '+brl(c.extraP));
     const s2=step(n+++'. Escolha as aplicações', sub);
     const g2=document.createElement('div'); g2.className='opts';
     c.itens.forEach(([it,desc])=>{
       const idx=s.itens.indexOf(it); const marcado=idx>-1;
       const appPromo={antigo:'+ '+brl(c.extraPReferencia||c.extraP),novo:'+ '+brl(c.extraP)};
-      const preco = !ativo ? '' : marcado ? (idx<b.inclui? 'INCLUÍDO '+(idx+1)+' DE '+b.inclui : appPromo) : (usados<b.inclui? '' : appPromo);
+      const preco = !ativo ? '' : marcado ? (idx<b.inclui? 'INCLUÍDO '+(idx+1)+' DE '+b.inclui : appPromo) : (usados<b.inclui? 'INCLUÍDO' : appPromo);
       g2.appendChild(opt('checkbox','it-'+c.id,marcado,!ativo,it,desc,preco,null,e=>{ if(e.target.checked) s.itens.push(it); else s.itens.splice(s.itens.indexOf(it),1); render();}));
     });
     s2.appendChild(g2); P.appendChild(s2);
@@ -775,16 +845,18 @@ function renderSteps(c,s,P){
     const g3=document.createElement('div'); g3.className='opts';
     c.extras.forEach(e=>g3.appendChild(opt('checkbox','ex-'+c.id,s.extras.includes(e.id),!s.base,e.n,'',{antigo:'+ '+brl(e.referencia||e.p),novo:'+ '+brl(e.p)},null,ev=>{ if(ev.target.checked) s.extras.push(e.id); else s.extras=s.extras.filter(x=>x!==e.id); render();})));
     s3.appendChild(g3);
-    if(c.urgencia){const t=document.createElement('label'); t.className='toggle'; t.innerHTML='<input type="checkbox"> Preciso com urgência (menos de 45 dias) · +30%'; const i=t.querySelector('input'); i.checked=s.urg; i.disabled=!s.base; i.onchange=()=>{s.urg=i.checked; render();}; s3.appendChild(t);}
+    if(c.urgencia){const t=document.createElement('label'); t.className='toggle'; t.innerHTML='<input type="checkbox"> Preciso com urgência (menos de 45 dias) · +30%'; const i=t.querySelector('input'); i.checked=s.urg; i.disabled=!s.base; i.dataset.quoteFocus='urgencia'; i.onchange=()=>{s.urg=i.checked; render();}; s3.appendChild(t);}
     P.appendChild(s3);
   }
   if(c.plano){ const box=document.createElement('section'); box.className='plano'; const df=document.createElement('p'); df.className='plano-d'; df.textContent=c.plano.dif; const h=document.createElement('p'); h.className='plano-t'; h.textContent=c.plano.t; const sb=document.createElement('p'); sb.className='plano-s'; sb.textContent=c.plano.sub; const ul=document.createElement('ul'); c.plano.it.forEach(([t,d])=>{const li=document.createElement('li'); const b=document.createElement('b'); b.textContent=t; const sp=document.createElement('span'); sp.textContent=d; li.append(b,sp); ul.appendChild(li);}); const pr=document.createElement('p'); pr.className='plano-p'; pr.style.margin='0'; pr.style.fontSize='17px'; pr.textContent=c.plano.precos; box.append(df,h,pr,sb,ul); P.appendChild(box); } if(c.obs){const p=document.createElement('p'); p.className='note'; p.textContent=c.obs; P.appendChild(p);}
 }
 
+const temPrecoInicial = () => CATS.some(c => c.base.some(b => b.id === st[c.id].base && b.aPartir));
+
 function resumoTexto(){
   let txt='Olá, Alanne! Montei meu projeto no seu site:\n'; let T=0;
-  CATS.forEach(c=>{const r=custo(c); if(!r.total) return; txt+='\n'+c.titulo.toUpperCase()+'\n'; r.linhas.forEach(([n,v,lab])=>txt+='• '+n+(v?' — '+brl(v):(lab?' ('+lab+')':''))+'\n'); T+=r.total;});
-  const P=pix(); txt+='\nTotal: '+brl(T)+(P<T?' (Pix: '+brl(P)+')':'');
+  CATS.forEach(c=>{const r=custo(c); if(!r.total) return; txt+='\n'+c.titulo.toUpperCase()+'\n'; r.linhas.forEach(([n,v,lab,aPartir])=>txt+='• '+n+(v?' — '+(aPartir?'a partir de ':'')+brl(v):(lab?' ('+lab+')':''))+'\n'); T+=r.total;});
+  const P=pix(); txt+='\nTotal estimado da contratação: '+(temPrecoInicial()?'a partir de ':'')+brl(T)+(P<T?' (Pix: '+(temPrecoInicial()?'a partir de ':'')+brl(P)+')':'');
   return {txt,T};
 }
 
@@ -793,11 +865,16 @@ function atualizarAceiteTermos(){
   const z=document.getElementById('zap');
   const note=document.getElementById('studio-terms-validation');
   if(!checkbox||!z)return;
-  const accepted=checkbox.checked;
-  z.classList.toggle('studio-terms-blocked',!accepted);
-  z.setAttribute('aria-disabled',String(!accepted||!z.hasAttribute('href')));
-  z.tabIndex=accepted&&z.hasAttribute('href')?0:-1;
-  if(note)note.textContent=accepted?'Leitura confirmada. Você pode enviar sua solicitação pelo WhatsApp.':'Marque a confirmação acima para liberar o envio pelo WhatsApp.';
+  const temOrcamento = z.hasAttribute('href');
+  const podeEnviar = temOrcamento && checkbox.checked;
+  z.classList.toggle('studio-terms-blocked', !podeEnviar);
+  z.setAttribute('aria-disabled', String(!podeEnviar));
+  z.tabIndex = podeEnviar ? 0 : -1;
+  if(note) note.textContent = !temOrcamento
+    ? 'Escolha um pacote para liberar o envio pelo WhatsApp.'
+    : checkbox.checked
+      ? 'Leitura confirmada. Você pode enviar sua solicitação pelo WhatsApp.'
+      : 'Marque a confirmação acima para liberar o envio pelo WhatsApp.';
 }
 document.getElementById('studio-terms-checkbox').addEventListener('change',atualizarAceiteTermos);
 document.getElementById('zap').addEventListener('click',function(event){
@@ -810,13 +887,13 @@ document.getElementById('zap').addEventListener('click',function(event){
 function renderResumo(){
   const L=document.getElementById('linhas'); L.innerHTML=''; let T=0, originalTotal=0;
   CATS.forEach(c=>{const r=custo(c); if(!r.total) return; const g=document.createElement('li'); g.className='grp'; g.textContent=c.titulo.toUpperCase(); L.appendChild(g);
-    r.linhas.forEach(([n,v,lab])=>{const li=document.createElement('li'); const a=document.createElement('span'); a.textContent=n; const b=document.createElement('span'); b.textContent=v?brl(v):(lab||''); li.append(a,b); L.appendChild(li);}); T+=r.total;
+    r.linhas.forEach(([n,v,lab,aPartir])=>{const li=document.createElement('li'); const a=document.createElement('span'); a.textContent=n; const b=document.createElement('span'); b.textContent=v?(aPartir?'A partir de ':'')+brl(v):(lab||''); li.append(a,b); L.appendChild(li);}); T+=r.total;
     const selected=c.base.find(x=>x.id===st[c.id].base);
     if(selected){
       let baseOriginal=selected.referencia||selected.p;
       baseOriginal+=Math.max(0,st[c.id].itens.length-selected.inclui)*(c.extraPReferencia||c.extraP||0);
       st[c.id].extras.forEach(id=>{const item=c.extras.find(x=>x.id===id);if(item)baseOriginal+=item.referencia||item.p;});
-      if(c.urgencia&&st[c.id].urg)baseOriginal+=Math.round(baseOriginal*.3);
+      if(c.urgencia&&st[c.id].urg)baseOriginal+=emCentavos(baseOriginal*.3);
       if(c.plano&&st[c.id].pg==='ano')baseOriginal+=selected.ano;
       originalTotal+=baseOriginal;
     }
@@ -824,28 +901,35 @@ function renderResumo(){
   const oldTotalEl=document.getElementById('total-original');
   if(oldTotalEl)oldTotalEl.textContent=T&&originalTotal>T?'De '+brl(originalTotal):'';
   if(!T){const e=document.createElement('li'); e.className='empty'; e.textContent='Escolha um pacote para ver o valor.'; L.appendChild(e);}
-  document.getElementById('total').textContent=brl(T);
+  const prefixo = temPrecoInicial() ? 'A partir de ' : '';
+  document.getElementById('total').textContent=prefixo+brl(T);
   const P=pix();
-  document.getElementById('pix').textContent=!T?'':(P<T?'ou '+brl(P)+' no Pix (5% de desconto'+(st.monograma.base?', exceto monograma':'')+') · cartão em até 3x':'Pix ou cartão em até 3x');
+  document.getElementById('pix').textContent=!T?'':(P<T?'ou '+prefixo.toLowerCase()+brl(P)+' no Pix (5% de desconto'+(st.monograma.base?', exceto monograma':'')+') · cartão em até 3x':'Pix ou cartão em até 3x');
   const z=document.getElementById('zap'), cp=document.getElementById('copiar'), av=document.getElementById('aviso');
-  const falta=pendentes();
-  cp.disabled=!!falta || !T; cp.style.opacity=cp.disabled?'.4':'';
-  if(falta){ av.textContent=falta; z.removeAttribute('href'); z.setAttribute('aria-disabled','true'); atualizarAceiteTermos(); return; }
+  cp.disabled=!T; cp.style.opacity=cp.disabled?'.4':'';
   av.textContent='Próximo passo: eu confirmo tudo no WhatsApp e só depois você paga. Nada é cobrado antes disso.';
   if(T){z.href='https://wa.me/5583998361156?text='+encodeURIComponent(resumoTexto().txt);} else {z.removeAttribute('href'); z.setAttribute('aria-disabled','true');}
   atualizarAceiteTermos();
 }
 
-function pendentes(){
-  for(const c of CATS){const s=st[c.id]; if(!s.base||!c.itens) continue; const b=c.base.find(x=>x.id===s.base); if(b.inclui && s.itens.length<b.inclui){const f=b.inclui-s.itens.length; return 'Escolha mais '+f+(f>1?' aplicações':' aplicação')+' de '+c.titulo.toLowerCase()+' para enviar o orçamento.';}}
-  return '';
-}
 function renderFaq(){
   const c=CATS.find(x=>x.id===atual);
   document.querySelectorAll('.faq [data-g]').forEach(d=>{ d.hidden = !(d.dataset.g==='todos' || d.dataset.g.split(' ').includes(atual)); });
   const h=document.getElementById('t-faq'); if(h) h.textContent='Dúvidas sobre '+({monograma:'monograma',casamento:'casamento',empresa:'identidade para empresa',site:'sites'})[atual];
 }
-function render(){renderTabs(); renderPainel(); renderResumo(); renderFaq();}
+function render(focusKey = document.activeElement?.dataset.quoteFocus){
+  renderTabs();
+  renderPainel();
+  renderResumo();
+  renderFaq();
+  try { sessionStorage.setItem(chaveRascunho, JSON.stringify(st)); }
+  catch {}
+  if(!focusKey) return;
+  const control = Array.from(document.querySelectorAll('[data-quote-focus]'))
+    .find(item => item.dataset.quoteFocus === focusKey);
+  if(control) control.focus({preventScroll:true});
+  else if(focusKey === 'clear-choice') document.querySelector('#painel .opt input')?.focus({preventScroll:true});
+}
 
 document.getElementById('copiar').onclick=async()=>{
   const {txt,T}=resumoTexto(); const av=document.getElementById('aviso');
@@ -853,8 +937,17 @@ document.getElementById('copiar').onclick=async()=>{
   try{await navigator.clipboard.writeText(txt); av.textContent='Resumo copiado. Cole no WhatsApp (83) 99836-1156.';}
   catch(e){av.textContent=txt;}
 };
+document.getElementById('ir-para-resumo').addEventListener('click', event => {
+  if(event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  const resumo = document.getElementById('resumo-orcamento');
+  resumo.scrollIntoView();
+  resumo.focus({preventScroll:true});
+});
+
 function lerHash(){const h=(location.hash||'').replace('#',''); if(CATS.some(c=>c.id===h)) atual=h;}
 window.addEventListener('hashchange',()=>{lerHash(); render();});
+restaurarRascunho();
 lerHash();
 render();
 </script>
