@@ -10,14 +10,14 @@ a{color:#0A0A0A;background:#FF2D95;text-decoration:none;padding:12px 20px;border
 a.s{background:transparent;color:#F2F0EC;border:1px solid #444}</style>
 <script>
 (function(){var p=location.pathname.toLowerCase(),q=location.search,t=null;
-if(/monograma|simbolo|tattoo|tatuagem|arte|collections\/mono/.test(p))t="/monograma/";
+if(/monograma|simbolo|tattoo|tatuagem|arte|collections\/mono/.test(p))t="/orcamento/#monograma";
 else if(/product|produto|collection|identidade|marca|branding|empresa/.test(p))t="/orcamento/";
 else if(/sobre|about/.test(p))t="/sobre/";
-else if(/portfolio|portfolio|projeto/.test(p))t="/portfolio/";
-else if(/site/.test(p))t="/site/";
-if(t)location.replace(t+q);})();
+else if(/portfolio|projeto/.test(p))t="/portfolio/";
+else if(/site/.test(p))t="/orcamento/#site";
+if(t){var h=t.indexOf("#");location.replace(h<0?t+q:t.slice(0,h)+q+t.slice(h));}})();
 </script></head><body><main>
 <h1>Essa página mudou de lugar</h1>
 <p>Escolha para onde quer ir:</p>
-<nav><a href="/monograma/">Monograma</a><a href="/orcamento/">Orçamento</a><a class="s" href="/portfolio/">Portfólio</a><a class="s" href="https://wa.me/5583998361156?text=Oi!%20Vim%20pelo%20Pinterest">WhatsApp</a></nav>
+<nav><a href="/orcamento/#monograma">Monograma</a><a href="/orcamento/">Orçamento</a><a class="s" href="/portfolio/">Portfólio</a><a class="s" href="https://wa.me/5583998361156?text=Oi!%20Vim%20pelo%20Pinterest">WhatsApp</a></nav>
 </main></body></html>
