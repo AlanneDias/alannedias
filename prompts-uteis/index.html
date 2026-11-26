@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Analytics 4 · Studio Alanne Dias -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DXZVHZR5FZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DXZVHZR5FZ');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preload" href="/assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/josefin-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<title>Prompts úteis | Alanne Dias</title>
+<meta name="description" content="Prompts prontos para copiar e colar no Claude. Comece pela limpeza de fotos embaçadas, duplicadas e vídeos gravados acidentalmente no Google Drive e no celular.">
+<link rel="canonical" href="https://alannedias.com/prompts-uteis/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alanne Dias">
+<meta property="og:title" content="Prompts úteis | Alanne Dias">
+<meta property="og:description" content="Prompts prontos para copiar e colar no Claude. Comece pela limpeza de fotos e vídeos no Google Drive e no celular.">
+<meta property="og:url" content="https://alannedias.com/prompts-uteis/">
+<meta property="og:locale" content="pt_BR">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round">
+<meta name="theme-color" content="#0A0A0A">
+<style>
+@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:200 600;font-display:swap;src:url(/assets/fonts/josefin-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 500;font-display:swap;src:url(/assets/fonts/jost-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122}
+</style>
+<script>
+(function(){
+  var theme='dark';
+  try { if(localStorage.getItem('alanne-theme')==='light') theme='light'; } catch(e){}
+  document.documentElement.setAttribute('data-theme',theme);
+})();
+</script>
+<style>
+:root{--page:#0A0A0A;--card:#1B1A19;--card2:#242321;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--pink:#FF2D95;--on-pink:#0A0A0A;--code:#141312;--warn:#26221C}
+html[data-theme="light"]{--page:#A3A3A3;--card:#B9B9B9;--card2:#C6C6C6;--line:#8C8C8C;--fg:#111111;--soft:#262626;--muted:#404040;--code:#D2D2D2;--warn:#C2BDB4;--pink:#E0127D;--on-pink:#FFFFFF;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--page);max-width:100%;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+.page{padding:28px 28px 40px;font-family:'Jost','Helvetica Neue',Arial,sans-serif;font-weight:300;font-size:16px;line-height:1.55;color:var(--fg)}
+.frame{max-width:1000px;margin:0 auto;padding:10px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:12px;position:relative}
+.h{font-family:'Josefin Sans','Jost',sans-serif;font-weight:300;margin:0;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lbl{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin:0}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0 18px}
+.logo{font-family:'Josefin Sans',sans-serif;font-size:17px;letter-spacing:.14em;white-space:nowrap;text-transform:uppercase}
+.pills{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.pills::-webkit-scrollbar{display:none}
+.pill{white-space:nowrap;flex:0 0 auto;font-size:10.5px;letter-spacing:.14em;padding:9px 14px;border-radius:999px;background:var(--card);color:var(--soft);text-transform:uppercase}
+.pill:hover{background:var(--card2);color:var(--fg)}
+.pill.on{background:var(--fg);color:var(--page)}
+.pill.cta{background:var(--pink);color:var(--on-pink);font-weight:500}
+
+.intro{padding:56px 32px 44px;display:flex;flex-direction:column;gap:20px}
+.intro h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(38px,6vw,72px);line-height:1;letter-spacing:.08em;text-transform:uppercase;margin:0}
+.intro p{margin:0;max-width:56ch;color:var(--soft);font-size:17px}
+
+.grupo{padding:36px 32px}
+.grupo .h{font-size:clamp(24px,2.8vw,34px);margin-bottom:12px}
+.grupo .desc{margin:0 0 26px;color:var(--soft);max-width:62ch}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.tab{font:inherit;cursor:pointer;border:0;background:var(--card2);color:var(--soft);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--page)}
+
+.selo{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin:0 0 14px}
+.panel h3{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.08em;font-size:15px;margin:0 0 10px}
+.panel ol{margin:0 0 20px;padding-left:22px;color:var(--soft)}
+.panel li{margin-bottom:8px;padding-left:4px}
+.panel li strong{font-weight:500;color:var(--fg)}
+.aviso{background:var(--warn);border-radius:10px;padding:14px 16px;margin:0 0 20px;color:var(--soft);font-size:14.5px}
+.aviso b{font-weight:500;color:var(--fg);letter-spacing:.08em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:4px}
+
+.prompt-box{background:var(--code);border-radius:12px;overflow:hidden}
+.prompt-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px}
+.prompt-top span{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.btn{font:inherit;cursor:pointer;border:0;background:var(--pink);color:var(--on-pink);font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:11px 18px;border-radius:999px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ok{background:var(--fg);color:var(--page)}
+.prompt-text{margin:0;padding:6px 18px 18px;white-space:pre-wrap;word-wrap:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.6;color:var(--soft);max-height:300px;overflow:auto}
+.prompt-text.aberto{max-height:none}
+.ver-mais{display:block;width:100%;font:inherit;cursor:pointer;background:transparent;border:0;border-top:1px solid var(--line);padding:12px;color:var(--soft);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+.ver-mais:hover{color:var(--fg)}
+
+button:focus-visible,a:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+button:focus:not(:focus-visible){outline:none}
+
+.nota{padding:24px 32px;color:var(--muted);font-size:14px}
+.studio-footer{max-width:1000px;margin:0 auto;padding:30px 20px 48px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.studio-footer a:hover{color:var(--fg)}
+
+#theme-toggle{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;font:inherit;cursor:pointer;border:0;background:var(--fg);color:var(--page);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+#theme-toggle .ic{width:14px;height:14px;border:1.7px solid currentColor;border-radius:50%;background:linear-gradient(90deg,currentColor 50%,transparent 50%);display:inline-block}
+html[data-theme="light"] #theme-toggle .ic{background:transparent}
+
+@media (max-width:760px){
+  .page{padding:16px 12px 40px}
+  .nav{flex-direction:column;align-items:flex-start;gap:12px}
+  .intro,.grupo,.nota{padding-left:20px;padding-right:20px}
+  .prompt-top{flex-direction:column;align-items:stretch}
+  .btn{width:100%;padding:13px 18px}
+  .studio-footer{padding-bottom:90px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="frame">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="/#inicio">Alanne Dias</a>
+      <div class="pills">
+        <a class="pill" href="/#inicio">Início</a>
+        <a class="pill" href="/portfolio/">Portfólio</a>
+        <a class="pill" href="/sobre/">Sobre</a>
+        <a class="pill on" href="/prompts-uteis/" aria-current="page">Prompts úteis</a>
+        <a class="pill cta" href="/orcamento/">Orçamento</a>
+      </div>
+    </nav>
+
+    <header class="card intro">
+      <p class="lbl">Biblioteca</p>
+      <h1>Prompts úteis</h1>
+      <p>Textos prontos para copiar e colar no Claude. Escolha a versão, copie e cole na conversa.</p>
+    </header>
+
+    <div id="lista" style="display:flex;flex-direction:column;gap:10px"></div>
+
+    <p class="card nota">Os menus dos aplicativos podem mudar de uma versão para outra. Se algum passo estiver diferente na sua tela, descreva ao Claude o que você está vendo e ele ajusta a orientação.</p>
+  </div>
+
+  <footer class="studio-footer">
+    <span>Alanne Dias · Brand &amp; Web Designer</span>
+    <a href="/orcamento/">Montar orçamento</a>
+  </footer>
+</div>
+
+<button id="theme-toggle" type="button" aria-label="Alternar tema claro e escuro"><span class="ic" aria-hidden="true"></span><span id="theme-label">Tema</span></button>
+
+<script>
+/* =====================================================================
+   COMO ADICIONAR UM NOVO PROMPT
+   Copie um bloco inteiro dentro de PROMPTS e altere os textos.
+   Cada prompt pode ter várias versões (abas) em "versoes".
+   ===================================================================== */
+const PROMPTS = [
+  {
+    titulo: "Limpeza de fotos e vídeos",
+    descricao: "Encontre fotos embaçadas, fotos duplicadas e vídeos gravados acidentalmente para liberar espaço no Google Drive e no celular. Nada é apagado de vez: tudo passa pela lixeira ou por uma pasta de revisão.",
+    versoes: [
+      {
+        aba: "Celular (grátis)",
+        selo: "Plano gratuito, sem conectar o Drive",
+        passos: [
+          "Abra o Claude (aplicativo ou claude.ai) e entre na sua conta.",
+          "Toque em <strong>Copiar prompt</strong> abaixo.",
+          "Cole na conversa e envie.",
+          "Responda às perguntas do Claude, uma de cada vez."
+        ],
+        aviso: "Antes de começar, confirme que suas fotos importantes têm cópia salva. O plano gratuito tem limite de mensagens e de envios, que volta depois de algumas horas. Se acabar no meio, continue mais tarde.",
+        prompt: `Você é um guia didático que me ajuda a limpar fotos e vídeos do meu celular e do Google Drive para liberar espaço.
+
+## Como falar comigo
+- Explique de forma clara e direta, sem termos técnicos.
+- Dê UMA instrução por vez, dizendo exatamente onde tocar, e espere eu responder "feito" ou "não achei".
+- Quando for útil, explique em uma frase por que estamos fazendo cada passo.
+- Se eu me perder, pergunte o que estou vendo na tela e me guie.
+
+## O que quero limpar
+1. Fotos embaçadas ou tremidas
+2. Fotos repetidas ou muito parecidas
+3. Vídeos gravados acidentalmente (muito curtos, tela preta, chão ou bolso)
+
+## Regras de segurança
+- NUNCA me peça para apagar algo de forma definitiva.
+- Sempre mande para a lixeira primeiro (fica guardado por 30 dias).
+- Antes de começar, pergunte se tenho cópia (backup) das fotos importantes.
+- Na dúvida sobre uma foto, diga para eu MANTER.
+- Nunca peça minha senha, códigos ou dados pessoais.
+
+## Como trabalhar
+1. Pergunte primeiro: meu celular é Android ou iPhone? Uso Google Fotos, Drive ou os dois?
+2. Me ensine a achar as sugestões de limpeza do próprio app (por exemplo, a aba de limpeza do Google Fotos) e me guie para revisar e mandar para a lixeira.
+3. Se eu quiser ajuda para escolher entre fotos parecidas, me peça para enviar até 5 fotos por vez aqui no chat. Diga qual manter e por quê, em uma frase.
+4. Quando eu enviar vídeos ou fotos, não tente adivinhar quem são as pessoas. Foque só na qualidade.
+5. No final, me ajude a conferir a lixeira e me lembre de só esvaziá-la depois que eu tiver certeza.
+
+Pode começar me perguntando qual é o meu celular.`
+      },
+      {
+        aba: "Celular com Drive conectado",
+        selo: "Conector do Google Drive ativado",
+        passos: [
+          "No navegador, entre em claude.ai e vá em <strong>Configurações &gt; Conectores</strong>.",
+          "Conecte o <strong>Google Drive</strong> e autorize.",
+          "No aplicativo do Claude (mesma conta), toque em <strong>+</strong> e ative o Drive.",
+          "Copie o prompt abaixo, cole na conversa e envie."
+        ],
+        aviso: "O conector lista e move arquivos, mas não enxerga o conteúdo das imagens. Por isso, para fotos embaçadas, o Claude vai pedir que você envie pequenos lotes no chat. A disponibilidade do conector depende do seu plano.",
+        prompt: `Você é meu assistente de limpeza do Google Drive. Estou usando o celular, então vamos em lotes pequenos.
+
+## Objetivo
+Encontrar, para minha revisão:
+1. Fotos embaçadas ou tremidas
+2. Fotos duplicadas ou quase duplicadas
+3. Vídeos gravados acidentalmente
+
+## Regras de segurança (obrigatórias)
+- NÃO apague nada definitivamente. Mova para a lixeira do Drive (recuperável por 30 dias) ou para uma pasta "Revisar_Limpeza".
+- Nunca mova sem minha confirmação explícita.
+- Na dúvida, mantenha o arquivo e marque como "incerto".
+- Mexa só em fotos e vídeos. Ignore documentos, PDFs e planilhas.
+- Se o Drive recusar mover algum arquivo, não insista. Liste o arquivo com o link para eu resolver manualmente.
+
+## Como trabalhar
+1. Pergunte qual pasta ou período analisar.
+2. Duplicadas: use o conector para listar arquivos com mesmo nome, mesmo tamanho ou datas muito próximas. Me mostre os grupos e indique qual manter.
+3. Vídeos gravados acidentalmente: liste os vídeos pelo tamanho pequeno e pela data, e me peça para confirmar antes de mover.
+4. Embaçadas: o conector não avalia a imagem. Peça que eu envie as fotos em lotes de até 10 aqui no chat, e avalie a nitidez visualmente, dizendo o motivo de cada recomendação.
+5. Trabalhe em lotes de até 20 arquivos. A cada lote, mostre uma tabela com: nome, data, tamanho, categoria, motivo e recomendação (manter / revisar / mover).
+6. Espere meu "pode mover" antes de agir em cada lote.
+7. No final, entregue um resumo: quantidade por categoria, espaço liberado e lista do que foi movido.
+
+Pode começar perguntando qual pasta analisar.`
+      },
+      {
+        aba: "Computador (PC)",
+        selo: "Para grandes volumes de arquivos",
+        passos: [
+          "Instale o <strong>Google Drive para computador</strong>. Ele cria uma pasta no seu PC com os arquivos do Drive.",
+          "Abra o Claude no computador (aplicativo desktop, aba <strong>Code</strong>).",
+          "Copie o prompt abaixo e troque <strong>[COLE AQUI O CAMINHO]</strong> pelo caminho da sua pasta de fotos.",
+          "Cole e envie. O Claude faz primeiro um teste só de listagem, e você aprova antes de qualquer mudança."
+        ],
+        aviso: "Se a pasta for sincronizada com a nuvem, apagar no PC pode apagar também no Drive. Por isso o prompt só move os arquivos para uma pasta de revisão. Faça backup antes, se as fotos forem insubstituíveis.",
+        prompt: `Você é meu assistente de limpeza de arquivos. Vou trabalhar no meu PC (Windows) com o Google Drive para computador sincronizado em uma pasta local.
+
+## Objetivo
+Encontrar e separar, para minha revisão:
+1. Fotos embaçadas ou tremidas
+2. Fotos duplicadas ou quase duplicadas
+3. Vídeos gravados acidentalmente
+
+## Pasta a analisar
+[COLE AQUI O CAMINHO, ex.: G:\\Meu Drive\\Fotos]
+Só analise essa pasta e suas subpastas.
+
+## Regras de segurança (obrigatórias)
+- NUNCA apague nada. Apenas MOVA os suspeitos para uma pasta "Revisar_Limpeza" dentro da pasta analisada, mantendo as subpastas de origem.
+- Antes de mover qualquer coisa, faça uma execução de teste (só listar) e me mostre o relatório. Só mova depois do meu "pode mover".
+- Ignore tudo que não seja foto ou vídeo (documentos, PDFs, planilhas etc.).
+- Não modifique, renomeie nem recompacte arquivos. Só leia e mova.
+- Não instale nada sem me avisar antes. Diga o que precisa (ex.: Python, OpenCV, Pillow, imagehash, ffmpeg) e peça minha autorização.
+- Grave o log de tudo que foi movido (origem e destino) em "log_limpeza.csv", para eu conseguir desfazer.
+
+## Critérios técnicos
+1. Embaçadas: calcule a nitidez de cada foto (variância do Laplaciano). Marque as que ficarem abaixo de um limite que você sugerir após amostrar a pasta. Me mostre 5 exemplos perto do limite para eu aprovar o corte.
+2. Duplicadas: use hash exato (SHA-256) para cópias idênticas e hash perceptual (pHash) para quase iguais. Em cada grupo, mantenha a de maior resolução e nitidez e marque as outras.
+3. Vídeos gravados acidentalmente: marque os que tiverem menos de 3 segundos, ou resolução muito baixa, ou quadros praticamente pretos. Liste a duração e o tamanho.
+
+## Entrega
+1. Relatório em CSV e em tabela resumida com: caminho, tipo, motivo, nota (nitidez/similaridade/duração), tamanho e recomendação (manter / revisar / mover).
+2. Resumo: quantidade por categoria e espaço que seria liberado.
+3. Depois da minha aprovação, mover os arquivos e entregar o log.
+
+Comece me perguntando se há algo a ajustar nos critérios, depois faça a execução de teste.`
+      }
+    ]
+  }
+];
+
+/* ======================== Código da página ======================== */
+const lista = document.getElementById("lista");
+
+PROMPTS.forEach(function(grupo, g){
+  const card = document.createElement("section");
+  card.className = "card grupo";
+
+  const h2 = document.createElement("h2");
+  h2.className = "h";
+  h2.textContent = grupo.titulo;
+  const desc = document.createElement("p");
+  desc.className = "desc";
+  desc.textContent = grupo.descricao;
+  card.append(h2, desc);
+
+  const tabs = document.createElement("div");
+  tabs.className = "tabs";
+  tabs.setAttribute("role", "tablist");
+  card.appendChild(tabs);
+  const paineis = [];
+
+  grupo.versoes.forEach(function(v, i){
+    const tab = document.createElement("button");
+    tab.className = "tab";
+    tab.type = "button";
+    tab.textContent = v.aba;
+    tab.setAttribute("role", "tab");
+    tab.id = "tab-" + g + "-" + i;
+    tab.setAttribute("aria-controls", "painel-" + g + "-" + i);
+    tabs.appendChild(tab);
+
+    const painel = document.createElement("div");
+    painel.className = "panel";
+    painel.id = "painel-" + g + "-" + i;
+    painel.setAttribute("role", "tabpanel");
+    painel.setAttribute("aria-labelledby", tab.id);
+
+    const selo = document.createElement("p");
+    selo.className = "selo";
+    selo.textContent = v.selo;
+    painel.appendChild(selo);
+
+    const h3 = document.createElement("h3");
+    h3.textContent = "Como usar";
+    painel.appendChild(h3);
+
+    const ol = document.createElement("ol");
+    v.passos.forEach(function(p){ const li = document.createElement("li"); li.innerHTML = p; ol.appendChild(li); });
+    painel.appendChild(ol);
+
+    const aviso = document.createElement("div");
+    aviso.className = "aviso";
+    const ab = document.createElement("b");
+    ab.textContent = "Importante";
+    aviso.append(ab, document.createTextNode(v.aviso));
+    painel.appendChild(aviso);
+
+    const box = document.createElement("div");
+    box.className = "prompt-box";
+    const top = document.createElement("div");
+    top.className = "prompt-top";
+    const rotulo = document.createElement("span");
+    rotulo.textContent = "Prompt";
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.type = "button";
+    btn.textContent = "Copiar prompt";
+    top.append(rotulo, btn);
+
+    const pre = document.createElement("pre");
+    pre.className = "prompt-text";
+    pre.textContent = v.prompt;
+
+    const mais = document.createElement("button");
+    mais.className = "ver-mais";
+    mais.type = "button";
+    mais.textContent = "Ver prompt completo";
+    mais.addEventListener("click", function(){
+      const aberto = pre.classList.toggle("aberto");
+      mais.textContent = aberto ? "Recolher prompt" : "Ver prompt completo";
+    });
+
+    btn.addEventListener("click", function(){ copiar(v.prompt, btn); });
+    box.append(top, pre, mais);
+    painel.appendChild(box);
+    paineis.push(painel);
+    card.appendChild(painel);
+
+    tab.addEventListener("click", function(){ ativar(i); });
+  });
+
+  function ativar(idx){
+    tabs.querySelectorAll(".tab").forEach(function(t, k){ t.setAttribute("aria-selected", k === idx ? "true" : "false"); });
+    paineis.forEach(function(p, k){ p.hidden = k !== idx; });
+  }
+  ativar(0);
+  lista.appendChild(card);
+});
+
+function copiar(texto, btn){
+  const feito = function(){
+    btn.textContent = "Copiado";
+    btn.classList.add("ok");
+    setTimeout(function(){ btn.textContent = "Copiar prompt"; btn.classList.remove("ok"); }, 2200);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(texto).then(feito, function(){ copiaAlternativa(texto, feito); });
+  } else {
+    copiaAlternativa(texto, feito);
+  }
+}
+function copiaAlternativa(texto, feito){
+  const ta = document.createElement("textarea");
+  ta.value = texto;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); feito(); } catch (e) { alert("Não foi possível copiar automaticamente. Selecione o texto e copie manualmente."); }
+  document.body.removeChild(ta);
+}
+
+/* Alternância de tema (mesma chave do restante do site: alanne-theme) */
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const label = document.getElementById("theme-label");
+  function atualizar(){ label.textContent = root.getAttribute("data-theme") === "light" ? "Tema escuro" : "Tema claro"; }
+  btn.addEventListener("click", function(){
+    const novo = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", novo);
+    try { localStorage.setItem("alanne-theme", novo); } catch (e) {}
+    atualizar();
+  });
+  atualizar();
+})();
+</script>
+</body>
+</html>
