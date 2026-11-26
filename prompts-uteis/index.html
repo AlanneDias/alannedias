@@ -22,6 +22,15 @@
 <meta property="og:description" content="Prompts prontos para copiar e colar no Claude. Comece pela limpeza de fotos e vídeos no Google Drive e no celular.">
 <meta property="og:url" content="https://alannedias.com/prompts-uteis/">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://alannedias.com/img/og-prompts-uteis.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Título Prompts úteis, de Alanne Dias, Brand &amp; Web Designer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompts úteis | Alanne Dias">
+<meta name="twitter:description" content="Prompts prontos para copiar e colar no Claude. Comece pela limpeza de fotos e vídeos no Google Drive e no celular.">
+<meta name="twitter:image" content="https://alannedias.com/img/og-prompts-uteis.jpg">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round">
@@ -249,8 +258,44 @@ Encontrar, para minha revisão:
 Pode começar perguntando qual pasta analisar.`
       },
       {
-        aba: "Uso o Claude no computador",
-        selo: "Melhor resultado",
+        aba: "Uso o Claude no computador com o Drive conectado",
+        selo: "Você já conectou o Google Drive ao Claude no computador",
+        resultado: "Melhor que no celular, e sem instalar nada. Bom para achar fotos duplicadas e vídeos curtos em muitas pastas do Drive.",
+        passos: [
+          "No navegador (claude.ai) ou no aplicativo do Claude no computador, vá em <strong>Configurações &gt; Conectores</strong>.",
+          "Conecte o <strong>Google Drive</strong> e autorize com a sua conta Google.",
+          "Abra uma conversa nova e confirme que o Drive está ativado no menu de ferramentas.",
+          "Copie o prompt abaixo, cole na conversa e envie."
+        ],
+        aviso: "Nesta opção o Claude acessa o Drive pela conexão, sem instalar nada. Ele lista, compara e move arquivos, mas não mede a nitidez de milhares de fotos como na opção com o Drive instalado no computador. Nada é excluído de vez: tudo vai para a lixeira ou para uma pasta de revisão.",
+        prompt: `Você é meu assistente de limpeza do Google Drive. Estou no computador e o conector do Google Drive já está ativado nesta conversa.
+
+## Objetivo
+Encontrar, para minha revisão:
+1. Fotos duplicadas ou quase duplicadas
+2. Vídeos gravados acidentalmente
+3. Fotos embaçadas ou tremidas
+
+## Regras de segurança (obrigatórias)
+- NUNCA exclua nada definitivamente. Só mande para a lixeira do Drive (recuperável por 30 dias) ou mova para uma pasta "Revisar_Limpeza".
+- Antes de qualquer ação, mostre a lista e espere meu "pode mover".
+- Na dúvida, mantenha o arquivo e marque como "incerto".
+- Mexa só em fotos e vídeos. Ignore documentos, PDFs e planilhas.
+- Antes de mover ou mandar para a lixeira, confira se o Drive permite a ação naquele arquivo. Se recusar, não insista, não peça acesso e não faça cópia: pule o arquivo e, no final, liste os pulados com o link para eu resolver manualmente.
+
+## Como trabalhar
+1. Pergunte qual pasta ou período analisar.
+2. Duplicadas: compare nome, tamanho e, quando o Drive informar, a soma de verificação (MD5). Arquivos com a mesma soma são idênticos. Me mostre os grupos e indique qual manter.
+3. Vídeos gravados acidentalmente: use a duração e o tamanho informados pelo Drive. Marque os de menos de 3 segundos e peça minha confirmação.
+4. Embaçadas: abra as fotos em lotes de até 10 e avalie a nitidez visualmente, dizendo o motivo de cada recomendação. Se não conseguir abrir as imagens, me avise e peça que eu envie as fotos aqui no chat.
+5. Trabalhe em lotes de até 30 arquivos. A cada lote, mostre uma tabela com: nome, data, tamanho, categoria, motivo e recomendação (manter / revisar / mover).
+6. No final, entregue um resumo: quantidade por categoria, espaço liberado, lista do que foi movido e lista dos arquivos que o Drive recusou.
+
+Pode começar perguntando qual pasta analisar.`
+      },
+      {
+        aba: "Uso o Claude no computador com o Drive instalado",
+        selo: "Melhor resultado: Drive para computador instalado",
         resultado: "O melhor dos três. O computador analisa milhares de fotos de uma vez, mede a nitidez de cada uma e acha duplicadas até quando os nomes são diferentes.",
         passos: [
           "Instale o <strong>Google Drive para computador</strong>. Ele cria uma pasta no seu PC com os arquivos do Drive.",
