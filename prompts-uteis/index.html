@@ -84,6 +84,9 @@ a{color:inherit;text-decoration:none}
 .tab[aria-selected="true"]{background:var(--fg);color:var(--page)}
 
 .selo{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin:0 0 14px}
+.escolha{margin:0 0 18px;color:var(--fg);max-width:62ch}
+.resultado{margin:0 0 20px;color:var(--soft);max-width:62ch}
+.resultado b{display:block;font-weight:500;color:var(--fg);letter-spacing:.14em;text-transform:uppercase;font-size:11px;margin-bottom:4px}
 .panel h3{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.08em;font-size:15px;margin:0 0 10px}
 .panel ol{margin:0 0 20px;padding-left:22px;color:var(--soft)}
 .panel li{margin-bottom:8px;padding-left:4px}
@@ -165,11 +168,13 @@ html[data-theme="light"] #theme-toggle .ic{background:transparent}
 const PROMPTS = [
   {
     titulo: "Limpeza de fotos e vídeos",
+    escolha: "Escolha abaixo como você usa o Claude. O resultado é melhor no computador, que analisa muitos arquivos de uma vez. No celular, o trabalho é feito em lotes pequenos.",
     descricao: "Encontre fotos embaçadas, fotos duplicadas e vídeos gravados acidentalmente para liberar espaço no Google Drive e no celular. Nada é apagado de vez: tudo passa pela lixeira ou por uma pasta de revisão.",
     versoes: [
       {
-        aba: "Celular (grátis)",
-        selo: "Plano gratuito, sem conectar o Drive",
+        aba: "Tenho o Claude no celular",
+        selo: "Funciona no plano gratuito, sem conectar o Drive",
+        resultado: "Bom para limpezas pequenas. O Claude te guia passo a passo e você faz a limpeza no próprio aplicativo (Google Fotos ou Drive).",
         passos: [
           "Abra o Claude (aplicativo ou claude.ai) e entre na sua conta.",
           "Toque em <strong>Copiar prompt</strong> abaixo.",
@@ -207,8 +212,9 @@ const PROMPTS = [
 Pode começar me perguntando qual é o meu celular.`
       },
       {
-        aba: "Celular com Drive conectado",
-        selo: "Conector do Google Drive ativado",
+        aba: "Uso o Claude no celular com o Drive conectado",
+        selo: "Você conectou o Google Drive ao Claude",
+        resultado: "Melhor que a opção anterior para achar fotos duplicadas e vídeos curtos. As fotos embaçadas ainda precisam ser enviadas no chat, em lotes pequenos. Mesmo assim, o resultado é melhor no computador.",
         passos: [
           "No navegador, entre em claude.ai e vá em <strong>Configurações &gt; Conectores</strong>.",
           "Conecte o <strong>Google Drive</strong> e autorize.",
@@ -243,8 +249,9 @@ Encontrar, para minha revisão:
 Pode começar perguntando qual pasta analisar.`
       },
       {
-        aba: "Computador (PC)",
-        selo: "Para grandes volumes de arquivos",
+        aba: "Uso o Claude no computador",
+        selo: "Melhor resultado",
+        resultado: "O melhor dos três. O computador analisa milhares de fotos de uma vez, mede a nitidez de cada uma e acha duplicadas até quando os nomes são diferentes.",
         passos: [
           "Instale o <strong>Google Drive para computador</strong>. Ele cria uma pasta no seu PC com os arquivos do Drive.",
           "Abra o Claude no computador (aplicativo desktop, aba <strong>Code</strong>).",
@@ -302,6 +309,12 @@ PROMPTS.forEach(function(grupo, g){
   desc.className = "desc";
   desc.textContent = grupo.descricao;
   card.append(h2, desc);
+  if (grupo.escolha) {
+    const esc = document.createElement("p");
+    esc.className = "escolha";
+    esc.textContent = grupo.escolha;
+    card.appendChild(esc);
+  }
 
   const tabs = document.createElement("div");
   tabs.className = "tabs";
@@ -329,6 +342,15 @@ PROMPTS.forEach(function(grupo, g){
     selo.className = "selo";
     selo.textContent = v.selo;
     painel.appendChild(selo);
+
+    if (v.resultado) {
+      const res = document.createElement("p");
+      res.className = "resultado";
+      const rb = document.createElement("b");
+      rb.textContent = "Resultado";
+      res.append(rb, document.createTextNode(v.resultado));
+      painel.appendChild(res);
+    }
 
     const h3 = document.createElement("h3");
     h3.textContent = "Como usar";
