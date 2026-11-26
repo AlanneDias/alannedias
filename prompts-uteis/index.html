@@ -212,42 +212,43 @@ const PROMPTS = [
       {
         aba: "Tenho o Claude no celular",
         selo: "Funciona no plano gratuito, sem conectar o Drive",
-        resultado: "Bom para limpezas pequenas. O Claude te guia passo a passo e você faz a limpeza no próprio aplicativo (Google Fotos ou Drive).",
+        resultado: "O Claude faz a análise por você: diz quais fotos e vídeos manter ou apagar, com o motivo de cada um. Ele só vê o que você enviar no chat, então funciona em lotes pequenos, e você apaga seguindo a lista dele.",
         passos: [
           "Abra o Claude (aplicativo ou claude.ai) e entre na sua conta.",
           "Toque em <strong>Copiar prompt</strong> abaixo.",
           "Cole na conversa e envie.",
           "Responda às perguntas do Claude, uma de cada vez."
         ],
-        aviso: "Antes de começar, confirme que suas fotos importantes têm cópia salva. O plano gratuito tem limite de mensagens e de envios, que volta depois de algumas horas. Se acabar no meio, continue mais tarde.",
-        prompt: `Você é um guia didático que me ajuda a limpar fotos e vídeos do meu celular e do Google Drive para liberar espaço.
+        aviso: "Sem conectar o Drive, o Claude não tem acesso à galeria do seu celular: ele analisa e decide só as fotos que você enviar, e você apaga seguindo a lista dele. Para ele mexer direto nos arquivos, use a opção com o Drive conectado. Antes de começar, confirme que suas fotos importantes têm cópia salva. O plano gratuito tem limite de mensagens e de envios, que volta depois de algumas horas.",
+        prompt: `Você é meu assistente de limpeza de fotos e vídeos. Quero que VOCÊ faça a análise. Não me mande usar as sugestões de limpeza do aplicativo.
 
-## Como falar comigo
-- Explique de forma clara e direta, sem termos técnicos.
-- Dê UMA instrução por vez, dizendo exatamente onde tocar, e espere eu responder "feito" ou "não achei".
-- Quando for útil, explique em uma frase por que estamos fazendo cada passo.
-- Se eu me perder, pergunte o que estou vendo na tela e me guie.
+## Como vai funcionar
+- Eu envio fotos e vídeos aqui no chat, em lotes de até 10.
+- Você examina cada um e decide: MANTER, APAGAR ou DÚVIDA.
+- Critérios: foto embaçada ou tremida, escura ou clara demais, dedo na lente, chão ou bolso; foto repetida ou quase igual a outra do lote (fique com a melhor); vídeo gravado acidentalmente (muito curto, tela preta, chão ou bolso).
 
-## O que quero limpar
-1. Fotos embaçadas ou tremidas
-2. Fotos repetidas ou muito parecidas
-3. Vídeos gravados acidentalmente (muito curtos, tela preta, chão ou bolso)
+## Como me fazer perguntas (importante)
+- Sempre que precisar de uma decisão minha, use caixas de marcação com as opções Sim e Não (ferramenta de perguntas com opções clicáveis, se estiver disponível).
+- Se não estiver disponível, escreva as opções numeradas (1 = Sim, 2 = Não) para eu responder só com o número.
+- Faça UMA pergunta por vez.
 
 ## Regras de segurança
-- NUNCA me peça para apagar algo de forma definitiva.
-- Sempre mande para a lixeira primeiro (fica guardado por 30 dias).
-- Antes de começar, pergunte se tenho cópia (backup) das fotos importantes.
-- Na dúvida sobre uma foto, diga para eu MANTER.
+- NUNCA sugira apagar de forma definitiva: tudo vai para a lixeira, que guarda por 30 dias.
+- Na dúvida, a decisão é MANTER.
+- Não tente identificar pessoas. Avalie só a qualidade.
 - Nunca peça minha senha, códigos ou dados pessoais.
 
-## Como trabalhar
-1. Pergunte primeiro: meu celular é Android ou iPhone? Uso Google Fotos, Drive ou os dois?
-2. Me ensine a achar as sugestões de limpeza do próprio app (por exemplo, a aba de limpeza do Google Fotos) e me guie para revisar e mandar para a lixeira.
-3. Se eu quiser ajuda para escolher entre fotos parecidas, me peça para enviar até 5 fotos por vez aqui no chat. Diga qual manter e por quê, em uma frase.
-4. Quando eu enviar vídeos ou fotos, não tente adivinhar quem são as pessoas. Foque só na qualidade.
-5. No final, me ajude a conferir a lixeira e me lembre de só esvaziá-la depois que eu tiver certeza.
+## O que entregar a cada lote
+1. Uma tabela com: número da foto, descrição curta, decisão (MANTER / APAGAR / DÚVIDA) e o motivo em uma frase.
+2. Para cada DÚVIDA, uma pergunta com as opções: Sim (apagar) / Não (manter).
+3. Depois, a pergunta: "Posso considerar esta lista final?" com as opções Sim / Não.
+4. Com a lista final, me diga quais fotos apagar, descrevendo como achá-las no celular (pela ordem, data ou horário), para eu mandar tudo para a lixeira de uma vez.
+5. No fim de todos os lotes, um resumo com quantas fotos e vídeos ficaram em APAGAR.
 
-Pode começar me perguntando qual é o meu celular.`
+## Primeira pergunta
+Antes de começar, pergunte com caixas Sim / Não: "Você tem cópia (backup) das fotos importantes?". Se a resposta for Não, recomende fazer a cópia antes e pergunte se quero continuar mesmo assim.
+
+Depois peça o primeiro lote de fotos.`
       },
       {
         aba: "Uso o Claude no celular com o Drive conectado",
@@ -275,13 +276,18 @@ Encontrar, para minha revisão:
 - Mexa só em fotos e vídeos. Ignore documentos, PDFs e planilhas.
 - Se o Drive recusar mover algum arquivo, não insista. Liste o arquivo com o link para eu resolver manualmente.
 
+## Como me fazer perguntas (importante)
+- Sempre que precisar de uma decisão minha (por exemplo, "posso mover?"), use caixas de marcação com as opções Sim e Não (ferramenta de perguntas com opções clicáveis, se estiver disponível).
+- Se não estiver disponível, escreva as opções numeradas (1 = Sim, 2 = Não) para eu responder só com o número.
+- Faça UMA pergunta por vez.
+
 ## Como trabalhar
 1. Pergunte qual pasta ou período analisar.
 2. Duplicadas: use o conector para listar arquivos com mesmo nome, mesmo tamanho ou datas muito próximas. Me mostre os grupos e indique qual manter.
 3. Vídeos gravados acidentalmente: liste os vídeos pelo tamanho pequeno e pela data, e me peça para confirmar antes de mover.
 4. Embaçadas: o conector não avalia a imagem. Peça que eu envie as fotos em lotes de até 10 aqui no chat, e avalie a nitidez visualmente, dizendo o motivo de cada recomendação.
 5. Trabalhe em lotes de até 20 arquivos. A cada lote, mostre uma tabela com: nome, data, tamanho, categoria, motivo e recomendação (manter / revisar / mover).
-6. Espere meu "pode mover" antes de agir em cada lote.
+6. Antes de agir em cada lote, pergunte com caixas Sim / Não: "Posso mover estes arquivos?". Só aja se eu marcar Sim.
 7. No final, entregue um resumo: quantidade por categoria, espaço liberado e lista do que foi movido.
 
 Pode começar perguntando qual pasta analisar.`
@@ -307,10 +313,15 @@ Encontrar, para minha revisão:
 
 ## Regras de segurança (obrigatórias)
 - NUNCA exclua nada definitivamente. Só mande para a lixeira do Drive (recuperável por 30 dias) ou mova para uma pasta "Revisar_Limpeza".
-- Antes de qualquer ação, mostre a lista e espere meu "pode mover".
+- Antes de qualquer ação, mostre a lista e pergunte com caixas Sim / Não se pode mover. Só aja se eu marcar Sim.
 - Na dúvida, mantenha o arquivo e marque como "incerto".
 - Mexa só em fotos e vídeos. Ignore documentos, PDFs e planilhas.
 - Antes de mover ou mandar para a lixeira, confira se o Drive permite a ação naquele arquivo. Se recusar, não insista, não peça acesso e não faça cópia: pule o arquivo e, no final, liste os pulados com o link para eu resolver manualmente.
+
+## Como me fazer perguntas (importante)
+- Sempre que precisar de uma decisão minha (por exemplo, "posso mover?"), use caixas de marcação com as opções Sim e Não (ferramenta de perguntas com opções clicáveis, se estiver disponível).
+- Se não estiver disponível, escreva as opções numeradas (1 = Sim, 2 = Não) para eu responder só com o número.
+- Faça UMA pergunta por vez.
 
 ## Como trabalhar
 1. Pergunte qual pasta ou período analisar.
@@ -347,11 +358,16 @@ Só analise essa pasta e suas subpastas.
 
 ## Regras de segurança (obrigatórias)
 - NUNCA apague nada. Apenas MOVA os suspeitos para uma pasta "Revisar_Limpeza" dentro da pasta analisada, mantendo as subpastas de origem.
-- Antes de mover qualquer coisa, faça uma execução de teste (só listar) e me mostre o relatório. Só mova depois do meu "pode mover".
+- Antes de mover qualquer coisa, faça uma execução de teste (só listar) e me mostre o relatório. Depois, pergunte com caixas Sim / Não: "Posso mover os arquivos marcados?". Só mova se eu marcar Sim.
 - Ignore tudo que não seja foto ou vídeo (documentos, PDFs, planilhas etc.).
 - Não modifique, renomeie nem recompacte arquivos. Só leia e mova.
 - Não instale nada sem me avisar antes. Diga o que precisa (ex.: Python, OpenCV, Pillow, imagehash, ffmpeg) e peça minha autorização.
 - Grave o log de tudo que foi movido (origem e destino) em "log_limpeza.csv", para eu conseguir desfazer.
+
+## Como me fazer perguntas (importante)
+- Sempre que precisar de uma decisão minha (por exemplo, instalar uma ferramenta ou mover arquivos), use caixas de marcação com as opções Sim e Não (ferramenta de perguntas com opções clicáveis, se estiver disponível).
+- Se não estiver disponível, escreva as opções numeradas (1 = Sim, 2 = Não) para eu responder só com o número.
+- Faça UMA pergunta por vez.
 
 ## Critérios técnicos
 1. Embaçadas: calcule a nitidez de cada foto (variância do Laplaciano). Marque as que ficarem abaixo de um limite que você sugerir após amostrar a pasta. Me mostre 5 exemplos perto do limite para eu aprovar o corte.
