@@ -63,6 +63,33 @@ html[data-theme="light"] .studio-menu__links {
   }
 }
 
+/* Menu com 5 links (inclui Prompts): mais largo e sem quebra de linha. */
+.studio-menu__links:has(> a:nth-child(5)) {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: min(100%, 500px);
+}
+
+@media (max-width: 760px) {
+  .studio-menu__links:has(> a:nth-child(5)) {
+    width: min(100%, 380px, calc(100vw - 24px));
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .studio-menu__links:has(> a:nth-child(5)) {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 340px) {
+  .studio-menu__links:has(> a:nth-child(5)) {
+    font-size: 8px;
+    gap: 1px;
+  }
+}
+
 .studio-language-tab {
   box-sizing: border-box;
   position: fixed;
