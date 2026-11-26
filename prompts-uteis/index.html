@@ -34,9 +34,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg?v=bolinha" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=pink-round">
-<meta name="theme-color" content="#0A0A0A">
-<link rel="stylesheet" href="/assets/studio-menu.css">
-<style>
+<meta name="theme-color" content="#0A0A0A"><style>
 @font-face{font-family:'Josefin Sans';font-style:normal;font-weight:200 600;font-display:swap;src:url(/assets/fonts/josefin-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122}
 @font-face{font-family:'Jost';font-style:normal;font-weight:300 500;font-display:swap;src:url(/assets/fonts/jost-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122}
 </style>
@@ -48,9 +46,9 @@
 })();
 </script>
 <style>
-:root{--page:#0A0A0A;--card:#1B1A19;--card2:#242321;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--pink:#FF2D95;--on-pink:#0A0A0A;--code:#141312;--warn:#26221C}
+:root{--bar:#F2F0EC;--on-bar:#0A0A0A;--page:#0A0A0A;--card:#1B1A19;--card2:#242321;--line:#2C2B29;--fg:#F2F0EC;--soft:#C9C6C0;--muted:#8F8C87;--pink:#FF2D95;--on-pink:#0A0A0A;--code:#141312;--warn:#26221C}
 /* Tema claro: mesmos valores da Home (fundo #ECECEC, cartões planos, texto preto) */
-html[data-theme="light"]{color-scheme:light;--page:#ECECEC;--card:#FAFAFA;--card2:#DEDEDE;--line:#B2B2B2;--fg:#000000;--soft:#303030;--muted:#444444;--code:#FAFAFA;--warn:#F1EAD9;--pink:#FF2D95;--on-pink:#FFFFFF}
+html[data-theme="light"]{color-scheme:light;--bar:#0A0A0A;--on-bar:#F2F0EC;--page:#ECECEC;--card:#FAFAFA;--card2:#DEDEDE;--line:#B2B2B2;--fg:#000000;--soft:#303030;--muted:#444444;--code:#FAFAFA;--warn:#F1EAD9;--pink:#FF2D95;--on-pink:#FFFFFF}
 html[data-theme="light"] .card{background:transparent;border-radius:0}
 html[data-theme="light"] .pill:not(.cta){background:transparent;color:#000000}
 html[data-theme="light"] .pill:hover:not(.cta){background:transparent;color:#303030}
@@ -80,6 +78,22 @@ a{color:inherit;text-decoration:none}
 .pill.on{background:var(--fg);color:var(--page)}
 .pill.cta{background:var(--pink);color:var(--on-pink);font-weight:500}
 
+/* Menu hambúrguer */
+.topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 6px;background:var(--page)}
+.logo{font-family:'Josefin Sans',sans-serif;font-size:17px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.burger{position:relative;width:48px;height:48px;padding:0;border:0;border-radius:50%;background:var(--bar);cursor:pointer;flex:0 0 auto}
+.burger span{position:absolute;left:14px;right:14px;height:2px;border-radius:2px;background:var(--on-bar);transition:transform .25s ease,opacity .2s ease,top .25s ease}
+.burger span:nth-child(1){top:17px}
+.burger span:nth-child(2){top:23px}
+.burger span:nth-child(3){top:29px}
+.burger[aria-expanded="true"] span:nth-child(1){top:23px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){top:23px;transform:rotate(-45deg)}
+.drawer{position:absolute;z-index:41;top:calc(100% + 2px);right:6px;width:min(340px,calc(100vw - 32px));display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:26px;background:var(--bar);color:var(--on-bar);box-shadow:0 14px 44px rgba(0,0,0,.35)}
+.drawer[hidden]{display:none}
+.drawer a{display:flex;align-items:center;min-height:52px;padding:0 20px;border-radius:18px;font-family:'Josefin Sans',sans-serif;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-bar)}
+.drawer a:hover{background:rgba(128,128,128,.2)}
+.drawer a[aria-current="page"]{background:var(--pink);color:#0A0A0A}
 .intro{padding:56px 32px 44px;display:flex;flex-direction:column;gap:20px}
 .intro h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(38px,6vw,72px);line-height:1;letter-spacing:.08em;text-transform:uppercase;margin:0}
 .intro p{margin:0;max-width:56ch;color:var(--soft);font-size:17px}
@@ -143,15 +157,19 @@ html[data-theme="light"] #theme-toggle .ic{background:transparent}
 <body>
 <div class="page">
   <div class="frame">
-    <nav class="studio-menu" aria-label="Menu principal">
-      <div class="studio-menu__links">
-        <a href="/">INÍCIO</a>
-        <a href="/portfolio/">PORTFÓLIO</a>
-        <a href="/sobre/">SOBRE</a>
-        <a href="/prompts-uteis/" aria-current="page">PROMPTS</a>
-        <a href="/orcamento/">ORÇAMENTO</a>
-      </div>
-    </nav>
+    <header class="topbar">
+      <a class="logo" href="/">Alanne Dias</a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="drawer" id="menu" aria-label="Menu principal" hidden>
+        <a href="/">Início</a>
+        <a href="/portfolio/">Portfólio</a>
+        <a href="/sobre/">Sobre</a>
+        <a href="/prompts-uteis/" aria-current="page">Prompts</a>
+        <a href="/orcamento/">Orçamento</a>
+      </nav>
+    </header>
 
     <header class="card intro">
       <p class="lbl">Biblioteca</p>
@@ -480,6 +498,21 @@ function copiaAlternativa(texto, feito){
   try { document.execCommand("copy"); feito(); } catch (e) { alert("Não foi possível copiar automaticamente. Selecione o texto e copie manualmente."); }
   document.body.removeChild(ta);
 }
+
+/* Menu hambúrguer: abre, fecha ao clicar fora, em um link ou com Esc */
+(function(){
+  const b = document.getElementById("burger");
+  const m = document.getElementById("menu");
+  function abrir(o){
+    b.setAttribute("aria-expanded", o ? "true" : "false");
+    b.setAttribute("aria-label", o ? "Fechar menu" : "Abrir menu");
+    m.hidden = !o;
+  }
+  b.addEventListener("click", function(e){ e.stopPropagation(); abrir(m.hidden); });
+  document.addEventListener("click", function(e){ if (!m.hidden && !m.contains(e.target)) abrir(false); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !m.hidden) { abrir(false); b.focus(); } });
+  m.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ abrir(false); }); });
+})();
 
 /* Alternância de tema (mesma chave do restante do site: alanne-theme) */
 (function(){
