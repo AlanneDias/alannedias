@@ -691,8 +691,8 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
   <section class="nums" aria-label="Números">
     <div><span class="lbl">Símbolos desenhados</span><b>+980</b></div>
     <div><span class="lbl">Identidades visuais</span><b>+450</b></div>
-    <div><span class="lbl">Países</span><b>31</b></div>
-    <div><span class="lbl">Anos criando</span><b>12</b></div>
+    <div><span class="lbl">Países</span><b>32</b></div>
+    <div><span class="lbl">Anos criando</span><b>17</b></div>
   </section>
 
 
@@ -755,7 +755,7 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
 
   <section id="mapa-alanne" aria-label="Países atendidos">
     <div class="mp-head">
-      <div><h2>Clientes em <span id="m-paises-h">31</span> países</h2></div>
+      <div><h2>Clientes em <span id="m-paises-h">32</span> países</h2></div>
       <p>Cada ponto é um lugar onde já tem um símbolo meu. Toque num país para ver o nome.</p>
     </div>
     <div class="mp-wrap" id="map-wrap"><div class="tip" id="mp-tip"></div></div>
@@ -763,8 +763,8 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
     <div class="stats-row">
       <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">sites no ar</div></div>
       <div class="stat-card"><div class="stat-num" id="m-paises">32</div><div class="stat-label">países atendidos</div></div>
-      <div class="stat-card"><div class="stat-num" id="m-simbolos">921</div><div class="stat-label">símbolos tatuados</div></div>
-      <div class="stat-card"><div class="stat-num" id="m-ids">417</div><div class="stat-label">identidades visuais</div></div>
+      <div class="stat-card"><div class="stat-num" id="m-simbolos">980</div><div class="stat-label">símbolos tatuados</div></div>
+      <div class="stat-card"><div class="stat-num" id="m-ids">450</div><div class="stat-label">identidades visuais</div></div>
     </div>
   </section>
 
@@ -820,8 +820,8 @@ body > #studio-theme-toggle .theme-label{font-size:9px!important}
         g.append('circle').attr('class','pin-pulse').attr('cx',c[0]).attr('cy',c[1]).attr('r',3).style('animation-delay',d+'ms');
         g.append('circle').attr('class','pin').attr('cx',c[0]).attr('cy',c[1]).attr('r',3).style('animation-delay',d+'ms'); });
       animCount(document.getElementById('m-paises'),32,1500);
-      animCount(document.getElementById('m-simbolos'),921,2000);
-      animCount(document.getElementById('m-ids'),417,1800);
+      animCount(document.getElementById('m-simbolos'),980,2000);
+      animCount(document.getElementById('m-ids'),450,1800);
     }
     const el=document.getElementById('mapa-alanne');
     const chk=()=>{ const r=el.getBoundingClientRect(); if(r.top<innerHeight*0.75 && r.bottom>0){ start(); removeEventListener('scroll',chk); clearInterval(iv); } };
