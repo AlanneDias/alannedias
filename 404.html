@@ -9,13 +9,19 @@ nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 a{color:#0A0A0A;background:#FF2D95;text-decoration:none;padding:12px 20px;border-radius:999px}
 a.s{background:transparent;color:#F2F0EC;border:1px solid #444}</style>
 <script>
-(function(){var p=location.pathname.toLowerCase(),q=location.search,t=null;
-if(/monograma|simbolo|tattoo|tatuagem|arte|collections\/mono/.test(p))t="/orcamento/#monograma";
-else if(/product|produto|collection|identidade|marca|branding|empresa/.test(p))t="/orcamento/";
-else if(/sobre|about/.test(p))t="/sobre/";
-else if(/portfolio|projeto/.test(p))t="/portfolio/";
-else if(/site/.test(p))t="/orcamento/#site";
-if(t){var h=t.indexOf("#");location.replace(h<0?t+q:t.slice(0,h)+q+t.slice(h));}})();
+(function(){
+  var p=location.pathname.toLowerCase().replace(/\/+$/,""),t=null;
+  var lang=/^\/en(?:\/|$)/.test(p)?"/en":"";
+  var clean=p.replace(/^\/(es|it|fr|en)(?=\/)/,"");
+  if(/^\/(?:products\/(?:monograma|monogramavideo)|collections\/(?:monogramas|simbolos-personalizados)(?:\/[^.]+)?|pages\/simbolos|monograma)$/.test(clean))t=lang+"/orcamento/#monograma";
+  else if(/^\/(?:products\/(?:essencial|profissional|premium|completa|executiva)|collections\/(?:brand(?:\/identidade-visual)?|identidade-visual)|pages\/(?:empresas|brand)|empresa)$/.test(clean))t=lang+"/orcamento/#empresa";
+  else if(/^\/(?:products\/(?:site|siteecommerce|site-de-apresentacao-google-sites(?:-copia)?)|collections\/sites(?:\/sites-e-lojas-e-commerce)?|site)$/.test(clean))t=lang+"/orcamento/#site";
+  else if(/^\/(?:pages\/(?:sobre|quemsou)|sobre|about)$/.test(clean))t=lang+"/sobre/";
+  else if(clean==="/portfolio")t=lang+"/portfolio/";
+  else if(clean==="/faq")t=lang+"/orcamento/#t-faq";
+  else if(clean==="/home-1-1" && lang==="")t="/";
+  if(t)location.replace(t);
+})();
 </script></head><body><main>
 <h1>Essa página mudou de lugar</h1>
 <p>Escolha para onde quer ir:</p>
